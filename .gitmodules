@@ -4,3 +4,6 @@
 [submodule "bundle/vim-git-branch-info"]
 	path = bundle/vim-git-branch-info
 	url = https://github.com/taq/vim-git-branch-info.git
+[submodule "bundle/vim-perl"]
+	path = bundle/vim-perl
+	url = https://github.com/petdance/vim-perl.git
