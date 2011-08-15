@@ -28,3 +28,6 @@
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
+[submodule "snippets"]
+	path = snippets
+	url = git@github.com:RsrchBoy/snipmate-snippets.git
