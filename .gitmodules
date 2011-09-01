@@ -31,3 +31,6 @@
 [submodule "snippets"]
 	path = snippets
 	url = git@github.com:RsrchBoy/snipmate-snippets.git
+[submodule "bundle/html5-syntax.vim"]
+	path = bundle/html5-syntax.vim
+	url = https://github.com/othree/html5-syntax.vim
