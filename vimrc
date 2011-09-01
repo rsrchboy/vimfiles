@@ -47,7 +47,7 @@ set background=dark
 "set nonu
 
 set autoindent                    "Preserve current indent on new lines
-set textwidth=100                 "Wrap at this column
+set textwidth=78                  "Wrap at this column
 set backspace=indent,eol,start    "Make backspaces delete sensibly
 
 set tabstop=4                     "Indentation levels every four columns
