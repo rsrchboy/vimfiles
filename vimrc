@@ -6,6 +6,8 @@
 " properly load all our other plugins under ~/.vim/bundle
 call pathogen#infect()
 
+au BufNewFile,BufRead *.psgi set filetype=perl
+
 set number
 set sm
 set scs
