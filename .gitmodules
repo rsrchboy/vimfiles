@@ -34,3 +34,6 @@
 [submodule "bundle/html5-syntax.vim"]
 	path = bundle/html5-syntax.vim
 	url = https://github.com/othree/html5-syntax.vim
+[submodule "bundle/cpan.vim"]
+	path = bundle/cpan.vim
+	url = https://github.com/c9s/cpan.vim.git
