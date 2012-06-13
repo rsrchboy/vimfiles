@@ -1,14 +1,25 @@
+" This must be first, because it changes other options as side effect
+set nocompatible
+
+let g:snippets_dir="~/.vim/snippets,~/.vim/bundle/snipmate.vim/snippets"
+runtime vim-pathogen/autoload/pathogen.vim
+
 " Needed on some linux distros.
 " " see http://www.adamlowe.me/2009/12/vim-destroys-all-other-rails-editors.html
 " filetype off
 " call pathogen#helptags()
 " call pathogen#runtime_append_all_bundles()
+" filetype on
 " properly load all our other plugins under ~/.vim/bundle
 call pathogen#infect()
 
 au BufNewFile,BufRead *.psgi  set filetype=perl
+au BufNewFile,BufRead *.tt    set filetype=tt2html
 au BufNewFile,BufRead *.tt2   set filetype=tt2html
 au BufNewFile,BufRead Changes set filetype=changelog
+
+set modeline
+set modelines=2
 
 set number
 set sm
@@ -18,6 +29,9 @@ set incsearch
 
 set nohidden
 set hidden
+
+" ignore carton's 'local/'
+"set wildignore+=local/**
 
 " make trailing whitespace look really annoying
 match Todo /\s\+$/
