@@ -16,6 +16,10 @@ au BufNewFile,BufRead *.tt    set filetype=tt2html
 au BufNewFile,BufRead *.tt2   set filetype=tt2html
 au BufNewFile,BufRead Changes set filetype=changelog
 
+" for tagbar
+nnoremap <leader>l :TagbarToggle<CR>
+nnoremap <leader>o :TagbarOpenAutoClose<CR>
+
 set modeline
 set modelines=2
 
