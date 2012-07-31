@@ -1,0 +1,20 @@
+# a chained action
+snippet chained
+	sub ${1:name} : PathPart('${2:$1}') Chained('${3}') Args(${4:0}) CaptureArgs(${5:0}) {
+		my ($self, $ctx) = (shift, shift);
+		${6}
+	}
+
+# a private action
+snippet private
+	sub ${1:name} : Private('$1') {
+		my ($self, $ctx) = (shift, shift);
+		${2}
+	}
+
+snippet flash
+	$ctx->flash->{${1:key}} = ${2}
+snippet stash
+	$ctx->stash->{${1:key}} = ${2}
+snippet model
+	$ctx->model('${1}')${2}

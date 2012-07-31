@@ -1,7 +1,7 @@
 " This must be first, because it changes other options as side effect
 set nocompatible
 
-let g:snippets_dir="~/.vim/snippets,~/.vim/bundle/snipmate.vim/snippets"
+let g:snippets_dir="~/.vim/snippets.rsrchboy,~/.vim/snippets,~/.vim/bundle/snipmate.vim/snippets"
 runtime vim-pathogen/autoload/pathogen.vim
 
 "filetype off
@@ -29,7 +29,8 @@ set nohidden
 set hidden
 
 " ignore carton's 'local/'
-"set wildignore+=local/**
+set wildignore+=local/**
+set wildignore+=extlib/**
 
 " make trailing whitespace look really annoying
 match Todo /\s\+$/
