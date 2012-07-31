@@ -4,14 +4,12 @@ set nocompatible
 let g:snippets_dir="~/.vim/snippets,~/.vim/bundle/snipmate.vim/snippets"
 runtime vim-pathogen/autoload/pathogen.vim
 
-" Needed on some linux distros.
-" " see http://www.adamlowe.me/2009/12/vim-destroys-all-other-rails-editors.html
-" filetype off
-" call pathogen#helptags()
-" call pathogen#runtime_append_all_bundles()
-" filetype on
-" properly load all our other plugins under ~/.vim/bundle
+"filetype off
+"syntax off
 call pathogen#infect()
+syntax on
+filetype plugin indent on
+Helptags
 
 au BufNewFile,BufRead *.psgi  set filetype=perl
 au BufNewFile,BufRead *.tt    set filetype=tt2html
