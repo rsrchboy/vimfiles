@@ -49,3 +49,6 @@
 [submodule "cranky/git-wip"]
 	path = cranky/git-wip
 	url = git://github.com/bartman/git-wip.git
+[submodule "bundle/vimwiki"]
+	path = bundle/vimwiki
+	url = git://github.com/vim-scripts/vimwiki.git
