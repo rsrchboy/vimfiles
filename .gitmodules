@@ -79,3 +79,6 @@
 [submodule "snippets-rsrchboy"]
 	path = snippets-rsrchboy
 	url = git@github.com:RsrchBoy/vim-snippets-rsrchboy.git
+[submodule "bundle/vim-powerline"]
+	path = bundle/vim-powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
