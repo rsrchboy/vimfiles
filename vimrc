@@ -50,9 +50,13 @@ map ,p :!perldoc %<CR>
 " statusline with pretty git bits
 set laststatus=2
 set statusline=%-10([%n%H%M%R%W]%)\ %y%*%*%#StatusLineNC#\ %#ErrorMsg#\ %{GitBranchInfoTokens()[0]}\ %#StatusLine#\ %f%=%P\ %10((%l-%c/%L)%)
+let g:Powerline_symbols = 'fancy'
 
 " Set to auto read when a file is changed from the outside
 set autoread
+
+set encoding=utf-8 " Necessary to show Unicode glyphs
+set t_Co=256 " Explicitly tell Vim that the terminal supports 256 colors
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost ~/.vimrc source ~/.vimrc
