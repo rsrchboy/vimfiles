@@ -20,6 +20,9 @@ au BufNewFile,BufRead Changes set filetype=changelog
 nnoremap <leader>l :TagbarToggle<CR>
 nnoremap <leader>o :TagbarOpenAutoClose<CR>
 
+" copy new gist url right to the clipboard
+let g:gist_clip_command = 'xclip -selection clipboard'
+
 set modeline
 set modelines=2
 
