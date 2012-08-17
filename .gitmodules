@@ -37,9 +37,6 @@
 [submodule "bundle/cpan.vim"]
 	path = bundle/cpan.vim
 	url = https://github.com/c9s/cpan.vim.git
-[submodule "bundle/vim-git"]
-	path = bundle/vim-git
-	url = https://github.com/tpope/vim-git.git
 [submodule "bundle/Command-T"]
 	path = bundle/Command-T
 	url = https://github.com/wincent/Command-T.git
