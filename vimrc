@@ -4,6 +4,9 @@ set nocompatible
 let g:snippets_dir="~/.vim/snippets.rsrchboy,~/.vim/snippets,~/.vim/bundle/snipmate.vim/snippets"
 runtime vim-pathogen/autoload/pathogen.vim
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" pathogen bits
+
 "filetype off
 "syntax off
 call pathogen#infect()
@@ -64,11 +67,17 @@ set wildignore+=extlib/**
 match Todo /\s\+$/
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" misc bundle settings
+" woo, themes!
 
-"""" gist
+colorscheme oh-la-la
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" misc bundle settings
+"let g:gist_detect_filetype = 1
 let g:gist_clip_command = 'xclip -selection clipboard'
+let g:gist_post_private = 1
 let g:Powerline_symbols = 'fancy'
+"let g:Powerline_theme   = 'skwp'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " git (fugitive) mappings and config
@@ -78,7 +87,7 @@ let g:Powerline_symbols = 'fancy'
 
 nnoremap <Leader>gs :Gstatus<Enter>
 nnoremap <Leader>gd :Git diff --word-diff %<Enter>
-nnoremap <Leader>ga :Git add %<Enter>
+nnoremap <Leader>ga :Gwrite<Enter>
 nnoremap <Leader>gc :Gcommit<Enter>
 
 nnoremap <Leader>gD :Git! diff --word-diff %<Enter>
