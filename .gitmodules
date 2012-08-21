@@ -82,3 +82,6 @@
 [submodule "bundle/oh-l-l"]
 	path = bundle/oh-l-l
 	url = git://github.com/vim-scripts/oh-l-l.git
+[submodule "bundle/nginx-vim-syntax"]
+	path = bundle/nginx-vim-syntax
+	url = git://github.com/evanmiller/nginx-vim-syntax.git
