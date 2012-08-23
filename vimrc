@@ -60,8 +60,8 @@ set background=dark
 "set nonu
 
 " ignore carton's 'local/'
-set wildignore+=local/**
-set wildignore+=extlib/**
+"set wildignore+=local/**
+"set wildignore+=extlib/**
 
 " make trailing whitespace look really annoying
 match Todo /\s\+$/
@@ -78,6 +78,7 @@ let g:gist_clip_command = 'xclip -selection clipboard'
 let g:gist_post_private = 1
 let g:Powerline_symbols = 'fancy'
 "let g:Powerline_theme   = 'skwp'
+let g:git_no_map_default = 1 " don't install default mappings from git-vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " git (fugitive) mappings and config
@@ -89,6 +90,7 @@ nnoremap <Leader>gs :Gstatus<Enter>
 nnoremap <Leader>gd :Git diff --word-diff %<Enter>
 nnoremap <Leader>ga :Gwrite<Enter>
 nnoremap <Leader>gc :Gcommit<Enter>
+nnoremap <Leader>gf :Git fixup<Enter>
 
 nnoremap <Leader>gD :Git! diff --word-diff %<Enter>
 
@@ -105,6 +107,8 @@ nnoremap <Leader>gD :Git! diff --word-diff %<Enter>
 map ,t :!perl -I lib/ %<CR>
 map ,T :!prove -I lib/ -r <CR>
 map ,p :!perldoc %<CR>
+
+nnoremap <leader>T :n t/%<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " magic!
