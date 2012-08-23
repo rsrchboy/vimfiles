@@ -1,3 +1,13 @@
+# $self, because I get bored
+snippet self
+	my $self = shift @_;
+# around method modifier
+snippet around
+	around ${1:method name} => sub {
+		my ($orig, $self) = (shift, shift);
+
+		${2}
+	};
 # Moose make immutable
 snippet imm
 	__PACKAGE__->meta->make_immutable;
