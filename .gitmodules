@@ -88,3 +88,6 @@
 [submodule "bundle/vim-pipe"]
 	path = bundle/vim-pipe
 	url = https://github.com/krisajenkins/vim-pipe.git
+[submodule "bundle/vim-gnupg"]
+	path = bundle/vim-gnupg
+	url = git://github.com/jamessan/vim-gnupg.git

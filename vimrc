@@ -74,11 +74,13 @@ colorscheme oh-la-la
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " misc bundle settings
 "let g:gist_detect_filetype = 1
-let g:gist_clip_command = 'xclip -selection clipboard'
-let g:gist_post_private = 1
-let g:Powerline_symbols = 'fancy'
-"let g:Powerline_theme   = 'skwp'
-let g:git_no_map_default = 1 " don't install default mappings from git-vim
+"let g:Powerline_theme      = 'skwp'
+let g:gist_clip_command     = 'xclip -selection clipboard'
+let g:gist_post_private     = 1
+let g:Powerline_symbols     = 'fancy'
+let g:git_no_map_default    = 1 " don't install default mappings from git-vim
+let g:GPGPreferArmor        = 1
+let g:GPGDefaultRecipients  = ["cweyl@alumni.drew.edu"]
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " git (fugitive) mappings and config
