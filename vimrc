@@ -72,6 +72,12 @@ match Todo /\s\+$/
 colorscheme oh-la-la
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" powerline segments 
+
+call Pl#Theme#RemoveSegment('lineinfo')
+call Pl#Theme#RemoveSegment('fileformat')
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " misc bundle settings
 "let g:gist_detect_filetype = 1
 "let g:Powerline_theme      = 'skwp'
