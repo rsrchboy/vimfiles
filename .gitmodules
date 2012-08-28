@@ -91,3 +91,6 @@
 [submodule "bundle/vim-gnupg"]
 	path = bundle/vim-gnupg
 	url = git://github.com/jamessan/vim-gnupg.git
+[submodule "bundle/Zenburn"]
+	path = bundle/Zenburn
+	url = git://github.com/jnurmine/Zenburn.git
