@@ -83,6 +83,8 @@ call Pl#Theme#RemoveSegment('fileformat')
 "let g:Powerline_theme      = 'skwp'
 let g:gist_clip_command     = 'xclip -selection clipboard'
 let g:gist_post_private     = 1
+let g:gist_show_privates    = 1
+let g:gist_get_multiplefile = 1
 let g:Powerline_symbols     = 'fancy'
 let g:git_no_map_default    = 1 " don't install default mappings from git-vim
 let g:GPGPreferArmor        = 1
