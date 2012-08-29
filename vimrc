@@ -97,12 +97,14 @@ let g:GPGDefaultRecipients  = ["cweyl@alumni.drew.edu"]
 " fugitive instead.
 
 nnoremap <Leader>gs :Gstatus<Enter>
-nnoremap <Leader>gd :Git diff --word-diff %<Enter>
+nnoremap <Leader>gd :Git diff %<Enter>
 nnoremap <Leader>ga :Gwrite<Enter>
 nnoremap <Leader>gc :Gcommit<Enter>
 nnoremap <Leader>gf :Git fixup<Enter>
 
+nnoremap <Leader>gl :Git lol<Enter>
 nnoremap <Leader>gD :Git! diff --word-diff %<Enter>
+nnoremap <Leader>gp :Git push<Enter>
 
 "nnoremap <Leader>gD :GitDiff --cached<Enter>
 "nnoremap <Leader>gl :GitLog<Enter>
