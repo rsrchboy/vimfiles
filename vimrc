@@ -95,6 +95,7 @@ let g:bufExplorerShowRelativePath=1
 
 let g:tagbar_type_perl = {
     \ 'sort' : 1,
+    \ 'deffile' : '$HOME/.vim/ctags.perl',
     \ 'kinds' : [
         \ 'p:packages:1:0',
         \ 'u:uses:1:0',
