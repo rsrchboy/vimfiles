@@ -56,6 +56,7 @@ set smartcase
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 set background=dark
+set pastetoggle=<F2>           " toggle paste mode
 "colorscheme zellner
 "set nonu
 
@@ -89,6 +90,23 @@ let g:Powerline_symbols     = 'fancy'
 let g:git_no_map_default    = 1 " don't install default mappings from git-vim
 let g:GPGPreferArmor        = 1
 let g:GPGDefaultRecipients  = ["cweyl@alumni.drew.edu"]
+let g:bufExplorerShowRelativePath=1
+"let g:tlist_perl_settings='perl;u:use;p:package;r:role;e:extends;c:constant;a:attribute;s:subroutine;l:label'
+
+let g:tagbar_type_perl = {
+    \ 'sort' : 1,
+    \ 'kinds' : [
+        \ 'p:packages:1:0',
+        \ 'u:uses:1:0',
+        \ 'c:constants:0:0',
+        \ 'f:formats:0:0',
+        \ 'e:extends',
+        \ 'r:role:1:0',
+        \ 'a:attribute',
+        \ 's:subroutines',
+        \ 'l:labels',
+    \ ],
+\ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " git (fugitive) mappings and config
