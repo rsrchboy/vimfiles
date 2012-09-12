@@ -97,3 +97,6 @@
 [submodule "bundle/vim-abolish"]
 	path = bundle/vim-abolish
 	url = git://github.com/tpope/vim-abolish.git
+[submodule "bundle/DrawIt"]
+	path = bundle/DrawIt
+	url = git://github.com/vim-scripts/DrawIt.git
