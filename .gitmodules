@@ -94,3 +94,6 @@
 [submodule "bundle/Zenburn"]
 	path = bundle/Zenburn
 	url = git://github.com/jnurmine/Zenburn.git
+[submodule "bundle/vim-abolish"]
+	path = bundle/vim-abolish
+	url = git://github.com/tpope/vim-abolish.git
