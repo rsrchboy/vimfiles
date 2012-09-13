@@ -148,6 +148,12 @@ map ,p :!perldoc %<CR>
 nnoremap <leader>T :n t/%<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-pipe filetype configuration
+
+autocmd FileType perl let b:vimpipe_command  = "perl -I lib/ -"
+autocmd FileType perl let b:vimpipe_filetype = "perl.tap"
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " magic!
 
 " When vimrc is edited, reload it
