@@ -69,13 +69,13 @@ set pastetoggle=<F2>           " toggle paste mode
 "set wildignore+=local/**
 "set wildignore+=extlib/**
 
-" make trailing whitespace look really annoying
-match Todo /\s\+$/
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " woo, themes!
 
 colorscheme oh-la-la
+
+" make trailing whitespace look really annoying
+match Todo /\s\+$/
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " powerline segments 
