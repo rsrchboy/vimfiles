@@ -29,6 +29,9 @@ au BufNewFile,BufRead Changes set filetype=changelog
 nnoremap <leader>l :TagbarToggle<CR>
 nnoremap <leader>o :TagbarOpenAutoClose<CR>
 
+" strip file of trailing whitespace
+nnoremap ,w !perl -pi -e "'s/\s*\n/\n/'" %<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " settings
 
@@ -102,8 +105,8 @@ let g:tagbar_type_perl = {
         \ 'c:constants:0:0',
         \ 'f:formats:0:0',
         \ 'e:extends',
-        \ 'r:role:1:0',
-        \ 'a:attribute',
+        \ 'r:roles:1:0',
+        \ 'a:attributes',
         \ 's:subroutines',
         \ 'l:labels',
     \ ],
@@ -121,6 +124,7 @@ nnoremap <Leader>ga :Gwrite<Enter>
 nnoremap <Leader>gc :Gcommit<Enter>
 nnoremap <Leader>gf :Git fixup<Enter>
 
+nnoremap <Leader>gA :Git add -pi %<Enter>
 nnoremap <Leader>gl :Git lol<Enter>
 nnoremap <Leader>gD :Git! diff --word-diff %<Enter>
 nnoremap <Leader>gp :Git push<Enter>
