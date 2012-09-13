@@ -100,3 +100,6 @@
 [submodule "bundle/DrawIt"]
 	path = bundle/DrawIt
 	url = git://github.com/vim-scripts/DrawIt.git
+[submodule "bundle/vim-markdown"]
+	path = bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
