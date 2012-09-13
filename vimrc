@@ -29,8 +29,10 @@ au BufNewFile,BufRead Changes set filetype=changelog
 nnoremap <leader>l :TagbarToggle<CR>
 nnoremap <leader>o :TagbarOpenAutoClose<CR>
 
-" strip file of trailing whitespace
-nnoremap ,w !perl -pi -e "'s/\s*\n/\n/'" %<CR>
+" strip line, file of trailing whitespace
+nnoremap ,w :s/ *$//<CR>
+"nnoremap ,w !perl -pi -e "'s/\s*\n/\n/'" %<CR>
+nnoremap ,W :%s/ *$//<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " settings
