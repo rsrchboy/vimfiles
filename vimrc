@@ -30,7 +30,8 @@ au BufNewFile,BufRead *.t     set filetype=perl
 " for tagbar
 nnoremap <leader>l :TagbarToggle<CR>
 nnoremap <leader>o :TagbarOpenAutoClose<CR>
-
+" open easybuffer
+nnoremap ,b :EasyBuffer<CR>
 " strip line, file of trailing whitespace
 nnoremap ,w :s/ *$//<CR>
 "nnoremap ,w !perl -pi -e "'s/\s*\n/\n/'" %<CR>
