@@ -21,6 +21,8 @@ au BufNewFile,BufRead *.psgi  set filetype=perl
 au BufNewFile,BufRead *.tt    set filetype=tt2html
 au BufNewFile,BufRead *.tt2   set filetype=tt2html
 au BufNewFile,BufRead Changes set filetype=changelog
+" this usually works, but sometimes vim thinks it's not perl
+au BufNewFile,BufRead *.t     set filetype=perl
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " misc mappings
