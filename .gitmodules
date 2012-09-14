@@ -109,3 +109,9 @@
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/Shebang"]
+	path = bundle/Shebang
+	url = git@github.com:RsrchBoy/Shebang.git
+[submodule "bundle/TaskList.vim"]
+	path = bundle/TaskList.vim
+	url = git://github.com/vim-scripts/TaskList.vim.git
