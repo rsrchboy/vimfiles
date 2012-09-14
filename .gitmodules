@@ -106,3 +106,6 @@
 [submodule "bundle/easybuffer.vim"]
 	path = bundle/easybuffer.vim
 	url = git://github.com/troydm/easybuffer.vim.git
+[submodule "bundle/Shebang"]
+	path = bundle/Shebang
+	url = git@github.com:RsrchBoy/Shebang.git
