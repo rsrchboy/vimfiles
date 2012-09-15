@@ -76,6 +76,7 @@ set pastetoggle=<F2>           " toggle paste mode
 " woo, themes!
 
 colorscheme oh-la-la
+" colorscheme solarized
 
 " make trailing whitespace look really annoying
 match Todo /\s\+$/
