@@ -65,7 +65,8 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 set background=dark
 set pastetoggle=<F2>           " toggle paste mode
-"colorscheme zellner
+set nobackup                   " we're stashing everything in git, anyways
+set noswapfile
 "set nonu
 
 " ignore carton's 'local/'
@@ -76,16 +77,17 @@ set pastetoggle=<F2>           " toggle paste mode
 " woo, themes!
 
 colorscheme oh-la-la
-" colorscheme solarized
+"colorscheme solarized
+"colorscheme zellner
 
 " make trailing whitespace look really annoying
 match Todo /\s\+$/
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" powerline segments 
+" powerline segments
 
-call Pl#Theme#RemoveSegment('lineinfo')
-call Pl#Theme#RemoveSegment('fileformat')
+"call Pl#Theme#RemoveSegment('lineinfo')
+"call Pl#Theme#RemoveSegment('fileformat')
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " misc bundle settings
