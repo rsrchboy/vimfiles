@@ -1,6 +1,9 @@
 # $self, because I get bored
 snippet self
 	my $self = shift @_;
+# ($self, ...), because I get bored
+snippet selfs
+	my ($self${1}) = @_;
 # around method modifier
 snippet around
 	around ${1:method name} => sub {
