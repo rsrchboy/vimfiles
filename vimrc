@@ -168,7 +168,9 @@ autocmd! bufwritepost ~/.vim/vimrc source ~/.vim/vimrc
 
 
 " any machine-specific settings
-source ~/.vimrc.local
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
