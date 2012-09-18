@@ -67,6 +67,7 @@ set background=dark
 set pastetoggle=<F2>           " toggle paste mode
 set nobackup                   " we're stashing everything in git, anyways
 set noswapfile
+set lazyredraw
 "set nonu
 
 " ignore carton's 'local/'
