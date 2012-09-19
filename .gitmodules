@@ -130,3 +130,6 @@
 [submodule "bundle/jquery.vim"]
 	path = bundle/jquery.vim
 	url = git://github.com/nono/jquery.vim.git
+[submodule "bundle/log4perl.vim"]
+	path = bundle/log4perl.vim
+	url = git://github.com/vim-scripts/log4perl.vim.git
