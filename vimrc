@@ -69,10 +69,6 @@ set nobackup                   " we're stashing everything in git, anyways
 set noswapfile
 "set nonu
 
-" ignore carton's 'local/'
-"set wildignore+=local/**
-"set wildignore+=extlib/**
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " woo, themes!
 
@@ -91,18 +87,19 @@ match Todo /\s\+$/
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " misc bundle settings
-"let g:gist_detect_filetype = 1
-"let g:Powerline_theme      = 'skwp'
-let g:gist_clip_command     = 'xclip -selection clipboard'
-let g:gist_post_private     = 1
-let g:gist_show_privates    = 1
-let g:gist_get_multiplefile = 1
-let g:Powerline_symbols     = 'fancy'
-let g:git_no_map_default    = 1 " don't install default mappings from git-vim
-let g:GPGPreferArmor        = 1
-let g:GPGDefaultRecipients  = ["cweyl@alumni.drew.edu"]
-let g:bufExplorerShowRelativePath=1
-"let g:tlist_perl_settings='perl;u:use;p:package;r:role;e:extends;c:constant;a:attribute;s:subroutine;l:label'
+"let g:Powerline_theme            = 'skwp'
+let g:gist_detect_filetype        = 1
+let g:gist_clip_command           = 'xclip -selection clipboard'
+let g:gist_post_private           = 1
+let g:gist_show_privates          = 1
+let g:gist_get_multiplefile       = 1
+let g:Powerline_symbols           = 'fancy'
+let g:git_no_map_default          = 1
+let g:GPGPreferArmor              = 1
+let g:GPGDefaultRecipients        = ["cweyl@alumni.drew.edu"]
+let g:bufExplorerShowRelativePath = 1
+let g:Gitv_TruncateCommitSubjects = 1
+
 
 let g:tagbar_type_perl = {
     \ 'sort' : 1,
@@ -127,7 +124,8 @@ let g:tagbar_type_perl = {
 " fugitive instead.
 
 nnoremap <Leader>gs :Gstatus<Enter>
-nnoremap <Leader>gd :Git diff %<Enter>
+nnoremap <Leader>gd :call Gitv_OpenGitCommand("diff --no-color --cached", 'new')<CR>
+nnoremap <Leader>gD :call Gitv_OpenGitCommand("diff --no-color %", 'new')<CR>
 nnoremap <Leader>ga :Gwrite<Enter>
 nnoremap <Leader>gc :Gcommit<Enter>
 nnoremap <Leader>gf :Git fixup<Enter>
@@ -137,9 +135,11 @@ nnoremap <Leader>gl :Git lol<Enter>
 nnoremap <Leader>gD :Git! diff --word-diff %<Enter>
 nnoremap <Leader>gp :Git push<Enter>
 
-"nnoremap <Leader>gD :GitDiff --cached<Enter>
-"nnoremap <Leader>gl :GitLog<Enter>
-"nnoremap <Leader>gA :GitAdd <cfile><Enter>
+nnoremap <leader>gv :Gitv --all<cr>
+nnoremap <leader>gV :Gitv! --all<cr>
+vnoremap <leader>gV :Gitv! --all<cr>
+
+" not yet replaced
 "nnoremap <Leader>gp :GitPullRebase<Enter>
 "nnoremap <Leader>gb :GitBlame<Enter>
 
@@ -175,6 +175,10 @@ endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ATTIC
+
+" ignore carton's 'local/'
+"set wildignore+=local/**
+"set wildignore+=extlib/**
 
 " -- moved to attic when we adopted powerline
 " statusline with pretty git bits
