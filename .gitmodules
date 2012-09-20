@@ -127,3 +127,6 @@
 [submodule "bundle/puppet-syntax-vim"]
 	path = bundle/puppet-syntax-vim
 	url = git://github.com/puppetlabs/puppet-syntax-vim.git
+[submodule "bundle/jquery.vim"]
+	path = bundle/jquery.vim
+	url = git://github.com/nono/jquery.vim.git
