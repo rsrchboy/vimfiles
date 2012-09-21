@@ -64,11 +64,14 @@ set smartcase
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 set background=dark
-set pastetoggle=<F2>           " toggle paste mode
 set nobackup                   " we're stashing everything in git, anyways
 set noswapfile
 set lazyredraw
 "set nonu
+
+" PF key remappings
+set pastetoggle=<F2>
+nnoremap <F3> :set nonumber!<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " woo, themes!
