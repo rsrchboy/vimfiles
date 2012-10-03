@@ -72,6 +72,8 @@ set lazyredraw
 " PF key remappings
 set pastetoggle=<F2>
 nnoremap <F3> :set nonumber!<CR>
+nnoremap <F7> :tabp<CR>
+nnoremap <F8> :tabn<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " woo, themes!
@@ -128,8 +130,8 @@ let g:tagbar_type_perl = {
 " fugitive instead.
 
 nnoremap <Leader>gs :Gstatus<Enter>
-nnoremap <Leader>gd :call Gitv_OpenGitCommand("diff --no-color --cached", 'new')<CR>
-nnoremap <Leader>gD :call Gitv_OpenGitCommand("diff --no-color %", 'new')<CR>
+nnoremap <Leader>gd :call Gitv_OpenGitCommand("diff --no-color", 'new')<CR>
+nnoremap <Leader>gD :call Gitv_OpenGitCommand("diff --no-color --cached %", 'new')<CR>
 nnoremap <Leader>ga :Gwrite<Enter>
 nnoremap <Leader>gc :Gcommit<Enter>
 nnoremap <Leader>gf :Git fixup<Enter>
