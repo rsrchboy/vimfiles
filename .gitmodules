@@ -10,3 +10,6 @@
 [submodule "bundle/vim-signify"]
 	path = bundle/vim-signify
 	url = git://github.com/mhinz/vim-signify.git
+[submodule "bundle/vim-fugitive"]
+	path = bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
