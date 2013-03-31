@@ -37,3 +37,6 @@
 [submodule "bundle/vim-gnupg"]
 	path = bundle/vim-gnupg
 	url = git://github.com/jamessan/vim-gnupg.git
+[submodule "bundle/JSON.vim"]
+	path = bundle/JSON.vim
+	url = git://github.com/argent-smith/JSON.vim.git
