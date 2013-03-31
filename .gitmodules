@@ -40,3 +40,6 @@
 [submodule "bundle/JSON.vim"]
 	path = bundle/JSON.vim
 	url = git://github.com/argent-smith/JSON.vim.git
+[submodule "bundle/log4perl.vim"]
+	path = bundle/log4perl.vim
+	url = git://github.com/vim-scripts/log4perl.vim.git
