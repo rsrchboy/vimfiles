@@ -25,3 +25,6 @@
 [submodule "bundle/vim-perl"]
 	path = bundle/vim-perl
 	url = git://github.com/vim-perl/vim-perl.git
+[submodule "bundle/gitolite.vim"]
+	path = bundle/gitolite.vim
+	url = https://github.com/tmatilai/gitolite.vim.git
