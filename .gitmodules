@@ -64,3 +64,6 @@
 [submodule "bundle/tracwiki"]
 	path = bundle/tracwiki
 	url = git://github.com/vim-scripts/tracwiki.git
+[submodule "bundle/vitra"]
+	path = bundle/vitra
+	url = git://github.com/nsmgr8/vitra.git
