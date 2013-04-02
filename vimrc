@@ -115,6 +115,10 @@ let g:tlTokenList                 = ['FIXME', 'XXX', 'TODO', 'TBD' ]
 " github-style ``` markups -- for vim-markup bundle
 let g:markdown_github_languages = ['perl', 'ruby', 'erb=eruby']
 
+" TODO need to handle "normal" sign column
+let g:signify_sign_color_inherit_from_linenr = 1
+let g:signify_skip_filetype = { 'gitcommit': 1 }
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctags configuration
 
