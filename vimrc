@@ -184,7 +184,8 @@ vnoremap <leader>gV :Gitv! --all<cr>
 " most of our trac server configuration will be done in ~/.vimrc.local
 " so as to prevent userids and passwords from floating about :)
 
-let g:tracServerList = {}
+let g:tracServerList   = {}
+let g:tracTicketClause = 'owner=cweyl&status!=closed' " default: 'status!=closed'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
