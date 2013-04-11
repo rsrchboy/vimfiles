@@ -1,0 +1,111 @@
+snippet test
+	use strict;
+	use warnings;
+
+	use Test::More;
+snippet end
+	__END__
+snippet funcs
+	require 't/funcs.pm' unless eval { require funcs };
+# $self, because I get bored
+snippet self
+	my $self = shift @_;
+# ($self, ...), because I get bored
+snippet selfs
+	my ($self${1}) = @_;
+# around method modifier
+snippet around
+	around ${1:method name} => sub {
+		my ($orig, $self) = (shift, shift);
+
+		${2}
+	};
+# Moose make immutable
+snippet imm
+	__PACKAGE__->meta->make_immutable;
+	!!42;
+	__END__
+snippet pkg
+	package `substitute(substitute(expand("%:p:r"), '/', '::', 'g'), '^.*lib::', '', '')`;
+	${1}
+# easy Smart::Comments enabling
+snippet smart
+	# debugging...
+	use Smart::Comments '###';
+# standard Moose incantation
+snippet moose
+	use Moose;
+	use namespace::autoclean;
+	use MooseX::AttributeShortcuts;
+snippet role
+	use Moose::Role;
+	use namespace::autoclean;
+	use MooseX::AttributeShortcuts;
+snippet v510
+	use v5.10;
+snippet v512
+	use v5.12;
+snippet v514
+	use v5.14;
+# dzil/pw
+snippet abs
+	# ABSTRACT: ${1:Our excellent new module!}
+snippet ver
+	our $VERSION = ${1:0.001};
+	${2}
+snippet try
+	try {
+		${1:# something that might blow up...}
+	}
+	catch {
+		${2:die "failed! $_";}
+	};
+	${3}
+# Function
+snippet subx
+	sub ${1:function_name} {
+		${2:#body ...}
+	}
+snippet slurpx
+	my $${1:var} = do { local $/; <${2:DATA}> }
+# #!/usr/bin/perl
+snippet x#!
+	#!/usr/bin/env perl
+snippet method
+	=method ${1:method name}
+
+	${2}
+
+	=cut
+
+	sub ${1} {
+		my ($self${3}) = @_;
+
+		${4:# method body ...}
+
+		return;
+	}
+snippet twhatever
+	package `substitute(substitute(expand("%:p:r"), '/', '::', 'g'), '^.*lib::', '', '')`;
+	# /* vim: set ft=perl.catalyst : */ `set ft=perl.catalyst`
+
+	# ABSTRACT: ${1:Action template}
+
+	use v5.12;
+
+	use Template::Whatever::Reindeer;
+	use Data::Section -setup;
+
+	extends 'Template::Whatever::Section';
+
+	with content_via 'Haml' => {
+	        -excludes => [ 'content' ],
+	        -alias    => { content => 'content_via_haml' },
+	    },
+	    ;
+
+
+	__PACKAGE__->meta->make_immutable;
+	!!42;
+	__END__
+	__[ content ]__

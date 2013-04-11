@@ -3,7 +3,7 @@ set nocompatible
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 
-"let g:snippets_dir="~/.vim/snippets.rsrchboy,~/.vim/snippets,~/.vim/bundle/snipmate.vim/snippets,~/.vim/bundle/*/snippets"
+let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/snipmate.vim/snippets' " ,~/.vim/bundle/*/snippets
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " pathogen bits
