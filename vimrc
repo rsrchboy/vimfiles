@@ -119,6 +119,9 @@ let g:markdown_github_languages = ['perl', 'ruby', 'erb=eruby']
 let g:signify_sign_color_inherit_from_linenr = 1
 let g:signify_skip_filetype = { 'gitcommit': 1 }
 
+" CtrlP plugin config
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ctags configuration
 
