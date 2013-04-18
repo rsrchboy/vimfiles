@@ -85,3 +85,6 @@
 [submodule "bundle/bufexplorer.zip"]
 	path = bundle/bufexplorer.zip
 	url = https://github.com/vim-scripts/bufexplorer.zip.git
+[submodule "cranky/git-wip"]
+	path = cranky/git-wip
+	url = git://github.com/bartman/git-wip.git
