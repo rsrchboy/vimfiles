@@ -88,3 +88,6 @@
 [submodule "cranky/git-wip"]
 	path = cranky/git-wip
 	url = git://github.com/bartman/git-wip.git
+[submodule "bundle/vim-localrc"]
+	path = bundle/vim-localrc
+	url = git://github.com/thinca/vim-localrc.git
