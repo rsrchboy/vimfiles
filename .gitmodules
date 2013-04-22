@@ -91,3 +91,6 @@
 [submodule "bundle/vim-localrc"]
 	path = bundle/vim-localrc
 	url = git://github.com/thinca/vim-localrc.git
+[submodule "bundle/VimRepress"]
+	path = bundle/VimRepress
+	url = git://github.com/vim-scripts/VimRepress.git
