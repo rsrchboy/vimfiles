@@ -1,0 +1,104 @@
+[include]
+    path = ~/.gitconfig.local
+[user]
+    name       = Chris Weyl
+    email      = cweyl@alumni.drew.edu
+    signingkey = 8083A84A
+[github]
+    user = RsrchBoy
+[color]
+    ui = auto
+    bg = dark
+    background = dark
+[color "diff"]
+    plain = white
+[push]
+    default = tracking
+[branch]
+    autosetuprebase = always
+    autosetupmerge  = true
+[url "ssh://cweyl@pkgs.fedoraproject.org/"]
+    InsteadOf=fedora:
+[svn]
+    rmdir = true
+[rebase]
+    stat = true
+[diff]
+    ; this seemed like a good idea to avoid FixWhitespace's redness, but
+    ; breaks the syntax.  wah-wah.
+    ;suppressBlankEmpty = true
+[merge]
+	defaultToUpstream = true
+[notes]
+	rewriteRef = refs/notes/rsrchboy
+	displayRef = refs/notes/*
+[core]
+	notesRef = refs/notes/rsrchboy
+[diff]
+	algorithm = patience
+[sync]
+    dir = /home/cweyl/gitdir/
+[alias]
+    co    = checkout
+    br    = branch
+    st    = status
+    df    = diff
+    lg    = log -p
+    lol   = log --graph --decorate --pretty=oneline --abbrev-commit
+    lola  = log --graph --decorate --pretty=oneline --abbrev-commit --all
+    ls    = ls-files
+    wdiff = diff --color-words
+    wshow = show --color-words
+    fa    = fetch --all
+
+    ;wip   = !sh -c 'git add -A && git commit -m "wip"'
+    ;unwip = !sh -c 'git log -n 1 | grep wip >/dev/null && git reset HEAD~'
+
+    cp  = cherry-pick
+    cpa = cherry-pick --abort
+    cpc = cherry-pick --continue
+
+    ca  = commit --amend --no-edit
+    cae = commit --amend --edit
+
+    ri  = rebase --interactive --autosquash
+    ris = !sh -c "git stash && git ri $@ && git stash pop"
+    rbi = rebase --interactive
+    rba = rebase --abort
+    rbc = rebase --continue
+    rbs = rebase --skip
+
+    ; submodule helpers
+    smua = submodule foreach 'git fetch && git checkout master && git rebase origin/master'
+
+    ;fedora-prep = br -a | perl -nE '$b = (split /\//)[2]\; system "git br $b origin/$b/master" if $b =~ /^[ef]/'
+
+    ; see http://is.gd/gSeOj
+    ;fixup  = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+    fixup  = !sh -c 'git commit -m  \"fixup! $(git log -1 --format='\\''%s'\\'' $@ | sed -e '\\''s/^fixup! //'\\'')\"' -
+    squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@ | sed -e '\\''s/^squash! //'\\'')\"' -
+
+    #nm = !sh -c 'git br -M old_master && git co --orphan master && git add -A && git commit -m \"initial commit\"'
+    nm = !sh -c 'git br -M attic/old_master/`date +%Y-%m-%d/%Hh%Mm%Ss` && git co --orphan master && git add -A && git commit -m \"initial commit\"'
+
+    ; sync our extlib with our "master" clone, using and preserving hardlinks
+    ;rsync -avrH --link-dest=/home/rsrchboy/work/ce/CE/extlib/ /home/rsrchboy/work/ce/CE/extlib/ ./extlib
+
+    ; see http://gitready.com/advanced/2011/10/21/ribbon-and-catchup-reading-new-commits.html
+    ribbon  = tag --force _ribbon origin/master
+    catchup = log --patch --reverse --topo-order _ribbon..origin/master
+
+    deploy-test = push --force test master
+
+    ; for http://build.phonegap.com -- FIXME this is a little... relaxed
+    gap = push --force phonegap master
+
+[giggle]
+    main-window-maximized = true
+    main-window-geometry = 0x0+0+0
+    main-window-view = HistoryView
+    history-view-vpane-position = 377
+    file-view-vpane-position = 806
+[status-tackle]
+    destination = master
+    integration = master
