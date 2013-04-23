@@ -49,9 +49,6 @@
 [submodule "bundle/gitv"]
 	path = bundle/gitv
 	url = git://github.com/gregsexton/gitv.git
-[submodule "bundle/vim-puppet"]
-	path = bundle/vim-puppet
-	url = git://github.com/rodjek/vim-puppet.git
 [submodule "bundle/deb.vim"]
 	path = bundle/deb.vim
 	url = git://github.com/vim-scripts/deb.vim.git
