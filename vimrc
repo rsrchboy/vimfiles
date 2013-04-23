@@ -18,6 +18,7 @@ Helptags
 let g:solarized_termtrans=1
 "let g:solarized_termcolors=256
 colorscheme solarized
+syntax on
 
 " vim-signify
 highlight clear SignColumn
