@@ -97,3 +97,6 @@
 [submodule "bundle/html5-syntax.vim"]
 	path = bundle/html5-syntax.vim
 	url = git://github.com/othree/html5-syntax.vim.git
+[submodule "bundle/jquery.vim"]
+	path = bundle/jquery.vim
+	url = git://github.com/nono/jquery.vim.git
