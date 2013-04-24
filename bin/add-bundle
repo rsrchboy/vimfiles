@@ -1,0 +1,37 @@
+#!/usr/bin/env perl
+#
+# add a git repo as a vim repository, with a minimum of fuss
+#
+# Chris Weyl <cweyl@alumni.drew.edu> 2012
+
+use v5.10;
+use strict;
+use warnings;
+use utf8;
+
+use autodie 'system';
+
+use IO::All;
+
+# git://github.com/kien/ctrlp.vim.git
+
+my ($remote) = @ARGV;
+say "subrepository location: $remote";
+
+$remote =~
+    /^((https?|git):\/\/github\.com\/|git\@github\.com:)(?<user>[^\/]+)\/(?<repo>[^\/]+)\.git$/;
+
+say "Adding $+{user}'s repository $+{repo} at bundle/$+{repo}";
+system "git submodule add $remote bundle/$+{repo}";
+system "git commit -m 'add: bundle/$+{repo}' .gitmodules bundle/$+{repo}";
+
+# ignore generated tags -- and yes, I'm being lazy right now
+my $dir
+    = -d "bundle/$+{repo}/.git"
+    ? "bundle/$+{repo}"
+    : ".git/modules/bundle/$+{repo}"
+    ;
+
+"doc/tags\n" >> io("$dir/info/exclude");
+
+say "fin...";
