@@ -94,3 +94,6 @@
 [submodule "bundle/puppet-syntax-vim"]
 	path = bundle/puppet-syntax-vim
 	url = git://github.com/puppetlabs/puppet-syntax-vim.git
+[submodule "bundle/html5-syntax.vim"]
+	path = bundle/html5-syntax.vim
+	url = git://github.com/othree/html5-syntax.vim.git
