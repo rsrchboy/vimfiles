@@ -1,0 +1,32 @@
+#!/bin/bash
+
+. /usr/lib/git-core/git-sh-setup
+#. git-sh-i18n
+#set_reflog_action rebase
+require_work_tree_exists
+cd_to_toplevel
+
+MODULE="bundle/$1"
+
+# get url
+#REMOTE_URL=`git config submodule.\"$MODULE\"`
+#URL=`git config submodule.$MODULE.url`
+#COMMIT=`git submodule status $MODULE | sed -e 's/^ //; s/ .*$//'`
+
+if [ -d "$MODULE/.git" ] ; then
+    MODULE_GITDIR="$MODULE/.git"
+else
+    MODULE_GITDIR=".git/modules/$MODULE"
+fi
+
+git config --file .gitmodules --remove-section submodule.$MODULE 2>/dev/null
+git config                    --remove-section submodule.$MODULE 2>/dev/null
+test -e $MODULE_GITDIR && echo "# deleting ${MODULE_GITDIR}'s git information..."
+rm -rf $MODULE_GITDIR
+test -e $MODULE && echo "# deleting ${MODULE}'s working dir..."
+rm -rf $MODULE
+git rm $MODULE 2>/dev/null
+# We want to see the output
+git commit -q -m "rm: $MODULE" .gitmodules 2>/dev/null | perl -nE 'say unless /^(#|no changes)/'
+
+exit 0
