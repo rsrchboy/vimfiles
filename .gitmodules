@@ -109,3 +109,6 @@
 [submodule "bundle/VimOrganizer"]
 	path = bundle/VimOrganizer
 	url = git://github.com/hsitz/VimOrganizer.git
+[submodule "bundle/AsyncCommand"]
+	path = bundle/AsyncCommand
+	url = git://github.com/vim-scripts/AsyncCommand.git
