@@ -24,3 +24,6 @@ install:: fonts
 
 install-all:: install dotfiles cleanup
 
+bundle-update::
+	@echo '# committing submodule/bundle updates...'
+	m=`git submodule | grep '^\+' | awk '{ print $$2 }' | xargs` ; git commit -m "updating: $$m" $$m
