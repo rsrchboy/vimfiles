@@ -106,3 +106,6 @@
 [submodule "bundle/cpan.vim"]
 	path = bundle/cpan.vim
 	url = https://github.com/c9s/cpan.vim.git
+[submodule "bundle/VimOrganizer"]
+	path = bundle/VimOrganizer
+	url = git://github.com/hsitz/VimOrganizer.git
