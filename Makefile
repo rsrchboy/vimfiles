@@ -12,8 +12,15 @@ dotfiles::
 	cd && test -e .gitconfig || ln -s .vim/dotfiles/gitconfig .gitconfig
 	cd && touch .gitconfig.local && chmod 0600 .gitconfig.local
 
-install:: fonts dotfiles
+cleanup::
+	@echo '# ensure obsolete bundles are removed...'
+	./bin/rm-bundle vim-puppet
+
+install:: fonts
 	@echo '# Setting up .vimrc, etc....'
 	cd && test -e .vimrc || ln -s .vim/vimrc .vimrc
 	touch ~/.vimrc.local
 	chmod 0600 ~/.vimrc.local
+
+install-all:: install dotfiles cleanup
+
