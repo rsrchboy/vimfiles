@@ -17,6 +17,10 @@
 [branch]
     autosetuprebase = always
     autosetupmerge  = true
+[url "git@github.com:"]
+    ; use a writable target when remote has a r/o github url
+	pushInsteadOf = git://github.com/
+	pushInsteadOf = https://github.com/
 [url "ssh://cweyl@pkgs.fedoraproject.org/"]
     InsteadOf=fedora:
 [svn]
@@ -24,6 +28,7 @@
 [rebase]
     stat = true
 [diff]
+	algorithm = patience
     ; this seemed like a good idea to avoid FixWhitespace's redness, but
     ; breaks the syntax.  wah-wah.
     ;suppressBlankEmpty = true
@@ -34,10 +39,8 @@
 	displayRef = refs/notes/*
 [core]
 	notesRef = refs/notes/rsrchboy
-[diff]
-	algorithm = patience
-[sync]
-    dir = /home/cweyl/gitdir/
+[http]
+	sslVerify = true
 [alias]
     co    = checkout
     br    = branch
@@ -68,30 +71,20 @@
     rbc = rebase --continue
     rbs = rebase --skip
 
-    ; submodule helpers
-    smua = submodule foreach 'git fetch && git checkout master && git rebase origin/master'
-
-    ;fedora-prep = br -a | perl -nE '$b = (split /\//)[2]\; system "git br $b origin/$b/master" if $b =~ /^[ef]/'
+    ; get a commit message off a commit
+    cm  = !sh -c "git show --raw | grep -v -e '^\\S' -e '^$' | sed -e 's/^    //'"
 
     ; see http://is.gd/gSeOj
     ;fixup  = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -
     fixup  = !sh -c 'git commit -m  \"fixup! $(git log -1 --format='\\''%s'\\'' $@ | sed -e '\\''s/^fixup! //'\\'')\"' -
     squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@ | sed -e '\\''s/^squash! //'\\'')\"' -
 
-    #nm = !sh -c 'git br -M old_master && git co --orphan master && git add -A && git commit -m \"initial commit\"'
+    ; recreate ourself as a single root commit
     nm = !sh -c 'git br -M attic/old_master/`date +%Y-%m-%d/%Hh%Mm%Ss` && git co --orphan master && git add -A && git commit -m \"initial commit\"'
-
-    ; sync our extlib with our "master" clone, using and preserving hardlinks
-    ;rsync -avrH --link-dest=/home/rsrchboy/work/ce/CE/extlib/ /home/rsrchboy/work/ce/CE/extlib/ ./extlib
 
     ; see http://gitready.com/advanced/2011/10/21/ribbon-and-catchup-reading-new-commits.html
     ribbon  = tag --force _ribbon origin/master
     catchup = log --patch --reverse --topo-order _ribbon..origin/master
-
-    deploy-test = push --force test master
-
-    ; for http://build.phonegap.com -- FIXME this is a little... relaxed
-    gap = push --force phonegap master
 
 [giggle]
     main-window-maximized = true
