@@ -3,8 +3,6 @@ set nocompatible
 
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 
-let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/snipmate.vim/snippets' " ,~/.vim/bundle/*/snippets
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " pathogen bits
 
@@ -15,13 +13,15 @@ Helptags
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " colors, syntax, etc
 
-let g:solarized_termtrans=1
-"let g:solarized_termcolors=256
+let g:solarized_termtrans = 1
+"let g:Powerline_theme      = 'skwp'
+"let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
 colorscheme solarized
 syntax on
 
 " vim-signify
 highlight clear SignColumn
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " additional filetypes
@@ -97,7 +97,9 @@ cmap w!! w !sudo tee % >/dev/null
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " misc bundle settings
-"let g:Powerline_theme            = 'skwp'
+
+let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/snipmate.vim/snippets' " ,~/.vim/bundle/*/snippets
+
 let g:gist_detect_filetype        = 1
 let g:gist_clip_command           = 'xclip -selection clipboard'
 let g:gist_post_private           = 1
