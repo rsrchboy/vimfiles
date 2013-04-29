@@ -141,9 +141,6 @@ let g:tagbar_type_perl = {
         \ 'r:roles:1:0',
         \ 'a:attributes',
         \ 's:subroutines',
-        \ 'b:before method modifiers',
-        \ 'A:around method modifiers',
-        \ 'Z:after method modifiers',
         \ 'l:labels',
     \ ],
 \ }
