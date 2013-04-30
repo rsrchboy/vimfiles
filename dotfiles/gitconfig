@@ -1,3 +1,4 @@
+; /* vim: set ft=gitconfig : */
 [include]
     path = ~/.gitconfig.local
 [user]
@@ -70,6 +71,10 @@
     rba = rebase --abort
     rbc = rebase --continue
     rbs = rebase --skip
+
+    ; useful during merges
+	ours   = checkout --ours
+	theirs = checkout --theirs
 
     ; get a commit message off a commit
     cm  = !sh -c "git show --raw | grep -v -e '^\\S' -e '^$' | sed -e 's/^    //'"
