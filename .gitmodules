@@ -112,3 +112,6 @@
 [submodule "bundle/AsyncCommand"]
 	path = bundle/AsyncCommand
 	url = git://github.com/vim-scripts/AsyncCommand.git
+[submodule "bundle/auto_mkdir"]
+	path = bundle/auto_mkdir
+	url = git://github.com/DataWraith/auto_mkdir.git
