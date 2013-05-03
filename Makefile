@@ -22,6 +22,10 @@ install:: fonts
 	touch ~/.vimrc.local
 	chmod 0600 ~/.vimrc.local
 
+zsh::
+	@echo '# installing oh-my-zsh...'
+	curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
 install-all:: install dotfiles cleanup
 
 bundle-update::
