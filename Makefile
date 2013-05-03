@@ -32,3 +32,6 @@ submodule-ensure-rebase::
 	for sm in `git submodule | awk '{ print $$2 }'` ; do git config --file .gitmodules submodule.$$sm.update rebase ; done
 	for sm in `git submodule | awk '{ print $$2 }'` ; do git config                    submodule.$$sm.update rebase ; done
 	git submodule sync
+
+ignore-tags::
+	 find .git/modules -name 'exclude' -exec sh -c "echo 'doc/tags' >> {}" \;
