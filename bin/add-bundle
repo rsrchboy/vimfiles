@@ -23,6 +23,8 @@ $remote =~
 
 say "Adding $+{user}'s repository $+{repo} at bundle/$+{repo}";
 system "git submodule add $remote bundle/$+{repo}";
+system "git config --file .gitmodules submodule.$MODULE.update rebase";
+system "git config                    submodule.$MODULE.update rebase";
 system "git commit -m 'add: bundle/$+{repo}' .gitmodules bundle/$+{repo}";
 
 # ignore generated tags -- and yes, I'm being lazy right now
