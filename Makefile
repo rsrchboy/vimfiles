@@ -27,3 +27,8 @@ install-all:: install dotfiles cleanup
 bundle-update::
 	@echo '# committing submodule/bundle updates...'
 	m=`git submodule | grep '^\+' | awk '{ print $$2 }' | xargs` ; git commit -m "updating: $$m" $$m
+
+submodule-ensure-rebase::
+	for sm in `git submodule | awk '{ print $$2 }'` ; do git config --file .gitmodules submodule.$$sm.update rebase ; done
+	for sm in `git submodule | awk '{ print $$2 }'` ; do git config                    submodule.$$sm.update rebase ; done
+	git submodule sync
