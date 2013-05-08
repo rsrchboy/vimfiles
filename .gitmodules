@@ -158,3 +158,7 @@
 	path = bundle/perlhelp-vim
 	url = git://github.com/LStinson/perlhelp-vim.git
 	update = rebase
+[submodule "bundle/vim-GitHubDashBoard"]
+	path = bundle/vim-GitHubDashBoard
+	url = git://github.com/lukaszkorecki/vim-GitHubDashBoard.git
+	update = rebase
