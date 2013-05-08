@@ -21,17 +21,19 @@ say "subrepository location: $remote";
 $remote =~
     /^((https?|git):\/\/github\.com\/|git\@github\.com:)(?<user>[^\/]+)\/(?<repo>[^\/]+)\.git$/;
 
-say "Adding $+{user}'s repository $+{repo} at bundle/$+{repo}";
-system "git submodule add $remote bundle/$+{repo}";
-system "git config --file .gitmodules submodule.$MODULE.update rebase";
-system "git config                    submodule.$MODULE.update rebase";
-system "git commit -m 'add: bundle/$+{repo}' .gitmodules bundle/$+{repo}";
+my $target = "bundle/$+{repo}";
+
+say "Adding $+{user}'s repository $+{repo} at $target";
+system "git submodule add $remote $target";
+system "git config --file .gitmodules submodule.$target.update rebase";
+system "git config                    submodule.$target.update rebase";
+system "git commit -m 'add: $target' .gitmodules $target";
 
 # ignore generated tags -- and yes, I'm being lazy right now
 my $dir
-    = -d "bundle/$+{repo}/.git"
-    ? "bundle/$+{repo}"
-    : ".git/modules/bundle/$+{repo}"
+    = -d "$target/.git"
+    ? "$target"
+    : ".git/modules/$target"
     ;
 
 "doc/tags\n" >> io("$dir/info/exclude");
