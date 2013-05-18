@@ -54,6 +54,7 @@
     wdiff = diff --color-words
     wshow = show --color-words
     fa    = fetch --all
+    fap   = fetch --all --prune
 
     ;wip   = !sh -c 'git add -A && git commit -m "wip"'
     ;unwip = !sh -c 'git log -n 1 | grep wip >/dev/null && git reset HEAD~'
