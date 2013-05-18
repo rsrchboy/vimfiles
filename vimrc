@@ -264,6 +264,8 @@ vnoremap ,= :Tabularize /=><CR>
 autocmd FileType perl let b:vimpipe_filetype = "tapVerboseOutput"
 autocmd FileType perl let b:vimpipe_command  = "perl -I lib/ -"
 
+autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-lint $T; rm $T"
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " magic!
 
