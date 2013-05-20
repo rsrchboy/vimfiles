@@ -162,3 +162,7 @@
 	path = bundle/vim-GitHubDashBoard
 	url = git://github.com/lukaszkorecki/vim-GitHubDashBoard.git
 	update = rebase
+[submodule "bundle/tmux.vim"]
+	path = bundle/tmux.vim
+	url = git://github.com/zaiste/tmux.vim.git
+	update = rebase
