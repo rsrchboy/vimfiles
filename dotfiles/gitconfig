@@ -73,6 +73,10 @@
     rbc = rebase --continue
     rbs = rebase --skip
 
+    # quietly revert
+	rv  = revert --no-edit
+	rve = revert --edit
+
     ; useful during merges
 	ours   = checkout --ours
 	theirs = checkout --theirs
