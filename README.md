@@ -42,6 +42,12 @@ submodules, and stashed under ```bundle/```.  There are some submodules that
 do not fit the standard layout; those are generally stored under ```cranky/```
 and synlinked into ```bundle/``` as appropriate.
 
+Note: I'm experimenting with squashed git submodules at the moment, so a
+number of our included bundles will appear as squished merges of independent
+commit histories.  This has pros and cons, not the least of which is not
+needing to worry about submodule init/update/etc, but I'm still "on the
+fence", as it were.
+
 # Git integration
 
 
@@ -74,10 +80,6 @@ GitHub: [/nsmgr8/vitra]
 # Plugins
 
 See ```bundle/``` for an always up-to-date, complete list.
-
- * sadsa
-
-* sadsa
 
 # Custom mappings
 
