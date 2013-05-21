@@ -172,7 +172,10 @@ nnoremap <Leader>gd :call Gitv_OpenGitCommand("diff --no-color", 'new')<CR>
 nnoremap <Leader>gD :call Gitv_OpenGitCommand("diff --no-color --cached %", 'new')<CR>
 nnoremap <Leader>ga :Gwrite<Enter>
 nnoremap <Leader>gc :Gcommit<Enter>
-nnoremap <Leader>gf :Git fixup<Enter>
+" XXX trial run here
+"nnoremap <Leader>gf :Git fixup<Enter>
+nnoremap <Leader>gf :call RunGitFixup()<CR>
+
 
 nnoremap <Leader>gA :Git add -pi %<Enter>
 nnoremap <Leader>gl :Git lol<Enter>
