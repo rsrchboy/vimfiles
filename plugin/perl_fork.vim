@@ -34,8 +34,8 @@ sub do_fixup {
         return;
     }
     else {
-        exec 'git fixup >/dev/null';
-        #exec 'git fixup 2>&1 1>&x || notify-send "git fixup error" "`cat x | grep -v \'^\#\'`"';
+        #exec 'git fixup >/dev/null';
+        exec  q{sh -c '(git fixup 2>&1 1>&x || notify-send "git fixup error" "`cat x | grep -v \'^\#\'`"')};
     }
 
     return;
