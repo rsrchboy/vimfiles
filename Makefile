@@ -32,6 +32,12 @@ bundle-update::
 	@echo '# committing submodule/bundle updates...'
 	m=`git submodule | grep '^\+' | awk '{ print $$2 }' | xargs` ; git commit -m "updating: $$m" $$m
 
+fetch-submodule-upstream::
+	@echo '# pulling the latest submodule/bundle updates...'
+	#m=`git submodule | grep '^\+' | awk '{ print $$2 }' | xargs` ; git commit -m "updating: $$m" $$m
+	git submodule update --init
+	git submodule foreach "sh -c '( git co master && git pull )'"
+
 submodule-ensure-rebase::
 	for sm in `git submodule | awk '{ print $$2 }'` ; do git config --file .gitmodules submodule.$$sm.update rebase ; done
 	for sm in `git submodule | awk '{ print $$2 }'` ; do git config                    submodule.$$sm.update rebase ; done
