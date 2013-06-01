@@ -1,12 +1,22 @@
 # vim bundle notes
 
-This is a collection -- a substatntially revised collection -- of vim plugins
+This is a collection -- a substantially revised collection -- of vim plugins
 and configuration that I use.  It has been substatnially reduced from where it
 once was, simply as I'd concluded that I need to refactor, reassess, and
 ensure I use current and correct plugins, effectively.
 
 (The older, sloppier vimrc is still availble under refs/attic/old-master.
 Note this refspec is not pulled by default.)
+
+# Included Bundles
+
+See ```bundle/``` for an always up-to-date, complete list :)
+
+via subtree:
+
+* [iptables](https://github.com/vim-scripts/iptables) @ [](bundle/iptables)
+
+
 
 # Methodology
 
@@ -17,7 +27,7 @@ per-machine or private information may be stored (e.g. authentication
 credentials and the like).  This file is not and should never be stored in
 version control.
 
-## Location and Installation
+# Location and Installation
 
 This repository is set up such that it can be installed as your ```~/.vim```.
 Running the contained ```Makefile``` will set up the appropriate symlinks,
@@ -32,7 +42,7 @@ Alternative locations (that is, not storing this repo in ~/.vim) is not
 currently supported by the ```Makefile```, though could certainly be handled
 trivially by hand.
 
-## Bundle Management
+# Bundle Management
 
 For bundle management, we use [Tim Pope's](/tpope) excellent
 [Pathogen](/tpope/pathogen) module.
@@ -42,11 +52,16 @@ submodules, and stashed under ```bundle/```.  There are some submodules that
 do not fit the standard layout; those are generally stored under ```cranky/```
 and synlinked into ```bundle/``` as appropriate.
 
-Note: I'm experimenting with squashed git submodules at the moment, so a
+## submodules vs subtree
+
+Note: I'm experimenting with squashed git subtrees at the moment, so a
 number of our included bundles will appear as squished merges of independent
 commit histories.  This has pros and cons, not the least of which is not
 needing to worry about submodule init/update/etc, but I'm still "on the
 fence", as it were.
+
+Some bundles are included as subtrees rather than submodules.  Both have their
+(dis)advantages, but subtrees tend to be easier to include/remove.
 
 # Git integration
 
@@ -79,7 +94,6 @@ GitHub: [/nsmgr8/vitra]
 
 # Plugins
 
-See ```bundle/``` for an always up-to-date, complete list.
 
 # Custom mappings
 
@@ -94,13 +108,4 @@ included plugins, linked submodules, etc, and the like are copyright their
 respecitve creators and licensed under their terms.  For information, please
 see any files in question for embedded information.
 
-Copyright 2013 Chris Weyl <cweyl@alumni.drew.edu>
-
-## Specific files
-
-I'll try to keep a list of included files that are not of my origin here.
-However, this is for convienence only, and for any real determiniations the
-files themselves should be inspected for copyright, licensing and ownership
-information.
-
-
+The remainder is copyright 2013 Chris Weyl <cweyl@alumni.drew.edu>
