@@ -14,7 +14,7 @@ See ```bundle/``` for an always up-to-date, complete list :)
 
 via subtree:
 
-* [iptables](https://github.com/vim-scripts/iptables) @ [](bundle/iptables)
+* [iptables](https://github.com/vim-scripts/iptables) @ [bundle/iptables]()
 
 
 
