@@ -195,6 +195,11 @@ vnoremap <leader>gV :Gitv! --all<cr>
 "map <leader>ga :Git add --all<cr>:Gcommit<cr>
 "map <leader>gb :Gblame<cr>
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" This section very happily stolen from:
+" https://github.com/aaronjensen/vimfiles/blob/master/vimrc
+
 " Use j/k in status
 function! BufReadIndex()
   setlocal cursorline
