@@ -95,6 +95,7 @@
     ; see http://gitready.com/advanced/2011/10/21/ribbon-and-catchup-reading-new-commits.html
     ribbon  = tag --force _ribbon origin/master
     catchup = log --patch --reverse --topo-order _ribbon..origin/master
+	bps = buildpackage -S
 
 [giggle]
     main-window-maximized = true
