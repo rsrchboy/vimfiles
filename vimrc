@@ -302,13 +302,7 @@ endif
 
 " pod syntax highlighting.  hmm.
 "let g:perl_include_pod=1
-" if this would work with they syntax...
-"let g:perl_include_pod=!g:perl_include_pod
-
-" ignore carton's 'local/'
-"set wildignore+=local/**
-"set wildignore+=extlib/**
-
+"
 " -- moved to attic when we adopted powerline
 " statusline with pretty git bits
 "set statusline=%-10([%n%H%M%R%W]%)\ %y%*%*%#StatusLineNC#\ %#ErrorMsg#\ %{GitBranchInfoTokens()[0]}\ %#StatusLine#\ %f%=%P\ %10((%l-%c/%L)%)
