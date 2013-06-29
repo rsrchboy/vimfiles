@@ -80,12 +80,12 @@ set ttyfast
 set pastetoggle=<F2>
 
 " normal mode remappings
-nnoremap <F3> :set nonumber!<CR>
+nnoremap <F3> :setlocal nonumber!<CR>
 nnoremap <F7> :tabp<CR>
 nnoremap <F8> :tabn<CR>
 
 " visual/insert mode remappings
-vnoremap <F3> :set nonumber!<CR>
+vnoremap <F3> :setlocal nonumber!<CR>
 vnoremap <F7> :tabp<CR>
 vnoremap <F8> :tabn<CR>
 
