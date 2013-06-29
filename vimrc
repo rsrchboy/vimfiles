@@ -37,7 +37,7 @@ au BufNewFile,BufRead *.zsh-theme set filetype=zsh
 au BufNewFile,BufRead *.t         set filetype=perl
 
 " hub pull requests follow the same general pattern as a git commit message
-au BufNewFile,BufRead .git/PULLREQ_EDITMSG set filetype=gitcommit
+"au BufNewFile,BufRead .git/PULLREQ_EDITMSG set filetype=gitcommit
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " settings
@@ -214,6 +214,7 @@ autocmd BufEnter *.git/index silent normal gg0j
 
 " Start in insert mode for commit
 function! BufEnterCommit()
+  setl nonumber
   normal gg0
   if getline('.') == ''
     start
