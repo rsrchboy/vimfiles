@@ -81,11 +81,13 @@ set pastetoggle=<F2>
 
 " normal mode remappings
 nnoremap <F3> :setlocal nonumber!<CR>
+nnoremap <F5> :setlocal spell! spelllang=en_us<CR>
 nnoremap <F7> :tabp<CR>
 nnoremap <F8> :tabn<CR>
 
 " visual/insert mode remappings
 vnoremap <F3> :setlocal nonumber!<CR>
+vnoremap <F5> :setlocal spell! spelllang=en_us<CR>
 vnoremap <F7> :tabp<CR>
 vnoremap <F8> :tabn<CR>
 
