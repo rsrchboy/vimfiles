@@ -10,6 +10,7 @@ execute pathogen#infect()
 filetype plugin indent on
 Helptags
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " colors, syntax, etc
 
@@ -217,13 +218,16 @@ autocmd BufEnter *.git/index silent normal gg0j
 
 " Start in insert mode for commit
 function! BufEnterCommit()
-  setl nonumber
+  setlocal nonumber
+  setlocal spell spelllang=en_us
   normal gg0
   if getline('.') == ''
     start
   end
 endfunction
+"autocmd BufEnter *.git/*_EDITMSG exe BufEnterCommit()
 autocmd BufEnter *.git/COMMIT_EDITMSG exe BufEnterCommit()
+autocmd BufEnter .git/PULLREQ_EDITMSG set filetype=gitcommit
 
 " Automatically remove fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
