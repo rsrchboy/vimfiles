@@ -1,10 +1,9 @@
-" This must be first, because it changes other options as side effect
-set nocompatible
-
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " INIT: pathogen {{{1
+
+" This must be first, because it changes other options as side effect
+set nocompatible
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 
 execute pathogen#infect()
 filetype plugin indent on
