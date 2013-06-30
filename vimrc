@@ -19,23 +19,25 @@ Helptags
 " APPEARANCE: colors, themes, etc {{{1
 
 let g:solarized_termtrans = 1
-"let g:Powerline_theme      = 'skwp'
 "let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
 colorscheme solarized
 syntax on
 
-" vim-signify
+" vim-signify ...FIXME needed?
 highlight clear SignColumn
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" powerline segments {{{2
+" POWERLINE: segments and settings {{{2
 
 " if you're using the rho-pi/dev ubuntu PPA, then you can install snapshots of
 " the 'almost-there, really' new powerline.
 
 " load the 'new' powerline if available
 let g:_powerline_vim = "/usr/lib/python2.7/dist-packages/powerline/bindings/vim/plugin/powerline.vim"
+
+let g:Powerline_symbols = 'fancy'
+"let g:Powerline_theme  = 'skwp'
 
 " FIXME we should really have a decent fall-back statusline
 if filereadable(g:_powerline_vim)
@@ -63,7 +65,7 @@ au BufNewFile,BufRead *.t         set filetype=perl
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SETTINGS: General {{{1
+" SETTINGS: General vim {{{1
 
 set modeline
 set modelines=2
@@ -91,10 +93,16 @@ set smartcase
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 set background=dark
+" XXX reexamine 'nobackup'
 set nobackup                   " we're stashing everything in git, anyways
+" XXX reexamine 'noswapfile'
 set noswapfile
+" XXX reexamine 'lazyredraw' vs 'ttyfast'
 "set lazyredraw
 set ttyfast
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MAPPINGS: key {,re}mappings {{{1
 
 " PF key remappings
 set pastetoggle=<F2>
@@ -117,11 +125,12 @@ cmap w!! w !sudo tee % >/dev/null
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" misc bundle settings {{{1
+" SETTINGS: misc bundle settings {{{1
+
+" TODO refactor this out properly
 
 let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/snipmate.vim/snippets' " ,~/.vim/bundle/*/snippets
 
-let g:Powerline_symbols           = 'fancy'
 let g:git_no_map_default          = 1
 let g:bufExplorerShowRelativePath = 1
 let g:Gitv_TruncateCommitSubjects = 1
@@ -132,11 +141,17 @@ let g:tlTokenList                 = ['FIXME', 'XXX', 'TODO', 'TBD' ]
 " github-style ``` markups -- for vim-markup bundle
 let g:markdown_github_languages = ['perl', 'ruby', 'erb=eruby']
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGIN: vim-signify {{{1
+
 " TODO need to handle "normal" sign column
 let g:signify_sign_color_inherit_from_linenr = 1
 let g:signify_skip_filetype = { 'gitcommit': 1 }
 
-" CtrlP plugin config
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGIN: CtrlP {{{1
+
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
 
@@ -315,7 +330,7 @@ autocmd FileType perl let b:vimpipe_command  = "perl -I lib/ -"
 autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-lint $T; rm $T"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SOURCE: local settings, if any are present {{{1
+" SOURCE: source ~/.vimrc.local, if present {{{1
 
 " any machine-specific settings
 if filereadable(expand("~/.vimrc.local"))
