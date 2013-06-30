@@ -339,3 +339,5 @@ endif
     "nnoremap <Leader>gp :GitPullRebase<Enter>
     "nnoremap <Leader>gb :GitBlame<Enter>
 "endif
+
+" vim: set foldmethod=marker foldlevel=0 :
