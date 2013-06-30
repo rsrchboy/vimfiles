@@ -31,6 +31,19 @@ highlight clear SignColumn
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " powerline segments {{{2
 
+" if you're using the rho-pi/dev ubuntu PPA, then you can install snapshots of
+" the 'almost-there, really' new powerline.
+
+" load the 'new' powerline if available
+let g:_powerline_vim = "/usr/lib/python2.7/dist-packages/powerline/bindings/vim/plugin/powerline.vim"
+
+" FIXME we should really have a decent fall-back statusline
+if filereadable(g:_powerline_vim)
+    " ok, this is *really* annoying
+    "source g:_powerline_vim
+    source /usr/lib/python2.7/dist-packages/powerline/bindings/vim/plugin/powerline.vim
+endif
+
 "call Pl#Theme#RemoveSegment('lineinfo')
 "call Pl#Theme#RemoveSegment('fileformat')
 
