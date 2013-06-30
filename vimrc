@@ -239,7 +239,7 @@ autocmd BufEnter *.git/index silent normal gg0j
 " Start in insert mode for commit
 function! BufEnterCommit()
   setlocal nonumber
-  setlocal spell spelllang=en_us
+  setlocal spell spelllang=en_us spellcapcheck=0
   normal gg0
   if getline('.') == ''
     start
