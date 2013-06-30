@@ -4,7 +4,7 @@ set nocompatible
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" pathogen bits
+" INIT: pathogen {{{1
 
 execute pathogen#infect()
 filetype plugin indent on
@@ -12,7 +12,7 @@ Helptags
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" colors, syntax, etc
+" APPEARANCE: colors, themes, etc {{{1
 
 let g:solarized_termtrans = 1
 "let g:Powerline_theme      = 'skwp'
@@ -25,7 +25,7 @@ highlight clear SignColumn
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" additional filetypes
+" PLUGIN: additional filetypes {{{1
 
 au BufNewFile,BufRead *.psgi      set filetype=perl
 au BufNewFile,BufRead cpanfile    set filetype=perl
@@ -41,7 +41,7 @@ au BufNewFile,BufRead *.t         set filetype=perl
 "au BufNewFile,BufRead .git/PULLREQ_EDITMSG set filetype=gitcommit
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" settings
+" SETTINGS: General {{{1
 
 set modeline
 set modelines=2
@@ -74,9 +74,6 @@ set noswapfile
 "set lazyredraw
 set ttyfast
 
-" XXX spell checking! probably need to turn this off for specific filetypes
-"setlocal spell spelllang=en_us
-
 " PF key remappings
 set pastetoggle=<F2>
 
@@ -108,11 +105,6 @@ cmap w!! w !sudo tee % >/dev/null
 
 let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/snipmate.vim/snippets' " ,~/.vim/bundle/*/snippets
 
-let g:gist_detect_filetype        = 1
-let g:gist_clip_command           = 'xclip -selection clipboard'
-let g:gist_post_private           = 1
-let g:gist_show_privates          = 1
-let g:gist_get_multiplefile       = 1
 let g:Powerline_symbols           = 'fancy'
 let g:git_no_map_default          = 1
 let g:bufExplorerShowRelativePath = 1
@@ -131,8 +123,22 @@ let g:signify_skip_filetype = { 'gitcommit': 1 }
 " CtrlP plugin config
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ctags configuration
+" PLUGIN: gist {{{1
+
+let g:gist_detect_filetype        = 1
+let g:gist_clip_command           = 'xclip -selection clipboard'
+let g:gist_post_private           = 1
+let g:gist_show_privates          = 1
+let g:gist_get_multiplefile       = 1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGIN: tagbar and ctags configuration {{{1
+
+nnoremap <leader>l :TagbarToggle<CR>
+nnoremap <leader>o :TagbarOpenAutoClose<CR>
 
 let g:tagbar_type_perl = {
     \ 'sort' : 1,
@@ -164,7 +170,7 @@ let g:tagbar_type_puppet = {
 \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGIN: vim-gnupg options, etc
+" PLUGIN: vim-gnupg options, etc {{{1
 
 let g:GPGPreferArmor       = 1
 let g:GPGDefaultRecipients = ["cweyl@alumni.drew.edu"]
@@ -180,7 +186,7 @@ let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGIN: fugitive (git) mappings and config
+" PLUGIN: fugitive (git) mappings and config {{{1
 
 " this is a cross between the old git-vim commands I'm used to, but invoking
 " fugitive instead.
@@ -213,9 +219,7 @@ vnoremap <leader>gV :Gitv! --all<cr>
 "map <leader>ga :Git add --all<cr>:Gcommit<cr>
 "map <leader>gb :Gblame<cr>
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" This section very happily stolen from:
+" This section very happily stolen from / based on:
 " https://github.com/aaronjensen/vimfiles/blob/master/vimrc
 
 " Use j/k in status
@@ -246,22 +250,24 @@ autocmd BufEnter .git/PULLREQ_EDITMSG set filetype=gitcommit
 " Automatically remove fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vitra - Trac UI for ViM (bundle config)
+" PLUGIN: Vitra - Trac UI for ViM (bundle config)
 
 " most of our trac server configuration will be done in ~/.vimrc.local
 " so as to prevent userids and passwords from floating about :)
 
+" default: 'status!=closed'
+let g:tracTicketClause = 'owner=cweyl&status!=closed'
 let g:tracServerList   = {}
-let g:tracTicketClause = 'owner=cweyl&status!=closed' " default: 'status!=closed'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Perl testing
+" PERL: Perl testing
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Inline block manipulation (e.g. prettification)
+" SECTION: Inline block manipulation (e.g. prettification)
 
 " prettify a section of json
 command -range -nargs=* Tidy <line1>,<line2>! json_xs -f json -t json-pretty
@@ -269,11 +275,7 @@ command -range -nargs=* Tidy <line1>,<line2>! json_xs -f json -t json-pretty
 command -range -nargs=* MXRCize <line1>,<line2>perldo perldo return unless /$NS/; s/$NS([A-Za-z0-9:]+)/\$self->\l$1_class/; s/::(.)/__\l$1/g; s/([A-Z])/_\l$1/g
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" misc mappings
-
-" for tagbar
-nnoremap <leader>l :TagbarToggle<CR>
-nnoremap <leader>o :TagbarOpenAutoClose<CR>
+" MISC: mappings
 
 " for TaskList
 map <leader>v <Plug>TaskList
@@ -288,7 +290,7 @@ vnoremap ,= :Tabularize /=><CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-pipe filetype configuration
+" PLUGIN: vim-pipe filetype configuration
 
 " tapVerboseOutput appears to be significantly better than perl.tap
 autocmd FileType perl let b:vimpipe_filetype = "tapVerboseOutput"
@@ -297,7 +299,7 @@ autocmd FileType perl let b:vimpipe_command  = "perl -I lib/ -"
 autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-lint $T; rm $T"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" magic!
+" SOURCE: local settings, if any are present
 
 " any machine-specific settings
 if filereadable(expand("~/.vimrc.local"))
@@ -306,7 +308,7 @@ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ATTIC
+" ATTIC: potentially useful, but unused {{{1
 
 " need to figure out how to map the 'base' perl directory
 "map ,t :!perl -I lib/ %<CR>
