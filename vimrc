@@ -1,3 +1,7 @@
+" Name:        ~/.vimrc
+" Maintainer:  Chris Weyl <cweyl@alumni.drew.edu>
+" Summary:     My ~/.vimrc
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " INIT: pathogen {{{1
 
