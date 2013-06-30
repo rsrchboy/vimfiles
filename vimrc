@@ -175,6 +175,10 @@ let g:GPGDefaultRecipients = ["cweyl@alumni.drew.edu"]
 "     whether this plugin will be activated.  Defaults to
 "     '*.\(gpg\|asc\|pgp\)'.
 
+" ok, this is more complex than it needs to be, but works :)
+let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN: fugitive (git) mappings and config
 
