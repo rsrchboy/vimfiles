@@ -115,8 +115,6 @@ let g:gist_show_privates          = 1
 let g:gist_get_multiplefile       = 1
 let g:Powerline_symbols           = 'fancy'
 let g:git_no_map_default          = 1
-let g:GPGPreferArmor              = 1
-let g:GPGDefaultRecipients        = ["cweyl@alumni.drew.edu"]
 let g:bufExplorerShowRelativePath = 1
 let g:Gitv_TruncateCommitSubjects = 1
 let g:Gitv_CommitStep             = 150
@@ -166,7 +164,19 @@ let g:tagbar_type_puppet = {
 \ }
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" git (fugitive) mappings and config
+" PLUGIN: vim-gnupg options, etc
+
+let g:GPGPreferArmor       = 1
+let g:GPGDefaultRecipients = ["cweyl@alumni.drew.edu"]
+
+"   g:GPGFilePattern
+"
+"     If set, overrides the default set of file patterns that determine
+"     whether this plugin will be activated.  Defaults to
+"     '*.\(gpg\|asc\|pgp\)'.
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGIN: fugitive (git) mappings and config
 
 " this is a cross between the old git-vim commands I'm used to, but invoking
 " fugitive instead.
