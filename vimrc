@@ -28,7 +28,14 @@ highlight clear SignColumn
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGIN: additional filetypes {{{1
+" powerline segments {{{2
+
+"call Pl#Theme#RemoveSegment('lineinfo')
+"call Pl#Theme#RemoveSegment('fileformat')
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FILETYPES: additional file-to-type matching {{{1
 
 au BufNewFile,BufRead *.psgi      set filetype=perl
 au BufNewFile,BufRead cpanfile    set filetype=perl
@@ -40,8 +47,6 @@ au BufNewFile,BufRead *.zsh-theme set filetype=zsh
 " this usually works, but sometimes vim thinks it's not perl
 au BufNewFile,BufRead *.t         set filetype=perl
 
-" hub pull requests follow the same general pattern as a git commit message
-"au BufNewFile,BufRead .git/PULLREQ_EDITMSG set filetype=gitcommit
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " SETTINGS: General {{{1
@@ -96,15 +101,9 @@ vnoremap <F8> :tabn<CR>
 " https://twitter.com/octodots/status/196996096910827520
 cmap w!! w !sudo tee % >/dev/null
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" powerline segments
-
-"call Pl#Theme#RemoveSegment('lineinfo')
-"call Pl#Theme#RemoveSegment('fileformat')
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" misc bundle settings
+" misc bundle settings {{{1
 
 let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/snipmate.vim/snippets' " ,~/.vim/bundle/*/snippets
 
@@ -255,7 +254,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGIN: Vitra - Trac UI for ViM (bundle config)
+" PLUGIN: Vitra - Trac UI for ViM (bundle config) {{{1
 
 " most of our trac server configuration will be done in ~/.vimrc.local
 " so as to prevent userids and passwords from floating about :)
@@ -266,11 +265,11 @@ let g:tracServerList   = {}
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PERL: Perl testing
+" PERL: Perl testing helpers {{{1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SECTION: Inline block manipulation (e.g. prettification)
+" SECTION: Inline block manipulation (e.g. prettification) {{{1
 
 " prettify a section of json
 command -range -nargs=* Tidy <line1>,<line2>! json_xs -f json -t json-pretty
@@ -278,7 +277,7 @@ command -range -nargs=* Tidy <line1>,<line2>! json_xs -f json -t json-pretty
 command -range -nargs=* MXRCize <line1>,<line2>perldo perldo return unless /$NS/; s/$NS([A-Za-z0-9:]+)/\$self->\l$1_class/; s/::(.)/__\l$1/g; s/([A-Z])/_\l$1/g
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MISC: mappings
+" MISC: mappings {{{1
 
 " for TaskList
 map <leader>v <Plug>TaskList
@@ -293,7 +292,7 @@ vnoremap ,= :Tabularize /=><CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGIN: vim-pipe filetype configuration
+" PLUGIN: vim-pipe filetype configuration {{{1
 
 " tapVerboseOutput appears to be significantly better than perl.tap
 autocmd FileType perl let b:vimpipe_filetype = "tapVerboseOutput"
@@ -302,7 +301,7 @@ autocmd FileType perl let b:vimpipe_command  = "perl -I lib/ -"
 autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-lint $T; rm $T"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SOURCE: local settings, if any are present
+" SOURCE: local settings, if any are present {{{1
 
 " any machine-specific settings
 if filereadable(expand("~/.vimrc.local"))
