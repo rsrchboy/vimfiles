@@ -215,6 +215,21 @@ let g:GPGDefaultRecipients = ["cweyl@alumni.drew.edu"]
 " ok, this is more complex than it needs to be, but works :)
 let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PLUGIN: csv {{{1
+
+" so we have a couple options here.  An intensely full-featured plugin for
+" csv/tsv/etc manipulation exists here:
+"
+"    https://github.com/chrisbra/csv.vim
+"
+" ...but appears to be overkill for my needs, as usually I'm only examining
+" csv files, not actually manipluating them in vim.  This one contains pretty
+" syntax highlighting (very pretty *and* very useful), without much else:
+"
+"     https://github.com/vim-scripts/rainbow_csv.vim
+
+" no configuration, currently.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN: fugitive (git) mappings and config {{{1
