@@ -1,7 +1,3 @@
-[submodule "bundle/log4perl.vim"]
-	path = bundle/log4perl.vim
-	url = git://github.com/vim-scripts/log4perl.vim.git
-	update = rebase
 [submodule "bundle/gitv"]
 	path = bundle/gitv
 	url = git://github.com/gregsexton/gitv.git
