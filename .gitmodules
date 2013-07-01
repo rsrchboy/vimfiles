@@ -1,7 +1,3 @@
-[submodule "bundle/auto_mkdir"]
-	path = bundle/auto_mkdir
-	url = git://github.com/DataWraith/auto_mkdir.git
-	update = rebase
 [submodule "bundle/perlhelp-vim"]
 	path = bundle/perlhelp-vim
 	url = git://github.com/LStinson/perlhelp-vim.git
