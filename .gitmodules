@@ -46,10 +46,6 @@
 	path = bundle/tracwiki
 	url = git://github.com/vim-scripts/tracwiki.git
 	update = rebase
-[submodule "bundle/vitra"]
-	path = bundle/vitra
-	url = git://github.com/nsmgr8/vitra.git
-	update = rebase
 [submodule "bundle/vim-align"]
 	path = bundle/vim-align
 	url = git://github.com/tsaleh/vim-align.git
