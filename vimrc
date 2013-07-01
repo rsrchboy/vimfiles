@@ -3,16 +3,120 @@
 " Maintainer:  Chris Weyl <cweyl@alumni.drew.edu>
 " Summary:     My ~/.vimrc
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" INIT: pathogen {{{1
-
 " This must be first, because it changes other options as side effect
 set nocompatible
-runtime bundle/vim-pathogen/autoload/pathogen.vim
 
-execute pathogen#infect()
-filetype plugin indent on
-Helptags
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NeoBundle: NeoBundle for bundle/plugin management {{{1
+
+" see also: https://github.com/Shougo/neobundle.vim
+
+" Setup: setup NB proper; bootstrap from embedded if needs be {{{2
+
+" I've subtree-embedded a copy of neobundle here for bootstrap purpose
+
+if has('vim_starting')
+
+    if isdirectory(expand("~/.vim/bundle/neobundle.vim"))
+        " normal; we've been run before
+        set runtimepath+=~/.vim/bundle/neobundle.vim/
+    else
+        " ...otherwise use our embedded copy for bootstrapping
+        set runtimepath+=~/.vim/bootstrap/bundles/neobundle.vim/
+    endif
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Bundles: define our bundles, etc {{{2
+
+" and include a non-embedded version
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'Shougo/vimproc', {
+    \ 'build' : {
+    \ 'windows' : 'make -f make_mingw32.mak',
+    \ 'cygwin'  : 'make -f make_cygwin.mak',
+    \ 'mac'     : 'make -f make_mac.mak',
+    \ 'unix'    : 'make -f make_unix.mak',
+    \ },
+\ }
+
+" loosely ordered.  we'll probably need to revisit this
+
+" general
+NeoBundle 'DataWraith/auto_mkdir'
+"NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'jamessan/vim-gnupg'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'krisajenkins/vim-pipe'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'msanders/snipmate.vim'
+NeoBundle 'vim-scripts/bufexplorer.zip'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'thinca/vim-localrc'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tsaleh/vim-align'
+NeoBundle 'vim-scripts/AsyncCommand'
+NeoBundle 'vim-scripts/vimwiki'
+
+" git
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'gregsexton/gitv'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/gist-vim'
+NeoBundle 'bartman/git-wip'
+NeoBundle 'mhinz/vim-signify'
+
+" remote tool interfaces
+NeoBundle 'nsmgr8/vitra'   " trac
+NeoBundle 'lukaszkorecki/vim-GitHubDashBoard'
+NeoBundle 'vim-scripts/VimRepress'
+
+" perl
+NeoBundle 'c9s/cpan.vim'
+NeoBundle 'LStinson/perlhelp-vim'
+NeoBundle 'vim-scripts/update_perl_line_directives'     " could use some work
+NeoBundle 'vim-scripts/syntax_check_embedded_perl.vim'  " could use some work
+
+" largely syntax / ft
+NeoBundle 'hsitz/VimOrganizer'
+NeoBundle 'nono/jquery.vim'
+NeoBundle 'othree/html5-syntax.vim'
+NeoBundle 'puppetlabs/puppet-syntax-vim'
+NeoBundle 'tpope/vim-haml'
+NeoBundle 'argent-smith/JSON.vim'
+NeoBundle 'tmatilai/gitolite.vim'
+NeoBundle 'evanmiller/nginx-vim-syntax'
+NeoBundle 'fmoralesc/vim-pinpoint'
+NeoBundle 'vim-scripts/tracwiki'
+NeoBundle 'vim-scripts/iptables'
+
+NeoBundle 'vim-perl/vim-perl'
+NeoBundle 'vim-scripts/deb.vim'
+NeoBundle 'vim-scripts/log4perl.vim'
+NeoBundle 'zaiste/tmux.vim'
+
+
+" Finalize: Actually check/install {{{2
+
+filetype plugin indent on " Required!
+
+" Brief help
+" :NeoBundleList          - list configured bundles
+" :NeoBundleInstall(!)    - install(update) bundles
+" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+
+" Installation check.
+NeoBundleCheck
+
+if !has('vim_starting')
+    " Call on_source hook when reloading .vimrc.
+    call neobundle#call_hook('on_source')
+endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -351,7 +455,6 @@ autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ATTIC: potentially useful, but unused {{{1
