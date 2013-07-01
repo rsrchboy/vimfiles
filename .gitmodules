@@ -1,7 +1,3 @@
-[submodule "bundle/vim-colors-solarized"]
-	path = bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
-	update = rebase
 [submodule "bundle/nerdcommenter"]
 	path = bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
