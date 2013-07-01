@@ -1,7 +1,3 @@
-[submodule "bundle/perlhelp-vim"]
-	path = bundle/perlhelp-vim
-	url = git://github.com/LStinson/perlhelp-vim.git
-	update = rebase
 [submodule "bundle/tmux.vim"]
 	path = bundle/tmux.vim
 	url = git://github.com/zaiste/tmux.vim.git
