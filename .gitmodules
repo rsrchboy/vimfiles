@@ -14,10 +14,6 @@
 	path = bundle/gist-vim
 	url = git://github.com/mattn/gist-vim.git
 	update = rebase
-[submodule "bundle/webapi-vim"]
-	path = bundle/webapi-vim
-	url = git://github.com/mattn/webapi-vim.git
-	update = rebase
 [submodule "bundle/gitolite.vim"]
 	path = bundle/gitolite.vim
 	url = https://github.com/tmatilai/gitolite.vim.git
