@@ -98,10 +98,6 @@
 	path = cranky/git-wip
 	url = git://github.com/bartman/git-wip.git
 	update = rebase
-[submodule "bundle/vim-localrc"]
-	path = bundle/vim-localrc
-	url = git://github.com/thinca/vim-localrc.git
-	update = rebase
 [submodule "bundle/VimRepress"]
 	path = bundle/VimRepress
 	url = git://github.com/vim-scripts/VimRepress.git
