@@ -82,10 +82,6 @@
 	path = cranky/git-wip
 	url = git://github.com/bartman/git-wip.git
 	update = rebase
-[submodule "bundle/VimRepress"]
-	path = bundle/VimRepress
-	url = git://github.com/vim-scripts/VimRepress.git
-	update = rebase
 [submodule "bundle/puppet-syntax-vim"]
 	path = bundle/puppet-syntax-vim
 	url = git://github.com/puppetlabs/puppet-syntax-vim.git
