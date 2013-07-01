@@ -1,7 +1,3 @@
-[submodule "bundle/html5-syntax.vim"]
-	path = bundle/html5-syntax.vim
-	url = git://github.com/othree/html5-syntax.vim.git
-	update = rebase
 [submodule "bundle/nginx-vim-syntax"]
 	path = bundle/nginx-vim-syntax
 	url = git://github.com/evanmiller/nginx-vim-syntax.git
