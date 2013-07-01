@@ -1,7 +1,3 @@
-[submodule "bundle/gitolite.vim"]
-	path = bundle/gitolite.vim
-	url = https://github.com/tmatilai/gitolite.vim.git
-	update = rebase
 [submodule "bundle/JSON.vim"]
 	path = bundle/JSON.vim
 	url = git://github.com/argent-smith/JSON.vim.git
