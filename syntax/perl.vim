@@ -8,10 +8,23 @@
 "syn sync match perlSyncPOD	grouphere perlPOD "^=func"
 
 " dzil-specific highlights
-"syn 
+syn keyword perlPodWeaverSpecialCommentKeywords ABSTRACT: PACKAGE: nextgroup=perlPodWeaverSpecialCommentRemainder contained
+"syn match perlPodWeaverSpecialComment "^ *#+ *" contains=perlPodWeaverSpecialCommentKeywords,@Spell nextgroup=perlPodWeaverSpecialCommentKeywords
+syn match perlPodWeaverSpecialCommentRemainder ".*" contained
+syn match perlPodWeaverSpecialComment "^# .*:" contains=perlPodWeaverSpecialCommentKeywords,@Spell 
 
+
+
+hi def link perlPodWeaverSpecialCommentKeywords Todo
+
+"syn region perlPodWeaverSpecialComment matchgroup=perlPodWeaverSpecialComment contains=perlPodWeaverSpecialCommentKeys,@Spell start="^ *# " end="$"
+
+" @110
 " ABSTRACT and PACKAGE being dzil things
-syn keyword perlTodo	ABSTRACT: PACKAGE: TODO TODO: TBD TBD: FIXME FIXME: XXX XXX: NOTE NOTE: contained
+"syn keyword perlTodo	ABSTRACT: PACKAGE: TODO TODO: TBD TBD: FIXME FIXME: XXX XXX: NOTE NOTE: contained
+
+" TODO highlight smart comments differently!
+syn match  perlComment		"#.*" contains=perlTodo,@Spell extend
 
 " sure spell-checking is turned on
 syn region perlPOD start="^=[a-z]" end="^=cut" contains=@Spell fold
