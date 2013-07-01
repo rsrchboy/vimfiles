@@ -26,10 +26,6 @@
 	path = bundle/vim-trailing-whitespace
 	url = git://github.com/bronson/vim-trailing-whitespace.git
 	update = rebase
-[submodule "bundle/vim-perl"]
-	path = bundle/vim-perl
-	url = git://github.com/vim-perl/vim-perl.git
-	update = rebase
 [submodule "bundle/gitolite.vim"]
 	path = bundle/gitolite.vim
 	url = https://github.com/tmatilai/gitolite.vim.git
