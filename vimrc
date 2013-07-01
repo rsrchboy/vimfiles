@@ -368,12 +368,13 @@ endif
 
 " pod syntax highlighting.  hmm.
 "let g:perl_include_pod=1
-"
+
+" Statusline: pre-powerline statusline setup {{{2
 " -- moved to attic when we adopted powerline
 " statusline with pretty git bits
 "set statusline=%-10([%n%H%M%R%W]%)\ %y%*%*%#StatusLineNC#\ %#ErrorMsg#\ %{GitBranchInfoTokens()[0]}\ %#StatusLine#\ %f%=%P\ %10((%l-%c/%L)%)
 
-
+" GITMAPPINGS: pre-fugitive mappings {{{2
 "if !exists('g:git_no_map_default') || !g:git_no_map_default
     "nnoremap <Leader>gd :GitDiff<Enter>
     "nnoremap <Leader>gD :GitDiff --cached<Enter>
@@ -385,5 +386,17 @@ endif
     "nnoremap <Leader>gp :GitPullRebase<Enter>
     "nnoremap <Leader>gb :GitBlame<Enter>
 "endif
+
+" Pathogen: old init settings {{{2
+
+" these were in use before we switched over to neobundle.
+
+"" This must be first, because it changes other options as side effect
+"set nocompatible
+"runtime bundle/vim-pathogen/autoload/pathogen.vim
+
+"execute pathogen#infect()
+"filetype plugin indent on
+"Helptags
 
 " vim: set foldmethod=marker foldlevel=0 :
