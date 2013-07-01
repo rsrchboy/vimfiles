@@ -66,10 +66,6 @@
 	path = bundle/vim-align
 	url = git://github.com/tsaleh/vim-align.git
 	update = rebase
-[submodule "bundle/vim-powerline"]
-	path = bundle/vim-powerline
-	url = git://github.com/Lokaltog/vim-powerline.git
-	update = rebase
 [submodule "bundle/snipmate.vim"]
 	path = bundle/snipmate.vim
 	url = https://github.com/msanders/snipmate.vim.git
