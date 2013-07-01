@@ -1,7 +1,3 @@
-[submodule "bundle/vim-pathogen"]
-	path = bundle/vim-pathogen
-	url = git://github.com/tpope/vim-pathogen.git
-	update = rebase
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
