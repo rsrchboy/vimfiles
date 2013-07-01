@@ -62,6 +62,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsaleh/vim-align'
 NeoBundle 'vim-scripts/AsyncCommand'
 NeoBundle 'vim-scripts/vimwiki'
+NeoBundle 'thinca/vim-ref'
 
 " git
 NeoBundle 'tpope/vim-fugitive'
@@ -94,7 +95,7 @@ NeoBundle 'evanmiller/nginx-vim-syntax'
 NeoBundle 'fmoralesc/vim-pinpoint'
 NeoBundle 'vim-scripts/tracwiki'
 NeoBundle 'vim-scripts/iptables'
-
+NeoBundle 'vim-scripts/rainbow_csv.vim'
 NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'vim-scripts/deb.vim'
 NeoBundle 'vim-scripts/log4perl.vim'
