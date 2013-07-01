@@ -1,7 +1,3 @@
-[submodule "bundle/deb.vim"]
-	path = bundle/deb.vim
-	url = git://github.com/vim-scripts/deb.vim.git
-	update = rebase
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
