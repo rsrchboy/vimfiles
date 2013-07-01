@@ -1,7 +1,3 @@
-[submodule "bundle/gitv"]
-	path = bundle/gitv
-	url = git://github.com/gregsexton/gitv.git
-	update = rebase
 [submodule "bundle/deb.vim"]
 	path = bundle/deb.vim
 	url = git://github.com/vim-scripts/deb.vim.git
