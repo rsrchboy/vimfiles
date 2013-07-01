@@ -54,10 +54,6 @@
 	path = bundle/cpan.vim
 	url = https://github.com/c9s/cpan.vim.git
 	update = rebase
-[submodule "bundle/AsyncCommand"]
-	path = bundle/AsyncCommand
-	url = git://github.com/vim-scripts/AsyncCommand.git
-	update = rebase
 [submodule "bundle/auto_mkdir"]
 	path = bundle/auto_mkdir
 	url = git://github.com/DataWraith/auto_mkdir.git
