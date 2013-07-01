@@ -34,10 +34,6 @@
 	path = bundle/snipmate.vim
 	url = https://github.com/msanders/snipmate.vim.git
 	update = rebase
-[submodule "bundle/bufexplorer.zip"]
-	path = bundle/bufexplorer.zip
-	url = https://github.com/vim-scripts/bufexplorer.zip.git
-	update = rebase
 [submodule "cranky/git-wip"]
 	path = cranky/git-wip
 	url = git://github.com/bartman/git-wip.git
