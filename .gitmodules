@@ -54,10 +54,6 @@
 	path = bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
 	update = rebase
-[submodule "bundle/vim-pipe"]
-	path = bundle/vim-pipe
-	url = git://github.com/krisajenkins/vim-pipe.git
-	update = rebase
 [submodule "bundle/tracwiki"]
 	path = bundle/tracwiki
 	url = git://github.com/vim-scripts/tracwiki.git
