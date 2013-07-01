@@ -6,7 +6,14 @@
 require_work_tree_exists
 cd_to_toplevel
 
-MODULE="bundle/$1"
+if [ -d "bundle/$1" ] ; then
+    MODULE="bundle/$1"
+elif [ -d "$1" ] ; then
+    MODULE="$1"
+else
+    echo "no such module! $1" >&2
+    exit 1
+fi
 
 # get url
 #REMOTE_URL=`git config submodule.\"$MODULE\"`
@@ -27,6 +34,6 @@ test -e $MODULE && echo "# deleting ${MODULE}'s working dir..."
 rm -rf $MODULE
 git rm $MODULE 2>/dev/null
 # We want to see the output
-git commit -q -m "rm: $MODULE" .gitmodules 2>/dev/null | perl -nE 'say unless /^(#|no changes)/'
+git commit -q -m "submodule rm: $MODULE" .gitmodules $MODULE 2>/dev/null | perl -nE 'say unless /^(#|no changes)/'
 
 exit 0
