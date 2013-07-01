@@ -42,10 +42,6 @@
 	path = bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
 	update = rebase
-[submodule "bundle/vim-gnupg"]
-	path = bundle/vim-gnupg
-	url = git://github.com/jamessan/vim-gnupg.git
-	update = rebase
 [submodule "bundle/JSON.vim"]
 	path = bundle/JSON.vim
 	url = git://github.com/argent-smith/JSON.vim.git
