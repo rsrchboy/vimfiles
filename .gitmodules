@@ -30,10 +30,6 @@
 	path = bundle/gitolite.vim
 	url = https://github.com/tmatilai/gitolite.vim.git
 	update = rebase
-[submodule "bundle/vim-pinpoint"]
-	path = bundle/vim-pinpoint
-	url = https://github.com/fmoralesc/vim-pinpoint.git
-	update = rebase
 [submodule "bundle/vim-surround"]
 	path = bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
