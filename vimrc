@@ -61,7 +61,6 @@ NeoBundle 'thinca/vim-localrc'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsaleh/vim-align'
 NeoBundle 'vim-scripts/AsyncCommand'
-NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'thinca/vim-ref'
 
 " git
@@ -72,10 +71,12 @@ NeoBundle 'mattn/gist-vim'
 NeoBundle 'bartman/git-wip'
 NeoBundle 'mhinz/vim-signify'
 
-" remote tool interfaces
+" mini-apps or interfaces
 NeoBundle 'nsmgr8/vitra'   " trac
 NeoBundle 'lukaszkorecki/vim-GitHubDashBoard'
 NeoBundle 'vim-scripts/VimRepress'
+NeoBundle 'vim-scripts/vimwiki'
+NeoBundle 'kakkyz81/evervim'
 
 " perl
 NeoBundle 'c9s/cpan.vim'
