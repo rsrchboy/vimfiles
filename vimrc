@@ -255,6 +255,10 @@ let g:signify_sign_color_inherit_from_linenr = 1
 let g:signify_skip_filetype = { 'gitcommit': 1 }
 
 
+" Evervim: Interface to evernote.com {{{1
+
+" See ~/.vimrc.local for tokens and the like.
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN: CtrlP {{{1
 
