@@ -422,9 +422,9 @@ let g:tracServerList   = {}
 " SECTION: Inline block manipulation (e.g. prettification) {{{1
 
 " prettify a section of json
-command -range -nargs=* Tidy <line1>,<line2>! json_xs -f json -t json-pretty
+command! -range -nargs=* Tidy <line1>,<line2>! json_xs -f json -t json-pretty
 
-command -range -nargs=* MXRCize <line1>,<line2>perldo perldo return unless /$NS/; s/$NS([A-Za-z0-9:]+)/\$self->\l$1_class/; s/::(.)/__\l$1/g; s/([A-Z])/_\l$1/g
+command! -range -nargs=* MXRCize <line1>,<line2>perldo perldo return unless /$NS/; s/$NS([A-Za-z0-9:]+)/\$self->\l$1_class/; s/::(.)/__\l$1/g; s/([A-Z])/_\l$1/g
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MISC: mappings {{{1
