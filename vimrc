@@ -1,7 +1,8 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Name:        ~/.vimrc
-" Maintainer:  Chris Weyl <cweyl@alumni.drew.edu>
-" Summary:     My ~/.vimrc
+" Name:             ~/.vimrc
+" Summary:          My ~/.vimrc and configuration
+" Maintainer:       Chris Weyl <cweyl@alumni.drew.edu>
+" Canonical Source: https://github.com/RsrchBoy/vimfiles
+" License:          CC BY-NC-SA 3.0 (aka Attribution-NonCommercial-ShareAlike)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " This must be first, because it changes other options as side effect
