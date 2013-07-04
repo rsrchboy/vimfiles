@@ -3,6 +3,7 @@
 " Maintainer:  Chris Weyl <cweyl@alumni.drew.edu>
 " Summary:     My ~/.vimrc
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " This must be first, because it changes other options as side effect
 set nocompatible
 
@@ -342,7 +343,7 @@ let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
 " no configuration, currently.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGIN: fugitive (git) mappings and config {{{1
+" PLUGIN Fugitive And Git: fugitive (git) mappings and config {{{1
 
 " this is a cross between the old git-vim commands I'm used to, but invoking
 " fugitive instead.
@@ -455,7 +456,7 @@ autocmd FileType perl let b:vimpipe_command  = "perl -I lib/ -"
 autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-lint $T; rm $T"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SOURCE: source ~/.vimrc.local, if present {{{1
+" Source Local Configs: ~/.vimrc.local, if present {{{1
 
 " any machine-specific settings
 if filereadable(expand("~/.vimrc.local"))
@@ -463,7 +464,7 @@ if filereadable(expand("~/.vimrc.local"))
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ATTIC: potentially useful, but unused {{{1
+" ATTIC: potentially useful, but unused or retired {{{1
 
 " need to figure out how to map the 'base' perl directory
 "map ,t :!perl -I lib/ %<CR>
@@ -508,4 +509,5 @@ endif
 "filetype plugin indent on
 "Helptags
 
+" 2}}} 1}}}
 " vim: set foldmethod=marker foldlevel=0 :
