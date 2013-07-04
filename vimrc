@@ -64,6 +64,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsaleh/vim-align'
 NeoBundle 'vim-scripts/AsyncCommand'
 NeoBundle 'thinca/vim-ref'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " git
 NeoBundle 'tpope/vim-fugitive'
@@ -133,7 +134,6 @@ syntax on
 
 " vim-signify ...FIXME needed?
 highlight clear SignColumn
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " POWERLINE: segments and settings {{{2
@@ -249,7 +249,11 @@ let g:tlTokenList                 = ['FIXME', 'XXX', 'TODO', 'TBD' ]
 " github-style ``` markups -- for vim-markup bundle
 let g:markdown_github_languages = ['perl', 'ruby', 'erb=eruby']
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indent Guides: no more counting up for matching! {{{1
+
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size  = 1
+
 " PLUGIN: vim-signify {{{1
 
 " TODO need to handle "normal" sign column
