@@ -332,7 +332,7 @@ let g:GPGDefaultRecipients = ["cweyl@alumni.drew.edu"]
 let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGIN: csv {{{1
+" CSV RainbowCSV: plugin config(s)  {{{1
 
 " so we have a couple options here.  An intensely full-featured plugin for
 " csv/tsv/etc manipulation exists here:
@@ -347,8 +347,11 @@ let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
 
 " no configuration, currently.
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGIN Fugitive And Git: fugitive (git) mappings and config {{{1
+" VimOrganizer: plugin config {{{1
+
+" nothing here, currently.  check out ftplugin/org.vim
+
+" Fugitive And Git: fugitive (git) mappings and config {{{1
 
 " this is a cross between the old git-vim commands I'm used to, but invoking
 " fugitive instead.
