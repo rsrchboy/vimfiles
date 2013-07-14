@@ -23,19 +23,24 @@ perl <<EOP
 
 package ForkAndGitFixup;
 
+use utf8;
 use strict;
 use warnings FATAL => 'all';
-use warnings NONFATAL => 'redefine';
+no warnings 'redefine';
+
+use POSIX ':sys_wait_h';
+
 
 sub do_fixup {
 
+    local $SIG{CHLD} = 'IGNORE';
+
     if (my $pid = fork()) {
         VIM::Msg("forked to $pid to run 'git fixup'");
-        return;
     }
     else {
+        POSIX::setsid();
         exec  q{sh -c '(git fixup 2>&1 >/tmp/foo-x ; notify-send --icon emblem-ok-symbolic "git fixup" "`cat /tmp/foo-x`")'};
-        #exec  q{sh -c '(git fixup 2>&1 1> x || notify-send "git fixup error" "`cat x | grep -v \'^\#\'`")'};
     }
 
     return;
