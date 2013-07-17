@@ -104,6 +104,7 @@ NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'vim-scripts/deb.vim'
 NeoBundle 'vim-scripts/log4perl.vim'
 NeoBundle 'zaiste/tmux.vim'
+NeoBundle 'mhinz/vim-tmuxify'
 
 
 " Finalize: Actually check/install {{{2
