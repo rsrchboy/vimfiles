@@ -164,7 +164,7 @@ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FILETYPES: additional file-to-type matching {{{1
+" FILETYPES: additional file-to-type matching autocommands {{{1
 
 au BufNewFile,BufRead *.psgi      set filetype=perl
 au BufNewFile,BufRead cpanfile    set filetype=perl
@@ -172,6 +172,7 @@ au BufNewFile,BufRead *.tt        set filetype=tt2html
 au BufNewFile,BufRead *.tt2       set filetype=tt2html
 au BufNewFile,BufRead Changes     set filetype=changelog
 au BufNewFile,BufRead *.zsh-theme set filetype=zsh
+au BufNewFile,BufRead *.snippets  set filetype=snippet
 
 " this usually works, but sometimes vim thinks it's not perl
 au BufNewFile,BufRead *.t         set filetype=perl
