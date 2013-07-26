@@ -413,9 +413,12 @@ function! BufEnterCommit()
     start
   end
 endfunction
+
+" TODO: examine and refactor/consolidate, if at all possible
 "autocmd BufEnter *.git/*_EDITMSG exe BufEnterCommit()
 autocmd BufEnter *.git/COMMIT_EDITMSG exe BufEnterCommit()
 autocmd BufEnter .git/PULLREQ_EDITMSG set filetype=gitcommit
+autocmd BufEnter .git/TAG_EDITMSG     set filetype=gitcommit
 
 " Automatically remove fugitive buffers
 autocmd BufReadPost fugitive://* set bufhidden=delete
