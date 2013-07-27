@@ -73,6 +73,10 @@ NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/gist-vim'
 NeoBundle 'bartman/git-wip'
 NeoBundle 'mhinz/vim-signify'
+NeoBundle 'vim-scripts/ingo-library'      " dependency of the next three
+NeoBundle 'vim-scripts/CountJump'         " dependency of the next two
+NeoBundle 'vim-scripts/ConflictMotions'   " 3-way merge motions TRIAL
+NeoBundle 'vim-scripts/ConflictDetection' " 3-way merge motions TRIAL
 
 " Appish Or External Interface: bundles
 NeoBundle 'nsmgr8/vitra'   " trac
