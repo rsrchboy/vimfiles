@@ -1,25 +1,21 @@
-" Vim experimental plugin to see how fork() interacts with vim
-" Last Change: 2013
+" Vim experimental plugin to see how Perl's fork() interacts with vim
+"
+" Author:      Chris Weyl <cweyl@alumni.drew.edu>
 " Maintainer:  Chris Weyl <cweyl@alumni.drew.edu>
 " License:     LGPLv2.1+
-
-" vim:foldmethod=marker
-
-" Starting Vim Module Boilerplate {{{1
 
 " something arcane happens here.
 let s:save_cpo = &cpo
 set cpo&vim
 
-" Implementation {{{1
-
-function! RunGitFixup() "{{{2
+function! RunGitFixup()
   perl ForkAndGitFixup::do_fixup
 endfunction
 
+" Forking: implementation {{{1
 if has('perl')
 perl <<EOP
-# line 23 "~/.vim/plugin/perl_fork.vim"
+# line 19 "~/.vim/plugin/perl_fork.vim"
 
 package ForkAndGitFixup;
 
@@ -29,7 +25,6 @@ use warnings FATAL => 'all';
 no warnings 'redefine';
 
 use POSIX ':sys_wait_h';
-
 
 sub do_fixup {
 
@@ -53,5 +48,7 @@ else
   finish
 endif
 
-" Ending vim Module Boilerplate {{{1
+" something arcane happens here.
 let &cpo = s:save_cpo
+
+" /* vim: set foldmethod=marker : */
