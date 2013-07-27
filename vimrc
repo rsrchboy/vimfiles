@@ -264,7 +264,7 @@ let g:markdown_github_languages = ['perl', 'ruby', 'erb=eruby']
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size  = 1
 
-" PLUGIN: vim-signify {{{1
+" Signify: note changed lines {{{1
 
 " TODO need to handle "normal" sign column
 let g:signify_sign_color_inherit_from_linenr = 1
@@ -430,7 +430,7 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGIN: Vitra - Trac UI for ViM (bundle config) {{{1
+" Vitra: Trac UI for ViM (bundle config) {{{1
 
 " most of our trac server configuration will be done in ~/.vimrc.local
 " so as to prevent userids and passwords from floating about :)
@@ -439,6 +439,11 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 let g:tracTicketClause = 'owner=cweyl&status!=closed'
 let g:tracServerList   = {}
 
+autocmd BufCreate '*Ticket: Edit*' setlocal nonumber
+autocmd BufCreate 'Ticket: Edit' setlocal nonumber
+autocmd BufEnter '*Ticket: Edit*' setlocal nonumber
+autocmd BufCreate 'Ticket: Edit' setlocal nonumber
+  "setlocal spell spelllang=en_us spellcapcheck=0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PERL: Perl testing helpers {{{1
