@@ -46,7 +46,7 @@ NeoBundle 'Shougo/vimproc', {
 
 " loosely ordered.  we'll probably need to revisit this
 
-" general
+" General: bundles
 NeoBundle 'DataWraith/auto_mkdir'
 "NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'altercation/vim-colors-solarized'
@@ -66,7 +66,7 @@ NeoBundle 'vim-scripts/AsyncCommand'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
-" git
+" GIT And Version Controlish: bundles
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'mattn/webapi-vim'
@@ -74,20 +74,20 @@ NeoBundle 'mattn/gist-vim'
 NeoBundle 'bartman/git-wip'
 NeoBundle 'mhinz/vim-signify'
 
-" mini-apps or interfaces
+" Appish Or External Interface: bundles
 NeoBundle 'nsmgr8/vitra'   " trac
 NeoBundle 'lukaszkorecki/vim-GitHubDashBoard'
 NeoBundle 'vim-scripts/VimRepress'
 NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'kakkyz81/evervim'
 
-" perl
+" Perl: bundles
 NeoBundle 'c9s/cpan.vim'
 NeoBundle 'LStinson/perlhelp-vim'
 NeoBundle 'vim-scripts/update_perl_line_directives'     " could use some work
 NeoBundle 'vim-scripts/syntax_check_embedded_perl.vim'  " could use some work
 
-" largely syntax / ft
+" General Syntax And Filetype: bundles
 NeoBundle 'hsitz/VimOrganizer'
 NeoBundle 'nono/jquery.vim'
 NeoBundle 'othree/html5-syntax.vim'
