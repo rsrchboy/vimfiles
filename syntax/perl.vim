@@ -29,7 +29,7 @@ syn match  perlComment		"#.*" contains=perlTodo,@Spell extend
 " sure spell-checking is turned on
 syn region perlPOD start="^=[a-z]" end="^=cut" contains=@Spell fold
 
-if !exists("perl_include_pod") || perl_include_pod == 1
+if exists("perl_include_pod") && perl_include_pod == 1
     syn   match   podCommand   "^=func"     nextgroup=podCmdText   contains=@Spell
     syn   match   podCommand   "^=method"   nextgroup=podCmdText   contains=@Spell
     syn   match   podCommand   "^=attr"     nextgroup=podCmdText   contains=@Spell

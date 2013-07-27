@@ -27,3 +27,25 @@ syn match perlStatementMisc      "\<\%(role\|parameter\)"
 "
 " This should be a region, but for now...
 syn match perlStatementMisc      "\<\%(try\|catch\|finally\)"
+
+syn keyword perlTodo ABSTRACT: TODO TODO: TBD TBD: FIXME FIXME: XXX XXX: NOTE NOTE: contained
+
+if !exists("perl_include_pod") || perl_include_pod == 1
+  " Include a while extra syntax file
+  syn include @Pod syntax/pod.vim
+  unlet b:current_syntax
+  if exists("perl_fold")
+    syn region perlPOD start="^=[a-z]" end="^=cut" contains=@Pod,@Spell,perlTodo keepend fold extend
+    syn region perlPOD start="^=cut" end="^=cut" contains=perlTodo keepend fold extend
+  else
+    syn region perlPOD start="^=[a-z]" end="^=cut" contains=@Pod,@Spell,perlTodo keepend
+    syn region perlPOD start="^=cut" end="^=cut" contains=perlTodo keepend
+  endif
+else
+  " Use only the bare minimum of rules
+  if exists("perl_fold")
+    syn region perlPOD start="^=[a-z]" end="^=cut" contains=@Spell keepend fold
+  else
+    syn region perlPOD start="^=[a-z]" end="^=cut" contains=@Spell keepend
+  endif
+endif
