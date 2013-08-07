@@ -35,7 +35,7 @@ sub do_fixup {
     }
     else {
         POSIX::setsid();
-        exec  q{sh -c '(git fixup 2>&1 >/tmp/foo-x ; notify-send --icon emblem-ok-symbolic "git fixup" "`cat /tmp/foo-x`")'};
+        exec  q{sh -c '(_ico="error"; git fixup 2>&1 >/tmp/foo-x && _ico="dialog-ok" ;  notify-send --icon=$_ico "git fixup" "`cat /tmp/foo-x`")'};
     }
 
     return;
