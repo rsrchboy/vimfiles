@@ -444,11 +444,8 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 let g:tracTicketClause = 'owner=cweyl&status!=closed'
 let g:tracServerList   = {}
 
-autocmd BufCreate '*Ticket: Edit*' setlocal nonumber
-autocmd BufCreate 'Ticket: Edit' setlocal nonumber
-autocmd BufEnter '*Ticket: Edit*' setlocal nonumber
-autocmd BufCreate 'Ticket: Edit' setlocal nonumber
-  "setlocal spell spelllang=en_us spellcapcheck=0
+autocmd BufWinEnter Ticket:* setlocal nonumber
+"setlocal spell spelllang=en_us spellcapcheck=0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PERL: Perl testing helpers {{{1
