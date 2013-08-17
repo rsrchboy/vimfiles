@@ -444,7 +444,8 @@ autocmd BufReadPost fugitive://* set bufhidden=delete
 let g:tracTicketClause = 'owner=cweyl&status!=closed'
 let g:tracServerList   = {}
 
-autocmd BufWinEnter Ticket:* setlocal nonumber
+autocmd BufWinEnter Ticket:*      setlocal nonumber
+autocmd BufWinEnter Ticket:.Edit* setlocal filetype=tracwiki spell spelllang=en_us spellcapcheck=0
 "setlocal spell spelllang=en_us spellcapcheck=0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
