@@ -48,7 +48,6 @@ NeoBundle 'Shougo/vimproc', {
 
 " General: bundles
 NeoBundle 'DataWraith/auto_mkdir'
-"NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'godlygeek/tabular'
@@ -114,6 +113,7 @@ NeoBundle 'mhinz/vim-startify'
 NeoBundle 'kablamo/vim-git-log'
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'dhruvasagar/vim-table-mode'
+NeoBundle 'bling/vim-airline'
 
 " Finalize: Actually check/install {{{2
 
@@ -144,27 +144,33 @@ syntax on
 " vim-signify ...FIXME needed?
 highlight clear SignColumn
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" AirLine: segments and settings {{{2
+"
+" A lightweight powerline replacement
+
+let g:airline_powerline_fonts = 1
+
 " POWERLINE: segments and settings {{{2
 
-" if you're using the rho-pi/dev ubuntu PPA, then you can install snapshots of
-" the 'almost-there, really' new powerline.
+"" if you're using the rho-pi/dev ubuntu PPA, then you can install snapshots of
+"" the 'almost-there, really' new powerline.
 
-" load the 'new' powerline if available
-let g:_powerline_vim = "/usr/lib/python2.7/dist-packages/powerline/bindings/vim/plugin/powerline.vim"
+"" load the 'new' powerline if available
+"let g:_powerline_vim = "/usr/lib/python2.7/dist-packages/powerline/bindings/vim/plugin/powerline.vim"
 
-let g:Powerline_symbols = 'fancy'
-"let g:Powerline_theme  = 'skwp'
+"let g:Powerline_symbols = 'fancy'
+""let g:Powerline_theme  = 'skwp'
 
-" FIXME we should really have a decent fall-back statusline
-if filereadable(g:_powerline_vim)
-    " ok, this is *really* annoying
-    "source g:_powerline_vim
-    source /usr/lib/python2.7/dist-packages/powerline/bindings/vim/plugin/powerline.vim
-endif
+"" FIXME we should really have a decent fall-back statusline
+"if filereadable(g:_powerline_vim)
+    "" ok, this is *really* annoying
+    ""source g:_powerline_vim
+    "source /usr/lib/python2.7/dist-packages/powerline/bindings/vim/plugin/powerline.vim
+"endif
 
-"call Pl#Theme#RemoveSegment('lineinfo')
-"call Pl#Theme#RemoveSegment('fileformat')
+""call Pl#Theme#RemoveSegment('lineinfo')
+""call Pl#Theme#RemoveSegment('fileformat')
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
