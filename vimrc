@@ -144,12 +144,34 @@ syntax on
 " vim-signify ...FIXME needed?
 highlight clear SignColumn
 
-
-" AirLine: segments and settings {{{2
+" AirLine: segments and settings {{{1
 "
 " A lightweight powerline replacement
 
 let g:airline_powerline_fonts = 1
+
+" unicode symbols
+let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+"let g:airline_linecolumn_prefix = '␊ '
+let g:airline_linecolumn_prefix = '␤ '
+"let g:airline_linecolumn_prefix = '¶ '
+let g:airline#extensions#branch#symbol = '⎇ '
+let g:airline#extensions#paste#symbol = 'ρ'
+"let g:airline#extensions#paste#symbol = 'Þ'
+"let g:airline#extensions#paste#symbol = '∥'
+let g:airline#extensions#whitespace#symbol = 'Ξ'
+
+" old vim-powerline symbols
+"let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+"let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+"let g:airline#extensions#branch#symbol = '⭠ '
+let g:airline#extensions#readonly#symbol = '⭤'
+"let g:airline_linecolumn_prefix = '⭡'
 
 " POWERLINE: segments and settings {{{2
 
