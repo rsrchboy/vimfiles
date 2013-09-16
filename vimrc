@@ -107,6 +107,7 @@ NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'vim-scripts/deb.vim'
 NeoBundle 'vim-scripts/log4perl.vim'
 NeoBundle 'zaiste/tmux.vim'
+NeoBundle 'tpope/vim-markdown'
 
 " Trial Bundles: maybe, maybe not!
 NeoBundle 'mhinz/vim-startify'
@@ -261,8 +262,10 @@ let g:Gitv_CommitStep             = 150
 " TODO need to highlight TBD appropriately, too
 let g:tlTokenList                 = ['FIXME', 'XXX', 'TODO', 'TBD' ]
 
+" Markdown: autocmds and settings {{{1
+
 " github-style ``` markups -- for vim-markup bundle
-let g:markdown_github_languages = ['perl', 'ruby', 'erb=eruby']
+let g:markdown_fenced_languages = ['perl', 'ruby', 'erb=eruby']
 
 " Indent Guides: no more counting up for matching! {{{1
 
