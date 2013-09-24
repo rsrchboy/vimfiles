@@ -363,7 +363,8 @@ let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
 "
 "     https://github.com/vim-scripts/rainbow_csv.vim
 
-" no configuration, currently.
+
+let g:disable_rainbow_csv_autodetect = 1
 
 " VimOrganizer: plugin config {{{1
 
