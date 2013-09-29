@@ -288,6 +288,9 @@ let g:signify_skip_filetype = { 'gitcommit': 1 }
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
+" reuse these windows
+let g:ctrlp_reuse_window = 'netrw\|help\|quickfix\|startify'
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN: gist {{{1
