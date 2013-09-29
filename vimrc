@@ -303,7 +303,7 @@ let g:gist_get_multiplefile       = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGIN: tagbar and ctags configuration {{{1
+" Tagbar And CTags: configuration {{{1
 
 nnoremap <leader>l :TagbarToggle<CR>
 nnoremap <leader>o :TagbarOpenAutoClose<CR>
@@ -315,6 +315,7 @@ let g:tagbar_type_perl = {
         \ 'p:packages:1:0',
         \ 'u:uses:1:0',
         \ 'c:constants:0:0',
+        \ 'o:package globals:0:0',
         \ 'R:readonly:0:0',
         \ 'f:formats:0:0',
         \ 'e:extends',
