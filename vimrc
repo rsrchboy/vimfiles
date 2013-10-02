@@ -272,6 +272,26 @@ let g:markdown_fenced_languages = ['perl', 'ruby', 'erb=eruby']
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size  = 1
 
+" Startify: nifty start screen {{{1
+
+"let g:startify_bookmarks = [ '~/.vimrc' ]
+" autouse sessions with startify.  (aka be useful!)
+let g:startify_session_detection   = 1
+let g:startify_session_autoload    = 1
+let g:startify_session_persistence = 1
+let g:startify_change_to_vcs_root  = 1
+let g:startify_empty_buffer_key    = 'o'
+let g:startify_restore_position    = 1
+let g:startify_custom_header       =
+    \ map(split(system('fortune | cowsay; echo .; echo .; uname -a'), '\n'), '"   ". v:val') + ['','']
+"let g:startify_custom_footer = ''
+
+let g:startify_skiplist = [
+           \ 'COMMIT_EDITMSG',
+           \ $VIMRUNTIME .'/doc',
+           \ 'bundle/.*/doc',
+           \ ]
+
 " Signify: note changed lines {{{1
 
 " TODO need to handle "normal" sign column
