@@ -115,6 +115,7 @@ NeoBundle 'kablamo/vim-git-log'
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'apeschel/vim-syntax-syslog-ng'
 
 " Finalize: Actually check/install {{{2
 
