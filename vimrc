@@ -486,6 +486,9 @@ autocmd BufWinEnter Ticket:.Edit* setlocal filetype=tracwiki spell spelllang=en_
 " prettify a section of json
 command! -range -nargs=* Tidy <line1>,<line2>! json_xs -f json -t json-pretty
 
+command! -range -nargs=* Cowsay <line1>,<line2>! cowsay -W 65
+command! -range -nargs=* BorgCowsay <line1>,<line2>! cowsay -W 65 -b
+
 command! -range -nargs=* MXRCize <line1>,<line2>perldo perldo return unless /$NS/; s/$NS([A-Za-z0-9:]+)/\$self->\l$1_class/; s/::(.)/__\l$1/g; s/([A-Z])/_\l$1/g
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
