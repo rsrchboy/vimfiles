@@ -295,10 +295,20 @@ let g:startify_skiplist = [
 
 " Signify: note changed lines {{{1
 
-" TODO need to handle "normal" sign column
+" TODO: need to handle "normal" sign column
+let g:signify_vcs_list                       = [ 'git' ]
 let g:signify_sign_color_inherit_from_linenr = 1
-let g:signify_skip_filetype = { 'gitcommit': 1 }
+let g:signify_skip_filetype                  = { 'gitcommit': 1 }
 
+" NOTE: This also saves the buffer to disk!
+let g:signify_update_on_bufenter    = 1
+let g:signify_update_on_focusgained = 0
+let g:signify_cursorhold_normal     = 0
+let g:signify_cursorhold_insert     = 0
+
+" TODO: defaults we may want to evaluate
+"let g:signify_mapping_toggle = '<leader>gt'
+"let g:signify_mapping_toggle_highlight = '<leader>gh'
 
 " Evervim: Interface to evernote.com {{{1
 
