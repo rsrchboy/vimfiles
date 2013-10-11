@@ -534,6 +534,11 @@ if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
 
+" FINALIZE: set secure, etc.  closing commands. {{{1
+
+set secure
+set exrc
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ATTIC: potentially useful, but unused or retired {{{1
 
@@ -603,4 +608,5 @@ endif
 ""call Pl#Theme#RemoveSegment('fileformat')
 
 
-" vim: set foldmethod=marker foldlevel=0 :
+" vim: set foldmethod=marker foldlevel=1 :
+
