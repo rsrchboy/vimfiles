@@ -145,49 +145,9 @@ syntax on
 " vim-signify ...FIXME needed? -- and in the WRONG LOCATION
 highlight clear SignColumn
 
-" AirLine: A lightweight powerline replacement {{{1
-" settings {{{2
-let g:airline_powerline_fonts = 1
-
-" unicode symbols
-let g:airline_left_sep = '»'
-"let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
-"let g:airline_linecolumn_prefix = '␊ '
-let g:airline_linecolumn_prefix = '␤ '
-"let g:airline_linecolumn_prefix = '¶ '
-let g:airline#extensions#branch#symbol = '⎇ '
-let g:airline#extensions#paste#symbol = 'ρ'
-"let g:airline#extensions#paste#symbol = 'Þ'
-"let g:airline#extensions#paste#symbol = '∥'
-let g:airline#extensions#whitespace#symbol = 'Ξ'
-
-" old vim-powerline symbols
-"let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-"let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-"let g:airline#extensions#branch#symbol = '⭠ '
-let g:airline#extensions#readonly#symbol = '⭤'
-"let g:airline_linecolumn_prefix = '⭡'
-
-" FILETYPES: additional file-to-type matching autocommands {{{1
-" filetype autocommands {{{2
-au BufNewFile,BufRead *.psgi      set filetype=perl
-au BufNewFile,BufRead cpanfile    set filetype=perl
-au BufNewFile,BufRead *.tt        set filetype=tt2html
-au BufNewFile,BufRead *.tt2       set filetype=tt2html
-au BufNewFile,BufRead Changes     set filetype=changelog
-au BufNewFile,BufRead *.zsh-theme set filetype=zsh
-au BufNewFile,BufRead *.snippets  set filetype=snippet
-" this usually works, but sometimes vim thinks it's not perl
-au BufNewFile,BufRead *.t         set filetype=perl
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " General Vim: Configuration {{{1
 " settings {{{2
+
 set modeline
 set modelines=2
 set number
@@ -237,9 +197,25 @@ vnoremap <F5> :setlocal spell! spelllang=en_us<CR>
 vnoremap <F7> :tabp<CR>
 vnoremap <F8> :tabn<CR>
 
+" make C-PgUp and C-PgDn work, even under screen
+" see https://bugs.launchpad.net/ubuntu/+source/screen/+bug/82708/comments/1
+:nmap <ESC>[5;5~ <C-PageUp>
+:nmap <ESC>[6;5~ <C-PageDown>
+
 " Save with sudo if you're editing a readonly file in #vim
 " https://twitter.com/octodots/status/196996096910827520
 cmap w!! w !sudo tee % >/dev/null
+
+" filetype autocommands {{{2
+au BufNewFile,BufRead *.psgi      set filetype=perl
+au BufNewFile,BufRead cpanfile    set filetype=perl
+au BufNewFile,BufRead *.tt        set filetype=tt2html
+au BufNewFile,BufRead *.tt2       set filetype=tt2html
+au BufNewFile,BufRead Changes     set filetype=changelog
+au BufNewFile,BufRead *.zsh-theme set filetype=zsh
+au BufNewFile,BufRead *.snippets  set filetype=snippet
+" this usually works, but sometimes vim thinks a .t file isn't Perl
+au BufNewFile,BufRead *.t         set filetype=perl
 
 " SETTINGS: misc bundle settings {{{1
 " TODO: refactor this out properly {{{2
@@ -253,8 +229,37 @@ let g:Gitv_CommitStep             = 150
 " TODO need to highlight TBD appropriately, too
 let g:tlTokenList                 = ['FIXME', 'XXX', 'TODO', 'TBD' ]
 
-" Markdown: autocmds and settings {{{1
+" AirLine: A lightweight powerline replacement {{{1
+" settings {{{2
 
+let g:airline_powerline_fonts = 1
+
+" symbols {{{3
+" unicode symbols
+let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+"let g:airline_linecolumn_prefix = '␊ '
+let g:airline_linecolumn_prefix = '␤ '
+"let g:airline_linecolumn_prefix = '¶ '
+let g:airline#extensions#branch#symbol = '⎇ '
+let g:airline#extensions#paste#symbol = 'ρ'
+"let g:airline#extensions#paste#symbol = 'Þ'
+"let g:airline#extensions#paste#symbol = '∥'
+let g:airline#extensions#whitespace#symbol = 'Ξ'
+
+" old vim-powerline symbols
+"let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+"let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+"let g:airline#extensions#branch#symbol = '⭠ '
+let g:airline#extensions#readonly#symbol = '⭤'
+"let g:airline_linecolumn_prefix = '⭡'
+
+" Markdown: autocmds and settings {{{1
+" settings {{{2
 " github-style ``` markups -- for vim-markup bundle
 let g:markdown_fenced_languages = ['perl', 'ruby', 'erb=eruby']
 
@@ -301,19 +306,16 @@ let g:signify_cursorhold_insert     = 0
 "let g:signify_mapping_toggle_highlight = '<leader>gh'
 
 " Evervim: Interface to evernote.com {{{1
-
+" settings {{{2
 " See ~/.vimrc.local for tokens and the like.
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN: CtrlP {{{1
 " settings {{{2
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 
-" reuse these windows
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix\|startify'
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN: gist {{{1
 " settings {{{2
 
@@ -323,8 +325,6 @@ let g:gist_post_private           = 1
 let g:gist_show_privates          = 1
 let g:gist_get_multiplefile       = 1
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Tagbar And CTags: configuration {{{1
 " mappings {{{2
 
@@ -397,6 +397,7 @@ let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
 let g:disable_rainbow_csv_autodetect = 1
 
 " VimOrganizer: plugin config {{{1
+" notes {{{2
 
 " nothing here, currently.  check out ftplugin/org.vim
 
@@ -496,18 +497,13 @@ command! -range -nargs=* BorgCowsay <line1>,<line2>! cowsay -W 65 -b
 " Perl helpers {{{2
 command! -range -nargs=* MXRCize <line1>,<line2>perldo perldo return unless /$NS/; s/$NS([A-Za-z0-9:]+)/\$self->\l$1_class/; s/::(.)/__\l$1/g; s/([A-Z])/_\l$1/g
 
-" MISC: mappings {{{1
+" TaskList: mappings {{{1
+" mappings {{{
 
-" for TaskList
 map <leader>v <Plug>TaskList
 
 nnoremap ,= :Tabularize /=><CR>
 vnoremap ,= :Tabularize /=><CR>
-
-" make C-PgUp and C-PgDn work, even under screen
-" see https://bugs.launchpad.net/ubuntu/+source/screen/+bug/82708/comments/1
-:nmap <ESC>[5;5~ <C-PageUp>
-:nmap <ESC>[6;5~ <C-PageDown>
 
 
 " PLUGIN: vim-pipe filetype configuration {{{1
