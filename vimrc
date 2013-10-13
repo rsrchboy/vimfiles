@@ -142,8 +142,14 @@ let g:solarized_termtrans = 1
 colorscheme solarized
 syntax on
 
-" vim-signify ...FIXME needed? -- and in the WRONG LOCATION
-highlight clear SignColumn
+" autocmds {{{2
+
+" XXX: should this be in the signify section??
+
+" a nicer signcolumn background, methinks
+au! BufRead * highlight clear SignColumn
+
+" }}}2
 
 " General Vim: Configuration {{{1
 " settings {{{2
