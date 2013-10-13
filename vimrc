@@ -7,8 +7,8 @@
 " This must be first, because it changes other options as side effect
 set nocompatible
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoBundle: NeoBundle for bundle/plugin management {{{1
+" notes {{{2
 
 " see also: https://github.com/Shougo/neobundle.vim
 
@@ -133,10 +133,11 @@ if !has('vim_starting')
     call neobundle#call_hook('on_source')
 endif
 
+" }}}2
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " APPEARANCE: colors, themes, etc {{{1
 " settings {{{2
+
 let g:solarized_termtrans = 1
 "let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
 colorscheme solarized
@@ -152,6 +153,11 @@ au! BufRead * highlight clear SignColumn
 " }}}2
 
 " General Vim: Configuration {{{1
+" notes {{{2
+"
+" Configuration options that impact vim itself, rather than plugin or syntax
+" settings.  (generally)
+"
 " settings {{{2
 
 set modeline
@@ -223,6 +229,9 @@ au BufNewFile,BufRead *.snippets  set filetype=snippet
 " this usually works, but sometimes vim thinks a .t file isn't Perl
 au BufNewFile,BufRead *.t         set filetype=perl
 
+
+" }}}2
+
 " SETTINGS: misc bundle settings {{{1
 " TODO: refactor this out properly {{{2
 
@@ -234,6 +243,8 @@ let g:Gitv_TruncateCommitSubjects = 1
 let g:Gitv_CommitStep             = 150
 " TODO need to highlight TBD appropriately, too
 let g:tlTokenList                 = ['FIXME', 'XXX', 'TODO', 'TBD' ]
+
+" }}}2
 
 " AirLine: A lightweight powerline replacement {{{1
 " settings {{{2
@@ -264,18 +275,25 @@ let g:airline_right_alt_sep = '⮃'
 let g:airline#extensions#readonly#symbol = '⭤'
 "let g:airline_linecolumn_prefix = '⭡'
 
+" }}}2
+
 " Markdown: autocmds and settings {{{1
 " settings {{{2
 " github-style ``` markups -- for vim-markup bundle
 let g:markdown_fenced_languages = ['perl', 'ruby', 'erb=eruby']
+
+" }}}2
 
 " Indent Guides: no more counting up for matching! {{{1
 " settings {{{2
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size  = 1
 
+" }}}2
+
 " Startify: nifty start screen {{{1
 " settings {{{2
+
 "let g:startify_bookmarks = [ '~/.vimrc' ]
 " autouse sessions with startify.  (aka be useful!)
 let g:startify_session_detection   = 1
@@ -284,21 +302,27 @@ let g:startify_session_persistence = 1
 let g:startify_change_to_vcs_root  = 1
 let g:startify_empty_buffer_key    = 'o'
 let g:startify_restore_position    = 1
+
+" custom header / footer {{{2
 let g:startify_custom_header       =
     \ map(split(system('fortune | cowsay; echo .; echo .; uname -a'), '\n'), '"   ". v:val') + ['','']
 "let g:startify_custom_footer = ''
 
+" files to skip including in the list {{{2
 let g:startify_skiplist = [
            \ 'COMMIT_EDITMSG',
            \ $VIMRUNTIME .'/doc',
            \ 'bundle/.*/doc',
            \ ]
 
+" }}}2
+
 " Signify: note changed lines {{{1
 " settings {{{2
+
 " TODO: need to handle "normal" sign column
 let g:signify_vcs_list                       = [ 'git' ]
-let g:signify_sign_color_inherit_from_linenr = 1
+let g:signify_sign_color_inherit_from_linenr = 0
 let g:signify_skip_filetype                  = { 'gitcommit': 1 }
 
 " NOTE: This also saves the buffer to disk!
@@ -311,18 +335,24 @@ let g:signify_cursorhold_insert     = 0
 "let g:signify_mapping_toggle = '<leader>gt'
 "let g:signify_mapping_toggle_highlight = '<leader>gh'
 
+" }}}2
+
 " Evervim: Interface to evernote.com {{{1
-" settings {{{2
+" notes {{{2
+
 " See ~/.vimrc.local for tokens and the like.
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGIN: CtrlP {{{1
+" }}}2
+
+" CtrlP: helpful file finder {{{1
 " settings {{{2
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix\|startify'
 
-" PLUGIN: gist {{{1
+" }}}2
+
+" Gist: post buffers to and otherwise work with gists {{{1
 " settings {{{2
 
 let g:gist_detect_filetype        = 1
@@ -331,6 +361,8 @@ let g:gist_post_private           = 1
 let g:gist_show_privates          = 1
 let g:gist_get_multiplefile       = 1
 
+" }}}2
+
 " Tagbar And CTags: configuration {{{1
 " mappings {{{2
 
@@ -338,6 +370,11 @@ nnoremap <leader>l :TagbarToggle<CR>
 nnoremap <leader>o :TagbarOpenAutoClose<CR>
 
 " settings {{{2
+"
+" How to display different "custom" filetypes
+"
+" perl {{{3
+
 let g:tagbar_type_perl = {
     \ 'sort' : 1,
     \ 'deffile' : '$HOME/.vim/ctags/perl',
@@ -356,6 +393,8 @@ let g:tagbar_type_perl = {
     \ ],
 \ }
 
+" puppet {{{3
+
 let g:tagbar_type_puppet = {
     \ 'sort' : 1,
     \ 'ctagstype': 'puppet',
@@ -368,8 +407,9 @@ let g:tagbar_type_puppet = {
     \ ],
 \ }
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGIN: vim-gnupg options, etc {{{1
+" }}}2
+
+" VimGnupg: transparently work with encrypted files {{{1
 " settings {{{2
 
 let g:GPGPreferArmor       = 1
@@ -383,6 +423,8 @@ let g:GPGDefaultRecipients = ["cweyl@alumni.drew.edu"]
 
 " ok, this is more complex than it needs to be, but works :)
 let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
+
+" }}}2
 
 " CSV RainbowCSV: plugin config(s)  {{{1
 " notes {{{2
@@ -402,10 +444,14 @@ let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
 
 let g:disable_rainbow_csv_autodetect = 1
 
+" }}}2
+
 " VimOrganizer: plugin config {{{1
 " notes {{{2
 
 " nothing here, currently.  check out ftplugin/org.vim
+
+" }}}2
 
 " Fugitive And Git: fugitive (git) mappings and config {{{1
 " {,re}mappings {{{2
@@ -441,11 +487,12 @@ vnoremap <leader>gV :Gitv! --all<cr>
 "map <leader>gb :Gblame<cr>
 
 " autocmds {{{2
+" make handling indexes a little easier {{{3
 
 " This section very happily stolen from / based on:
 " https://github.com/aaronjensen/vimfiles/blob/master/vimrc
 
-" Use j/k in status
+" Use j/k in status {{{3
 function! BufReadIndex()
   setlocal cursorline
   setlocal nohlsearch
@@ -455,9 +502,9 @@ function! BufReadIndex()
 endfunction
 
 autocmd BufReadCmd *.git/index exe BufReadIndex()
-autocmd BufEnter *.git/index silent normal gg0j
+autocmd BufEnter   *.git/index silent normal gg0j
 
-" Start in insert mode for commit
+" Start in insert mode for commit {{{3
 function! BufEnterCommit()
   setlocal nonumber
   setlocal spell spelllang=en_us spellcapcheck=0
@@ -467,14 +514,17 @@ function! BufEnterCommit()
   end
 endfunction
 
+" filetype autocmds (e.g. for pull req, tag edits, etc...) {{{3
 " TODO: examine and refactor/consolidate, if at all possible
 "autocmd BufEnter *.git/*_EDITMSG exe BufEnterCommit()
 autocmd BufEnter *.git/COMMIT_EDITMSG exe BufEnterCommit()
 autocmd BufEnter .git/PULLREQ_EDITMSG set filetype=gitcommit
 autocmd BufEnter .git/TAG_EDITMSG     set filetype=gitcommit
 
-" Automatically remove fugitive buffers
+" Automatically remove fugitive buffers {{{3
 autocmd BufReadPost fugitive://* set bufhidden=delete
+
+" }}}2
 
 " Vitra: Trac UI for ViM (bundle config) {{{1
 " settings {{{2
@@ -491,8 +541,14 @@ autocmd BufWinEnter Ticket:*      setlocal nonumber
 autocmd BufWinEnter Ticket:.Edit* setlocal filetype=tracwiki spell spelllang=en_us spellcapcheck=0
 "setlocal spell spelllang=en_us spellcapcheck=0
 
+" }}}2
+
 " PERL: Perl testing helpers {{{1
-" SECTION: Inline block manipulation (e.g. prettification) {{{1
+" TODO where did I go?! {{{2
+
+" }}}2
+
+" Inline Block Manipulation: aka prettification {{{1
 " json {{{2
 command! -range -nargs=* Tidy <line1>,<line2>! json_xs -f json -t json-pretty
 
@@ -503,6 +559,8 @@ command! -range -nargs=* BorgCowsay <line1>,<line2>! cowsay -W 65 -b
 " Perl helpers {{{2
 command! -range -nargs=* MXRCize <line1>,<line2>perldo perldo return unless /$NS/; s/$NS([A-Za-z0-9:]+)/\$self->\l$1_class/; s/::(.)/__\l$1/g; s/([A-Z])/_\l$1/g
 
+" }}}2
+
 " TaskList: mappings {{{1
 " mappings {{{
 
@@ -511,14 +569,17 @@ map <leader>v <Plug>TaskList
 nnoremap ,= :Tabularize /=><CR>
 vnoremap ,= :Tabularize /=><CR>
 
+" }}}2
 
-" PLUGIN: vim-pipe filetype configuration {{{1
+" VimPipe: filetype configuration {{{1
 " autocmds {{{2
 " tapVerboseOutput appears to be significantly better than perl.tap
 autocmd FileType perl let b:vimpipe_filetype = "tapVerboseOutput"
 autocmd FileType perl let b:vimpipe_command  = "perl -I lib/ -"
 
 autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-lint $T; rm $T"
+
+" }}}2
 
 " Source Local Configs: ...if present {{{1
 " ~/.vimrc.local {{{2
@@ -527,12 +588,15 @@ if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
 
+" }}}2
+
 " FINALIZE: set secure, etc.  closing commands. {{{1
 " commands {{{2
 set secure
 set exrc
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" }}}2
+
 " ATTIC: potentially useful, but unused or retired {{{1
 " commented old bits {{{2
 " need to figure out how to map the 'base' perl directory
@@ -578,7 +642,6 @@ set exrc
 "filetype plugin indent on
 "Helptags
 
-" 2}}} 1}}}
 " POWERLINE: segments and settings {{{2
 
 "" if you're using the rho-pi/dev ubuntu PPA, then you can install snapshots of
@@ -600,6 +663,7 @@ set exrc
 ""call Pl#Theme#RemoveSegment('lineinfo')
 ""call Pl#Theme#RemoveSegment('fileformat')
 
+" }}}1
 
-" vim: set foldmethod=marker foldlevel=1 :
+" vim: set foldmethod=marker foldlevel=1 foldcolumn=5 :
 
