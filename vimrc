@@ -115,6 +115,7 @@ NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'apeschel/vim-syntax-syslog-ng'
+NeoBundle 'tpope/vim-obsession'
 
 " Finalize: Actually check/install {{{2
 
