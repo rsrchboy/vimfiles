@@ -137,19 +137,38 @@ endif
 " }}}2
 
 " APPEARANCE: colors, themes, etc {{{1
-" settings {{{2
+" vim settings {{{2
+
+colorscheme solarized
+syntax on
+
+" solarized settings {{{2
 
 let g:solarized_termtrans = 1
 "let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
-colorscheme solarized
-syntax on
+
+" keep these around for refernce for the time being...  set in autocmds, next
+"highlight clear SignColumn
+"highlight SignifySignAdd    cterm=bold ctermbg=none  ctermfg=green
+"highlight SignifySignDelete cterm=bold ctermbg=none  ctermfg=red
+"highlight SignifySignChange cterm=bold ctermbg=none  ctermfg=red
+"highlight SignifySignAdd    cterm=bold ctermbg=black  ctermfg=119
+"highlight SignifySignDelete cterm=bold ctermbg=black  ctermfg=167
+"highlight SignifySignChange cterm=bold ctermbg=black  ctermfg=227
+
 
 " autocmds {{{2
 
 " XXX: should this be in the signify section??
 
-" a nicer signcolumn background, methinks
-au! BufRead * highlight clear SignColumn
+function! SetSignColumnCKW()
+    highlight clear SignColumn
+    highlight SignifySignAdd    cterm=bold ctermbg=none  ctermfg=119
+    highlight SignifySignDelete cterm=bold ctermbg=none  ctermfg=167
+    highlight SignifySignChange cterm=bold ctermbg=none  ctermfg=227
+endfunction
+
+au! BufRead * exe SetSignColumnCKW()
 
 " }}}2
 
@@ -323,8 +342,10 @@ let g:startify_skiplist = [
 
 " TODO: need to handle "normal" sign column
 let g:signify_vcs_list                       = [ 'git' ]
-let g:signify_sign_color_inherit_from_linenr = 0
+"let g:signify_sign_color_inherit_from_linenr = 0
 let g:signify_skip_filetype                  = { 'gitcommit': 1 }
+
+"let g:signify_line_highlight = 1
 
 " NOTE: This also saves the buffer to disk!
 let g:signify_update_on_bufenter    = 1
