@@ -161,6 +161,8 @@ let g:solarized_termtrans = 1
 
 " XXX: should this be in the signify section??
 
+" FIXME: I suspect these can be naked autocmds off the ColorScheme event
+
 function! SetSignColumnCKW()
     highlight clear SignColumn
     highlight SignifySignAdd    cterm=bold ctermbg=none  ctermfg=119
