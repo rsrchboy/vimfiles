@@ -69,7 +69,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/gist-vim'
-NeoBundle 'bartman/git-wip'
+NeoBundle 'bartman/git-wip', { 'rtp': 'vim' }
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'vim-scripts/ingo-library'      " dependency of the next three
 NeoBundle 'vim-scripts/CountJump'         " dependency of the next two
