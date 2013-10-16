@@ -216,6 +216,12 @@ set noswapfile
 "set lazyredraw
 set ttyfast
 
+" folding {{{2
+
+"set foldmethod=marker
+set foldlevel=1
+set foldcolumn=5
+
 " key {,re}mappings {{{2
 set pastetoggle=<F2>
 
