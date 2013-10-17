@@ -168,6 +168,10 @@ function! SetSignColumnCKW()
     highlight SignifySignAdd    cterm=bold ctermbg=none  ctermfg=119
     highlight SignifySignDelete cterm=bold ctermbg=none  ctermfg=167
     highlight SignifySignChange cterm=bold ctermbg=none  ctermfg=227
+    highlight clear FoldColumn
+    highlight FoldColumn ctermbg=none ctermfg=magenta cterm=none
+    highlight LineNr ctermbg=none ctermfg=darkgrey cterm=bold
+    highlight Folded ctermbg=none cterm=none
 endfunction
 
 au! BufRead * exe SetSignColumnCKW()
@@ -220,7 +224,7 @@ set ttyfast
 
 "set foldmethod=marker
 set foldlevel=1
-set foldcolumn=5
+set foldcolumn=3
 
 " key {,re}mappings {{{2
 set pastetoggle=<F2>
@@ -695,5 +699,5 @@ set exrc
 
 " }}}1
 
-" vim: set foldmethod=marker foldlevel=1 foldcolumn=5 :
+" vim: set foldmethod=marker foldlevel=1 foldcolumn=3 :
 
