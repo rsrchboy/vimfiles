@@ -106,7 +106,6 @@ NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'vim-scripts/deb.vim'
 NeoBundle 'vim-scripts/log4perl.vim'
 NeoBundle 'zaiste/tmux.vim'
-NeoBundle 'tpope/vim-markdown'
 
 " Trial Bundles: maybe, maybe not!
 NeoBundle 'mhinz/vim-startify'
@@ -116,6 +115,7 @@ NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'apeschel/vim-syntax-syslog-ng'
 NeoBundle 'tpope/vim-obsession'
+NeoBundle 'plasticboy/vim-markdown'
 
 " Finalize: Actually check/install {{{2
 
@@ -307,8 +307,8 @@ let g:airline#extensions#readonly#symbol = '⭤'
 
 " Markdown: autocmds and settings {{{1
 " settings {{{2
-" github-style ``` markups -- for vim-markup bundle
-let g:markdown_fenced_languages = ['perl', 'ruby', 'erb=eruby']
+
+let g:vim_markdown_initial_foldlevel=1
 
 " }}}2
 
