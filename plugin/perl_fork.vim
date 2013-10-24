@@ -36,6 +36,7 @@ sub do_fixup {
     else {
         POSIX::setsid();
         exec  q{sh -c '(_ico="error"; git fixup 2>&1 >/tmp/foo-x && _ico="dialog-ok" ;  notify-send --icon=$_ico "git fixup" "`cat /tmp/foo-x`")'};
+        #exec  q{sh -c '(_ico="error"; git fixup 2>&1 >/tmp/foo-x && _ico="dialog-ok" ; gntp-send -s 192.168.5.1 --icon=$_ico "git fixup" "`cat /tmp/foo-x`")'};
     }
 
     return;
@@ -51,4 +52,4 @@ endif
 " something arcane happens here.
 let &cpo = s:save_cpo
 
-" /* vim: set foldmethod=marker : */
+" /* vim: set foldmethod=marker foldlevel=1 : */
