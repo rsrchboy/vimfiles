@@ -1,0 +1,10 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+our $VERSION = '0.17';
+
+use App::EditorTools;
+App::EditorTools->run;
+
