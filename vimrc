@@ -571,8 +571,8 @@ let g:tracTicketClause = 'owner=cweyl&status!=closed'
 let g:tracServerList   = {}
 
 " autocmds {{{2
-autocmd BufWinEnter Ticket:*      setlocal nonumber foldcolumn=3
-autocmd BufWinEnter Ticket:.Edit* setlocal filetype=tracwiki spell spelllang=en_us spellcapcheck=0 foldcolumn=3
+autocmd BufWinEnter Ticket:*      setlocal nonumber foldcolumn=0
+autocmd BufWinEnter Ticket:.Edit* setlocal filetype=tracwiki spell spelllang=en_us spellcapcheck=0 foldcolumn=0
 
 " }}}2
 
