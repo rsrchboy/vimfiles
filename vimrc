@@ -176,6 +176,12 @@ endfunction
 
 au! BufRead * exe SetSignColumnCKW()
 
+" folding {{{2
+
+"set foldmethod=marker
+set foldlevel=1
+set foldcolumn=3
+
 " }}}2
 
 " General Vim: Configuration {{{1
@@ -219,12 +225,6 @@ set noswapfile
 " XXX reexamine 'lazyredraw' vs 'ttyfast'
 "set lazyredraw
 set ttyfast
-
-" folding {{{2
-
-"set foldmethod=marker
-set foldlevel=1
-set foldcolumn=3
 
 " key {,re}mappings {{{2
 set pastetoggle=<F2>
