@@ -337,8 +337,11 @@ let g:startify_restore_position    = 1
 
 " custom header / footer {{{2
 let g:startify_custom_header       =
-    \ map(split(system('fortune | cowsay; echo .; echo .; uname -a'), '\n'), '"   ". v:val') + ['','']
+    \ map(split(system('fortune | cowsay -W 60 ; echo .; echo .; uname -a'), '\n'), '"   ". v:val') + ['','']
 "let g:startify_custom_footer = ''
+
+" autocmds {{{2
+autocmd BufWinEnter startify setlocal nonumber foldcolumn=0
 
 " files to skip including in the list {{{2
 let g:startify_skiplist = [
