@@ -341,7 +341,7 @@ let g:startify_custom_header       =
 "let g:startify_custom_footer = ''
 
 " autocmds {{{2
-autocmd BufWinEnter startify setlocal nonumber foldcolumn=0
+autocmd BufWinEnter startify* setlocal nonumber foldcolumn=0
 
 " files to skip including in the list {{{2
 let g:startify_skiplist = [
