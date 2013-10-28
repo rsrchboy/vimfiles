@@ -543,8 +543,11 @@ autocmd BufEnter   *.git/index silent normal gg0j
 
 " Start in insert mode for commit {{{3
 function! BufEnterCommit()
+  setlocal filetype=gitcommit
   setlocal nonumber
   setlocal spell spelllang=en_us spellcapcheck=0
+  setlocal foldcolumn=0
+  setlocal filetype=gitcommit
   normal gg0
   if getline('.') == ''
     start
@@ -552,11 +555,7 @@ function! BufEnterCommit()
 endfunction
 
 " filetype autocmds (e.g. for pull req, tag edits, etc...) {{{3
-" TODO: examine and refactor/consolidate, if at all possible
-"autocmd BufEnter *.git/*_EDITMSG exe BufEnterCommit()
-autocmd BufEnter *.git/COMMIT_EDITMSG exe BufEnterCommit()
-autocmd BufEnter .git/PULLREQ_EDITMSG set filetype=gitcommit
-autocmd BufEnter .git/TAG_EDITMSG     set filetype=gitcommit
+autocmd BufEnter *.git/*_EDITMSG exe BufEnterCommit()
 
 " Automatically remove fugitive buffers {{{3
 autocmd BufReadPost fugitive://* set bufhidden=delete
