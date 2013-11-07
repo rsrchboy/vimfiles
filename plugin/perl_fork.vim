@@ -19,6 +19,8 @@ perl <<EOP
 
 package ForkAndGitFixup;
 
+use v5.10;
+
 use utf8;
 use strict;
 use warnings FATAL => 'all';
@@ -26,9 +28,16 @@ no warnings 'redefine';
 
 use POSIX ':sys_wait_h';
 
+# TODO: use a real temp file
+# TODO: use configurable icons
+# TODO: use configurable gntp host/port
+
 sub do_fixup {
 
     local $SIG{CHLD} = 'IGNORE';
+
+    state $ok  = '/usr/share/icons/Neu/scalable/actions/gtk-add.svg';
+    state $nok = '/usr/share/icons/Neu/scalable/actions/gtk-no.svg';
 
     if (my $pid = fork()) {
         VIM::Msg("forked to $pid to run 'git fixup'");
@@ -36,8 +45,7 @@ sub do_fixup {
     else {
         POSIX::setsid();
         #exec  q{sh -c '(_ico="error"; git fixup 2>&1 >/tmp/foo-x && _ico="dialog-ok" ;  notify-send --icon=$_ico "git fixup" "`cat /tmp/foo-x`")'};
-        #exec  q{sh -c '(_ico="error"; git fixup 2>&1 >/tmp/foo-x && _ico="dialog-ok" ; gntp-send -s 192.168.5.1 --icon=$_ico "git fixup" "`cat /tmp/foo-x`")'};
-        exec  q{sh -c '(_ico="error" ; gntp-send "git fixup" "...is awesome!")'};
+        exec  qq{sh -c '(_ico="$nok"; git fixup 2>&1 >/tmp/foo-x && _ico="$ok" ; gntp-send -s 192.168.5.1:23053 "git fixup" "`cat /tmp/foo-x`" \$_ico)'};
     }
 
     return;
