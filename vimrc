@@ -84,12 +84,14 @@ NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'kakkyz81/evervim'
 
 " Perl: bundles
+NeoBundle 'vim-perl/vim-perl'
+NeoBundle 'vim-scripts/log4perl.vim'
 NeoBundle 'c9s/cpan.vim'
 NeoBundle 'LStinson/perlhelp-vim'
 NeoBundle 'vim-scripts/update_perl_line_directives'     " could use some work
 NeoBundle 'vim-scripts/syntax_check_embedded_perl.vim'  " could use some work
 
-" General Syntax And Filetype: bundles
+" General Syntax And Filetype Plugins: bundles
 NeoBundle 'hsitz/VimOrganizer'
 NeoBundle 'nono/jquery.vim'
 NeoBundle 'othree/html5-syntax.vim'
@@ -102,13 +104,11 @@ NeoBundle 'fmoralesc/vim-pinpoint'
 NeoBundle 'vim-scripts/tracwiki'
 NeoBundle 'vim-scripts/iptables'
 NeoBundle 'vim-scripts/rainbow_csv.vim'
-NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'vim-scripts/deb.vim'
-NeoBundle 'vim-scripts/log4perl.vim'
-NeoBundle 'zaiste/tmux.vim'
 
 " Vim Behavioural: startify and the like -- adding/tweaking "core" functionality
 NeoBundle 'mhinz/vim-startify'
+NeoBundle 'zaiste/tmux.vim'
 
 " Trial Bundles: maybe, maybe not!
 NeoBundle 'kablamo/vim-git-log'
