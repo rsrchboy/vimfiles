@@ -119,6 +119,7 @@ NeoBundle 'apeschel/vim-syntax-syslog-ng'
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'ekalinin/Dockerfile.vim'
+NeoBundle 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
 
 " Finalize: Actually check/install {{{2
 
