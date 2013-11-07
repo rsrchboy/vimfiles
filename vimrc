@@ -107,8 +107,10 @@ NeoBundle 'vim-scripts/deb.vim'
 NeoBundle 'vim-scripts/log4perl.vim'
 NeoBundle 'zaiste/tmux.vim'
 
-" Trial Bundles: maybe, maybe not!
+" Vim Behavioural: startify and the like -- adding/tweaking "core" functionality
 NeoBundle 'mhinz/vim-startify'
+
+" Trial Bundles: maybe, maybe not!
 NeoBundle 'kablamo/vim-git-log'
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'dhruvasagar/vim-table-mode'
@@ -116,6 +118,7 @@ NeoBundle 'bling/vim-airline'
 NeoBundle 'apeschel/vim-syntax-syslog-ng'
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'ekalinin/Dockerfile.vim'
 
 " Finalize: Actually check/install {{{2
 
@@ -311,7 +314,6 @@ let g:airline#extensions#readonly#symbol = '⭤'
 
 " Markdown: autocmds and settings {{{1
 " settings {{{2
-
 let g:vim_markdown_initial_foldlevel=1
 
 " }}}2
