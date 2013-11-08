@@ -36,6 +36,7 @@ sub do_fixup {
 
     local $SIG{CHLD} = 'IGNORE';
 
+    # TODO: embed these
     state $ok  = '/usr/share/icons/Neu/scalable/actions/gtk-add.svg';
     state $nok = '/usr/share/icons/Neu/scalable/actions/gtk-no.svg';
 
