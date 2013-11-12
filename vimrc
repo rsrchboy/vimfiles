@@ -287,7 +287,7 @@ au BufNewFile,BufRead *.t         set filetype=perl
 " SETTINGS: misc bundle settings {{{1
 " TODO: refactor this out properly {{{2
 
-let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/snipmate.vim/snippets' " ,~/.vim/bundle/*/snippets
+let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
 
 let g:git_no_map_default          = 1
 let g:bufExplorerShowRelativePath = 1
