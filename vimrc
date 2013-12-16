@@ -264,6 +264,7 @@ au BufNewFile,BufRead *.tt2       set filetype=tt2html
 au BufNewFile,BufRead Changes     set filetype=changelog
 au BufNewFile,BufRead *.zsh-theme set filetype=zsh
 au BufNewFile,BufRead *.snippets  set filetype=snippet
+au BufNewFile,BufRead .gitgot*    set filetype=yaml
 " this usually works, but sometimes vim thinks a .t file isn't Perl
 au BufNewFile,BufRead *.t         set filetype=perl
 
