@@ -413,7 +413,9 @@ nnoremap <leader>l :TagbarToggle<CR>
 nnoremap <leader>o :TagbarOpenAutoClose<CR>
 
 " settings {{{2
-"
+
+let g:tagbar_autoclose = 1
+
 " How to display different "custom" filetypes
 "
 " perl {{{3
