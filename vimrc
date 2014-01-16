@@ -636,12 +636,17 @@ vnoremap ,= :Tabularize /=><CR>
 
 " VimPipe: filetype configuration {{{1
 " autocmds {{{2
+"
+" Perl: {{{3
 " tapVerboseOutput appears to be significantly better than perl.tap
 autocmd FileType perl let b:vimpipe_filetype = "tapVerboseOutput"
-autocmd FileType perl let b:vimpipe_command  = "perl -I lib/ -"
+"autocmd FileType perl let b:vimpipe_command  = "perl -I lib/ -"
+autocmd FileType perl let b:vimpipe_command  = "source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -"
 
+" Puppet: {{{3
 autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-lint $T; rm $T"
 
+" }}}3
 " }}}2
 
 " Source Local Configs: ...if present {{{1
