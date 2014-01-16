@@ -78,7 +78,6 @@ NeoBundle 'vim-scripts/ConflictDetection' " 3-way merge motions TRIAL
 
 " Appish Or External Interface: bundles
 NeoBundle 'nsmgr8/vitra'   " trac
-NeoBundle 'lukaszkorecki/vim-GitHubDashBoard'
 NeoBundle 'vim-scripts/VimRepress'
 NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'kakkyz81/evervim'
@@ -105,6 +104,7 @@ NeoBundle 'vim-scripts/tracwiki'
 NeoBundle 'vim-scripts/iptables'
 NeoBundle 'vim-scripts/rainbow_csv.vim'
 NeoBundle 'vim-scripts/deb.vim'
+NeoBundle 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
 
 " Vim Behavioural: startify and the like -- adding/tweaking "core" functionality
 NeoBundle 'mhinz/vim-startify'
@@ -119,9 +119,19 @@ NeoBundle 'apeschel/vim-syntax-syslog-ng'
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'ekalinin/Dockerfile.vim'
-NeoBundle 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
+NeoBundle 'mattn/googletasks-vim'
+NeoBundle 'freitass/todo.txt-vim'
+NeoBundle 'ervandew/supertab'
+NeoBundle 'mklabs/vim-issues'
+NeoBundle 'Zuckonit/vim-airline-tomato'
 " how.... did I miss this one?!
 NeoBundle 'msanders/snipmate.vim'
+" to help handle other author's tabstop/etc settings w/o explicit modelines
+NeoBundle 'embear/vim-localvimrc'
+
+" Probation:
+NeoBundle 'junegunn/vim-github-dashboard'
+NeoBundle 'lukaszkorecki/vim-GitHubDashBoard'
 
 " Finalize: Actually check/install {{{2
 
