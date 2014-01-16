@@ -504,6 +504,13 @@ let g:disable_rainbow_csv_autodetect = 1
 
 " }}}2
 
+" Dashboard: Github at the moment {{{1
+" settings: {{{2
+
+let g:github_dashboard = {}
+let g:github_dashboard['emoji'] = 1
+let g:github_dashboard['RrschBoy'] = 1
+
 " VimOrganizer: plugin config {{{1
 " notes {{{2
 
