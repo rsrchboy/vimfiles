@@ -300,29 +300,32 @@ let g:tlTokenList                 = ['FIXME', 'XXX', 'TODO', 'TBD' ]
 
 let g:airline_powerline_fonts = 1
 
+let g:airline#extensions#tabline#enabled = 1
+
 " symbols {{{3
 " unicode symbols
-let g:airline_left_sep = '»'
-"let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
-"let g:airline_linecolumn_prefix = '␊ '
-let g:airline_linecolumn_prefix = '␤ '
-"let g:airline_linecolumn_prefix = '¶ '
-let g:airline#extensions#branch#symbol = '⎇ '
-let g:airline#extensions#paste#symbol = 'ρ'
-"let g:airline#extensions#paste#symbol = 'Þ'
-"let g:airline#extensions#paste#symbol = '∥'
-let g:airline#extensions#whitespace#symbol = 'Ξ'
+"let g:airline_left_sep = '»'
+""let g:airline_left_sep = '▶'
+"let g:airline_right_sep = '«'
+""let g:airline_right_sep = '◀'
+""let g:airline_linecolumn_prefix = '␊ '
+"let g:airline_linecolumn_prefix = '␤ '
+let g:airline_linecolumn_prefix = '¶ '
+"let g:airline#extensions#branch#symbol = '⎇ '
+let g:airline#extensions#branch#symbol = "\ue822"
+"let g:airline#extensions#paste#symbol = 'ρ'
+""let g:airline#extensions#paste#symbol = 'Þ'
+""let g:airline#extensions#paste#symbol = '∥'
+"let g:airline#extensions#whitespace#symbol = 'Ξ'
 
-" old vim-powerline symbols
-"let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-"let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-"let g:airline#extensions#branch#symbol = '⭠ '
-let g:airline#extensions#readonly#symbol = '⭤'
-"let g:airline_linecolumn_prefix = '⭡'
+"" old vim-powerline symbols
+""let g:airline_left_sep = '⮀'
+"let g:airline_left_alt_sep = '⮁'
+""let g:airline_right_sep = '⮂'
+"let g:airline_right_alt_sep = '⮃'
+""let g:airline#extensions#branch#symbol = '⭠ '
+"let g:airline#extensions#readonly#symbol = '⭤'
+""let g:airline_linecolumn_prefix = '⭡'
 
 " }}}2
 
