@@ -122,16 +122,19 @@ NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'mattn/googletasks-vim'
 NeoBundle 'freitass/todo.txt-vim'
 NeoBundle 'ervandew/supertab'
-NeoBundle 'mklabs/vim-issues'
 NeoBundle 'Zuckonit/vim-airline-tomato'
 " how.... did I miss this one?!
 NeoBundle 'msanders/snipmate.vim'
 " to help handle other author's tabstop/etc settings w/o explicit modelines
 NeoBundle 'embear/vim-localvimrc'
+NeoBundle 'jnurmine/Zenburn' " colorscheme
+NeoBundle 'groenewege/vim-less' " syntax
 
 " Probation:
 NeoBundle 'junegunn/vim-github-dashboard'
 NeoBundle 'lukaszkorecki/vim-GitHubDashBoard'
+" github issues query
+NeoBundle 'mklabs/vim-issues'
 
 " Finalize: Actually check/install {{{2
 
