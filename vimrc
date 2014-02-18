@@ -129,6 +129,7 @@ NeoBundle 'msanders/snipmate.vim'
 NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'jnurmine/Zenburn' " colorscheme
 NeoBundle 'groenewege/vim-less' " syntax
+NeoBundle 'christoomey/vim-tmux-navigator'
 
 " Probation:
 NeoBundle 'junegunn/vim-github-dashboard'
