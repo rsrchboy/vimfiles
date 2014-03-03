@@ -194,7 +194,7 @@ function! SetSignColumnCKW()
     highlight Folded ctermbg=none cterm=none
 endfunction
 
-au! BufRead * exe SetSignColumnCKW()
+"au! BufRead * exe SetSignColumnCKW()
 
 " folding {{{2
 
@@ -281,6 +281,8 @@ au BufNewFile,BufRead *.snippets  set filetype=snippet
 au BufNewFile,BufRead .gitgot*    set filetype=yaml
 " this usually works, but sometimes vim thinks a .t file isn't Perl
 au BufNewFile,BufRead *.t         set filetype=perl
+
+au BufNewFile,BufRead .gitconfig.local set filetype=gitconfig
 
 
 " }}}2
