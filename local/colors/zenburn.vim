@@ -7,6 +7,7 @@
 
 " TODO: submit as a PR/patch to Zenburn
 
+highlight SignColumn        ctermbg=233
 highlight SignifySignAdd    ctermbg=233  cterm=bold ctermfg=119
 highlight SignifySignDelete ctermbg=233  cterm=bold ctermfg=167
 highlight SignifySignChange ctermbg=233  cterm=bold ctermfg=227

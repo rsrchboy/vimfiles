@@ -179,23 +179,6 @@ let g:solarized_termtrans = 1
 
 " autocmds {{{2
 
-" XXX: should this be in the signify section??
-
-" FIXME: I suspect these can be naked autocmds off the ColorScheme event
-
-function! SetSignColumnCKW()
-    highlight clear SignColumn
-    highlight SignifySignAdd    cterm=bold ctermbg=none  ctermfg=119
-    highlight SignifySignDelete cterm=bold ctermbg=none  ctermfg=167
-    highlight SignifySignChange cterm=bold ctermbg=none  ctermfg=227
-    highlight clear FoldColumn
-    highlight FoldColumn ctermbg=none ctermfg=magenta cterm=none
-    highlight LineNr ctermbg=none ctermfg=darkgrey cterm=bold
-    highlight Folded ctermbg=none cterm=none
-endfunction
-
-"au! BufRead * exe SetSignColumnCKW()
-
 " folding {{{2
 
 "set foldmethod=marker
@@ -281,8 +264,6 @@ au BufNewFile,BufRead *.snippets  set filetype=snippet
 au BufNewFile,BufRead .gitgot*    set filetype=yaml
 " this usually works, but sometimes vim thinks a .t file isn't Perl
 au BufNewFile,BufRead *.t         set filetype=perl
-
-au BufNewFile,BufRead .gitconfig.local set filetype=gitconfig
 
 
 " }}}2
