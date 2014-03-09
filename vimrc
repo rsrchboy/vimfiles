@@ -159,7 +159,7 @@ endif
 " APPEARANCE: colors, themes, etc {{{1
 " vim settings {{{2
 
-colorscheme solarized
+colorscheme zenburn
 syntax on
 
 " solarized settings {{{2
