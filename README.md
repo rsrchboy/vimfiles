@@ -2,6 +2,8 @@
 
 This is a collection -- a substantially revised collection -- of vim plugins
 and configuration that I use.  It has been substatnially reduced from where it
+
+
 once was, simply as I'd concluded that I need to refactor, reassess, and
 ensure I use current and correct plugins, effectively.
 
