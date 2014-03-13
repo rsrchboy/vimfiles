@@ -420,18 +420,31 @@ let g:tagbar_type_perl = {
     \ 'deffile' : '$HOME/.vim/ctags/perl',
     \ 'kinds' : [
         \ 'p:packages:1:0',
+        \ 'e:extends',
         \ 'u:uses:1:0',
+        \ 'q:requires:1:0',
         \ 'c:constants:0:0',
         \ 'o:package globals:0:0',
         \ 'R:readonly:0:0',
         \ 'f:formats:0:0',
-        \ 'e:extends',
         \ 'r:roles:1:0',
         \ 'a:attributes',
         \ 's:subroutines',
+        \ 'A:alias:0:0',
         \ 'l:labels',
+        \ 'P:pod:0:0',
     \ ],
+  \ 'sro': '::',
+  \ 'kind2scope': {
+        \ 'p' : 'package',
+    \ },
+  \ 'scope2kind': {
+        \ 'package' : 'p',
+        \ 'roles' : 'p',
+        \ 'use' : 'p',
+    \ },
 \ }
+
 
 " puppet {{{3
 
