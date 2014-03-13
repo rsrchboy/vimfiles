@@ -157,27 +157,22 @@ endif
 " }}}2
 
 " APPEARANCE: colors, themes, etc {{{1
-" vim settings {{{2
+" colorscheme autocmds {{{2
 
-colorscheme zenburn
-syntax on
+au ColorScheme default   source local/colors/zenburn.vim
+au ColorScheme zenburn   source local/colors/zenburn.vim
+au ColorScheme solarized source local/colors/solarized.vim
 
-" solarized settings {{{2
+" colorscheme settings {{{2
+
+let g:zenburn_high_Contrast = 1
 
 let g:solarized_termtrans = 1
 "let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
 
-" keep these around for refernce for the time being...  set in autocmds, next
-"highlight clear SignColumn
-"highlight SignifySignAdd    cterm=bold ctermbg=none  ctermfg=green
-"highlight SignifySignDelete cterm=bold ctermbg=none  ctermfg=red
-"highlight SignifySignChange cterm=bold ctermbg=none  ctermfg=red
-"highlight SignifySignAdd    cterm=bold ctermbg=black  ctermfg=119
-"highlight SignifySignDelete cterm=bold ctermbg=black  ctermfg=167
-"highlight SignifySignChange cterm=bold ctermbg=black  ctermfg=227
+" vim settings {{{2
 
-
-" autocmds {{{2
+" see after/plugin/colorscheme.vim
 
 " folding {{{2
 
