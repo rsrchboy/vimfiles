@@ -159,9 +159,7 @@ endif
 " APPEARANCE: colors, themes, etc {{{1
 " colorscheme autocmds {{{2
 
-au ColorScheme default   source local/colors/zenburn.vim
-au ColorScheme zenburn   source local/colors/zenburn.vim
-au ColorScheme solarized source local/colors/solarized.vim
+" see after/plugin/colorscheme.vim
 
 " colorscheme settings {{{2
 
