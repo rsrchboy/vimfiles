@@ -60,7 +60,6 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'thinca/vim-localrc'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsaleh/vim-align'
-NeoBundle 'vim-scripts/AsyncCommand'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
