@@ -104,6 +104,7 @@ NeoBundle 'vim-scripts/iptables'
 NeoBundle 'vim-scripts/rainbow_csv.vim'
 NeoBundle 'vim-scripts/deb.vim'
 NeoBundle 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
+NeoBundle 'smancill/conky-syntax.vim'
 
 " Vim Behavioural: startify and the like -- adding/tweaking "core" functionality
 NeoBundle 'mhinz/vim-startify'
