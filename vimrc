@@ -101,7 +101,7 @@ NeoBundle 'evanmiller/nginx-vim-syntax'
 NeoBundle 'fmoralesc/vim-pinpoint'
 NeoBundle 'vim-scripts/tracwiki'
 NeoBundle 'vim-scripts/iptables'
-NeoBundle 'vim-scripts/rainbow_csv.vim'
+NeoBundle 'chrisbra/csv.vim'
 NeoBundle 'vim-scripts/deb.vim'
 NeoBundle 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
 NeoBundle 'smancill/conky-syntax.vim'
@@ -462,26 +462,6 @@ let g:GPGDefaultRecipients = ["cweyl@alumni.drew.edu"]
 
 " ok, this is more complex than it needs to be, but works :)
 let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
-
-" }}}2
-
-" CSV RainbowCSV: plugin config(s)  {{{1
-" notes {{{2
-
-" so we have a couple options here.  An intensely full-featured plugin for
-" csv/tsv/etc manipulation exists here:
-"
-"    https://github.com/chrisbra/csv.vim
-"
-" ...but appears to be overkill for my needs, as usually I'm only examining
-" csv files, not actually manipluating them in vim.  This one contains pretty
-" syntax highlighting (very pretty *and* very useful), without much else:
-"
-"     https://github.com/vim-scripts/rainbow_csv.vim
-
-" settings {{{2
-
-let g:disable_rainbow_csv_autodetect = 1
 
 " }}}2
 
