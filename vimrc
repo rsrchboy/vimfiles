@@ -364,7 +364,7 @@ let g:signify_skip_filetype                  = { 'gitcommit': 1 }
 
 " NOTE: This also saves the buffer to disk!
 let g:signify_update_on_bufenter    = 1
-let g:signify_update_on_focusgained = 0
+let g:signify_update_on_focusgained = 1
 let g:signify_cursorhold_normal     = 0
 let g:signify_cursorhold_insert     = 0
 
