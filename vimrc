@@ -157,6 +157,11 @@ endif
 
 " }}}2
 
+" AUGROUP: default group for commands defined in here
+" ...we switch back to the default at the end of this file.  Trial approach.
+augroup vimrc
+au!
+
 " APPEARANCE: colors, themes, etc {{{1
 " colorscheme autocmds {{{2
 
@@ -697,6 +702,9 @@ set exrc
 ""call Pl#Theme#RemoveSegment('fileformat')
 
 " }}}1
+
+" close out our augroup
+augroup END
 
 " vim: set foldmethod=marker foldlevel=1 foldcolumn=3 :
 
