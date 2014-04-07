@@ -130,6 +130,7 @@ NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'jnurmine/Zenburn' " colorscheme
 NeoBundle 'groenewege/vim-less' " syntax
 NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'edkolev/tmuxline.vim'
 
 " Probation:
 NeoBundle 'junegunn/vim-github-dashboard'
