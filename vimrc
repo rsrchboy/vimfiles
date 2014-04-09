@@ -131,6 +131,7 @@ NeoBundle 'jnurmine/Zenburn' " colorscheme
 NeoBundle 'groenewege/vim-less' " syntax
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'edkolev/tmuxline.vim'
+NeoBundle 'itchyny/calendar.vim'
 
 " Probation:
 NeoBundle 'junegunn/vim-github-dashboard'
@@ -558,6 +559,7 @@ autocmd BufEnter *.git/*_EDITMSG exe BufEnterCommit()
 " Automatically remove fugitive buffers {{{3
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+" }}}3
 " }}}2
 
 " Vitra: Trac UI for ViM (bundle config) {{{1
@@ -618,6 +620,14 @@ autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-
 
 " }}}3
 " }}}2
+
+" Calendar: configuration settings {{{1
+" settings {{{2
+
+let g:calendar_google_calendar = 1
+let g:calendar_google_task     = 1
+
+"}}}2
 
 " Source Local Configs: ...if present {{{1
 " ~/.vimrc.local {{{2
