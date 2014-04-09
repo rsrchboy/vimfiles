@@ -258,14 +258,15 @@ vnoremap <F8> :tabn<CR>
 cmap w!! w !sudo tee % >/dev/null
 
 " filetype autocommands {{{2
-au BufNewFile,BufRead *.psgi      set filetype=perl
-au BufNewFile,BufRead cpanfile    set filetype=perl
-au BufNewFile,BufRead *.tt        set filetype=tt2html
-au BufNewFile,BufRead *.tt2       set filetype=tt2html
-au BufNewFile,BufRead Changes     set filetype=changelog
-au BufNewFile,BufRead *.zsh-theme set filetype=zsh
-au BufNewFile,BufRead *.snippets  set filetype=snippet
-au BufNewFile,BufRead .gitgot*    set filetype=yaml
+au BufNewFile,BufRead *.psgi              set filetype=perl
+au BufNewFile,BufRead cpanfile            set filetype=perl
+au BufNewFile,BufRead *.tt                set filetype=tt2html
+au BufNewFile,BufRead *.tt2               set filetype=tt2html
+au BufNewFile,BufRead Changes             set filetype=changelog
+au BufNewFile,BufRead *.zsh-theme         set filetype=zsh
+au BufNewFile,BufRead *.snippets          set filetype=snippet
+au BufNewFile,BufRead .gitgot*            set filetype=yaml
+au BufNewFile,BufRead .oh-my-zsh/themes/* set filetype=zsh
 " this usually works, but sometimes vim thinks a .t file isn't Perl
 au BufNewFile,BufRead *.t         set filetype=perl
 
