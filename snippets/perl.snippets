@@ -32,6 +32,8 @@ snippet imm
 snippet pkg
 	package `substitute(substitute(expand("%:p:r"), '/', '::', 'g'), '^.*lib::', '', '')`;
 	${1}
+snippet PKG
+	`substitute(substitute(expand("%:p:r"), '/', '::', 'g'), '^.*lib::', '', '')`
 # easy Smart::Comments enabling
 snippet smart
 	# debugging...

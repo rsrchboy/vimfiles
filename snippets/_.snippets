@@ -1,1 +1,6 @@
-${1:#} /* vim: set ft=${2:perl.catalyst} : */${3}
+#${1:#} /* vim: set ft=${2:perl.catalyst} : */${3}
+snippet !lgpl
+	`call VimProcRead perl -MSoftware::License::LGPL_2_1 -E 'say Software::License::LGPL_2_1->new({holder => q{Chris Weyl <chris.weyl@wps.io>}})->notice' | sed 's/^/^# /g'`
+	${1}
+
+
