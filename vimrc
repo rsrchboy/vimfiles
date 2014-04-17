@@ -442,6 +442,7 @@ let g:tagbar_type_perl = {
         \ 'a:attributes',
         \ 's:subroutines',
         \ 'l:labels',
+        \ 'P:POD',
     \ ],
 \ }
 
