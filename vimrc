@@ -132,6 +132,7 @@ NeoBundle 'groenewege/vim-less' " syntax
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'itchyny/calendar.vim'
+NeoBundle 'kien/tabman.vim'
 
 " Probation:
 NeoBundle 'junegunn/vim-github-dashboard'
