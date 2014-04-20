@@ -193,6 +193,8 @@ func! FoldOnLeadingPounds(lnum)
 
     if l0 =~ '^##'
         return '>'.(matchend(getline(v:lnum),'^#\+')-1)
+    elseif l0 =~ '^#='
+        return '>0'
     endif
 
     return '='
