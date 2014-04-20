@@ -186,7 +186,7 @@ let g:solarized_termtrans = 1
 set foldlevel=1
 set foldcolumn=3
 
-" generic fold functions
+" generic fold functions {{{2
 
 func! FoldOnLeadingPounds(lnum)
     let l0 = getline(a:lnum)
@@ -199,10 +199,6 @@ func! FoldOnLeadingPounds(lnum)
 
     return '='
 endfunc
-
-" tmux-related autocmds {{{2
-
-au BufEnter * call vimproc#system_bg('tmux rename-window ' . expand('%s'))
 
 " }}}2
 
