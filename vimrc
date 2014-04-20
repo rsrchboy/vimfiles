@@ -186,6 +186,18 @@ let g:solarized_termtrans = 1
 set foldlevel=1
 set foldcolumn=3
 
+" generic fold functions
+
+func! FoldOnLeadingPounds(lnum)
+    let l0 = getline(a:lnum)
+
+    if l0 =~ '^##'
+        return '>'.(matchend(getline(v:lnum),'^#\+')-1)
+    endif
+
+    return '='
+endfunc
+
 " tmux-related autocmds {{{2
 
 au BufEnter * call vimproc#system_bg('tmux rename-window ' . expand('%s'))
