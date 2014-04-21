@@ -76,7 +76,6 @@ NeoBundle 'vim-scripts/ConflictMotions'   " 3-way merge motions TRIAL
 NeoBundle 'vim-scripts/ConflictDetection' " 3-way merge motions TRIAL
 
 " Appish Or External Interface: bundles
-NeoBundle 'nsmgr8/vitra'   " trac
 NeoBundle 'vim-scripts/VimRepress'
 NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'kakkyz81/evervim'
@@ -99,7 +98,6 @@ NeoBundle 'argent-smith/JSON.vim'
 NeoBundle 'tmatilai/gitolite.vim'
 NeoBundle 'evanmiller/nginx-vim-syntax'
 NeoBundle 'fmoralesc/vim-pinpoint'
-NeoBundle 'vim-scripts/tracwiki'
 NeoBundle 'vim-scripts/iptables'
 NeoBundle 'chrisbra/csv.vim'
 NeoBundle 'vim-scripts/deb.vim'
@@ -139,6 +137,10 @@ NeoBundle 'junegunn/vim-github-dashboard'
 NeoBundle 'lukaszkorecki/vim-GitHubDashBoard'
 " github issues query
 NeoBundle 'mklabs/vim-issues'
+
+" Attic: no longer used
+"NeoBundle 'vim-scripts/tracwiki'
+"NeoBundle 'nsmgr8/vitra'   " trac
 
 " Finalize: Actually check/install {{{2
 
