@@ -78,7 +78,6 @@ NeoBundle 'vim-scripts/ConflictDetection' " 3-way merge motions TRIAL
 " Appish Or External Interface: bundles
 NeoBundle 'vim-scripts/VimRepress'
 NeoBundle 'vim-scripts/vimwiki'
-NeoBundle 'kakkyz81/evervim'
 
 " Perl: bundles
 NeoBundle 'vim-perl/vim-perl'
@@ -141,6 +140,7 @@ NeoBundle 'mklabs/vim-issues'
 " Attic: no longer used
 "NeoBundle 'vim-scripts/tracwiki'
 "NeoBundle 'nsmgr8/vitra'   " trac
+"NeoBundle 'kakkyz81/evervim'
 
 " Finalize: Actually check/install {{{2
 
