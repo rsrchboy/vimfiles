@@ -132,6 +132,7 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'kien/tabman.vim'
+NeoBundle 'vim-scripts/Align'
 
 " Probation:
 NeoBundle 'junegunn/vim-github-dashboard'
