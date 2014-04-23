@@ -133,6 +133,7 @@ NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'kien/tabman.vim'
 NeoBundle 'vim-scripts/Align'
+NeoBundle 'vim-scripts/AutoAlign'
 
 " Probation:
 NeoBundle 'junegunn/vim-github-dashboard'
