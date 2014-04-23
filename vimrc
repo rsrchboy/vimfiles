@@ -47,7 +47,6 @@ NeoBundle 'Shougo/vimproc', {
 
 " General: bundles
 NeoBundle 'DataWraith/auto_mkdir'
-NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'jamessan/vim-gnupg'
@@ -62,6 +61,10 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsaleh/vim-align'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+
+" ColorSchemes:
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'jnurmine/Zenburn'
 
 " GIT And Version Controlish: bundles
 NeoBundle 'tpope/vim-fugitive'
@@ -102,17 +105,17 @@ NeoBundle 'chrisbra/csv.vim'
 NeoBundle 'vim-scripts/deb.vim'
 NeoBundle 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
 NeoBundle 'smancill/conky-syntax.vim'
+NeoBundle 'apeschel/vim-syntax-syslog-ng'
 
 " Vim Behavioural: startify and the like -- adding/tweaking "core" functionality
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'zaiste/tmux.vim'
+NeoBundle 'bling/vim-airline'
 
 " Trial Bundles: maybe, maybe not!
 NeoBundle 'kablamo/vim-git-log'
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'dhruvasagar/vim-table-mode'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'apeschel/vim-syntax-syslog-ng'
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'ekalinin/Dockerfile.vim'
@@ -124,7 +127,6 @@ NeoBundle 'Zuckonit/vim-airline-tomato'
 NeoBundle 'msanders/snipmate.vim'
 " to help handle other author's tabstop/etc settings w/o explicit modelines
 NeoBundle 'embear/vim-localvimrc'
-NeoBundle 'jnurmine/Zenburn' " colorscheme
 NeoBundle 'groenewege/vim-less' " syntax
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'edkolev/tmuxline.vim'
