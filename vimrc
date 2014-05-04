@@ -134,6 +134,9 @@ NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'kien/tabman.vim'
 NeoBundle 'vim-scripts/Align'
 NeoBundle 'vim-scripts/AutoAlign'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'scrooloose/nerdtree'
 
 " Probation:
 NeoBundle 'junegunn/vim-github-dashboard'
@@ -650,6 +653,18 @@ let g:calendar_google_calendar = 1
 let g:calendar_google_task     = 1
 
 "}}}2
+
+" NERDTree: configuration settings {{{1
+
+map <leader>l :NERDTreeToggle<CR>
+
+" close if we're the only window left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+" SuperTab: settings {{{1
+
+let g:SuperTabNoCompleteBefore = []
+let g:SuperTabNoCompleteAfter  = ['^', '\s']
 
 " Source Local Configs: ...if present {{{1
 " ~/.vimrc.local {{{2
