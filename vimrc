@@ -137,6 +137,7 @@ NeoBundle 'vim-scripts/AutoAlign'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'fatih/vim-go'
 
 " Probation:
 NeoBundle 'junegunn/vim-github-dashboard'
