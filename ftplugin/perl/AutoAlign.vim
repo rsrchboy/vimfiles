@@ -68,7 +68,8 @@ endif
 
 "  overloading '>' to keep things lined up {{{1
 ino <silent> > ><c-r>=AutoAlign(2)<cr>
-let b:autoalign_reqdpat2 = '^\(\s*["].\+["]\)\s*=>'
+"let b:autoalign_reqdpat2 = '^\(\s*["].\+["]\)\s*=>'
+let b:autoalign_reqdpat2 = '^\(\s*\S\+\)\s\+=>'
 let b:autoalign_notpat2  = '^\%(.\%(=>\(\s*array(\()\)\@!\)\@!\)\@!\)*$'
 let b:autoalign_trigger2 = '=>'
 let b:autoalign_cmd2     = "'a,.Align =>"
