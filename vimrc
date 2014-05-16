@@ -254,6 +254,7 @@ set noswapfile
 " XXX reexamine 'lazyredraw' vs 'ttyfast'
 "set lazyredraw
 set ttyfast
+set spellfile+=~/.vim/spell/en.utf-8.add
 
 " key {,re}mappings {{{2
 set pastetoggle=<F2>
