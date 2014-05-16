@@ -122,7 +122,6 @@ NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'mattn/googletasks-vim'
 NeoBundle 'freitass/todo.txt-vim'
 NeoBundle 'ervandew/supertab'
-NeoBundle 'Zuckonit/vim-airline-tomato'
 " how.... did I miss this one?!
 NeoBundle 'msanders/snipmate.vim'
 " to help handle other author's tabstop/etc settings w/o explicit modelines
@@ -149,6 +148,7 @@ NeoBundle 'mklabs/vim-issues'
 "NeoBundle 'vim-scripts/tracwiki'
 "NeoBundle 'nsmgr8/vitra'   " trac
 "NeoBundle 'kakkyz81/evervim'
+"NeoBundle 'Zuckonit/vim-airline-tomato'
 
 " Finalize: Actually check/install {{{2
 
