@@ -61,6 +61,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tsaleh/vim-align'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'scrooloose/nerdtree'
 
 " ColorSchemes:
 NeoBundle 'altercation/vim-colors-solarized'
@@ -135,7 +136,6 @@ NeoBundle 'vim-scripts/Align'
 NeoBundle 'vim-scripts/AutoAlign'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'fatih/vim-go'
 
 " Probation:
