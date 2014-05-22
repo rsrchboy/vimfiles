@@ -108,6 +108,7 @@ NeoBundle 'vim-scripts/deb.vim'
 NeoBundle 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
 NeoBundle 'smancill/conky-syntax.vim'
 NeoBundle 'apeschel/vim-syntax-syslog-ng'
+NeoBundle 'fatih/vim-go'
 
 " Vim Behavioural: startify and the like -- adding/tweaking "core" functionality
 NeoBundle 'mhinz/vim-startify'
@@ -137,7 +138,6 @@ NeoBundle 'vim-scripts/Align'
 NeoBundle 'vim-scripts/AutoAlign'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'fatih/vim-go'
 
 " Probation:
 NeoBundle 'junegunn/vim-github-dashboard'
