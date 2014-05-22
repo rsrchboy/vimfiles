@@ -25,3 +25,8 @@ plugins
 HashRef
 config
 dzil
+CurriedDelegation
+automagically
+coderefs
+coderef
+attribute's
