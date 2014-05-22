@@ -134,6 +134,9 @@ NeoBundle 'vim-scripts/Align'
 NeoBundle 'vim-scripts/AutoAlign'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'tomtom/tlib_vim'
+NeoBundle 'tomtom/tskeleton_vim'
+NeoBundle 'tomtom/tskeletons'
 
 " Probation:
 NeoBundle 'junegunn/vim-github-dashboard'
