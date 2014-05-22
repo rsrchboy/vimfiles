@@ -137,6 +137,7 @@ NeoBundle 'vim-scripts/AutoAlign'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'fatih/vim-go'
+NeoBundle 'Townk/vim-autoclose'
 
 " Probation:
 NeoBundle 'junegunn/vim-github-dashboard'
