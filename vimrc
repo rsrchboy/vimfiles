@@ -62,6 +62,7 @@ NeoBundle 'tsaleh/vim-align'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Townk/vim-autoclose'
 
 " ColorSchemes:
 NeoBundle 'altercation/vim-colors-solarized'
@@ -137,7 +138,6 @@ NeoBundle 'vim-scripts/AutoAlign'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'fatih/vim-go'
-NeoBundle 'Townk/vim-autoclose'
 
 " Probation:
 NeoBundle 'junegunn/vim-github-dashboard'
