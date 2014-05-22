@@ -43,7 +43,7 @@ NeoBundle 'Shougo/vimproc', {
     \ },
 \ }
 
-" loosely ordered.  we'll probably need to revisit this
+" loosely ordered.
 
 " General: bundles
 NeoBundle 'DataWraith/auto_mkdir'
@@ -54,7 +54,6 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'krisajenkins/vim-pipe'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'msanders/snipmate.vim'
-NeoBundle 'vim-scripts/bufexplorer.zip'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'thinca/vim-localrc'
 NeoBundle 'tpope/vim-surround'
@@ -63,6 +62,10 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'mhinz/vim-startify'
+NeoBundle 'zaiste/tmux.vim'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-scripts/bufexplorer.zip'
 
 " ColorSchemes:
 NeoBundle 'altercation/vim-colors-solarized'
@@ -83,6 +86,7 @@ NeoBundle 'vim-scripts/ConflictDetection' " 3-way merge motions TRIAL
 " Appish Or External Interface: bundles
 NeoBundle 'vim-scripts/VimRepress'
 NeoBundle 'vim-scripts/vimwiki'
+NeoBundle 'hsitz/VimOrganizer'
 
 " Perl: bundles
 NeoBundle 'vim-perl/vim-perl'
@@ -93,7 +97,6 @@ NeoBundle 'vim-scripts/update_perl_line_directives'     " could use some work
 NeoBundle 'vim-scripts/syntax_check_embedded_perl.vim'  " could use some work
 
 " General Syntax And Filetype Plugins: bundles
-NeoBundle 'hsitz/VimOrganizer'
 NeoBundle 'nono/jquery.vim'
 NeoBundle 'othree/html5-syntax.vim'
 NeoBundle 'puppetlabs/puppet-syntax-vim'
@@ -110,11 +113,6 @@ NeoBundle 'smancill/conky-syntax.vim'
 NeoBundle 'apeschel/vim-syntax-syslog-ng'
 NeoBundle 'fatih/vim-go'
 
-" Vim Behavioural: startify and the like -- adding/tweaking "core" functionality
-NeoBundle 'mhinz/vim-startify'
-NeoBundle 'zaiste/tmux.vim'
-NeoBundle 'bling/vim-airline'
-
 " Trial Bundles: maybe, maybe not!
 NeoBundle 'kablamo/vim-git-log'
 NeoBundle 'mhinz/vim-tmuxify'
@@ -125,8 +123,6 @@ NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'mattn/googletasks-vim'
 NeoBundle 'freitass/todo.txt-vim'
 NeoBundle 'ervandew/supertab'
-" how.... did I miss this one?!
-NeoBundle 'msanders/snipmate.vim'
 " to help handle other author's tabstop/etc settings w/o explicit modelines
 NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'groenewege/vim-less' " syntax
