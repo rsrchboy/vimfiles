@@ -2,3 +2,5 @@ doc/tags
 Powerline_default_default_fancy.cache
 .netrwhist
 bundle/
+cache/
+node_modules/
