@@ -281,6 +281,11 @@ vnoremap <F8> :tabn<CR>
 cmap w!! w !sudo tee % >/dev/null
 
 " filetype autocommands {{{2
+
+" NOTE: commands for specific filetypes are generally contained in
+" ftplugin/*.vim  This section concerns itself mainly with those commands
+" necessary to help vim in deciding what filetype a file actually is.
+
 au BufNewFile,BufRead *.psgi              set filetype=perl
 au BufNewFile,BufRead cpanfile            set filetype=perl
 au BufNewFile,BufRead *.tt                set filetype=tt2html
