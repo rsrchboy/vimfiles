@@ -137,6 +137,7 @@ NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'tomtom/tlib_vim'
 NeoBundle 'tomtom/tskeleton_vim'
 NeoBundle 'tomtom/tskeletons'
+NeoBundle 'vitalk/vim-simple-todo'
 
 " Probation:
 NeoBundle 'junegunn/vim-github-dashboard'
