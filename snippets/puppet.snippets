@@ -1,0 +1,18 @@
+# easy class template
+snippet class
+	class `substitute(substitute(expand("%:p:r"), '/', '::', 'g'), '\m^.*::\([a-zA-Z_0-9]\+\)::manifests::', '\1::', '')` {
+
+	    ${1}
+	}
+# auto-guessed name of the current class
+snippet CLASS
+	`substitute(substitute(expand("%:p:r"), '/', '::', 'g'), '\m^.*::\([a-zA-Z_0-9]\+\)::manifests::', '\1::', '')`
+snippet package
+	package { '${1:package name}': ensure => '${2:latest}' }
+snippet packages
+	package {
+	    [
+		    '${1:package name}',
+		]:
+		ensure => '${2:latest}',
+	}
