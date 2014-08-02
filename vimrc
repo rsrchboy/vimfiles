@@ -414,6 +414,10 @@ let g:signify_cursorhold_insert     = 0
 "let g:signify_mapping_toggle = '<leader>gt'
 "let g:signify_mapping_toggle_highlight = '<leader>gh'
 
+" autocmds {{{2
+
+autocmd BufEnter * call sy#start(b:sy_path)
+
 " }}}2
 
 " Evervim: Interface to evernote.com {{{1
