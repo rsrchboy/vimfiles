@@ -416,7 +416,13 @@ let g:signify_cursorhold_insert     = 0
 
 " autocmds {{{2
 
-autocmd BufEnter * call sy#start(b:sy_path)
+autocmd BufEnter * call SignifyOnBufEnter()
+
+func! SignifyOnBufEnter()
+    if exists('b:sys_path')
+        call sy#start(b:sy_path)
+    endif
+endfunc
 
 " }}}2
 
