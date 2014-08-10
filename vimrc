@@ -170,7 +170,7 @@ endif
 
 " }}}2
 
-" AUGROUP: default group for commands defined in here
+" AUGROUP BEGIN: "vimrc" group for commands defined in this file
 " ...we switch back to the default at the end of this file.  Trial approach.
 augroup vimrc
 au!
@@ -767,7 +767,7 @@ set exrc
 
 " }}}1
 
-" close out our augroup
+" AUGROUP END: close the "vimrc" group for commands defined in this file
 augroup END
 
 " vim: set foldmethod=marker foldlevel=1 foldcolumn=3 :
