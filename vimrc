@@ -596,6 +596,9 @@ function! BufEnterCommit()
 endfunction
 
 " filetype autocmds (e.g. for pull req, tag edits, etc...) {{{3
+
+" the 'hub' tool creates a number of comment files formatted in the same way
+" as a git commit message.
 autocmd BufEnter *.git/*_EDITMSG exe BufEnterCommit()
 
 " Automatically remove fugitive buffers {{{3
