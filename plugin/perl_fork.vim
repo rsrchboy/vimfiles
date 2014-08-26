@@ -26,9 +26,9 @@ use strict;
 use warnings FATAL => 'all';
 no warnings 'redefine';
 
+use File::Temp 'tempfile';
 use POSIX ':sys_wait_h';
 
-# TODO: use a real temp file
 # TODO: use configurable icons
 # TODO: use configurable gntp host/port
 
@@ -45,8 +45,10 @@ sub do_fixup {
     }
     else {
         POSIX::setsid();
+        umask 0077;
+        my (undef, $tf) = tempfile 'growl-fixup-notification.XXXXXX', TMPDIR => 1, OPEN => 0;
         #exec  q{sh -c '(_ico="error"; git fixup 2>&1 >/tmp/foo-x && _ico="dialog-ok" ;  notify-send --icon=$_ico "git fixup" "`cat /tmp/foo-x`")'};
-        exec  qq{sh -c '(_ico="$nok"; git fixup 2>&1 >/tmp/foo-x && _ico="$ok" ; gntp-send -s 127.0.0.1:23053 "git fixup" "`cat /tmp/foo-x`" \$_ico)'};
+        exec  qq{sh -c '(_i="$nok"; git fixup 2>&1 >$tf && _i="$ok"; gntp-send -s 127.0.0.1:23053 "git fixup" "`cat $tf`" \$_i; rm $tf)'};
     }
 
     return;
