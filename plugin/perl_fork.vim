@@ -46,7 +46,7 @@ sub do_fixup {
     else {
         POSIX::setsid();
         #exec  q{sh -c '(_ico="error"; git fixup 2>&1 >/tmp/foo-x && _ico="dialog-ok" ;  notify-send --icon=$_ico "git fixup" "`cat /tmp/foo-x`")'};
-        exec  qq{sh -c '(_ico="$nok"; git fixup 2>&1 >/tmp/foo-x && _ico="$ok" ; gntp-send -s 192.168.5.1:23053 "git fixup" "`cat /tmp/foo-x`" \$_ico)'};
+        exec  qq{sh -c '(_ico="$nok"; git fixup 2>&1 >/tmp/foo-x && _ico="$ok" ; gntp-send -s 127.0.0.1:23053 "git fixup" "`cat /tmp/foo-x`" \$_ico)'};
     }
 
     return;
