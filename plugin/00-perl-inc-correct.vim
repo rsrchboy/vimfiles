@@ -19,6 +19,9 @@ use utf8;
 use strict;
 use warnings;
 
+# be prepared to bootstrap w/our own local::lib in case one isn't installed
+# on the system already
+use lib "$ENV{HOME}/.vim/bootstrap/perl5/lib";
 use local::lib "$ENV{HOME}/.vim/perl5";
 
 BEGIN {
