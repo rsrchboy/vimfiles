@@ -138,6 +138,7 @@ NeoBundle 'tomtom/tlib_vim'
 NeoBundle 'tomtom/tskeleton_vim'
 NeoBundle 'tomtom/tskeletons'
 NeoBundle 'vitalk/vim-simple-todo'
+NeoBundle 'kurayama/systemd-vim-syntax'
 
 " Probation:
 NeoBundle 'junegunn/vim-github-dashboard'
