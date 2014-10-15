@@ -28,7 +28,7 @@ syn match perlStatementMisc      "\<\%(role\|parameter\)"
 " This should be a region, but for now...
 syn match perlStatementMisc      "\<\%(try\|catch\|finally\)"
 
-syn keyword perlTodo ABSTRACT: TODO TODO: TBD TBD: FIXME FIXME: XXX XXX: NOTE NOTE: contained
+syn keyword perlTodo PODNAME: ABSTRACT: TODO TODO: TBD TBD: FIXME FIXME: XXX XXX: NOTE NOTE: contained
 
 if !exists("perl_include_pod") || perl_include_pod == 1
   " Include a while extra syntax file
