@@ -41,3 +41,9 @@ PODNAME
 cweyl
 DDL
 diffs
+App::Cmd
+dbicadmin
+sqlite3
+sql
+db
+autodie
