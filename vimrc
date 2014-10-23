@@ -418,10 +418,11 @@ let g:signify_cursorhold_insert     = 0
 " autocmds {{{2
 
 autocmd BufEnter * call SignifyOnBufEnter()
+autocmd WinEnter * call SignifyOnBufEnter()
 
 func! SignifyOnBufEnter()
-    if exists('b:sys_path')
-        call sy#start(b:sy_path)
+    if exists('b:sy_path')
+        call sy#start()
     endif
 endfunc
 
@@ -555,10 +556,8 @@ endfunction
 nnoremap <Leader>gs :Gstatus<Enter>
 nnoremap <Leader>gd :call Gitv_OpenGitCommand("diff --no-color", 'new')<CR>
 nnoremap <Leader>gD :call Gitv_OpenGitCommand("diff --no-color --cached %", 'new')<CR>
-nnoremap <Leader>ga :Gwrite<Enter>
+nnoremap <Leader>ga :call RunGitWrite()<CR>
 nnoremap <Leader>gc :Gcommit<Enter>
-" XXX trial run here
-"nnoremap <Leader>gf :Git fixup<Enter>
 nnoremap <Leader>gf :call RunGitFixup()<CR>
 
 
