@@ -8,14 +8,10 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-function! RunGitFixup()
-  perl ForkAndGitFixup::do_fixup
-endfunction
-
 " Forking: implementation {{{1
 if has('perl')
 perl <<EOP
-# line 19 "~/.vim/plugin/perl_fork.vim"
+# line 15 "~/.vim/plugin/growl_on_fixup_commit.vim"
 
 package ForkAndGitFixup;
 

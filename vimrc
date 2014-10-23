@@ -534,6 +534,20 @@ let g:github_dashboard['RrschBoy'] = 1
 " }}}2
 
 " Fugitive And Git: fugitive (git) mappings and config {{{1
+
+" helper functions {{{2
+
+function! RunGitFixup()
+    perl ForkAndGitFixup::do_fixup
+    call SignifyOnBufEnter()
+endfunction
+
+function! RunGitWrite()
+    execute "Gwrite"
+    call SignifyOnBufEnter()
+endfunction
+
+
 " {,re}mappings {{{2
 " this is a cross between the old git-vim commands I'm used to, but invoking
 " fugitive instead.
