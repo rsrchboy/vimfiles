@@ -1,12 +1,17 @@
-" Sample installation test.
+" Sample configurations test.
+set verbose=1
 
-set nocompatible               " Be iMproved
+let path = expand('~/test-bundle/'.fnamemodify(expand('<sfile>'), ':t:r'))
 
-if has('vim_starting')
-  set runtimepath+=.
+if isdirectory(path)
+  let rm_command = neobundle#util#is_windows() ? 'rmdir /S /Q' : 'rm -rf'
+  call system(printf('%s "%s"', rm_command, path))
 endif
 
-call neobundle#rc(expand('~/test-bundle/'))
+let neobundle#types#git#default_protocol =
+      \ exists('$http_proxy') ? 'https' : 'git'
+
+call neobundle#begin(path)
 
 " Let NeoBundle manage NeoBundle
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -26,10 +31,11 @@ NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 NeoBundle 'L9'
 NeoBundle 'FuzzyFinder'
 NeoBundle 'rails.vim'
-" Non github repos
-NeoBundle 'git://git.wincent.com/command-t.git'
 " Non git repos
 NeoBundle 'http://svn.macports.org/repository/macports/contrib/mpvim/'
 NeoBundle 'https://bitbucket.org/ns9tks/vim-fuzzyfinder'
 
+call neobundle#end()
+
 filetype plugin indent on     " Required!
+
