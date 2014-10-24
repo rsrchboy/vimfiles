@@ -27,9 +27,9 @@ if has('vim_starting')
     endif
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))
-
 " Bundles: define our bundles, etc {{{2
+
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " and include a non-embedded version
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -151,6 +151,8 @@ NeoBundle 'mklabs/vim-issues'
 "NeoBundle 'nsmgr8/vitra'   " trac
 "NeoBundle 'kakkyz81/evervim'
 "NeoBundle 'Zuckonit/vim-airline-tomato'
+
+call neobundle#end()
 
 " Finalize: Actually check/install {{{2
 
