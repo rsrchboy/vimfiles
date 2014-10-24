@@ -1,14 +1,16 @@
-set nocompatible                " recommend
+" Basic commands test.
+set verbose=1
 
-let testdir = expand('~/neobundle-test/bundles', 1)
+let path = expand('~/test-bundle/'.fnamemodify(expand('<sfile>'), ':t:r'))
 
-filetype off                    " required!
-
-if has('vim_starting')
-  execute 'set' 'runtimepath+='.getcwd()
+if isdirectory(path)
+  let rm_command = neobundle#util#is_windows() ? 'rmdir /S /Q' : 'rm -rf'
+  call system(printf('%s "%s"', rm_command, path))
 endif
 
-call neobundle#rc(expand(testdir, 1))
+call mkdir(path, 'p')
+
+call neobundle#begin(path)
 
 let g:neobundle#types#git#default_protocol = 'https'
 
@@ -18,14 +20,8 @@ let g:neobundle#types#git#default_protocol = 'https'
 " Original repositories in github.
 NeoBundle 'Shougo/neocomplcache-clang.git'
 
-" Omit suffix.
-NeoBundle 'Shougo/vimshell'
-
 " Vim-script repositories.
 NeoBundle 'rails.vim'
-
-" Non-github repos.
-NeoBundle 'git://git.wincent.com/command-t.git'
 
 " Username with dashes.
 NeoBundle 'vim-scripts/ragtag.vim'
@@ -97,7 +93,6 @@ call neobundle#source(['The-NERD-tree'])
 
 NeoBundleLazy 'masudaK/vim-python'
 NeoBundleLazy 'klen/python-mode'
-autocmd FileType python* NeoBundleSource python-mode
 
 NeoBundleLazy 'Rip-Rip/clang_complete', {
       \ 'autoload' : {
@@ -110,6 +105,11 @@ NeoBundle 'bronzehedwick/impactjs-colorscheme', {'script_type' : 'colors'}
 NeoBundle 'https://raw.github.com/m2ym/rsense/master/etc/rsense.vim',
        \ {'script_type' : 'plugin'}
 
+" Fetch only.
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+call neobundle#end()
+
 filetype plugin indent on       " required!
 
 " Should not break helptags.
@@ -120,7 +120,3 @@ set wildignore+=.git
 set wildignore+=.git/*
 set wildignore+=*/.git/*
 
-" Fetch only.
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-autocmd VimEnter * NeoBundleCheck

@@ -1,7 +1,6 @@
 "=============================================================================
-" FILE: neobundle_vim_scripts.vim
+" FILE: neobundle_vim_recipes.vim
 " AUTHOR:  Shougo Matsushita <Shougo.Matsu@gmail.com>
-" Last Modified: 27 Dec 2012.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -29,12 +28,12 @@ set cpo&vim
 
 let s:repository_cache = []
 
-function! neobundle#sources#neobundle_vim_scripts#define() "{{{
+function! neobundle#sources#neobundle_vim_recipes#define() "{{{
   return s:source
 endfunction"}}}
 
 let s:source = {
-      \ 'name' : 'neobundle-vim-scripts',
+      \ 'name' : 'neobundle-vim-recipes',
       \ 'short_name' : 'neobundle',
       \ }
 
@@ -66,9 +65,9 @@ function! s:get_repository_plugins(context) "{{{
 
       if !has_key(data, 'name') || !has_key(data, 'path')
         call unite#print_error(
-              \ '[neobundle/search:neobundle-vim-scripts] ' . path)
+              \ '[neobundle/search:neobundle-vim-recipes] ' . path)
         call unite#print_error(
-              \ '[neobundle/search:neobundle-vim-scripts] ' .
+              \ '[neobundle/search:neobundle-vim-recipes] ' .
               \ 'The recipe file format is wrong.')
         continue
       endif

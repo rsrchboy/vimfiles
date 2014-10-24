@@ -1,7 +1,6 @@
 "=============================================================================
 " FILE: vim_scripts_org.vim
 " AUTHOR:  Shougo Matsushita <Shougo.Matsu@gmail.com>
-" Last Modified: 02 Dec 2012.
 " License: MIT license  {{{
 "     Permission is hereby granted, free of charge, to any person obtaining
 "     a copy of this software and associated documentation files (the
@@ -27,7 +26,7 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-let s:Cache = vital#of('unite.vim').import('System.Cache')
+let s:Cache = vital#of('unite').import('System.Cache')
 
 let s:repository_cache = []
 
@@ -41,13 +40,6 @@ let s:source = {
       \ }
 
 function! s:source.gather_candidates(args, context) "{{{
-  if !executable('curl') && !executable('wget')
-    call unite#print_error(
-          \ '[neobundle/search:vim-scripts.org] '.
-          \ 'curl or wget command is not available!')
-    return []
-  endif
-
   let repository = 'http://vim-scripts.org/api/scripts_recent.json'
 
   call unite#print_message(
@@ -63,7 +55,7 @@ function! s:source.gather_candidates(args, context) "{{{
         \ 'source__script_type' : s:convert2script_type(v:val.raw_type),
         \ 'source__description' : v:val.description,
         \ 'source__options' : [],
-        \ 'action__uri' : 'https://github.com/vim-scripts/' . v:val.uri,
+        \ 'action__uri' : v:val.uri,
         \ }")
   catch
     call unite#print_error(
@@ -100,6 +92,11 @@ function! s:get_repository_plugins(context, path) "{{{
       let cmd = 'curl --fail -s -o "' . temp . '" '. a:path
     elseif executable('wget')
       let cmd = 'wget -q -O "' . temp . '" ' . a:path
+    else
+      call unite#print_error(
+            \ '[neobundle/search:vim-scripts.org] '.
+            \ 'curl or wget command is not available!')
+      return []
     endif
 
     let result = unite#util#system(cmd)
