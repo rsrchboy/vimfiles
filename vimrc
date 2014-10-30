@@ -81,8 +81,11 @@ NeoBundle 'jnurmine/Zenburn'
 " GIT And Version Controlish: bundles
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/gist-vim'
+NeoBundleLazy 'mattn/webapi-vim'
+NeoBundleLazy 'mattn/gist-vim', {
+\  'autoload': { 'commands': { 'name': [ 'Gist' ] } },
+\  'depends':  [ 'mattn/webapi-vim' ],
+\}
 NeoBundle 'bartman/git-wip', { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'vim-scripts/ingo-library'      " dependency of the next three
