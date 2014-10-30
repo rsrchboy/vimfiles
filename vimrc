@@ -10,6 +10,13 @@ set nocompatible
 " NeoBundle: NeoBundle for bundle/plugin management {{{1
 " notes {{{2
 
+" A pretty bog-simple list of plugins; few fancy things so far, though I
+" really ought to enable lazy-loading, etc on some.
+"
+" Note that no real attention is paid to making sure everything works on
+" Windows systems.  If the information is there, I'll put it in, but
+" otherwise...  Heck, it's been quite some time, and likely to be even longer.
+"
 " see also: https://github.com/Shougo/neobundle.vim
 
 " Setup: setup NB proper; bootstrap from embedded if needs be {{{2
