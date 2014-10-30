@@ -83,7 +83,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/gist-vim'
-NeoBundle 'bartman/git-wip', { 'rtp': 'vim', 'build': { 'unix': 'ln -s `pwd`/git-wip ~/bin/' } }
+NeoBundle 'bartman/git-wip', { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
 NeoBundle 'mhinz/vim-signify'
 NeoBundle 'vim-scripts/ingo-library'      " dependency of the next three
 NeoBundle 'vim-scripts/CountJump'         " dependency of the next two
