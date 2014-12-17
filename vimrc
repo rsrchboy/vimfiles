@@ -84,7 +84,7 @@ NeoBundle 'vim-scripts/ConflictMotions'   " 3-way merge motions TRIAL
 NeoBundle 'vim-scripts/ConflictDetection' " 3-way merge motions TRIAL
 
 " Appish Or External Interface: bundles
-NeoBundle 'vim-scripts/VimRepress'
+NeoBundleLazy 'vim-scripts/VimRepress' " FIXME: needs command triggers
 NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'hsitz/VimOrganizer'
 
