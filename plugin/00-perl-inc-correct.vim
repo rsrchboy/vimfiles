@@ -14,7 +14,7 @@ if has('perl')
 perl << EOP
 # line 15 "~/.vim/plugin/00-perl-inc-correct.vim"
 
-use v5.14;
+use v5.10;
 use utf8;
 use strict;
 use warnings;
