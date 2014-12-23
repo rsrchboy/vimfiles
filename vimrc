@@ -88,10 +88,10 @@ NeoBundleLazy 'mattn/gist-vim', {
 \}
 NeoBundle 'bartman/git-wip', { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
 NeoBundle 'mhinz/vim-signify'
-NeoBundle 'vim-scripts/ingo-library'      " dependency of the next three
-NeoBundle 'vim-scripts/CountJump'         " dependency of the next two
-NeoBundle 'vim-scripts/ConflictMotions'   " 3-way merge motions TRIAL
-NeoBundle 'vim-scripts/ConflictDetection' " 3-way merge motions TRIAL
+NeoBundle 'vim-scripts/ingo-library'
+NeoBundle 'vim-scripts/CountJump', { 'depends': [ 'vim-scripts/ingo-library' ] }
+NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/CountJump' ] }
+NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump' ] }
 
 " Appish Or External Interface: bundles
 NeoBundleLazy 'vim-scripts/VimRepress' " FIXME: needs command triggers
@@ -99,12 +99,25 @@ NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'hsitz/VimOrganizer'
 
 " Perl: bundles
+
+" mainly syntax:
 NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'vim-scripts/log4perl.vim'
-NeoBundle 'c9s/cpan.vim'
+
+" mainly plugins:
 NeoBundle 'LStinson/perlhelp-vim'
+" being lazy here might be premature optimization.  hm.
+NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetype': 'perl' } }
+" these are purely ftplugin bundles (vim)
 NeoBundle 'vim-scripts/update_perl_line_directives'     " could use some work
 NeoBundle 'vim-scripts/syntax_check_embedded_perl.vim'  " could use some work
+
+
+" lazy
+" recipies:
+"   depends
+"   autoload rules
+"
 
 " General Syntax And Filetype Plugins: bundles
 NeoBundle 'nono/jquery.vim'
@@ -151,10 +164,10 @@ NeoBundle 'vitalk/vim-simple-todo'
 NeoBundle 'kurayama/systemd-vim-syntax'
 
 " Probation:
-NeoBundle 'junegunn/vim-github-dashboard'
-NeoBundle 'lukaszkorecki/vim-GitHubDashBoard'
+NeoBundleLazy 'junegunn/vim-github-dashboard'
+NeoBundleLazy 'lukaszkorecki/vim-GitHubDashBoard'
 " github issues query
-NeoBundle 'mklabs/vim-issues'
+NeoBundleLazy 'mklabs/vim-issues'
 
 " Attic: no longer used
 "NeoBundle 'vim-scripts/tracwiki'
