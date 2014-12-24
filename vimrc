@@ -574,6 +574,10 @@ function! RunGitWrite()
     call SignifyOnBufEnter()
 endfunction
 
+function! RunGitAddParts()
+    execute "Git add -pi %"
+    call SignifyOnBufEnter()
+endfunction
 
 " {,re}mappings {{{2
 " this is a cross between the old git-vim commands I'm used to, but invoking
@@ -586,8 +590,7 @@ nnoremap <Leader>ga :call RunGitWrite()<CR>
 nnoremap <Leader>gc :Gcommit<Enter>
 nnoremap <Leader>gf :call RunGitFixup()<CR>
 
-
-nnoremap <Leader>gA :Git add -pi %<Enter>
+nnoremap <Leader>gA :call RunGitAddParts()<CR>
 nnoremap <Leader>gl :Git lol<Enter>
 nnoremap <Leader>gD :Git! diff --word-diff %<Enter>
 nnoremap <Leader>gp :Git push<Enter>
