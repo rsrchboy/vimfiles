@@ -163,6 +163,9 @@ NeoBundle 'tomtom/tskeletons'
 NeoBundle 'vitalk/vim-simple-todo'
 NeoBundle 'kurayama/systemd-vim-syntax'
 
+" jira 'integration'
+NeoBundle 'mnpk/vim-jira-complete'
+
 " Probation:
 NeoBundleLazy 'junegunn/vim-github-dashboard'
 NeoBundleLazy 'lukaszkorecki/vim-GitHubDashBoard'
