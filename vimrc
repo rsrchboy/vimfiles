@@ -483,7 +483,7 @@ let g:gist_get_multiplefile       = 1
 " mappings {{{2
 
 nnoremap <leader>l :TagbarToggle<CR>
-nnoremap <leader>o :TagbarOpenAutoClose<CR>
+nnoremap <leader>q :TagbarOpenAutoClose<CR>
 
 " settings {{{2
 
