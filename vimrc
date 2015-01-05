@@ -165,6 +165,7 @@ NeoBundle 'kurayama/systemd-vim-syntax'
 
 " jira 'integration'
 NeoBundle 'mnpk/vim-jira-complete'
+NeoBundle 'RsrchBoy/vim-jira-open'
 
 " Probation:
 NeoBundleLazy 'junegunn/vim-github-dashboard'
