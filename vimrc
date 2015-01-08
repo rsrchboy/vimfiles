@@ -488,8 +488,8 @@ let g:gist_get_multiplefile       = 1
 " Tagbar And CTags: configuration {{{1
 " mappings {{{2
 
-nnoremap <leader>l :TagbarToggle<CR>
-nnoremap <leader>q :TagbarOpenAutoClose<CR>
+nnoremap <leader>q :TagbarToggle<CR>
+nnoremap <leader>w :TagbarOpenAutoClose<CR>
 
 " settings {{{2
 
