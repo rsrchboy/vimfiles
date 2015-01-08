@@ -41,6 +41,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " and include a non-embedded version
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+" General: bundles {{{3
 NeoBundle 'Shougo/vimproc', {
     \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
@@ -52,7 +53,6 @@ NeoBundle 'Shougo/vimproc', {
 
 " loosely ordered.
 
-" General: bundles
 NeoBundle 'DataWraith/auto_mkdir'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'godlygeek/tabular'
@@ -74,11 +74,11 @@ NeoBundle 'zaiste/tmux.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'vim-scripts/bufexplorer.zip'
 
-" ColorSchemes:
+" ColorSchemes: {{{3
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'jnurmine/Zenburn'
 
-" GIT And Version Controlish: bundles
+" GIT And Version Controlish: bundles {{{3
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'gregsexton/gitv'
 NeoBundleLazy 'mattn/webapi-vim'
@@ -93,12 +93,12 @@ NeoBundle 'vim-scripts/CountJump', { 'depends': [ 'vim-scripts/ingo-library' ] }
 NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/CountJump' ] }
 NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump' ] }
 
-" Appish Or External Interface: bundles
+" Appish Or External Interface: bundles {{{3
 NeoBundleLazy 'vim-scripts/VimRepress' " FIXME: needs command triggers
 NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'hsitz/VimOrganizer'
 
-" Perl: bundles
+" Perl: bundles {{{3
 
 " mainly syntax:
 NeoBundle 'vim-perl/vim-perl'
@@ -119,7 +119,7 @@ NeoBundle 'vim-scripts/syntax_check_embedded_perl.vim'  " could use some work
 "   autoload rules
 "
 
-" General Syntax And Filetype Plugins: bundles
+" General Syntax And Filetype Plugins: bundles {{{3
 NeoBundle 'nono/jquery.vim'
 NeoBundle 'othree/html5-syntax.vim'
 NeoBundle 'puppetlabs/puppet-syntax-vim'
@@ -136,7 +136,7 @@ NeoBundle 'smancill/conky-syntax.vim'
 NeoBundle 'apeschel/vim-syntax-syslog-ng'
 NeoBundle 'fatih/vim-go'
 
-" Trial Bundles: maybe, maybe not!
+" Trial Bundles: maybe, maybe not! {{{3
 NeoBundle 'kablamo/vim-git-log'
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'dhruvasagar/vim-table-mode'
@@ -167,17 +167,19 @@ NeoBundle 'kurayama/systemd-vim-syntax'
 NeoBundle 'mnpk/vim-jira-complete'
 NeoBundle 'RsrchBoy/vim-jira-open'
 
-" Probation:
+" Probation: {{{3
 NeoBundleLazy 'junegunn/vim-github-dashboard'
 NeoBundleLazy 'lukaszkorecki/vim-GitHubDashBoard'
 " github issues query
 NeoBundleLazy 'mklabs/vim-issues'
 
-" Attic: no longer used
+" Attic: no longer used {{{3
 "NeoBundle 'vim-scripts/tracwiki'
 "NeoBundle 'nsmgr8/vitra'   " trac
 "NeoBundle 'kakkyz81/evervim'
 "NeoBundle 'Zuckonit/vim-airline-tomato'
+
+" }}}3
 
 call neobundle#end()
 
