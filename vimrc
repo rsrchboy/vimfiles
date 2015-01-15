@@ -493,7 +493,7 @@ nnoremap <leader>w :TagbarOpenAutoClose<CR>
 
 " settings {{{2
 
-let g:tagbar_autoclose = 1
+let g:tagbar_autoclose = 0
 
 " How to display different "custom" filetypes
 "
