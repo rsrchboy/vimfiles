@@ -94,6 +94,7 @@ NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/CountJump
 NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump' ] }
 
 " Appish Or External Interface: bundles {{{3
+NeoBundle 'tpope/vim-eunuch'
 NeoBundleLazy 'vim-scripts/VimRepress' " FIXME: needs command triggers
 NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'hsitz/VimOrganizer'
