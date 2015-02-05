@@ -569,11 +569,15 @@ let g:github_dashboard['RrschBoy'] = 1
 " }}}2
 
 " Fugitive And Git: fugitive (git) mappings and config {{{1
-
 " helper functions {{{2
 
 function! RunGitFixup()
     perl ForkAndGitFixup::do_fixup
+    call SignifyOnBufEnter()
+endfunction
+
+function! RunGitSquash()
+    execute "Git! squash"
     call SignifyOnBufEnter()
 endfunction
 
@@ -597,11 +601,13 @@ nnoremap <Leader>gD :call Gitv_OpenGitCommand("diff --no-color --cached %", 'new
 nnoremap <Leader>ga :call RunGitWrite()<CR>
 nnoremap <Leader>gc :Gcommit<Enter>
 nnoremap <Leader>gf :call RunGitFixup()<CR>
+nnoremap <Leader>gS :call RunGitSquash()<CR>
 
 nnoremap <Leader>gA :call RunGitAddParts()<CR>
 nnoremap <Leader>gl :Git lol<Enter>
 nnoremap <Leader>gD :Git! diff --word-diff %<Enter>
 nnoremap <Leader>gp :Git push<Enter>
+nnoremap <Leader>gb :Gblame -w<Enter>
 
 nnoremap <leader>gv :Gitv --all<cr>
 nnoremap <leader>gV :Gitv! --all<cr>
