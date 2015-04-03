@@ -52,3 +52,10 @@ params
 param
 AFAICT
 chroot
+truthy
+fakechroot
+symlink
+metaclasses
+TypeConstraint
+TraitFor
+CodeRef
