@@ -2,6 +2,9 @@
 #
 # Chris Weyl <cweyl@alumni.drew.edu> 2013
 
+help:
+	# I should really write a help target, no?
+
 fonts:
 	@ echo '# ensuring fonts...'
 	mkdir ~/.fonts ||:
