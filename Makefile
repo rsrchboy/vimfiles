@@ -2,8 +2,19 @@
 #
 # Chris Weyl <cweyl@alumni.drew.edu> 2013
 
+# directories with Makefiles in them, that we may want to tickle
+SUBDIRS = spell
+
+.PHONY: spell $(SUBDIRS)
+
 help:
 	# I should really write a help target, no?
+
+spell:
+	$(MAKE) -C spell
+
+respell:
+	$(MAKE) -C spell rebuild
 
 fonts:
 	@ echo '# ensuring fonts...'
