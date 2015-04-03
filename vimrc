@@ -105,6 +105,8 @@ NeoBundle 'hsitz/VimOrganizer'
 NeoBundle 'vim-perl/vim-perl'
 NeoBundle 'vim-scripts/log4perl.vim'
 
+NeoBundle 'osfameron/perl-tags-vim'
+
 " mainly plugins:
 NeoBundle 'LStinson/perlhelp-vim'
 " being lazy here might be premature optimization.  hm.
@@ -146,7 +148,7 @@ NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'mattn/googletasks-vim'
 NeoBundle 'freitass/todo.txt-vim'
-NeoBundle 'ervandew/supertab'
+"NeoBundle 'ervandew/supertab'
 " to help handle other author's tabstop/etc settings w/o explicit modelines
 NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'groenewege/vim-less' " syntax
@@ -314,7 +316,7 @@ vnoremap <F8> :tabn<CR>
 " https://twitter.com/octodots/status/196996096910827520
 cmap w!! w !sudo tee % >/dev/null
 
-" filetype autocommands {{{2
+" filetype-setting autocommands {{{2
 
 " NOTE: commands for specific filetypes are generally contained in
 " ftplugin/*.vim  This section concerns itself mainly with those commands
@@ -334,6 +336,10 @@ au BufNewFile,BufRead .gitconfig.local    set filetype=gitconfig
 " this usually works, but sometimes vim thinks a .t file isn't Perl
 au BufNewFile,BufRead *.t         set filetype=perl
 
+" filetype-specific autocommands {{{2
+"
+" Many of these are stored in a ftplugin/ file.
+au FileType ruby setlocal tabstop=2 shiftwidth=2
 
 " }}}2
 
@@ -500,6 +506,8 @@ let g:tagbar_autoclose = 0
 "
 " perl {{{3
 
+"    \ 'ctagsbin': 'perl-tags',
+"    \ 'ctagsargs': '--outfile -',
 let g:tagbar_type_perl = {
     \ 'sort' : 1,
     \ 'deffile' : '$HOME/.vim/ctags/perl',
@@ -519,6 +527,14 @@ let g:tagbar_type_perl = {
         \ 'l:labels',
         \ 'P:POD',
     \ ],
+    \ 'sro' : '',
+    \ 'kind2scope' : {
+        \ 'p' : 'packages',
+    \ },
+    \ 'scope2kind' : {
+        \ 'packages' : 'p',
+        \ 'subroutines' : 's',
+    \ },
 \ }
 
 " puppet {{{3
