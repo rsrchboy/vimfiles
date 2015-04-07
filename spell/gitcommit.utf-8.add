@@ -12,3 +12,4 @@ autobuild
 bzr
 AFAICT
 dists
+TempDir
