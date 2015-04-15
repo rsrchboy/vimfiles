@@ -7,6 +7,13 @@ SPLFILES=$(ADDFILES:.add=.add.spl)
 
 .PHONY: spell clean rebuild
 
+help:
+	# clean:   remove generated binary spellfiles
+	# spell:   update outdated/missing binary spellfiles
+	# rebuild: aka "make clean; make spell"
+	#
+	# <spellfile>.add.spl: update a specific spellfile
+
 spell: $(SPLFILES)
 
 clean:
