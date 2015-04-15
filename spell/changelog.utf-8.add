@@ -17,3 +17,9 @@ Regexp
 TempDir
 MXRC
 TMM
+MooseX
+LoadableClass
+autoclean
+AttributeShortcuts
+AlwaysCoerce
+OrePAN2
