@@ -21,7 +21,7 @@ syn match perlStatementStorage   "\<\%(has\)\>"
 " need -- super, inner
 
 " MooseX::Role::Parameterized -- for now
-syn match perlStatementMisc      "\<\%(role\|parameter\)"
+syn match perlStatementMisc      "\<\%(role\|parameter\|method\) "
 
 " Try::Tiny
 "
