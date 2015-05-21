@@ -5,24 +5,32 @@
 # directories with Makefiles in them, that we may want to tickle
 SUBDIRS = spell
 
-.PHONY: spell $(SUBDIRS)
+.PHONY: $(SUBDIRS) help
 
 help:
 	# I should really write a better help target, no?
 	#
-	# spell/Makefile:
-	# ---------------
-	#
 	# spell:   update outdated/missing binary spellfiles
 	# respell: aka "make clean; make spell"
 	#
-	# <spellfile>.add.spl: update a specific spellfile
+	# commit-spellings: respell, then commit everything under spell/
+
+###########################################################
+# spelling!
 
 spell:
 	$(MAKE) -C spell
 
 respell:
 	$(MAKE) -C spell rebuild
+
+commit-spellings: respell
+	git add -A spell/ && git commit -m 'more spellinks' spell/
+
+.PHONY: spell respell commit-spellings
+
+###########################################################
+# ...
 
 fonts:
 	@ echo '# ensuring fonts...'
