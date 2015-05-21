@@ -8,7 +8,15 @@ SUBDIRS = spell
 .PHONY: spell $(SUBDIRS)
 
 help:
-	# I should really write a help target, no?
+	# I should really write a better help target, no?
+	#
+	# spell/Makefile:
+	# ---------------
+	#
+	# spell:   update outdated/missing binary spellfiles
+	# respell: aka "make clean; make spell"
+	#
+	# <spellfile>.add.spl: update a specific spellfile
 
 spell:
 	$(MAKE) -C spell
