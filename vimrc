@@ -142,6 +142,16 @@ NeoBundle 'smancill/conky-syntax.vim'
 NeoBundle 'apeschel/vim-syntax-syslog-ng'
 NeoBundle 'fatih/vim-go'
 
+" vim-chef and dependencies
+NeoBundleLazy 'vadv/vim-chef', {
+\   'autoload': { 'filetype': 'chef' },
+\   'depends': [
+\       'tomtom/tlib_vim',
+\       'garbas/vim-snipmate',
+\   ],
+\}
+
+
 " Trial Bundles: maybe, maybe not! {{{3
 NeoBundle 'kablamo/vim-git-log'
 NeoBundle 'mhinz/vim-tmuxify'
