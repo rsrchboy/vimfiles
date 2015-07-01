@@ -60,7 +60,10 @@ NeoBundle 'jamessan/vim-gnupg'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'krisajenkins/vim-pipe'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'msanders/snipmate.vim'
+"NeoBundle 'msanders/snipmate.vim'
+" vv replaces ^^; no development on ^^ since April 2010
+NeoBundleLazy 'MarcWeber/vim-addon-mw-utils'
+NeoBundle 'garbas/vim-snipmate', { 'depends': 'MarcWeber/vim-addon-mw-utils' }
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'thinca/vim-localrc'
 NeoBundle 'tpope/vim-surround'
