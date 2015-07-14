@@ -472,7 +472,7 @@ autocmd BufEnter * call SignifyOnBufEnter()
 autocmd WinEnter * call SignifyOnBufEnter()
 
 func! SignifyOnBufEnter()
-    if exists('b:sy_path')
+    if exists('sy_path')
         call sy#start()
     endif
 endfunc
