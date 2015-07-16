@@ -137,12 +137,14 @@ NeoBundle 'tmatilai/gitolite.vim'
 NeoBundle 'evanmiller/nginx-vim-syntax'
 NeoBundle 'fmoralesc/vim-pinpoint'
 NeoBundle 'vim-scripts/iptables'
-NeoBundle 'chrisbra/csv.vim'
 NeoBundle 'vim-scripts/deb.vim'
 NeoBundle 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
 NeoBundle 'smancill/conky-syntax.vim'
 NeoBundle 'apeschel/vim-syntax-syslog-ng'
 NeoBundle 'fatih/vim-go'
+
+NeoBundleLazy 'chrisbra/csv.vim', { 'autoload': { 'filetype': 'csv' } }
+au BufRead,BufNewFile *.csv,*.dat,*.tsv,*.tab set filetype=csv
 
 " vim-chef and dependencies
 NeoBundleLazy 'vadv/vim-chef', {
