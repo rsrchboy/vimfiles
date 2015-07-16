@@ -76,6 +76,7 @@ NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'zaiste/tmux.vim'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'bling/vim-bufferline'
 NeoBundle 'vim-scripts/bufexplorer.zip'
 
 " ColorSchemes: {{{3
