@@ -587,6 +587,8 @@ let g:github_dashboard = {}
 let g:github_dashboard['emoji'] = 1
 let g:github_dashboard['RrschBoy'] = 1
 
+"}}}2
+
 " VimOrganizer: plugin config {{{1
 " notes {{{2
 
@@ -758,16 +760,20 @@ let g:calendar_google_task     = 1
 "}}}2
 
 " NERDTree: configuration settings {{{1
-
+" settings {{{2
 map <leader>l :NERDTreeToggle<CR>
 
 " close if we're the only window left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" SuperTab: settings {{{1
+"}}}2
 
+" SuperTab: settings {{{1
+" settings {{{2
 let g:SuperTabNoCompleteBefore = []
 let g:SuperTabNoCompleteAfter  = ['^', '\s']
+
+"}}}2
 
 " Source Local Configs: ...if present {{{1
 " ~/.vimrc.local {{{2
@@ -851,7 +857,7 @@ set exrc
 ""call Pl#Theme#RemoveSegment('lineinfo')
 ""call Pl#Theme#RemoveSegment('fileformat')
 
-" }}}1
+" }}}2
 
 " AUGROUP END: close the "vimrc" group for commands defined in this file
 augroup END
