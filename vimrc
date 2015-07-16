@@ -114,7 +114,7 @@ NeoBundle 'osfameron/perl-tags-vim'
 " mainly plugins:
 NeoBundle 'LStinson/perlhelp-vim'
 " being lazy here might be premature optimization.  hm.
-NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetype': 'perl' } }
+NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 " these are purely ftplugin bundles (vim)
 NeoBundle 'vim-scripts/update_perl_line_directives'     " could use some work
 NeoBundle 'vim-scripts/syntax_check_embedded_perl.vim'  " could use some work
@@ -144,16 +144,16 @@ NeoBundleLazy 'tpope/vim-haml', { 'autoload': { 'filetypes': ['haml','sass','scs
 source ~/.vim/bundle/vim-haml/ftdetect/haml.vim
 
 " puppet
-NeoBundleLazy 'puppetlabs/puppet-syntax-vim', { 'autoload': { 'filetype': 'puppet' } }
+NeoBundleLazy 'puppetlabs/puppet-syntax-vim', { 'autoload': { 'filetypes': 'puppet' } }
 au BufRead,BufNewFile *.pp              set filetype=puppet
 
 " CSV
-NeoBundleLazy 'chrisbra/csv.vim', { 'autoload': { 'filetype': 'csv' } }
+NeoBundleLazy 'chrisbra/csv.vim', { 'autoload': { 'filetypes': 'csv' } }
 au BufRead,BufNewFile *.csv,*.dat,*.tsv,*.tab set filetype=csv
 
 " vim-chef and dependencies
 NeoBundleLazy 'vadv/vim-chef', {
-\   'autoload': { 'filetype': 'chef' },
+\   'autoload': { 'filetypes': 'chef' },
 \   'depends': [
 \       'tomtom/tlib_vim',
 \       'garbas/vim-snipmate',
