@@ -65,7 +65,6 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundleLazy 'MarcWeber/vim-addon-mw-utils'
 NeoBundle 'garbas/vim-snipmate', { 'depends': 'MarcWeber/vim-addon-mw-utils' }
 NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'thinca/vim-localrc'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tsaleh/vim-align'
@@ -93,7 +92,7 @@ NeoBundleLazy 'mattn/gist-vim', {
 \}
 NeoBundle 'bartman/git-wip', { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
 NeoBundle 'mhinz/vim-signify'
-NeoBundle 'vim-scripts/ingo-library'
+NeoBundleLazy 'vim-scripts/ingo-library'
 NeoBundle 'vim-scripts/CountJump', { 'depends': [ 'vim-scripts/ingo-library' ] }
 NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/CountJump' ] }
 NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump' ] }
@@ -166,20 +165,18 @@ NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'mattn/googletasks-vim'
 NeoBundle 'freitass/todo.txt-vim'
 "NeoBundle 'ervandew/supertab'
-" to help handle other author's tabstop/etc settings w/o explicit modelines
-NeoBundle 'embear/vim-localvimrc'
 NeoBundle 'groenewege/vim-less' " syntax
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'kien/tabman.vim'
-NeoBundle 'vim-scripts/Align'
-NeoBundle 'vim-scripts/AutoAlign'
+NeoBundleLazy 'vim-scripts/Align'
+NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'tomtom/tlib_vim'
-NeoBundle 'tomtom/tskeleton_vim'
-NeoBundle 'tomtom/tskeletons'
+NeoBundle 'tomtom/tskeleton_vim', { 'depends': [ 'tomtom/tlib_vim' ] }
+NeoBundle 'tomtom/tskeletons', { 'depends': [ 'tomtom/tskeleton_vim' ] }
 NeoBundle 'vitalk/vim-simple-todo'
 NeoBundle 'kurayama/systemd-vim-syntax'
 
@@ -187,11 +184,18 @@ NeoBundle 'kurayama/systemd-vim-syntax'
 NeoBundle 'mnpk/vim-jira-complete'
 NeoBundle 'RsrchBoy/vim-jira-open'
 
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'chrisbra/NrrwRgn'
+NeoBundle 'wesQ3/vim-windowswap'
+
 " Probation: {{{3
 NeoBundleLazy 'junegunn/vim-github-dashboard'
 NeoBundleLazy 'lukaszkorecki/vim-GitHubDashBoard'
 " github issues query
 NeoBundleLazy 'mklabs/vim-issues'
+" to help handle other author's tabstop/etc settings w/o explicit modelines
+NeoBundleLazy 'embear/vim-localvimrc'
+NeoBundleLazy 'thinca/vim-localrc'
 
 " Attic: no longer used {{{3
 "NeoBundle 'vim-scripts/tracwiki'
