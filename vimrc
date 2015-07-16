@@ -84,7 +84,6 @@ NeoBundle 'jnurmine/Zenburn'
 
 " GIT And Version Controlish: bundles {{{3
 NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive' }
-NeoBundle 'gregsexton/gitv',    { 'depends': ['vim-fugitive'] }
 NeoBundleLazy 'mattn/webapi-vim'
 NeoBundleLazy 'mattn/gist-vim', {
 \  'autoload': { 'commands': { 'name': [ 'Gist' ] } },
@@ -96,6 +95,13 @@ NeoBundleLazy 'vim-scripts/ingo-library'
 NeoBundle 'vim-scripts/CountJump', { 'depends': [ 'vim-scripts/ingo-library' ] }
 NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/CountJump' ] }
 NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump' ] }
+
+NeoBundleLazy 'gregsexton/gitv', {
+\   'depends': ['vim-fugitive'],
+\   'autoload': {
+\       'commands': ['Gitv']
+\   }
+\}
 
 " Appish Or External Interface: bundles {{{3
 NeoBundle 'tpope/vim-eunuch'
