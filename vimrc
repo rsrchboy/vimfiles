@@ -83,8 +83,8 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'jnurmine/Zenburn'
 
 " GIT And Version Controlish: bundles {{{3
-NeoBundle 'tpope/vim-fugitive', { 'name': 'fugitive', 'augroup': 'fugitive' }
-NeoBundle 'gregsexton/gitv'
+NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive' }
+NeoBundle 'gregsexton/gitv',    { 'depends': ['vim-fugitive'] }
 NeoBundleLazy 'mattn/webapi-vim'
 NeoBundleLazy 'mattn/gist-vim', {
 \  'autoload': { 'commands': { 'name': [ 'Gist' ] } },
