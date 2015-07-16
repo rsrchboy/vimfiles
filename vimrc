@@ -129,7 +129,6 @@ NeoBundle 'vim-scripts/syntax_check_embedded_perl.vim'  " could use some work
 " General Syntax And Filetype Plugins: bundles {{{3
 NeoBundle 'nono/jquery.vim'
 NeoBundle 'othree/html5-syntax.vim'
-NeoBundle 'puppetlabs/puppet-syntax-vim'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'argent-smith/JSON.vim'
 NeoBundle 'tmatilai/gitolite.vim'
@@ -142,6 +141,11 @@ NeoBundle 'smancill/conky-syntax.vim'
 NeoBundle 'apeschel/vim-syntax-syslog-ng'
 NeoBundle 'fatih/vim-go'
 
+" puppet
+NeoBundleLazy 'puppetlabs/puppet-syntax-vim', { 'autoload': { 'filetype': 'puppet' } }
+au BufRead,BufNewFile *.pp              set filetype=puppet
+
+" CSV
 NeoBundleLazy 'chrisbra/csv.vim', { 'autoload': { 'filetype': 'csv' } }
 au BufRead,BufNewFile *.csv,*.dat,*.tsv,*.tab set filetype=csv
 
