@@ -67,6 +67,7 @@ NeoBundle 'garbas/vim-snipmate', { 'depends': 'MarcWeber/vim-addon-mw-utils' }
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'thinca/vim-localrc'
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tsaleh/vim-align'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'nathanaelkane/vim-indent-guides'
