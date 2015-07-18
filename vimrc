@@ -288,6 +288,8 @@ au!
 " Configuration options that impact vim itself, rather than plugin or syntax
 " settings.  (generally)
 "
+" "global" vars for use here and elsewhere {{{2
+
 " settings {{{2
 
 set modeline
