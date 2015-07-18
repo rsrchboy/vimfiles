@@ -176,6 +176,35 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'kurayama/systemd-vim-syntax'
 
 " Trial Bundles: maybe, maybe not! {{{3
+" LazyBundle: TweetVim {{{4
+"
+" Could be neat.  Could be...  never used.
+
+autocmd FileType tweetvim setlocal nonumber foldcolumn=0
+
+let g:tweetvim_tweet_per_page   = 50
+let g:tweetvim_display_source   = 1
+let g:tweetvim_display_time     = 1
+let g:tweetvim_expand_t_co      = 0
+let g:tweetvim_display_username = 1
+
+NeoBundleLazy 'basyura/twibill.vim'
+NeoBundleLazy 'basyura/bitly.vim', { 'depends': 'webapi-vim' }
+NeoBundleLazy 'tyru/open-browser.vim'
+NeoBundleLazy 'mattn/favstar-vim'
+NeoBundleLazy 'basyura/TweetVim', {
+\ 'depends': [
+\   'basyura/twibill.vim',
+\   'bitly.vim',
+\   'favstar-vim',
+\   'tyru/open-browser.vim',
+\   'webapi-vim',
+\ ],
+\ 'autoload': { 'commands' : 'TweetVimHomeTimeline' },
+\ 'verbose': 1,
+\}
+
+" }}}4
 NeoBundle 'kablamo/vim-git-log'
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'dhruvasagar/vim-table-mode'
