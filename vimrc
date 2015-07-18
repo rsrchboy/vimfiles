@@ -72,6 +72,8 @@ NeoBundleLazy 'krisajenkins/vim-pipe',
 NeoBundleLazy 'vim-scripts/bufexplorer.zip',
 \ { 'augroup': 'BufExplorer', 'autoload': { 'commands': ['BufExplorer'], 'mappings': ['<LocalLeader>be'] } }
 " loosely ordered.
+NeoBundleLazy 'vim-scripts/Align'
+NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
 NeoBundle 'DataWraith/auto_mkdir'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'godlygeek/tabular'
@@ -163,6 +165,8 @@ NeoBundle 'smancill/conky-syntax.vim'
 NeoBundle 'apeschel/vim-syntax-syslog-ng'
 NeoBundle 'fatih/vim-go'
 NeoBundle 'ekalinin/Dockerfile.vim'
+NeoBundle 'groenewege/vim-less'
+NeoBundle 'kurayama/systemd-vim-syntax'
 
 " Trial Bundles: maybe, maybe not! {{{3
 NeoBundle 'kablamo/vim-git-log'
@@ -172,19 +176,15 @@ NeoBundle 'tpope/vim-obsession'
 NeoBundle 'mattn/googletasks-vim'
 NeoBundle 'freitass/todo.txt-vim'
 "NeoBundle 'ervandew/supertab'
-NeoBundle 'groenewege/vim-less' " syntax
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'kien/tabman.vim'
-NeoBundleLazy 'vim-scripts/Align'
-NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'tomtom/tskeleton_vim', { 'depends': [ 'tomtom/tlib_vim' ] }
 NeoBundle 'tomtom/tskeletons', { 'depends': [ 'tomtom/tskeleton_vim' ] }
 NeoBundle 'vitalk/vim-simple-todo'
-NeoBundle 'kurayama/systemd-vim-syntax'
 
 " jira 'integration'
 NeoBundle 'mnpk/vim-jira-complete'
