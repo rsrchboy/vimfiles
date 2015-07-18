@@ -56,6 +56,17 @@ NeoBundle 'Shougo/vimproc', {
     \ },
 \ }
 " }}}4
+" LazyBundle: vim-gnupg {{{4
+NeoBundleLazy 'jamessan/vim-gnupg', {
+            \ 'autoload': { 'filename_patterns': ['\.gpg$','\.asc$','\.pgp$'] },
+            \ 'augroup':  'GnuPG',
+\ }
+let bundle = neobundle#get('vim-gnupg')
+function! bundle.hooks.on_post_source(bundle)
+  silent! execute 'doautocmd GnuPG BufReadCmd'
+  silent! execute 'doautocmd GnuPG FileReadCmd'
+endfunction
+" }}}4
 NeoBundleLazy 'krisajenkins/vim-pipe',
 \ { 'autoload': { 'commands': ['VimPipe'], 'mappings': ['<LocalLeader>r'] } }
 NeoBundleLazy 'vim-scripts/bufexplorer.zip',
@@ -74,24 +85,13 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tsaleh/vim-align'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/nerdtree',
+\ { 'augroup': 'NERDTreeHijackNetrw' }
 NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'zaiste/tmux.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'bling/vim-bufferline'
-
-" LazyBundle: vim-gnupg {{{4
-NeoBundleLazy 'jamessan/vim-gnupg', {
-            \ 'autoload': { 'filename_patterns': ['\.gpg$','\.asc$','\.pgp$'] },
-            \ 'augroup':  'GnuPG',
-\ }
-let bundle = neobundle#get('vim-gnupg')
-function! bundle.hooks.on_post_source(bundle)
-  silent! execute 'doautocmd GnuPG BufReadCmd'
-  silent! execute 'doautocmd GnuPG FileReadCmd'
-endfunction
-" }}}4
 
 " ColorSchemes: {{{3
 NeoBundle 'altercation/vim-colors-solarized'
