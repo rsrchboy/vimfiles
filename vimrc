@@ -99,8 +99,8 @@ NeoBundle 'jnurmine/Zenburn'
 
 " GIT And Version Controlish: bundles {{{3
 NeoBundle     'tpope/vim-fugitive', { 'augroup': 'fugitive' }
-NeoBundleLazy 'mattn/gist-vim',     { 'autoload': { 'commands': ['Gist'] }, 'depends': [ 'webapi-vim' ] }
-NeoBundleLazy 'gregsexton/gitv',    { 'autoload': { 'commands': ['Gitv'] }, 'depends': ['vim-fugitive'] }
+NeoBundleLazy 'mattn/gist-vim',     { 'autoload': { 'commands': 'Gist' }, 'depends': [ 'webapi-vim' ] }
+NeoBundleLazy 'gregsexton/gitv',    { 'autoload': { 'commands': 'Gitv', 'functions': 'Gitv_OpenGitCommand' }, 'depends': ['vim-fugitive'] }
 NeoBundle     'bartman/git-wip',    { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
 NeoBundle     'mhinz/vim-signify'
 NeoBundle     'vim-scripts/CountJump',         { 'depends': [ 'vim-scripts/ingo-library' ] }
@@ -220,8 +220,6 @@ NeoBundleLazy 'thinca/vim-localrc'
 " }}}3
 " END {{{3
 call neobundle#end()
-
-" }}}3
 
 " Finalize: Actually check/install {{{2
 
