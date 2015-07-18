@@ -564,13 +564,6 @@ endfunc
 
 " }}}2
 
-" Evervim: Interface to evernote.com {{{1
-" notes {{{2
-
-" See ~/.vimrc.local for tokens and the like.
-
-" }}}2
-
 " CtrlP: helpful file finder {{{1
 " settings {{{2
 
@@ -802,7 +795,7 @@ autocmd BufWinEnter Ticket:.Edit* setlocal filetype=tracwiki spell spelllang=en_
 
 " }}}2
 
-" PERL: Perl testing helpers {{{1
+" Perl: Perl testing helpers {{{1
 " TODO where did I go?! {{{2
 
 " }}}2
