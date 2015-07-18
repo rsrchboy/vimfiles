@@ -328,6 +328,26 @@ set noswapfile
 set ttyfast
 set spellfile+=~/.vim/spell/en.utf-8.add
 
+" folding {{{2
+
+"set foldmethod=marker
+set foldlevel=1
+set foldcolumn=3
+
+" generic fold functions {{{2
+
+func! FoldOnLeadingPounds(lnum)
+    let l0 = getline(a:lnum)
+
+    if l0 =~ '^##'
+        return '>'.(matchend(getline(v:lnum),'^#\+')-1)
+    elseif l0 =~ '^#='
+        return '>0'
+    endif
+
+    return '='
+endfunc
+
 " key {,re}mappings {{{2
 set pastetoggle=<F2>
 
@@ -393,25 +413,6 @@ let g:solarized_termtrans = 1
 
 " additional settings in after/plugin/colorscheme.vim
 
-" folding {{{2
-
-"set foldmethod=marker
-set foldlevel=1
-set foldcolumn=3
-
-" generic fold functions {{{2
-
-func! FoldOnLeadingPounds(lnum)
-    let l0 = getline(a:lnum)
-
-    if l0 =~ '^##'
-        return '>'.(matchend(getline(v:lnum),'^#\+')-1)
-    elseif l0 =~ '^#='
-        return '>0'
-    endif
-
-    return '='
-endfunc
 
 " }}}2
 
