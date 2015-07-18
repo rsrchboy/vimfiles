@@ -41,6 +41,12 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " and include a non-embedded version
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+" Libraries: library plugins/bundles {{{3
+NeoBundleLazy 'MarcWeber/vim-addon-mw-utils'
+NeoBundleLazy 'mattn/webapi-vim'
+NeoBundleLazy 'vim-scripts/ingo-library'
+NeoBundleLazy 'tomtom/tlib_vim'
+
 " General: bundles {{{3
 NeoBundle 'Shougo/vimproc', {
     \ 'build' : {
@@ -61,7 +67,6 @@ NeoBundle 'krisajenkins/vim-pipe'
 NeoBundle 'majutsushi/tagbar'
 "NeoBundle 'msanders/snipmate.vim'
 " vv replaces ^^; no development on ^^ since April 2010
-NeoBundleLazy 'MarcWeber/vim-addon-mw-utils'
 NeoBundle 'garbas/vim-snipmate', { 'depends': 'MarcWeber/vim-addon-mw-utils' }
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-surround'
@@ -95,14 +100,12 @@ NeoBundle 'jnurmine/Zenburn'
 
 " GIT And Version Controlish: bundles {{{3
 NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive' }
-NeoBundleLazy 'mattn/webapi-vim'
 NeoBundleLazy 'mattn/gist-vim', {
 \  'autoload': { 'commands': { 'name': [ 'Gist' ] } },
 \  'depends':  [ 'mattn/webapi-vim' ],
 \}
 NeoBundle 'bartman/git-wip', { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
 NeoBundle 'mhinz/vim-signify'
-NeoBundleLazy 'vim-scripts/ingo-library'
 NeoBundle 'vim-scripts/CountJump', { 'depends': [ 'vim-scripts/ingo-library' ] }
 NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/CountJump' ] }
 NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump' ] }
@@ -190,7 +193,6 @@ NeoBundleLazy 'vim-scripts/Align'
 NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'tomtom/tlib_vim'
 NeoBundle 'tomtom/tskeleton_vim', { 'depends': [ 'tomtom/tlib_vim' ] }
 NeoBundle 'tomtom/tskeletons', { 'depends': [ 'tomtom/tskeleton_vim' ] }
 NeoBundle 'vitalk/vim-simple-todo'
