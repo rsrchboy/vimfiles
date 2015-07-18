@@ -74,7 +74,8 @@ NeoBundleLazy 'krisajenkins/vim-pipe',
 " LazyBundle: bufexplorer {{{4
 NeoBundleLazy 'vim-scripts/bufexplorer.zip', {
 \'augroup':  'BufExplorer',
-\'autoload': { 'commands': ['BufExplorer'], 'mappings': ['<LocalLeader>be'] }
+\'autoload': { 'commands': ['BufExplorer'], 'mappings': ['<LocalLeader>be'] },
+\'verbose': 1,
 \}
 " }}}4
 
