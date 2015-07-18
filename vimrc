@@ -124,6 +124,24 @@ NeoBundleLazy 'vim-scripts/update_perl_line_directives',    { 'autoload': { 'fil
 NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'filetypes': 'vim' } }
 
 " General Syntax And Filetype Plugins: bundles {{{3
+" haml {{{4
+NeoBundleLazy 'tpope/vim-haml', { 'autoload': { 'filetypes': ['haml','sass','scss'] } }
+source ~/.vim/bundle/vim-haml/ftdetect/haml.vim
+" puppet {{{4
+NeoBundleLazy 'puppetlabs/puppet-syntax-vim', { 'autoload': { 'filetypes': 'puppet' } }
+source ~/.vim/bundle/puppet-syntax-vim/ftdetect/puppet.vim
+" CSV {{{4
+NeoBundleLazy 'chrisbra/csv.vim', { 'autoload': { 'filetypes': 'csv' } }
+au BufRead,BufNewFile *.csv,*.dat,*.tsv,*.tab set filetype=csv
+" vim-chef and dependencies {{{4
+NeoBundleLazy 'vadv/vim-chef', {
+\   'autoload': { 'filetypes': 'chef' },
+\   'depends': [
+\       'tomtom/tlib_vim',
+\       'garbas/vim-snipmate',
+\   ],
+\}
+" }}}4
 NeoBundle 'nono/jquery.vim'
 NeoBundle 'othree/html5-syntax.vim'
 NeoBundle 'argent-smith/JSON.vim'
@@ -136,27 +154,6 @@ NeoBundle 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
 NeoBundle 'smancill/conky-syntax.vim'
 NeoBundle 'apeschel/vim-syntax-syslog-ng'
 NeoBundle 'fatih/vim-go'
-
-NeoBundleLazy 'tpope/vim-haml', { 'autoload': { 'filetypes': ['haml','sass','scss'] } }
-source ~/.vim/bundle/vim-haml/ftdetect/haml.vim
-
-" puppet
-NeoBundleLazy 'puppetlabs/puppet-syntax-vim', { 'autoload': { 'filetypes': 'puppet' } }
-au BufRead,BufNewFile *.pp              set filetype=puppet
-
-" CSV
-NeoBundleLazy 'chrisbra/csv.vim', { 'autoload': { 'filetypes': 'csv' } }
-au BufRead,BufNewFile *.csv,*.dat,*.tsv,*.tab set filetype=csv
-
-" vim-chef and dependencies
-NeoBundleLazy 'vadv/vim-chef', {
-\   'autoload': { 'filetypes': 'chef' },
-\   'depends': [
-\       'tomtom/tlib_vim',
-\       'garbas/vim-snipmate',
-\   ],
-\}
-
 
 " Trial Bundles: maybe, maybe not! {{{3
 NeoBundle 'kablamo/vim-git-log'
