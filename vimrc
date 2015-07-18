@@ -203,6 +203,12 @@ NeoBundle 'RsrchBoy/vim-jira-open'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'chrisbra/NrrwRgn'
 NeoBundle 'wesQ3/vim-windowswap'
+NeoBundleLazy 'Shougo/junkfile.vim', {
+      \ 'autoload' : {
+      \   'commands' : 'JunkfileOpen',
+      \   'unite_sources' : ['junkfile', 'junkfile/new'],
+      \ }
+\ }
 
 " Probation: {{{3
 NeoBundleLazy 'junegunn/vim-github-dashboard'
