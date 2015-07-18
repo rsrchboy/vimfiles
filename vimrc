@@ -87,11 +87,12 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'scrooloose/nerdtree',
 \ { 'augroup': 'NERDTreeHijackNetrw' }
+"NeoBundleLazy 'Townk/vim-autoclose', { 'autoload': { 'insert': 1 }, 'augroup': '<Plug>(autoclose)' }
 NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'zaiste/tmux.vim'
 NeoBundle 'bling/vim-airline'
-NeoBundle 'bling/vim-bufferline'
+"NeoBundle 'bling/vim-bufferline'
 
 " ColorSchemes: {{{3
 NeoBundle 'altercation/vim-colors-solarized'
@@ -127,12 +128,15 @@ NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'fil
 " haml {{{4
 NeoBundleLazy 'tpope/vim-haml', { 'autoload': { 'filetypes': ['haml','sass','scss'] } }
 source ~/.vim/bundle/vim-haml/ftdetect/haml.vim
+
 " puppet {{{4
 NeoBundleLazy 'puppetlabs/puppet-syntax-vim', { 'autoload': { 'filetypes': 'puppet' } }
 source ~/.vim/bundle/puppet-syntax-vim/ftdetect/puppet.vim
+
 " CSV {{{4
 NeoBundleLazy 'chrisbra/csv.vim', { 'autoload': { 'filetypes': 'csv' } }
-au BufRead,BufNewFile *.csv,*.dat,*.tsv,*.tab set filetype=csv
+source ~/.vim/bundle/csv.vim/ftdetect/csv.vim
+
 " vim-chef and dependencies {{{4
 NeoBundleLazy 'vadv/vim-chef', {
 \   'autoload': { 'filetypes': 'chef' },
