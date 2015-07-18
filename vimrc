@@ -114,20 +114,14 @@ NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'hsitz/VimOrganizer'
 
 " Perl: bundles {{{3
-
-" mainly syntax:
-NeoBundle 'vim-perl/vim-perl'
-NeoBundle 'vim-scripts/log4perl.vim'
-
-NeoBundle 'osfameron/perl-tags-vim'
-
-" mainly plugins:
-NeoBundle 'LStinson/perlhelp-vim'
-" being lazy here might be premature optimization.  hm.
+NeoBundle     'vim-perl/vim-perl'
+NeoBundleLazy 'vim-scripts/log4perl.vim', { 'autoload': { 'filetypes': 'log4perl' } }
+NeoBundleLazy 'osfameron/perl-tags-vim',  { 'autoload': { 'filetypes': 'perl'     } }
+NeoBundleLazy 'LStinson/perlhelp-vim', { 'autoload': { 'filetypes': 'perl' } }
 NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
-" these are purely ftplugin bundles (vim)
-NeoBundle 'vim-scripts/update_perl_line_directives'     " could use some work
-NeoBundle 'vim-scripts/syntax_check_embedded_perl.vim'  " could use some work
+
+NeoBundleLazy 'vim-scripts/update_perl_line_directives',    { 'autoload': { 'filetypes': 'vim' } }
+NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'filetypes': 'vim' } }
 
 " General Syntax And Filetype Plugins: bundles {{{3
 NeoBundle 'nono/jquery.vim'
