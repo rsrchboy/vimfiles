@@ -55,7 +55,7 @@ NeoBundle 'Shougo/vimproc', {
     \ 'unix'    : 'make -f make_unix.mak',
     \ },
 \ }
-" }}}4
+
 " LazyBundle: vim-gnupg {{{4
 NeoBundleLazy 'jamessan/vim-gnupg', {
             \ 'autoload': { 'filename_patterns': ['\.gpg$','\.asc$','\.pgp$'] },
@@ -66,13 +66,20 @@ function! bundle.hooks.on_post_source(bundle)
   silent! execute 'doautocmd GnuPG BufReadCmd'
   silent! execute 'doautocmd GnuPG FileReadCmd'
 endfunction
-" }}}4
+
+" LazyBundle: vim-pipe {{{4
 NeoBundleLazy 'krisajenkins/vim-pipe',
 \ { 'autoload': { 'commands': ['VimPipe'], 'mappings': ['<LocalLeader>r'] } }
-NeoBundleLazy 'vim-scripts/bufexplorer.zip',
-\ { 'augroup': 'BufExplorer', 'autoload': { 'commands': ['BufExplorer'], 'mappings': ['<LocalLeader>be'] } }
-" loosely ordered.
+
+" LazyBundle: bufexplorer {{{4
+NeoBundleLazy 'vim-scripts/bufexplorer.zip', {
+\'augroup':  'BufExplorer',
+\'autoload': { 'commands': ['BufExplorer'], 'mappings': ['<LocalLeader>be'] }
+\}
+" }}}4
+
 NeoBundleLazy 'vim-scripts/Align'
+" loosely ordered.
 NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
 NeoBundle 'DataWraith/auto_mkdir'
 NeoBundle 'bronson/vim-trailing-whitespace'
