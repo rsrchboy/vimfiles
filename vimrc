@@ -334,7 +334,19 @@ set spellfile+=~/.vim/spell/en.utf-8.add
 set foldlevel=1
 set foldcolumn=3
 
-" generic fold functions {{{2
+" fold functions {{{2
+
+" toggle fold columns on/off, issuing a VimResized event afterwards (so things
+" can sensibly redraw themselves)
+func! ToggleFoldColumn()
+    if &foldcolumn > 0
+        setlocal foldcolumn=0
+    else
+        setlocal foldcolumn=3
+    endif
+
+    doau VimResized
+endfunc
 
 func! FoldOnLeadingPounds(lnum)
     let l0 = getline(a:lnum)
@@ -352,6 +364,7 @@ endfunc
 set pastetoggle=<F2>
 
 " normal mode remappings
+nnoremap <LocalLeader>fc :call ToggleFoldColumn()<CR>
 nnoremap <F3> :setlocal nonumber!<CR>
 nnoremap <F5> :setlocal spell! spelllang=en_us<CR>
 nnoremap <F7> :tabp<CR>
