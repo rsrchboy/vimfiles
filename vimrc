@@ -281,44 +281,6 @@ augroup vimrc
 au!
 " }}}2
 
-" APPEARANCE: colors, themes, etc {{{1
-" colorscheme autocmds {{{2
-
-" see after/plugin/colorscheme.vim
-
-" colorscheme settings {{{2
-
-let g:zenburn_high_Contrast = 1
-
-let g:solarized_termtrans = 1
-"let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
-
-" vim settings {{{2
-
-" see after/plugin/colorscheme.vim
-
-" folding {{{2
-
-"set foldmethod=marker
-set foldlevel=1
-set foldcolumn=3
-
-" generic fold functions {{{2
-
-func! FoldOnLeadingPounds(lnum)
-    let l0 = getline(a:lnum)
-
-    if l0 =~ '^##'
-        return '>'.(matchend(getline(v:lnum),'^#\+')-1)
-    elseif l0 =~ '^#='
-        return '>0'
-    endif
-
-    return '='
-endfunc
-
-" }}}2
-
 " General Vim: Configuration {{{1
 " notes {{{2
 "
@@ -411,6 +373,44 @@ au BufNewFile,BufRead *.t         set filetype=perl
 "
 " Many of these are stored in a ftplugin/ file.
 au FileType ruby setlocal tabstop=2 shiftwidth=2
+
+" }}}2
+
+" APPEARANCE: colors, themes, etc {{{1
+" colorscheme autocmds {{{2
+
+" see after/plugin/colorscheme.vim
+
+" colorscheme settings {{{2
+
+let g:zenburn_high_Contrast = 1
+
+let g:solarized_termtrans = 1
+"let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
+
+" vim settings {{{2
+
+" see after/plugin/colorscheme.vim
+
+" folding {{{2
+
+"set foldmethod=marker
+set foldlevel=1
+set foldcolumn=3
+
+" generic fold functions {{{2
+
+func! FoldOnLeadingPounds(lnum)
+    let l0 = getline(a:lnum)
+
+    if l0 =~ '^##'
+        return '>'.(matchend(getline(v:lnum),'^#\+')-1)
+    elseif l0 =~ '^#='
+        return '>0'
+    endif
+
+    return '='
+endfunc
 
 " }}}2
 
