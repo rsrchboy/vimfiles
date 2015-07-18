@@ -56,7 +56,6 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'DataWraith/auto_mkdir'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'godlygeek/tabular'
-NeoBundle 'jamessan/vim-gnupg'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'krisajenkins/vim-pipe'
 NeoBundle 'majutsushi/tagbar'
@@ -77,6 +76,18 @@ NeoBundle 'zaiste/tmux.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'bling/vim-bufferline'
 NeoBundle 'vim-scripts/bufexplorer.zip'
+
+" LazyBundle: vim-gnupg {{{4
+NeoBundleLazy 'jamessan/vim-gnupg', {
+            \ 'autoload': { 'filename_patterns': ['\.gpg$','\.asc$','\.pgp$'] },
+            \ 'augroup':  'GnuPG',
+\ }
+let bundle = neobundle#get('vim-gnupg')
+function! bundle.hooks.on_post_source(bundle)
+  silent! execute 'doautocmd GnuPG BufReadCmd'
+  silent! execute 'doautocmd GnuPG FileReadCmd'
+endfunction
+" }}}4
 
 " ColorSchemes: {{{3
 NeoBundle 'altercation/vim-colors-solarized'
