@@ -388,9 +388,7 @@ let g:zenburn_high_Contrast = 1
 let g:solarized_termtrans = 1
 "let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
 
-" vim settings {{{2
-
-" see after/plugin/colorscheme.vim
+" additional settings in after/plugin/colorscheme.vim
 
 " folding {{{2
 
