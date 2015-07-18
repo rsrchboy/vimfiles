@@ -56,14 +56,18 @@ NeoBundle 'Shougo/vimproc', {
     \ },
 \ }
 " }}}4
-NeoBundleLazy 'krisajenkins/vim-pipe', { 'autoload': { 'commands': ['VimPipe'], 'mappings': ['<LocalLeader>r'] } }
+NeoBundleLazy 'krisajenkins/vim-pipe',
+\ { 'autoload': { 'commands': ['VimPipe'], 'mappings': ['<LocalLeader>r'] } }
+NeoBundleLazy 'vim-scripts/bufexplorer.zip',
+\ { 'augroup': 'BufExplorer', 'autoload': { 'commands': ['BufExplorer'], 'mappings': ['<LocalLeader>be'] } }
 " loosely ordered.
 NeoBundle 'DataWraith/auto_mkdir'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'garbas/vim-snipmate', { 'depends': 'MarcWeber/vim-addon-mw-utils' }
+NeoBundle 'garbas/vim-snipmate',
+\ { 'depends': 'MarcWeber/vim-addon-mw-utils' }
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
@@ -76,7 +80,6 @@ NeoBundle 'mhinz/vim-startify'
 NeoBundle 'zaiste/tmux.vim'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'bling/vim-bufferline'
-NeoBundle 'vim-scripts/bufexplorer.zip'
 
 " LazyBundle: vim-gnupg {{{4
 NeoBundleLazy 'jamessan/vim-gnupg', {
