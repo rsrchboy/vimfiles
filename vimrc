@@ -35,10 +35,8 @@ if has('vim_starting')
 endif
 
 " Bundles: define our bundles, etc {{{2
-
+" BEGIN {{{3
 call neobundle#begin(expand('~/.vim/bundle/'))
-
-" and include a non-embedded version
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Libraries: library plugins/bundles {{{3
@@ -48,6 +46,7 @@ NeoBundleLazy 'vim-scripts/ingo-library'
 NeoBundleLazy 'tomtom/tlib_vim'
 
 " General: bundles {{{3
+" Bundle: vimproc {{{4
 NeoBundle 'Shougo/vimproc', {
     \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
@@ -56,17 +55,15 @@ NeoBundle 'Shougo/vimproc', {
     \ 'unix'    : 'make -f make_unix.mak',
     \ },
 \ }
+" }}}4
 
 " loosely ordered.
-
 NeoBundle 'DataWraith/auto_mkdir'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'krisajenkins/vim-pipe'
 NeoBundle 'majutsushi/tagbar'
-"NeoBundle 'msanders/snipmate.vim'
-" vv replaces ^^; no development on ^^ since April 2010
 NeoBundle 'garbas/vim-snipmate', { 'depends': 'MarcWeber/vim-addon-mw-utils' }
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-surround'
@@ -99,23 +96,14 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'jnurmine/Zenburn'
 
 " GIT And Version Controlish: bundles {{{3
-NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive' }
-NeoBundleLazy 'mattn/gist-vim', {
-\  'autoload': { 'commands': { 'name': [ 'Gist' ] } },
-\  'depends':  [ 'mattn/webapi-vim' ],
-\}
-NeoBundle 'bartman/git-wip', { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
-NeoBundle 'mhinz/vim-signify'
-NeoBundle 'vim-scripts/CountJump', { 'depends': [ 'vim-scripts/ingo-library' ] }
-NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/CountJump' ] }
-NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump' ] }
-
-NeoBundleLazy 'gregsexton/gitv', {
-\   'depends': ['vim-fugitive'],
-\   'autoload': {
-\       'commands': ['Gitv']
-\   }
-\}
+NeoBundle     'tpope/vim-fugitive', { 'augroup': 'fugitive' }
+NeoBundleLazy 'mattn/gist-vim',     { 'autoload': { 'commands': ['Gist'] }, 'depends': [ 'webapi-vim' ] }
+NeoBundleLazy 'gregsexton/gitv',    { 'autoload': { 'commands': ['Gitv'] }, 'depends': ['vim-fugitive'] }
+NeoBundle     'bartman/git-wip',    { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
+NeoBundle     'mhinz/vim-signify'
+NeoBundle     'vim-scripts/CountJump',         { 'depends': [ 'vim-scripts/ingo-library' ] }
+NeoBundle     'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/CountJump'    ] }
+NeoBundle     'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump'    ] }
 
 " Appish Or External Interface: bundles {{{3
 NeoBundle 'tpope/vim-eunuch'
@@ -228,8 +216,10 @@ NeoBundleLazy 'thinca/vim-localrc'
 "NeoBundle 'Zuckonit/vim-airline-tomato'
 
 " }}}3
-
+" END {{{3
 call neobundle#end()
+
+" }}}3
 
 " Finalize: Actually check/install {{{2
 
@@ -250,10 +240,11 @@ endif
 
 " }}}2
 
-" AUGROUP BEGIN: "vimrc" group for commands defined in this file
-" ...we switch back to the default at the end of this file.  Trial approach.
+" AUGROUP BEGIN: "vimrc" group for commands defined in this file {{{1
+" ...we switch back to the default at the end of this file.  Trial approach. {{{2
 augroup vimrc
 au!
+" }}}2
 
 " APPEARANCE: colors, themes, etc {{{1
 " colorscheme autocmds {{{2
