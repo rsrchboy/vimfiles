@@ -176,7 +176,7 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'kurayama/systemd-vim-syntax'
 
 " Trial Bundles: maybe, maybe not! {{{3
-" LazyBundle: TweetVim {{{4
+" LazyBundle: TweetVim - (18 Jul 2015) {{{4
 "
 " Could be neat.  Could be...  never used.
 
@@ -226,6 +226,7 @@ NeoBundle 'vitalk/vim-simple-todo'
 NeoBundle 'mnpk/vim-jira-complete'
 NeoBundle 'RsrchBoy/vim-jira-open'
 
+" 18 Jul 2015
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'chrisbra/NrrwRgn'
 NeoBundle 'wesQ3/vim-windowswap'
