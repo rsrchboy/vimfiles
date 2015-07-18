@@ -56,13 +56,12 @@ NeoBundle 'Shougo/vimproc', {
     \ },
 \ }
 " }}}4
-
+NeoBundleLazy 'krisajenkins/vim-pipe', { 'autoload': { 'commands': ['VimPipe'], 'mappings': ['<LocalLeader>r'] } }
 " loosely ordered.
 NeoBundle 'DataWraith/auto_mkdir'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'krisajenkins/vim-pipe'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'garbas/vim-snipmate', { 'depends': 'MarcWeber/vim-addon-mw-utils' }
 NeoBundle 'scrooloose/nerdcommenter'
