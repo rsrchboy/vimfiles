@@ -396,10 +396,24 @@ let g:tlTokenList                 = ['FIXME', 'XXX', 'TODO', 'TBD' ]
 " AirLine: A lightweight powerline replacement {{{1
 " settings {{{2
 
-"let g:airline_powerline_fonts = 1
+" extensions {{{2
 
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#bufferline#enabled           = 0
+let g:airline#extensions#syntastic#enabled            = 1
+let g:airline#extensions#tabline#enabled              = 1
+let g:airline#extensions#tagbar#enabled               = 1
+let g:airline#extensions#tmuxline#enabled             = 1
+let g:airline#extensions#whitespace#mixed_indent_algo = 1
 
+" fugitive bits {{{3
+"" if a string is provided, it should be the name of a function that
+"" takes a string and returns the desired value
+"let g:airline#extensions#branch#format = 'CustomBranchName'
+"function! CustomBranchName(name)
+"    return '[' . a:name . ']'
+"endfunction
+
+"}}}3
 " symbols {{{2
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
