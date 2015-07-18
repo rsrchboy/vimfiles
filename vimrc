@@ -384,8 +384,6 @@ let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
 
 let g:git_no_map_default          = 1
 let g:bufExplorerShowRelativePath = 1
-let g:Gitv_TruncateCommitSubjects = 1
-let g:Gitv_CommitStep             = 150
 " TODO need to highlight TBD appropriately, too
 let g:tlTokenList                 = ['FIXME', 'XXX', 'TODO', 'TBD' ]
 
@@ -725,6 +723,12 @@ autocmd BufEnter *.git/*_EDITMSG exe BufEnterCommit()
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " }}}3
+" }}}2
+
+" Gitv: {{{1
+" settings {{{2
+let g:Gitv_TruncateCommitSubjects = 1
+let g:Gitv_CommitStep             = 150
 " }}}2
 
 " Vitra: Trac UI for ViM (bundle config) {{{1
