@@ -83,7 +83,6 @@ NeoBundleLazy 'vim-scripts/Align'
 " loosely ordered.
 NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
 NeoBundle 'DataWraith/auto_mkdir'
-NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'majutsushi/tagbar'
@@ -228,6 +227,9 @@ NeoBundle 'mnpk/vim-jira-complete'
 NeoBundle 'RsrchBoy/vim-jira-open'
 
 " 18 Jul 2015
+" NOTE replaces: NeoBundle 'bronson/vim-trailing-whitespace'
+" FIXME ... if it would just work.  grr
+NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'chrisbra/NrrwRgn'
 NeoBundle 'wesQ3/vim-windowswap'
