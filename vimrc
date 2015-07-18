@@ -137,6 +137,10 @@ source ~/.vim/bundle/puppet-syntax-vim/ftdetect/puppet.vim
 NeoBundleLazy 'chrisbra/csv.vim', { 'autoload': { 'filetypes': 'csv' } }
 source ~/.vim/bundle/csv.vim/ftdetect/csv.vim
 
+" mkd {{{4
+NeoBundleLazy 'plasticboy/vim-markdown', { 'autoload': { 'filetypes': 'mkd' } }
+source ~/.vim/bundle/vim-markdown/ftdetect/mkd.vim
+
 " vim-chef and dependencies {{{4
 NeoBundleLazy 'vadv/vim-chef', {
 \   'autoload': { 'filetypes': 'chef' },
@@ -158,14 +162,13 @@ NeoBundle 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
 NeoBundle 'smancill/conky-syntax.vim'
 NeoBundle 'apeschel/vim-syntax-syslog-ng'
 NeoBundle 'fatih/vim-go'
+NeoBundle 'ekalinin/Dockerfile.vim'
 
 " Trial Bundles: maybe, maybe not! {{{3
 NeoBundle 'kablamo/vim-git-log'
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'tpope/vim-obsession'
-NeoBundle 'plasticboy/vim-markdown'
-NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'mattn/googletasks-vim'
 NeoBundle 'freitass/todo.txt-vim'
 "NeoBundle 'ervandew/supertab'
