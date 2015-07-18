@@ -402,8 +402,9 @@ au BufNewFile,BufRead *.snippet           set filetype=snippet
 au BufNewFile,BufRead .gitgot*            set filetype=yaml
 au BufNewFile,BufRead .oh-my-zsh/themes/* set filetype=zsh
 au BufNewFile,BufRead .gitconfig.local    set filetype=gitconfig
+
 " this usually works, but sometimes vim thinks a .t file isn't Perl
-au BufNewFile,BufRead *.t         set filetype=perl
+au BufNewFile,BufRead *.t set filetype=perl
 
 " filetype-specific autocommands {{{2
 "
