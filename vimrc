@@ -281,7 +281,7 @@ augroup vimrc
 au!
 " }}}2
 
-" General Vim: Configuration {{{1
+" CONFIGURATION: global or general {{{1
 " notes {{{2
 "
 " Configuration options that impact vim itself, rather than plugin or syntax
