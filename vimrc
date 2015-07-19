@@ -395,6 +395,7 @@ cmap w!! w !sudo tee % >/dev/null
 
 au BufNewFile,BufRead *.psgi              set filetype=perl
 au BufNewFile,BufRead cpanfile            set filetype=perl
+au BufNewFile,BufRead Rexfile             set filetype=perl
 au BufNewFile,BufRead *.tt                set filetype=tt2html
 au BufNewFile,BufRead *.tt2               set filetype=tt2html
 au BufNewFile,BufRead Changes             set filetype=changelog
