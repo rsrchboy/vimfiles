@@ -200,7 +200,7 @@ NeoBundleLazy 'basyura/TweetVim', {
 \   'tyru/open-browser.vim',
 \   'webapi-vim',
 \ ],
-\ 'autoload': { 'commands' : 'TweetVimHomeTimeline' },
+\ 'autoload': { 'commands' : [ 'TweetVimHomeTimeline', 'TweetVimSay', 'TweetVimCommandSay' ] },
 \ 'verbose': 1,
 \}
 
