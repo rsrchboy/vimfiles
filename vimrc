@@ -152,11 +152,12 @@ source ~/.vim/bundle/vim-markdown/ftdetect/mkd.vim
 
 " vim-chef and dependencies {{{4
 NeoBundleLazy 'vadv/vim-chef', {
-\   'autoload': { 'filetypes': 'chef' },
+\   'autoload': { 'filetypes': [ 'chef', 'ruby.chef' ] },
 \   'depends': [
 \       'tomtom/tlib_vim',
 \       'garbas/vim-snipmate',
 \   ],
+\   'verbose': 1,
 \}
 " }}}4
 NeoBundle 'nono/jquery.vim'
