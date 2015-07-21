@@ -707,7 +707,7 @@ endfunction
 " fugitive instead.
 
 nnoremap <Leader>gs :Gstatus<Enter>
-nnoremap <Leader>gd :call Gitv_OpenGitCommand("diff --no-color", 'new')<CR>
+nnoremap <Leader>gd :call Gitv_OpenGitCommand("diff --no-color ".expand('%'), 'new')<CR>
 nnoremap <Leader>gD :call Gitv_OpenGitCommand("diff --no-color --cached %", 'new')<CR>
 nnoremap <Leader>ga :call RunGitWrite()<CR>
 nnoremap <Leader>gc :Gcommit<Enter>
