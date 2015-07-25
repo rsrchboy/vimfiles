@@ -975,5 +975,5 @@ set exrc
 " AUGROUP END: close the "vimrc" group for commands defined in this file
 augroup END
 
-" vim: set foldmethod=marker foldlevel=1 foldcolumn=3 :
+" vim: set foldmethod=marker foldlevel=1 foldcolumn=5 :
 
