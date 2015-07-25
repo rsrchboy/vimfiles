@@ -27,6 +27,7 @@ MooseX
 MyClass
 Ndn
 PODNAME
+PSGI
 PluginBundle
 RSRCHBOY
 RelatedClasses
@@ -38,6 +39,7 @@ TraitFor
 TravisCI
 TypeConstraint
 Zilla
+aaaand
 accessor
 arg
 attr
@@ -45,6 +47,7 @@ attribute's
 autoclean
 autodie
 automagically
+bugtracker
 chroot
 codebase
 coderef
@@ -57,6 +60,7 @@ diffs
 dreamhost
 dzil
 fakechroot
+formattable
 func
 github
 glom
@@ -85,6 +89,7 @@ sql
 sqlite3
 stopwords
 subtests
+superclasses
 symlink
 trait1
 travis
@@ -93,10 +98,3 @@ tt2
 undef
 usr
 v5
-sbin
-codebase
-PSGI
-superclasses
-aaaand
-formattable
-bugtracker
