@@ -9,24 +9,32 @@
 "   * MooseX::Role::Parameterized
 "   * Try::Tiny
 "
-" Please download most recent version first before mailing
-" any comments.
+" ...kinda.
 
-" Moose
-syn match perlOperator           "\<\%(blessed\)"
-syn match perlStatementMisc      "\<\%(confess\)"
-syn match perlStatementInclude   "\<\%(extends\|with\)\>"
-syn match perlFunction           "\<\%(before\|after\|around\|augment\|override\)\>"
-syn match perlStatementStorage   "\<\%(has\)\>"
-" need -- super, inner
+source ~/.vim/bundle/vim-perl/contrib/carp.vim
+source ~/.vim/bundle/vim-perl/contrib/moose.vim
+source ~/.vim/bundle/vim-perl/contrib/try-tiny.vim
 
-" MooseX::Role::Parameterized -- for now
-syn match perlStatementMisc      "\<\%(role\|parameter\|method\) "
+" Moose: {{{1
+syn match perlOperator           "\<\%(blessed\)\>"
 
-" Try::Tiny
-"
-" This should be a region, but for now...
-syn match perlStatementMisc      "\<\%(try\|catch\|finally\)"
+" AttributeShortcuts: {{{2
+syn match perlStatementProc '\<\%(isa_instance_of\|constraint\)\>'
+
+" MooseX::Role::Parameterized -- for now {{{2
+syn match perlFunction      "\<\%(role\)\>"
+syn match perlMooseAttribute +\<parameter\>\_s*+ nextgroup=perlMooseAttributeName
+syn match perlMooseAttribute +\<\%(before\|method\|around\|after\)\>\_s*+ nextgroup=perlMooseAttributeName
+
+syn match perlMooseAttribute +\<has\>\_s*+ nextgroup=perlMooseAttributeName
+"syn match perlMooseAttributeName "\<\%(\)\>" contained
+syn match perlMooseAttributeName +\%(\h*\)+  contained nextgroup=perlFatComma
+
+syn match  perlFatComma "\%(\s*=>\)" contained
+
+hi def link perlMooseAttribute perlFunction
+hi def link perlMooseAttributeName perlSubName
+
 
 syn keyword perlTodo PODNAME: ABSTRACT: TODO TODO: TBD TBD: FIXME FIXME: XXX XXX: NOTE NOTE: contained
 
