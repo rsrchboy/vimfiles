@@ -414,6 +414,7 @@ au BufNewFile,BufRead *.t set filetype=perl
 "
 " Many of these are stored in a ftplugin/ file.
 au FileType ruby setlocal tabstop=2 shiftwidth=2
+au FileType git  setlocal foldcolumn=0
 
 " }}}2
 
