@@ -206,3 +206,7 @@ vimrc
 VimResized
 foldcolumn
 ftplugin
+VimEnter
+NeoBundle
+augroup
+autocmd
