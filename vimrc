@@ -820,6 +820,13 @@ autocmd BufWinEnter Ticket:.Edit* setlocal filetype=tracwiki spell spelllang=en_
 " }}}2
 
 " Inline Block Manipulation: aka prettification {{{1
+" Uniq: trim to unique lines {{{2
+"
+" There's *got* to be a better way to do this than shelling out, but I'm out
+" of tuits at the moment.
+
+command! -range -nargs=* Uniq <line1>,<line2>! uniq
+
 " json {{{2
 command! -range -nargs=* Tidy <line1>,<line2>! json_xs -f json -t json-pretty
 
