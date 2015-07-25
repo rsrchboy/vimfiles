@@ -159,6 +159,11 @@ NeoBundleLazy 'vadv/vim-chef', {
 \   ],
 \   'verbose': 1,
 \}
+" deb.vim {{{4
+NeoBundleLazy 'vim-scripts/deb.vim', {
+\ 'autoload': { 'filename_patterns': '\.deb$' },
+\ 'verbose': 1,
+\}
 " }}}4
 NeoBundle 'nono/jquery.vim'
 NeoBundle 'othree/html5-syntax.vim'
@@ -167,7 +172,6 @@ NeoBundle 'tmatilai/gitolite.vim'
 NeoBundle 'evanmiller/nginx-vim-syntax'
 NeoBundle 'fmoralesc/vim-pinpoint'
 NeoBundle 'vim-scripts/iptables'
-NeoBundle 'vim-scripts/deb.vim'
 NeoBundle 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
 NeoBundle 'smancill/conky-syntax.vim'
 NeoBundle 'apeschel/vim-syntax-syslog-ng'
