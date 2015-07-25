@@ -172,13 +172,18 @@ NeoBundleLazy 'fatih/vim-go', {
 \ },
 \ 'verbose': 1,
 \}
+" vim-pinpoint {{{4
+NeoBundleLazy 'fmoralesc/vim-pinpoint', {
+\ 'autoload': {
+\   'filetypes': 'pinpoint', 'filename_patterns': '\.pin$',
+\ },
+\}
 " }}}4
 NeoBundleLazy 'nono/jquery.vim', { 'autoload': { 'filetypes': 'jquery' } }
 NeoBundle 'othree/html5-syntax.vim'
 NeoBundle 'argent-smith/JSON.vim'
 NeoBundle 'tmatilai/gitolite.vim'
 NeoBundle 'evanmiller/nginx-vim-syntax'
-NeoBundle 'fmoralesc/vim-pinpoint'
 NeoBundle 'vim-scripts/iptables'
 NeoBundle 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
 NeoBundle 'smancill/conky-syntax.vim'
