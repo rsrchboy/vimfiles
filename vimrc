@@ -165,7 +165,7 @@ NeoBundleLazy 'vim-scripts/deb.vim', {
 \ 'verbose': 1,
 \}
 " }}}4
-NeoBundle 'nono/jquery.vim'
+NeoBundleLazy 'nono/jquery.vim', { 'autoload': { 'filetypes': 'jquery' } }
 NeoBundle 'othree/html5-syntax.vim'
 NeoBundle 'argent-smith/JSON.vim'
 NeoBundle 'tmatilai/gitolite.vim'
