@@ -164,6 +164,14 @@ NeoBundleLazy 'vim-scripts/deb.vim', {
 \ 'autoload': { 'filename_patterns': '\.deb$' },
 \ 'verbose': 1,
 \}
+" vim-go {{{4
+NeoBundleLazy 'fatih/vim-go', {
+\ 'augroup': 'vim-go',
+\ 'autoload': {
+\   'filetypes': ['godoc', 'gohtmltmpl', 'gotexttmpl', 'go', 'vimgo'],
+\ },
+\ 'verbose': 1,
+\}
 " }}}4
 NeoBundleLazy 'nono/jquery.vim', { 'autoload': { 'filetypes': 'jquery' } }
 NeoBundle 'othree/html5-syntax.vim'
@@ -175,7 +183,6 @@ NeoBundle 'vim-scripts/iptables'
 NeoBundle 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
 NeoBundle 'smancill/conky-syntax.vim'
 NeoBundle 'apeschel/vim-syntax-syslog-ng'
-NeoBundle 'fatih/vim-go'
 NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'kurayama/systemd-vim-syntax'
