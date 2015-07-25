@@ -8,6 +8,9 @@ let b:did_gitcommit_local_ftplugin = 1
 setlocal nofoldenable
 setlocal foldcolumn=0
 
+" don't show tabs and the like (under our configuration)
+setlocal nolist
+
 " turn on spell-check
 setlocal spell
 setlocal spelllang=en_us
