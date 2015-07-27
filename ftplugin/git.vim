@@ -1,5 +1,4 @@
-
-" a couple additional settings for help type buffers
+" a couple additional settings for git type buffers
 
 " Only do this when not done yet for this buffer
 if exists("b:did_local_git_ftplugin")
