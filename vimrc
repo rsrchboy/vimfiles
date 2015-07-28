@@ -228,7 +228,7 @@ NeoBundleLazy 'basyura/TweetVim', {
 
 " }}}4
 NeoBundle 'vim-scripts/gtk-vim-syntax'
-NeoBundle 'kablamo/vim-git-log'
+NeoBundle 'kablamo/vim-git-log', { 'depends': 'vim-fugitive' }
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'tpope/vim-obsession'
