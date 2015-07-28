@@ -122,6 +122,12 @@ NeoBundle     'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/Count
 NeoBundle     'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump'    ] }
 
 " Appish Or External Interface: bundles {{{3
+" TmuxLine: {{{4
+NeoBundleLazy 'edkolev/tmuxline.vim', { 'autoload': { 'commands': ['Tmuxline', 'TmuxlineSnapshot'] }, 'verbose': 0 }
+
+let g:tmuxline_powerline_separators = 0
+
+" 4}}}
 NeoBundle 'tpope/vim-eunuch'
 NeoBundleLazy 'vim-scripts/VimRepress' " FIXME: needs command triggers
 NeoBundle 'vim-scripts/vimwiki'
@@ -231,14 +237,13 @@ NeoBundleLazy 'kablamo/vim-git-log', { 'depends': 'vim-fugitive', 'autoload': { 
 
 " }}}4
 NeoBundle 'vim-scripts/gtk-vim-syntax'
-NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'tpope/vim-obsession'
 NeoBundle 'mattn/googletasks-vim'
 NeoBundle 'freitass/todo.txt-vim'
 "NeoBundle 'ervandew/supertab'
+NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'edkolev/tmuxline.vim'
 NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'kien/tabman.vim'
 NeoBundle 'Shougo/unite.vim'
