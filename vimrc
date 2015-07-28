@@ -104,7 +104,6 @@ NeoBundleLazy 'Townk/vim-autoclose', { 'insert': 1, 'verbose': 1, 'autoload': { 
 "NeoBundle 'Townk/vim-autoclose'
 "NeoBundleLazy 'Townk/vim-autoclose', { 'autoload': { 'insert': 1 } }
 NeoBundle 'mhinz/vim-startify'
-NeoBundle 'zaiste/tmux.vim'
 NeoBundle 'bling/vim-airline'
 "NeoBundle 'bling/vim-bufferline'
 
@@ -185,6 +184,7 @@ NeoBundleLazy 'fmoralesc/vim-pinpoint', {
 \}
 " }}}4
 NeoBundleLazy 'nono/jquery.vim', { 'autoload': { 'filetypes': 'jquery' } }
+NeoBundle 'zaiste/tmux.vim'
 NeoBundle 'othree/html5-syntax.vim'
 NeoBundle 'argent-smith/JSON.vim'
 NeoBundle 'tmatilai/gitolite.vim'
