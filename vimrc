@@ -39,6 +39,9 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
+" Recipies: yay for shortcuts! (disabled) {{{3
+"NeoBundle 'Shougo/neobundle-vim-recipes', { 'force' : 1 }
+
 " Libraries: library plugins/bundles {{{3
 NeoBundleLazy 'MarcWeber/vim-addon-mw-utils'
 NeoBundleLazy 'mattn/webapi-vim'
@@ -90,14 +93,16 @@ NeoBundle 'garbas/vim-snipmate',
 \ { 'depends': 'MarcWeber/vim-addon-mw-utils' }
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-surround'
+"NeoBundleLazy 'tpope/vim-surround', { 'autoload': { 'insert': 1 } }
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tsaleh/vim-align'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'scrooloose/nerdtree',
 \ { 'augroup': 'NERDTreeHijackNetrw' }
-"NeoBundleLazy 'Townk/vim-autoclose', { 'autoload': { 'insert': 1 }, 'augroup': '<Plug>(autoclose)' }
-NeoBundle 'Townk/vim-autoclose'
+NeoBundleLazy 'Townk/vim-autoclose', { 'insert': 1, 'verbose': 1, 'autoload': { 'insert': 1 }, 'augroup': '<Plug>(autoclose)' }
+"NeoBundle 'Townk/vim-autoclose'
+"NeoBundleLazy 'Townk/vim-autoclose', { 'autoload': { 'insert': 1 } }
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'zaiste/tmux.vim'
 NeoBundle 'bling/vim-airline'
@@ -222,6 +227,7 @@ NeoBundleLazy 'basyura/TweetVim', {
 \}
 
 " }}}4
+NeoBundle 'vim-scripts/gtk-vim-syntax'
 NeoBundle 'kablamo/vim-git-log'
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'dhruvasagar/vim-table-mode'
