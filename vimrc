@@ -226,9 +226,11 @@ NeoBundleLazy 'basyura/TweetVim', {
 \ 'verbose': 1,
 \}
 
+" VimGitLog: lazy {{{4
+NeoBundleLazy 'kablamo/vim-git-log', { 'depends': 'vim-fugitive', 'autoload': { 'commands': 'GitLog' }, 'verbose': 1 }
+
 " }}}4
 NeoBundle 'vim-scripts/gtk-vim-syntax'
-NeoBundle 'kablamo/vim-git-log', { 'depends': 'vim-fugitive' }
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'tpope/vim-obsession'
