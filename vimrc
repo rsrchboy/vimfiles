@@ -270,6 +270,10 @@ NeoBundleLazy 'Shougo/junkfile.vim', {
       \ }
 \ }
 
+" 27 Jul 2015
+NeoBundle 'tpope/vim-projectionist'
+NeoBundleLazy 'klen/python-mode', { 'autoload': { 'filetypes': 'python' }, 'verbose': 1 }
+
 " Probation: {{{3
 NeoBundleLazy 'junegunn/vim-github-dashboard'
 NeoBundleLazy 'lukaszkorecki/vim-GitHubDashBoard'
