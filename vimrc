@@ -122,6 +122,34 @@ NeoBundle     'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/Count
 NeoBundle     'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump'    ] }
 
 " Appish Or External Interface: bundles {{{3
+" LazyBundle: TweetVim - (18 Jul 2015) {{{4
+"
+" Could be neat.  Could be...  never used.
+
+autocmd FileType tweetvim setlocal nonumber foldcolumn=0
+
+let g:tweetvim_tweet_per_page   = 50
+let g:tweetvim_display_source   = 1
+let g:tweetvim_display_time     = 1
+let g:tweetvim_expand_t_co      = 0
+let g:tweetvim_display_username = 1
+
+NeoBundleLazy 'basyura/twibill.vim'
+NeoBundleLazy 'basyura/bitly.vim', { 'depends': 'webapi-vim' }
+NeoBundleLazy 'tyru/open-browser.vim'
+NeoBundleLazy 'mattn/favstar-vim'
+NeoBundleLazy 'basyura/TweetVim', {
+\ 'depends': [
+\   'basyura/twibill.vim',
+\   'bitly.vim',
+\   'favstar-vim',
+\   'tyru/open-browser.vim',
+\   'webapi-vim',
+\ ],
+\ 'autoload': { 'commands' : [ 'TweetVimHomeTimeline', 'TweetVimSay', 'TweetVimCommandSay' ] },
+\ 'verbose': 1,
+\}
+
 " TmuxLine: {{{4
 NeoBundleLazy 'edkolev/tmuxline.vim', { 'autoload': { 'commands': ['Tmuxline', 'TmuxlineSnapshot'] }, 'verbose': 0 }
 
@@ -204,34 +232,6 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'kurayama/systemd-vim-syntax'
 
 " Trial Bundles: maybe, maybe not! {{{3
-" LazyBundle: TweetVim - (18 Jul 2015) {{{4
-"
-" Could be neat.  Could be...  never used.
-
-autocmd FileType tweetvim setlocal nonumber foldcolumn=0
-
-let g:tweetvim_tweet_per_page   = 50
-let g:tweetvim_display_source   = 1
-let g:tweetvim_display_time     = 1
-let g:tweetvim_expand_t_co      = 0
-let g:tweetvim_display_username = 1
-
-NeoBundleLazy 'basyura/twibill.vim'
-NeoBundleLazy 'basyura/bitly.vim', { 'depends': 'webapi-vim' }
-NeoBundleLazy 'tyru/open-browser.vim'
-NeoBundleLazy 'mattn/favstar-vim'
-NeoBundleLazy 'basyura/TweetVim', {
-\ 'depends': [
-\   'basyura/twibill.vim',
-\   'bitly.vim',
-\   'favstar-vim',
-\   'tyru/open-browser.vim',
-\   'webapi-vim',
-\ ],
-\ 'autoload': { 'commands' : [ 'TweetVimHomeTimeline', 'TweetVimSay', 'TweetVimCommandSay' ] },
-\ 'verbose': 1,
-\}
-
 " VimGitLog: lazy {{{4
 NeoBundleLazy 'kablamo/vim-git-log', { 'depends': 'vim-fugitive', 'autoload': { 'commands': 'GitLog' }, 'verbose': 1 }
 
