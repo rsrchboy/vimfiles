@@ -128,10 +128,12 @@ NeoBundle     'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/Count
 
 autocmd FileType tweetvim setlocal nonumber foldcolumn=0
 
+nnoremap <Leader>TT :TweetVimHomeTimeline<CR>
+
 let g:tweetvim_tweet_per_page   = 50
 let g:tweetvim_display_source   = 1
 let g:tweetvim_display_time     = 1
-let g:tweetvim_expand_t_co      = 0
+let g:tweetvim_expand_t_co      = 1
 let g:tweetvim_display_username = 1
 
 NeoBundleLazy 'basyura/twibill.vim'
