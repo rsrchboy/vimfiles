@@ -163,6 +163,17 @@ NeoBundleLazy 'pentie/VimRepress', {
 \   'commands': ['BlogNew', 'BlogOpen', 'BlogList'],
 \ },
 \}
+" Calendar: +config {{{4
+
+let g:calendar_google_calendar = 1
+let g:calendar_google_task     = 1
+
+NeoBundleLazy 'itchyny/calendar.vim', {
+\ 'autoload': {
+\   'commands': 'Calendar',
+\ },
+\ 'verbose': 1,
+\}
 " 4}}}
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'vim-scripts/vimwiki'
@@ -251,7 +262,6 @@ NeoBundle 'freitass/todo.txt-vim'
 "NeoBundle 'ervandew/supertab'
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'itchyny/calendar.vim'
 NeoBundle 'kien/tabman.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
@@ -887,14 +897,6 @@ autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-
 
 " }}}3
 " }}}2
-
-" Calendar: configuration settings {{{1
-" settings {{{2
-
-let g:calendar_google_calendar = 1
-let g:calendar_google_task     = 1
-
-"}}}2
 
 " NERDTree: configuration settings {{{1
 " settings {{{2
