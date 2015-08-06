@@ -157,9 +157,14 @@ NeoBundleLazy 'edkolev/tmuxline.vim', { 'autoload': { 'commands': ['Tmuxline', '
 
 let g:tmuxline_powerline_separators = 0
 
+" VimRepress: {{{4
+NeoBundleLazy 'pentie/VimRepress', {
+\ 'autoload': {
+\   'commands': ['BlogNew', 'BlogOpen', 'BlogList'],
+\ },
+\}
 " 4}}}
 NeoBundle 'tpope/vim-eunuch'
-NeoBundleLazy 'vim-scripts/VimRepress' " FIXME: needs command triggers
 NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'hsitz/VimOrganizer'
 
