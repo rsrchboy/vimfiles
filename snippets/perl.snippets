@@ -24,6 +24,16 @@ snippet around
 
 		${2}
 	};
+# before method modifier
+snippet before
+	before ${1:method_name} => sub {
+		${2:...}
+	};
+# after method modifier
+snippet after
+	after ${1:method_name} => sub {
+		${2:...}
+	};
 # read-only accessor notation for POD
 snippet roa
 	This is a read-only accessor to the L</${1:attribute name}> attribute.
