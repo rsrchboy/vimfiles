@@ -49,7 +49,7 @@ NeoBundleLazy 'vim-scripts/ingo-library'
 NeoBundleLazy 'tomtom/tlib_vim'
 
 " General: bundles {{{3
-" Bundle: vimproc {{{4
+" VimProc: {{{4
 NeoBundle 'Shougo/vimproc', {
     \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
@@ -59,7 +59,7 @@ NeoBundle 'Shougo/vimproc', {
     \ },
 \ }
 
-" LazyBundle: vim-gnupg {{{4
+" VimGnuPG: {{{4
 NeoBundleLazy 'jamessan/vim-gnupg', {
             \ 'autoload': { 'filename_patterns': ['\.gpg$','\.asc$','\.pgp$'] },
             \ 'augroup':  'GnuPG',
@@ -70,51 +70,57 @@ function! bundle.hooks.on_post_source(bundle)
   silent! execute 'doautocmd GnuPG FileReadCmd'
 endfunction
 
-" LazyBundle: vim-pipe {{{4
+" VimPipe: {{{4
 NeoBundleLazy 'krisajenkins/vim-pipe',
 \ { 'autoload': { 'commands': ['VimPipe'], 'mappings': ['<LocalLeader>r'] } }
 
-" LazyBundle: bufexplorer {{{4
+" BufExplorer: {{{4
+
+let g:bufExplorerShowRelativePath = 1
+
 NeoBundleLazy 'RsrchBoy/bufexplorer.zip', {
 \'augroup':  'BufExplorer',
 \'autoload': { 'commands': ['BufExplorer'], 'mappings': ['<LocalLeader>be'] },
 \'verbose': 1,
 \}
-" }}}4
+" CtrlP: {{{4
+
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+let g:ctrlp_reuse_window = 'netrw\|help\|quickfix\|startify'
+
+NeoBundle 'kien/ctrlp.vim'
+
+" remainder {{{4
 
 NeoBundleLazy 'vim-scripts/Align'
-" loosely ordered.
 NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
 NeoBundle 'DataWraith/auto_mkdir'
 NeoBundle 'godlygeek/tabular'
-NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'garbas/vim-snipmate',
-\ { 'depends': 'MarcWeber/vim-addon-mw-utils' }
+NeoBundle 'garbas/vim-snipmate', { 'depends': 'MarcWeber/vim-addon-mw-utils' }
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-surround'
-"NeoBundleLazy 'tpope/vim-surround', { 'autoload': { 'insert': 1 } }
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tsaleh/vim-align'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'scrooloose/nerdtree',
-\ { 'augroup': 'NERDTreeHijackNetrw' }
-NeoBundleLazy 'Townk/vim-autoclose', { 'insert': 1, 'verbose': 1, 'autoload': { 'insert': 1 }, 'augroup': '<Plug>(autoclose)' }
-"NeoBundle 'Townk/vim-autoclose'
-"NeoBundleLazy 'Townk/vim-autoclose', { 'autoload': { 'insert': 1 } }
+NeoBundle 'scrooloose/nerdtree', { 'augroup': 'NERDTreeHijackNetrw' }
+NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'bling/vim-airline'
-"NeoBundle 'bling/vim-bufferline'
 
 " ColorSchemes: {{{3
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'jnurmine/Zenburn'
 
 " GIT And Version Controlish: bundles {{{3
+" Gitv: {{{4
+let g:Gitv_TruncateCommitSubjects = 1
+let g:Gitv_CommitStep             = 150
+NeoBundleLazy 'gregsexton/gitv',    { 'autoload': { 'commands': 'Gitv', 'functions': 'Gitv_OpenGitCommand' }, 'depends': ['vim-fugitive'] }
+" remainder {{{4
 NeoBundle     'tpope/vim-fugitive', { 'augroup': 'fugitive' }
 NeoBundleLazy 'mattn/gist-vim',     { 'autoload': { 'commands': 'Gist' }, 'depends': [ 'webapi-vim' ] }
-NeoBundleLazy 'gregsexton/gitv',    { 'autoload': { 'commands': 'Gitv', 'functions': 'Gitv_OpenGitCommand' }, 'depends': ['vim-fugitive'] }
 NeoBundle     'bartman/git-wip',    { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
 NeoBundle     'mhinz/vim-signify'
 NeoBundle     'vim-scripts/CountJump',         { 'depends': [ 'vim-scripts/ingo-library' ] }
@@ -160,6 +166,7 @@ NeoBundleLazy 'pentie/VimRepress', {
 \ 'autoload': {
 \   'commands': ['BlogNew', 'BlogOpen', 'BlogList'],
 \ },
+\ 'disabled': !has('python'),
 \}
 " Calendar: +config {{{4
 
@@ -172,7 +179,7 @@ NeoBundleLazy 'itchyny/calendar.vim', {
 \ },
 \ 'verbose': 1,
 \}
-" 4}}}
+" remainder {{{4
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'hsitz/VimOrganizer'
@@ -250,14 +257,12 @@ NeoBundle 'kurayama/systemd-vim-syntax'
 " Trial Bundles: maybe, maybe not! {{{3
 " VimGitLog: lazy {{{4
 NeoBundleLazy 'kablamo/vim-git-log', { 'depends': 'vim-fugitive', 'autoload': { 'commands': 'GitLog' }, 'verbose': 1 }
-
-" }}}4
+" remainder {{{4
+NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
 NeoBundle 'vim-scripts/gtk-vim-syntax'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'tpope/vim-obsession'
-NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
 NeoBundle 'freitass/todo.txt-vim'
-"NeoBundle 'ervandew/supertab'
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'kien/tabman.vim'
@@ -299,6 +304,8 @@ NeoBundleLazy 'embear/vim-localvimrc'
 NeoBundleLazy 'thinca/vim-localrc'
 
 " Attic: no longer used {{{3
+"NeoBundle 'ervandew/supertab'
+"NeoBundle 'bling/vim-bufferline'
 "NeoBundle 'vim-scripts/tracwiki'
 "NeoBundle 'nsmgr8/vitra'   " trac
 "NeoBundle 'kakkyz81/evervim'
@@ -466,6 +473,8 @@ au FileType git  setlocal foldcolumn=0
 
 " }}}2
 
+let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
+
 " APPEARANCE: colors, themes, etc {{{1
 " colorscheme autocmds {{{2
 
@@ -480,18 +489,6 @@ let g:solarized_termtrans = 1
 
 " additional settings in after/plugin/colorscheme.vim
 
-
-" }}}2
-
-" SETTINGS: misc bundle settings {{{1
-" TODO: refactor this out properly {{{2
-
-let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
-
-let g:git_no_map_default          = 1
-let g:bufExplorerShowRelativePath = 1
-" TODO need to highlight TBD appropriately, too
-let g:tlTokenList                 = ['FIXME', 'XXX', 'TODO', 'TBD' ]
 
 " }}}2
 
@@ -612,14 +609,6 @@ func! SignifyOnBufEnter()
         call sy#start()
     "endif
 endfunc
-
-" }}}2
-
-" CtrlP: helpful file finder {{{1
-" settings {{{2
-
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
-let g:ctrlp_reuse_window = 'netrw\|help\|quickfix\|startify'
 
 " }}}2
 
@@ -822,12 +811,6 @@ autocmd BufEnter *.git/*_EDITMSG exe BufEnterCommit()
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " }}}3
-" }}}2
-
-" Gitv: {{{1
-" settings {{{2
-let g:Gitv_TruncateCommitSubjects = 1
-let g:Gitv_CommitStep             = 150
 " }}}2
 
 " Vitra: Trac UI for ViM (bundle config) {{{1
