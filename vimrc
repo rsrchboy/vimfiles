@@ -255,7 +255,7 @@ NeoBundleLazy 'kablamo/vim-git-log', { 'depends': 'vim-fugitive', 'autoload': { 
 NeoBundle 'vim-scripts/gtk-vim-syntax'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'tpope/vim-obsession'
-NeoBundle 'mattn/googletasks-vim'
+NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
 NeoBundle 'freitass/todo.txt-vim'
 "NeoBundle 'ervandew/supertab'
 NeoBundle 'mhinz/vim-tmuxify'
