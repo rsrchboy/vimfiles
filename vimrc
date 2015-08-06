@@ -122,9 +122,7 @@ NeoBundle     'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/Count
 NeoBundle     'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump'    ] }
 
 " Appish Or External Interface: bundles {{{3
-" LazyBundle: TweetVim - (18 Jul 2015) {{{4
-"
-" Could be neat.  Could be...  never used.
+" TweetVim: ...and configuration {{{4
 
 autocmd FileType tweetvim setlocal nonumber foldcolumn=0
 
