@@ -747,6 +747,7 @@ endfunction
 nnoremap <Leader>gs :Gstatus<Enter>
 nnoremap <Leader>gd :call Gitv_OpenGitCommand("diff --no-color -- ".expand('%'), 'new')<CR>
 nnoremap <Leader>gD :call Gitv_OpenGitCommand("diff --no-color --cached %", 'new')<CR>
+nnoremap <Leader>gh :call Gitv_OpenGitCommand("show --no-color", 'new')<CR>
 nnoremap <Leader>ga :call RunGitWrite()<CR>
 nnoremap <Leader>gc :Gcommit<Enter>
 nnoremap <Leader>gf :call RunGitFixup()<CR>
