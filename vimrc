@@ -479,7 +479,8 @@ let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
 " APPEARANCE: colors, themes, etc {{{1
 " colorscheme autocmds {{{2
 
-" see after/plugin/colorscheme.vim
+au ColorScheme zenburn   source ~/.vim/local/colors/zenburn.vim
+au ColorScheme solarized source ~/.vim/local/colors/solarized.vim
 
 " colorscheme settings {{{2
 
@@ -488,7 +489,10 @@ let g:zenburn_high_Contrast = 1
 let g:solarized_termtrans = 1
 "let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
 
-" additional settings in after/plugin/colorscheme.vim
+" aaaaaaand enable! {{{2
+
+colorscheme zenburn
+syntax on
 
 
 " }}}2
