@@ -277,6 +277,8 @@ NeoBundle 'vitalk/vim-simple-todo'
 NeoBundle 'mnpk/vim-jira-complete'
 NeoBundle 'RsrchBoy/vim-jira-open'
 
+NeoBundle 'Shougo/neocomplete.vim'
+
 " 18 Jul 2015
 " NOTE replaces: NeoBundle 'bronson/vim-trailing-whitespace'
 " FIXME ... if it would just work.  grr
