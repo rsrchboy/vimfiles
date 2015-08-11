@@ -506,7 +506,7 @@ let g:airline#extensions#bufferline#enabled           = 0
 let g:airline#extensions#syntastic#enabled            = 1
 let g:airline#extensions#tabline#enabled              = 1
 let g:airline#extensions#tagbar#enabled               = 1
-let g:airline#extensions#tmuxline#enabled             = 1
+let g:airline#extensions#tmuxline#enabled             = 0
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
 
 " fugitive bits {{{3
