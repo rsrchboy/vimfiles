@@ -34,22 +34,24 @@ if has('vim_starting')
     endif
 endif
 
-" Bundles: define our bundles, etc {{{2
-" BEGIN {{{3
+" BUNDLES BEGIN: Initialization {{{1
+" beginning incantation... {{{2
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Recipies: yay for shortcuts! (disabled) {{{3
+" Recipies: yay for shortcuts! (disabled) {{{1
+" All: {{{2
 "NeoBundle 'Shougo/neobundle-vim-recipes', { 'force' : 1 }
 
-" Libraries: library plugins/bundles {{{3
+" Libraries: library plugins/bundles {{{1
+" All: {{{2
 NeoBundleLazy 'MarcWeber/vim-addon-mw-utils'
 NeoBundleLazy 'mattn/webapi-vim'
 NeoBundleLazy 'vim-scripts/ingo-library'
 NeoBundleLazy 'tomtom/tlib_vim'
 
-" General: bundles {{{3
-" VimProc: {{{4
+" General Bundles: {{{1
+" VimProc: {{{2
 NeoBundle 'Shougo/vimproc', {
     \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
@@ -59,7 +61,7 @@ NeoBundle 'Shougo/vimproc', {
     \ },
 \ }
 
-" VimGnuPG: {{{4
+" VimGnuPG: {{{2
 NeoBundleLazy 'jamessan/vim-gnupg', {
             \ 'autoload': { 'filename_patterns': ['\.gpg$','\.asc$','\.pgp$'] },
             \ 'augroup':  'GnuPG',
@@ -70,11 +72,11 @@ function! bundle.hooks.on_post_source(bundle)
   silent! execute 'doautocmd GnuPG FileReadCmd'
 endfunction
 
-" VimPipe: {{{4
+" VimPipe: {{{2
 NeoBundleLazy 'krisajenkins/vim-pipe',
 \ { 'autoload': { 'commands': ['VimPipe'], 'mappings': ['<LocalLeader>r'] } }
 
-" BufExplorer: {{{4
+" BufExplorer: {{{2
 
 let g:bufExplorerShowRelativePath = 1
 
@@ -83,14 +85,14 @@ NeoBundleLazy 'RsrchBoy/bufexplorer.zip', {
 \'autoload': { 'commands': ['BufExplorer'], 'mappings': ['<LocalLeader>be'] },
 \'verbose': 1,
 \}
-" CtrlP: {{{4
+" CtrlP: {{{2
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix\|startify'
 
 NeoBundle 'kien/ctrlp.vim'
 
-" remainder {{{4
+" remainder {{{2
 
 NeoBundleLazy 'vim-scripts/Align'
 NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
@@ -109,26 +111,44 @@ NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'bling/vim-airline'
 
-" ColorSchemes: {{{3
+" ColorSchemes: {{{1
+" All Remaining Bundles: {{{2
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'jnurmine/Zenburn'
 
-" GIT And Version Controlish: bundles {{{3
-" Gitv: {{{4
+" GIT And Version Controlish: bundles {{{1
+" Gitv: {{{2
+
 let g:Gitv_TruncateCommitSubjects = 1
 let g:Gitv_CommitStep             = 150
+
 NeoBundleLazy 'gregsexton/gitv',    { 'autoload': { 'commands': 'Gitv', 'functions': 'Gitv_OpenGitCommand' }, 'depends': ['vim-fugitive'] }
-" remainder {{{4
+
+" Gist: {{{2
+
+let g:gist_detect_filetype        = 1
+let g:gist_clip_command           = 'xclip -selection clipboard'
+let g:gist_post_private           = 1
+let g:gist_show_privates          = 1
+let g:gist_get_multiplefile       = 1
+
+NeoBundleLazy 'mattn/gist-vim',
+            \{
+            \ 'autoload': { 'commands': 'Gist' },
+            \ 'depends': [ 'webapi-vim' ],
+            \ 'verbose': 1,
+            \}
+
+" remainder {{{2
 NeoBundle     'tpope/vim-fugitive', { 'augroup': 'fugitive' }
-NeoBundleLazy 'mattn/gist-vim',     { 'autoload': { 'commands': 'Gist' }, 'depends': [ 'webapi-vim' ] }
 NeoBundle     'bartman/git-wip',    { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
 NeoBundle     'mhinz/vim-signify'
 NeoBundle     'vim-scripts/CountJump',         { 'depends': [ 'vim-scripts/ingo-library' ] }
 NeoBundle     'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/CountJump'    ] }
 NeoBundle     'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump'    ] }
 
-" Appish Or External Interface: bundles {{{3
-" TweetVim: ...and configuration {{{4
+" Appish Or External Interface: bundles {{{1
+" TweetVim: ...and configuration {{{2
 
 autocmd FileType tweetvim setlocal nonumber foldcolumn=0
 
@@ -156,19 +176,19 @@ NeoBundleLazy 'basyura/TweetVim', {
 \ 'verbose': 1,
 \}
 
-" TmuxLine: {{{4
+" TmuxLine: {{{2
 NeoBundleLazy 'edkolev/tmuxline.vim', { 'autoload': { 'commands': ['Tmuxline', 'TmuxlineSnapshot'] }, 'verbose': 0 }
 
 let g:tmuxline_powerline_separators = 0
 
-" VimRepress: {{{4
+" VimRepress: {{{2
 NeoBundleLazy 'pentie/VimRepress', {
 \ 'autoload': {
 \   'commands': ['BlogNew', 'BlogOpen', 'BlogList'],
 \ },
 \ 'disabled': !has('python'),
 \}
-" Calendar: +config {{{4
+" Calendar: +config {{{2
 
 let g:calendar_google_calendar = 1
 let g:calendar_google_task     = 1
@@ -179,40 +199,43 @@ NeoBundleLazy 'itchyny/calendar.vim', {
 \ },
 \ 'verbose': 1,
 \}
-" remainder {{{4
+" remainder {{{2
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'hsitz/VimOrganizer'
 
-" Perl: bundles {{{3
-" perl-in-vim bundles {{{4
+" Perl Bundles: {{{1
+" perl-in-vim bundles {{{2
 NeoBundleLazy 'vim-scripts/update_perl_line_directives',    { 'autoload': { 'filetypes': 'vim' }, 'disabled': !has('perl') }
 NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'filetypes': 'vim' }, 'disabled': !has('perl') }
-" remainder {{{4
+" remainder {{{2
 NeoBundle     'vim-perl/vim-perl'
 NeoBundleLazy 'vim-scripts/log4perl.vim', { 'autoload': { 'filetypes': 'log4perl' } }
 NeoBundleLazy 'osfameron/perl-tags-vim',  { 'autoload': { 'filetypes': 'perl'     } }
 NeoBundleLazy 'LStinson/perlhelp-vim', { 'autoload': { 'filetypes': 'perl' } }
 NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
-" General Syntax And Filetype Plugins: bundles {{{3
-" haml {{{4
+" General Syntax And Filetype Plugins: bundles {{{1
+" haml {{{2
 NeoBundleLazy 'tpope/vim-haml', { 'autoload': { 'filetypes': ['haml','sass','scss'] } }
 source ~/.vim/bundle/vim-haml/ftdetect/haml.vim
 
-" puppet {{{4
+" puppet {{{2
 NeoBundleLazy 'puppetlabs/puppet-syntax-vim', { 'autoload': { 'filetypes': 'puppet' } }
 source ~/.vim/bundle/puppet-syntax-vim/ftdetect/puppet.vim
 
-" CSV {{{4
+" CSV {{{2
 NeoBundleLazy 'chrisbra/csv.vim', { 'autoload': { 'filetypes': 'csv' } }
 source ~/.vim/bundle/csv.vim/ftdetect/csv.vim
 
-" mkd {{{4
+" mkd {{{2
+
+let g:vim_markdown_initial_foldlevel=1
+
 NeoBundleLazy 'plasticboy/vim-markdown', { 'autoload': { 'filetypes': 'mkd' } }
 source ~/.vim/bundle/vim-markdown/ftdetect/mkd.vim
 
-" vim-chef and dependencies {{{4
+" vim-chef and dependencies {{{2
 NeoBundleLazy 'vadv/vim-chef', {
 \   'autoload': { 'filetypes': [ 'chef', 'ruby.chef' ] },
 \   'depends': [
@@ -221,12 +244,12 @@ NeoBundleLazy 'vadv/vim-chef', {
 \   ],
 \   'verbose': 1,
 \}
-" deb.vim {{{4
+" deb.vim {{{2
 NeoBundleLazy 'vim-scripts/deb.vim', {
 \ 'autoload': { 'filename_patterns': '\.deb$' },
 \ 'verbose': 1,
 \}
-" vim-go {{{4
+" vim-go {{{2
 NeoBundleLazy 'fatih/vim-go', {
 \ 'augroup': 'vim-go',
 \ 'autoload': {
@@ -234,13 +257,14 @@ NeoBundleLazy 'fatih/vim-go', {
 \ },
 \ 'verbose': 1,
 \}
-" vim-pinpoint {{{4
+" vim-pinpoint {{{2
 NeoBundleLazy 'fmoralesc/vim-pinpoint', {
 \ 'autoload': {
 \   'filetypes': 'pinpoint', 'filename_patterns': '\.pin$',
 \ },
 \}
-" }}}4
+"source ~/.vim/bundle/vim-pinpoint/ftdetect/pinpoint.vim
+" All Remaining: {{{2
 NeoBundleLazy 'nono/jquery.vim', { 'autoload': { 'filetypes': 'jquery' } }
 NeoBundle 'zaiste/tmux.vim'
 NeoBundle 'othree/html5-syntax.vim'
@@ -255,10 +279,10 @@ NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'kurayama/systemd-vim-syntax'
 
-" Trial Bundles: maybe, maybe not! {{{3
-" VimGitLog: lazy {{{4
+" Trial Bundles: maybe, maybe not! {{{1
+" VimGitLog: lazy {{{2
 NeoBundleLazy 'kablamo/vim-git-log', { 'depends': 'vim-fugitive', 'autoload': { 'commands': 'GitLog' }, 'verbose': 1 }
-" remainder {{{4
+" remainder {{{2
 NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
 NeoBundle 'vim-scripts/gtk-vim-syntax'
 NeoBundle 'dhruvasagar/vim-table-mode'
@@ -306,7 +330,8 @@ NeoBundleLazy 'WolfgangMehner/lua-support', {
             \}
 
 
-" Probation: {{{3
+" Probation: {{{1
+" All: {{{2
 NeoBundleLazy 'junegunn/vim-github-dashboard'
 NeoBundleLazy 'lukaszkorecki/vim-GitHubDashBoard'
 " github issues query
@@ -315,7 +340,8 @@ NeoBundleLazy 'mklabs/vim-issues'
 NeoBundleLazy 'embear/vim-localvimrc'
 NeoBundleLazy 'thinca/vim-localrc'
 
-" Attic: no longer used {{{3
+" Attic: no longer used {{{1
+" all {{{2
 "NeoBundle 'ervandew/supertab'
 "NeoBundle 'bling/vim-bufferline'
 "NeoBundle 'vim-scripts/tracwiki'
@@ -323,8 +349,9 @@ NeoBundleLazy 'thinca/vim-localrc'
 "NeoBundle 'kakkyz81/evervim'
 "NeoBundle 'Zuckonit/vim-airline-tomato'
 
-" }}}3
-" END {{{3
+" }}}2
+" BUNDLES END: Initialization: {{{1
+" end(): {{{2
 call neobundle#end()
 
 " Finalize: Actually check/install {{{2
@@ -553,12 +580,6 @@ let g:airline_right_sep = ''
 
 " }}}2
 
-" Markdown: autocmds and settings {{{1
-" settings {{{2
-let g:vim_markdown_initial_foldlevel=1
-
-" }}}2
-
 " Indent Guides: no more counting up for matching! {{{1
 " settings {{{2
 let g:indent_guides_start_level = 2
@@ -625,17 +646,6 @@ func! SignifyOnBufEnter()
         call sy#start()
     "endif
 endfunc
-
-" }}}2
-
-" Gist: post buffers to and otherwise work with gists {{{1
-" settings {{{2
-
-let g:gist_detect_filetype        = 1
-let g:gist_clip_command           = 'xclip -selection clipboard'
-let g:gist_post_private           = 1
-let g:gist_show_privates          = 1
-let g:gist_get_multiplefile       = 1
 
 " }}}2
 
@@ -726,13 +736,6 @@ let g:github_dashboard['RrschBoy'] = 1
 
 "}}}2
 
-" VimOrganizer: plugin config {{{1
-" notes {{{2
-
-" nothing here, currently.  check out ftplugin/org.vim
-
-" }}}2
-
 " Fugitive And Git: fugitive (git) mappings and config {{{1
 " helper functions {{{2
 
@@ -781,8 +784,6 @@ vnoremap <leader>gV :Gitv! --all<cr>
 
 " not yet replaced
 "nnoremap <Leader>gp :GitPullRebase<Enter>
-"nnoremap <Leader>gb :GitBlame<Enter>
-
 "map <leader>gs :Gstatus<cr>
 "map <leader>gc :Gcommit<cr>
 "map <leader>ga :Git add --all<cr>:Gcommit<cr>
@@ -882,6 +883,10 @@ vnoremap ,= :Tabularize /=><CR>
 " }}}2
 
 " VimPipe: filetype configuration {{{1
+" result buffer {{{2
+
+
+
 " autocmds {{{2
 "
 " Perl: {{{3
