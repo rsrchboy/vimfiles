@@ -297,6 +297,15 @@ NeoBundleLazy 'Shougo/junkfile.vim', {
 NeoBundle 'tpope/vim-projectionist'
 NeoBundleLazy 'klen/python-mode', { 'autoload': { 'filetypes': 'python' }, 'verbose': 1 }
 
+" 11 Aug 2015
+NeoBundleLazy 'WolfgangMehner/lua-support', {
+            \ 'verbose': 1,
+            \ 'autoload': {
+            \   'filetypes': 'lua',
+            \ },
+            \}
+
+
 " Probation: {{{3
 NeoBundleLazy 'junegunn/vim-github-dashboard'
 NeoBundleLazy 'lukaszkorecki/vim-GitHubDashBoard'
