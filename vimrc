@@ -813,6 +813,7 @@ function! BufEnterCommit()
   setlocal nonumber
   setlocal spell spelllang=en_us spellcapcheck=0
   setlocal foldcolumn=0
+  setlocal textwidth=72
   normal gg0
   if getline('.') == ''
     start
