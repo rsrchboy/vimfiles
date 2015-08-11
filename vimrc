@@ -117,6 +117,10 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'jnurmine/Zenburn'
 
 " GIT And Version Controlish: bundles {{{1
+" Fugitive: {{{2
+
+NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive' }
+
 " Gitv: {{{2
 
 let g:Gitv_TruncateCommitSubjects = 1
@@ -140,12 +144,11 @@ NeoBundleLazy 'mattn/gist-vim',
             \}
 
 " remainder {{{2
-NeoBundle     'tpope/vim-fugitive', { 'augroup': 'fugitive' }
-NeoBundle     'bartman/git-wip',    { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
-NeoBundle     'mhinz/vim-signify'
-NeoBundle     'vim-scripts/CountJump',         { 'depends': [ 'vim-scripts/ingo-library' ] }
-NeoBundle     'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/CountJump'    ] }
-NeoBundle     'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump'    ] }
+NeoBundle 'bartman/git-wip',    { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
+NeoBundle 'mhinz/vim-signify'
+NeoBundle 'vim-scripts/CountJump',         { 'depends': [ 'vim-scripts/ingo-library' ] }
+NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/CountJump'    ] }
+NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump'    ] }
 
 " Appish Or External Interface: bundles {{{1
 " TweetVim: ...and configuration {{{2
