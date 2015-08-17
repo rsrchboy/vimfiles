@@ -74,8 +74,22 @@ function! bundle.hooks.on_post_source(bundle)
 endfunction
 
 " VimPipe: {{{2
-NeoBundleLazy 'krisajenkins/vim-pipe',
-\ { 'autoload': { 'commands': ['VimPipe'], 'mappings': ['<LocalLeader>r'] } }
+
+augroup vimrc-vimpipe
+    au!
+
+    " tapVerboseOutput appears to be significantly better than perl.tap
+    autocmd FileType perl let b:vimpipe_filetype = "tapVerboseOutput"
+    autocmd FileType perl let b:vimpipe_command  = "source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -"
+
+    autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-lint $T; rm $T"
+
+augroup end
+
+NeoBundleLazy 'krisajenkins/vim-pipe', {
+            \   'autoload': { 'commands': ['VimPipe'], 'mappings': ['<LocalLeader>r'] },
+            \   'verbose': 1,
+            \}
 
 " BufExplorer: {{{2
 
@@ -430,12 +444,6 @@ if !has('vim_starting')
     call neobundle#call_hook('on_source')
 endif
 
-" }}}2
-
-" AUGROUP BEGIN: "vimrc" group for commands defined in this file {{{1
-" ...we switch back to the default at the end of this file.  Trial approach. {{{2
-augroup vimrc
-au!
 " }}}2
 
 " CONFIGURATION: global or general {{{1
@@ -902,25 +910,6 @@ command! -range -nargs=* MXRCize <line1>,<line2>perldo perldo return unless /$NS
 
 " }}}2
 
-" VimPipe: filetype configuration {{{1
-" result buffer {{{2
-
-
-
-" autocmds {{{2
-"
-" Perl: {{{3
-" tapVerboseOutput appears to be significantly better than perl.tap
-autocmd FileType perl let b:vimpipe_filetype = "tapVerboseOutput"
-"autocmd FileType perl let b:vimpipe_command  = "perl -I lib/ -"
-autocmd FileType perl let b:vimpipe_command  = "source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -"
-
-" Puppet: {{{3
-autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-lint $T; rm $T"
-
-" }}}3
-" }}}2
-
 " Source Local Configs: ...if present {{{1
 " ~/.vimrc.local {{{2
 
@@ -1004,9 +993,6 @@ set exrc
 ""call Pl#Theme#RemoveSegment('fileformat')
 
 " }}}2
-
-" AUGROUP END: close the "vimrc" group for commands defined in this file
-augroup END
 
 " vim: set foldmethod=marker foldlevel=1 foldcolumn=5 :
 
