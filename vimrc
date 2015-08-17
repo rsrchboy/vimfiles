@@ -128,6 +128,36 @@ augroup end
 
 NeoBundle 'scrooloose/nerdtree', { 'augroup': 'NERDTreeHijackNetrw' }
 
+" Startify: nifty start screen {{{2
+
+"let g:startify_bookmarks = [ '~/.vimrc' ]
+" autouse sessions with startify.  (aka be useful!)
+let g:startify_session_detection   = 1
+let g:startify_session_autoload    = 1
+let g:startify_session_persistence = 1
+let g:startify_change_to_vcs_root  = 1
+let g:startify_empty_buffer_key    = 'o'
+let g:startify_restore_position    = 1
+
+let g:startify_custom_header       =
+    \ map(split(system('fortune | cowsay -W 60 ; echo .; echo .; uname -a'), '\n'), '"   ". v:val') + ['','']
+"let g:startify_custom_footer = ''
+
+augroup vimrc-startify
+    au!
+    autocmd BufWinEnter startify* setlocal nonumber foldcolumn=0
+augroup end
+
+
+" files to skip including in the list
+let g:startify_skiplist = [
+           \ 'COMMIT_EDITMSG',
+           \ $VIMRUNTIME .'/doc',
+           \ 'bundle/.*/doc',
+           \ ]
+
+NeoBundle 'mhinz/vim-startify'
+
 " remainder {{{2
 
 NeoBundleLazy 'vim-scripts/Align'
@@ -142,7 +172,6 @@ NeoBundle 'tsaleh/vim-align'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'mhinz/vim-startify'
 NeoBundle 'bling/vim-airline'
 
 " ColorSchemes: {{{1
@@ -651,35 +680,6 @@ let g:airline_right_sep = ''
 " settings {{{2
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size  = 1
-
-" }}}2
-
-" Startify: nifty start screen {{{1
-" settings {{{2
-
-"let g:startify_bookmarks = [ '~/.vimrc' ]
-" autouse sessions with startify.  (aka be useful!)
-let g:startify_session_detection   = 1
-let g:startify_session_autoload    = 1
-let g:startify_session_persistence = 1
-let g:startify_change_to_vcs_root  = 1
-let g:startify_empty_buffer_key    = 'o'
-let g:startify_restore_position    = 1
-
-" custom header / footer {{{2
-let g:startify_custom_header       =
-    \ map(split(system('fortune | cowsay -W 60 ; echo .; echo .; uname -a'), '\n'), '"   ". v:val') + ['','']
-"let g:startify_custom_footer = ''
-
-" autocmds {{{2
-autocmd BufWinEnter startify* setlocal nonumber foldcolumn=0
-
-" files to skip including in the list {{{2
-let g:startify_skiplist = [
-           \ 'COMMIT_EDITMSG',
-           \ $VIMRUNTIME .'/doc',
-           \ 'bundle/.*/doc',
-           \ ]
 
 " }}}2
 
