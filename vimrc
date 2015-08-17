@@ -332,6 +332,11 @@ NeoBundleLazy 'WolfgangMehner/lua-support', {
             \ },
             \}
 
+" 17 Aug 2015: vim-dispatch {{{2
+NeoBundleLazy 'tpope/vim-dispatch', {
+            \   'autoload': { 'commands': [ 'Dispatch', 'Make' ] },
+            \   'verbose': 1,
+            \}
 
 " Probation: {{{1
 " All: {{{2
