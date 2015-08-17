@@ -61,12 +61,29 @@ NeoBundle 'Shougo/vimproc', {
     \ },
 \ }
 
-" VimGnuPG: {{{2
+" VimGnuPG: transparently work with encrypted files {{{2
+
+" settings {{{3
+let g:GPGPreferArmor       = 1
+let g:GPGDefaultRecipients = ["cweyl@alumni.drew.edu"]
+
+"   g:GPGFilePattern
+"
+"     If set, overrides the default set of file patterns that determine
+"     whether this plugin will be activated.  Defaults to
+"     '*.\(gpg\|asc\|pgp\)'.
+
+" ok, this is more complex than it needs to be, but works :)
+let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
+
+" }}}3
+
 NeoBundleLazy 'jamessan/vim-gnupg', {
             \ 'autoload': { 'filename_patterns': ['\.gpg$','\.asc$','\.pgp$'] },
             \ 'augroup':  'GnuPG',
             \ 'verbose': 1,
-\ }
+            \}
+
 let bundle = neobundle#get('vim-gnupg')
 function! bundle.hooks.on_post_source(bundle)
   silent! execute 'doautocmd GnuPG BufReadCmd'
@@ -739,23 +756,6 @@ let g:tagbar_type_puppet = {
         \ 'd:definition:0:0',
     \ ],
 \ }
-
-" }}}2
-
-" VimGnupg: transparently work with encrypted files {{{1
-" settings {{{2
-
-let g:GPGPreferArmor       = 1
-let g:GPGDefaultRecipients = ["cweyl@alumni.drew.edu"]
-
-"   g:GPGFilePattern
-"
-"     If set, overrides the default set of file patterns that determine
-"     whether this plugin will be activated.  Defaults to
-"     '*.\(gpg\|asc\|pgp\)'.
-
-" ok, this is more complex than it needs to be, but works :)
-let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
 
 " }}}2
 
