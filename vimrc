@@ -93,12 +93,18 @@ let g:ctrlp_reuse_window = 'netrw\|help\|quickfix\|startify'
 
 NeoBundle 'kien/ctrlp.vim'
 
+" Tabular: {{{2
+
+nnoremap ,= :Tabularize /=><CR>
+vnoremap ,= :Tabularize /=><CR>
+
+NeoBundle 'godlygeek/tabular'
+
 " remainder {{{2
 
 NeoBundleLazy 'vim-scripts/Align'
 NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
 NeoBundle 'DataWraith/auto_mkdir'
-NeoBundle 'godlygeek/tabular'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'garbas/vim-snipmate', { 'depends': 'MarcWeber/vim-addon-mw-utils' }
 NeoBundle 'scrooloose/nerdcommenter'
@@ -878,16 +884,6 @@ command! -range -nargs=* BorgCowsay <line1>,<line2>! cowsay -W 65 -b
 
 " Perl helpers {{{2
 command! -range -nargs=* MXRCize <line1>,<line2>perldo perldo return unless /$NS/; s/$NS([A-Za-z0-9:]+)/\$self->\l$1_class/; s/::(.)/__\l$1/g; s/([A-Z])/_\l$1/g
-
-" }}}2
-
-" TaskList: mappings {{{1
-" mappings {{{
-
-map <leader>v <Plug>TaskList
-
-nnoremap ,= :Tabularize /=><CR>
-vnoremap ,= :Tabularize /=><CR>
 
 " }}}2
 
