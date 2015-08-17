@@ -100,6 +100,20 @@ vnoremap ,= :Tabularize /=><CR>
 
 NeoBundle 'godlygeek/tabular'
 
+" NERD Tree: {{{2
+
+map <leader>l :NERDTreeToggle<CR>
+
+augroup vimrc-nerdtree
+    au!
+
+    " clVose if we're the only window left
+    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+augroup end
+
+NeoBundle 'scrooloose/nerdtree', { 'augroup': 'NERDTreeHijackNetrw' }
+
 " remainder {{{2
 
 NeoBundleLazy 'vim-scripts/Align'
@@ -113,7 +127,6 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tsaleh/vim-align'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'scrooloose/nerdtree', { 'augroup': 'NERDTreeHijackNetrw' }
 NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'bling/vim-airline'
@@ -905,15 +918,6 @@ autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-
 
 " }}}3
 " }}}2
-
-" NERDTree: configuration settings {{{1
-" settings {{{2
-map <leader>l :NERDTreeToggle<CR>
-
-" close if we're the only window left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-"}}}2
 
 " SuperTab: settings {{{1
 " settings {{{2
