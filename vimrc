@@ -400,6 +400,8 @@ NeoBundleLazy 'thinca/vim-localrc'
 " Attic: no longer used {{{1
 " all {{{2
 "NeoBundle 'ervandew/supertab'
+"let g:SuperTabNoCompleteBefore = []
+"let g:SuperTabNoCompleteAfter  = ['^', '\s']
 "NeoBundle 'bling/vim-bufferline'
 "NeoBundle 'vim-scripts/tracwiki'
 "NeoBundle 'nsmgr8/vitra'   " trac
@@ -918,13 +920,6 @@ autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-
 
 " }}}3
 " }}}2
-
-" SuperTab: settings {{{1
-" settings {{{2
-let g:SuperTabNoCompleteBefore = []
-let g:SuperTabNoCompleteAfter  = ['^', '\s']
-
-"}}}2
 
 " Source Local Configs: ...if present {{{1
 " ~/.vimrc.local {{{2
