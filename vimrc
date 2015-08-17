@@ -34,17 +34,16 @@ if has('vim_starting')
     endif
 endif
 
+" }}}2
+
 " BUNDLES BEGIN: Initialization {{{1
-" beginning incantation... {{{2
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Recipies: yay for shortcuts! (disabled) {{{1
-" All: {{{2
 "NeoBundle 'Shougo/neobundle-vim-recipes', { 'force' : 1 }
 
 " Libraries: library plugins/bundles {{{1
-" All: {{{2
 NeoBundleLazy 'MarcWeber/vim-addon-mw-utils'
 NeoBundleLazy 'mattn/webapi-vim'
 NeoBundleLazy 'vim-scripts/ingo-library'
@@ -219,8 +218,7 @@ let g:airline_right_sep = ''
 
 NeoBundle 'bling/vim-airline'
 
-" Remainder: {{{2
-
+" }}}2
 NeoBundleLazy 'vim-scripts/Align'
 NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
 NeoBundle 'DataWraith/auto_mkdir'
@@ -235,9 +233,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'Townk/vim-autoclose'
 
 " ColorSchemes: {{{1
-" Solarized: {{{2
 NeoBundle 'altercation/vim-colors-solarized'
-" ZenBurn: {{{2
 NeoBundle 'jnurmine/Zenburn'
 
 " GIT And Version Controlish: bundles {{{1
@@ -293,7 +289,7 @@ augroup END
 
 NeoBundle 'mhinz/vim-signify'
 
-" remainder {{{2
+" }}}2 
 NeoBundle 'bartman/git-wip',    { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
 NeoBundle 'vim-scripts/CountJump',         { 'depends': [ 'vim-scripts/ingo-library' ] }
 NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/CountJump'    ] }
@@ -355,7 +351,7 @@ NeoBundleLazy 'itchyny/calendar.vim', {
 \ },
 \ 'verbose': 1,
 \}
-" remainder {{{2
+" }}}2
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'hsitz/VimOrganizer'
@@ -364,7 +360,7 @@ NeoBundle 'hsitz/VimOrganizer'
 " perl-in-vim bundles {{{2
 NeoBundleLazy 'vim-scripts/update_perl_line_directives',    { 'autoload': { 'filetypes': 'vim' }, 'disabled': !has('perl') }
 NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'filetypes': 'vim' }, 'disabled': !has('perl') }
-" remainder {{{2
+" }}}2
 NeoBundle     'vim-perl/vim-perl'
 NeoBundleLazy 'vim-scripts/log4perl.vim', { 'autoload': { 'filetypes': 'log4perl' } }
 NeoBundleLazy 'osfameron/perl-tags-vim',  { 'autoload': { 'filetypes': 'perl'     } }
@@ -420,7 +416,7 @@ NeoBundleLazy 'fmoralesc/vim-pinpoint', {
 \ },
 \}
 "source ~/.vim/bundle/vim-pinpoint/ftdetect/pinpoint.vim
-" All Remaining: {{{2
+" }}}2
 NeoBundleLazy 'nono/jquery.vim', { 'autoload': { 'filetypes': 'jquery' } }
 NeoBundle 'zaiste/tmux.vim'
 NeoBundle 'othree/html5-syntax.vim'
@@ -444,7 +440,7 @@ NeoBundleLazy 'kablamo/vim-git-log', { 'depends': 'vim-fugitive', 'autoload': { 
 NeoBundle 'tomtom/tskeleton_vim', { 'depends': [ 'tomtom/tlib_vim' ] }
 NeoBundle 'tomtom/tskeletons', { 'depends': [ 'tomtom/tskeleton_vim' ] }
 
-" Remainder: {{{2
+" }}}2
 NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
 NeoBundle 'vim-scripts/gtk-vim-syntax'
 NeoBundle 'dhruvasagar/vim-table-mode'
@@ -456,7 +452,6 @@ NeoBundle 'kien/tabman.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'vitalk/vim-simple-todo'
-
 " jira 'integration' {{{2
 NeoBundle 'mnpk/vim-jira-complete'
 NeoBundle 'RsrchBoy/vim-jira-open'
@@ -495,6 +490,8 @@ NeoBundleLazy 'tpope/vim-dispatch', {
             \   'verbose': 1,
             \}
 
+" }}}2
+
 " Probation: {{{1
 " All: {{{2
 NeoBundleLazy 'junegunn/vim-github-dashboard'
@@ -504,6 +501,8 @@ NeoBundleLazy 'mklabs/vim-issues'
 " to help handle other author's tabstop/etc settings w/o explicit modelines
 NeoBundleLazy 'embear/vim-localvimrc'
 NeoBundleLazy 'thinca/vim-localrc'
+
+" }}}2
 
 " Attic: no longer used {{{1
 " all {{{2
@@ -517,6 +516,7 @@ NeoBundleLazy 'thinca/vim-localrc'
 "NeoBundle 'Zuckonit/vim-airline-tomato'
 
 " }}}2
+
 " BUNDLES END: Initialization: {{{1
 " end(): {{{2
 call neobundle#end()
