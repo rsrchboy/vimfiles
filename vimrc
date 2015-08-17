@@ -65,6 +65,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundleLazy 'jamessan/vim-gnupg', {
             \ 'autoload': { 'filename_patterns': ['\.gpg$','\.asc$','\.pgp$'] },
             \ 'augroup':  'GnuPG',
+            \ 'verbose': 1,
 \ }
 let bundle = neobundle#get('vim-gnupg')
 function! bundle.hooks.on_post_source(bundle)
@@ -212,6 +213,7 @@ NeoBundleLazy 'pentie/VimRepress', {
 \   'commands': ['BlogNew', 'BlogOpen', 'BlogList'],
 \ },
 \ 'disabled': !has('python'),
+\ 'verbose': 1,
 \}
 " Calendar: +config {{{2
 
