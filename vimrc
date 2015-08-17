@@ -143,9 +143,31 @@ NeoBundleLazy 'mattn/gist-vim',
             \ 'verbose': 1,
             \}
 
+" Signify: {{{2
+
+" TODO: need to handle "normal" sign column
+let g:signify_vcs_list                       = [ 'git' ]
+let g:signify_skip_filetype                  = { 'gitcommit': 1 }
+
+" NOTE: This also saves the buffer to disk!
+let g:signify_update_on_bufenter    = 1
+let g:signify_update_on_focusgained = 1
+let g:signify_cursorhold_normal     = 0
+let g:signify_cursorhold_insert     = 0
+
+func! SignifyOnBufEnter()
+    "if exists('sy_path')
+        call sy#start()
+    "endif
+endfunc
+
+autocmd BufEnter * call SignifyOnBufEnter()
+autocmd WinEnter * call SignifyOnBufEnter()
+
+NeoBundle 'mhinz/vim-signify'
+
 " remainder {{{2
 NeoBundle 'bartman/git-wip',    { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
-NeoBundle 'mhinz/vim-signify'
 NeoBundle 'vim-scripts/CountJump',         { 'depends': [ 'vim-scripts/ingo-library' ] }
 NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/CountJump'    ] }
 NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump'    ] }
@@ -621,39 +643,6 @@ let g:startify_skiplist = [
            \ $VIMRUNTIME .'/doc',
            \ 'bundle/.*/doc',
            \ ]
-
-" }}}2
-
-" Signify: note changed lines {{{1
-" settings {{{2
-
-" TODO: need to handle "normal" sign column
-let g:signify_vcs_list                       = [ 'git' ]
-"let g:signify_sign_color_inherit_from_linenr = 0
-let g:signify_skip_filetype                  = { 'gitcommit': 1 }
-
-"let g:signify_line_highlight = 1
-
-" NOTE: This also saves the buffer to disk!
-let g:signify_update_on_bufenter    = 1
-let g:signify_update_on_focusgained = 1
-let g:signify_cursorhold_normal     = 0
-let g:signify_cursorhold_insert     = 0
-
-" TODO: defaults we may want to evaluate
-"let g:signify_mapping_toggle = '<leader>gt'
-"let g:signify_mapping_toggle_highlight = '<leader>gh'
-
-" autocmds {{{2
-
-autocmd BufEnter * call SignifyOnBufEnter()
-autocmd WinEnter * call SignifyOnBufEnter()
-
-func! SignifyOnBufEnter()
-    "if exists('sy_path')
-        call sy#start()
-    "endif
-endfunc
 
 " }}}2
 
