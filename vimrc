@@ -235,8 +235,9 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'Townk/vim-autoclose'
 
 " ColorSchemes: {{{1
-" All Remaining Bundles: {{{2
+" Solarized: {{{2
 NeoBundle 'altercation/vim-colors-solarized'
+" ZenBurn: {{{2
 NeoBundle 'jnurmine/Zenburn'
 
 " GIT And Version Controlish: bundles {{{1
