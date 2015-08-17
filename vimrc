@@ -645,27 +645,37 @@ cmap w!! w !sudo tee % >/dev/null
 " ftplugin/*.vim  This section concerns itself mainly with those commands
 " necessary to help vim in deciding what filetype a file actually is.
 
-au BufNewFile,BufRead *.psgi              set filetype=perl
-au BufNewFile,BufRead cpanfile            set filetype=perl
-au BufNewFile,BufRead Rexfile             set filetype=perl
-au BufNewFile,BufRead *.tt                set filetype=tt2html
-au BufNewFile,BufRead *.tt2               set filetype=tt2html
-au BufNewFile,BufRead Changes             set filetype=changelog
-au BufNewFile,BufRead *.zsh-theme         set filetype=zsh
-au BufNewFile,BufRead *.snippets          set filetype=snippets
-au BufNewFile,BufRead *.snippet           set filetype=snippet
-au BufNewFile,BufRead .gitgot*            set filetype=yaml
-au BufNewFile,BufRead .oh-my-zsh/themes/* set filetype=zsh
-au BufNewFile,BufRead .gitconfig.local    set filetype=gitconfig
+augroup vimrc-filetype-set
+    au!
 
-" this usually works, but sometimes vim thinks a .t file isn't Perl
-au BufNewFile,BufRead *.t set filetype=perl
+    au BufNewFile,BufRead *.psgi              set filetype=perl
+    au BufNewFile,BufRead cpanfile            set filetype=perl
+    au BufNewFile,BufRead Rexfile             set filetype=perl
+    au BufNewFile,BufRead *.tt                set filetype=tt2html
+    au BufNewFile,BufRead *.tt2               set filetype=tt2html
+    au BufNewFile,BufRead Changes             set filetype=changelog
+    au BufNewFile,BufRead *.zsh-theme         set filetype=zsh
+    au BufNewFile,BufRead *.snippets          set filetype=snippets
+    au BufNewFile,BufRead *.snippet           set filetype=snippet
+    au BufNewFile,BufRead .gitgot*            set filetype=yaml
+    au BufNewFile,BufRead .oh-my-zsh/themes/* set filetype=zsh
+    au BufNewFile,BufRead .gitconfig.local    set filetype=gitconfig
+
+    " this usually works, but sometimes vim thinks a .t file isn't Perl
+    au BufNewFile,BufRead *.t set filetype=perl
+
+augroup end
 
 " filetype-specific autocommands {{{2
-"
-" Many of these are stored in a ftplugin/ file.
-au FileType ruby setlocal tabstop=2 shiftwidth=2
-au FileType git  setlocal foldcolumn=0
+
+augroup vimrc-filetype
+    au!
+
+    " Many of these are stored in a ftplugin/ file.
+    au FileType ruby setlocal tabstop=2 shiftwidth=2
+    au FileType git  setlocal foldcolumn=0
+
+augroup end
 
 " }}}2
 
@@ -674,8 +684,13 @@ let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
 " APPEARANCE: colors, themes, etc {{{1
 " colorscheme autocmds {{{2
 
-au ColorScheme zenburn   source ~/.vim/local/colors/zenburn.vim
-au ColorScheme solarized source ~/.vim/local/colors/solarized.vim
+augroup vimrc-colorscheme
+    au!
+
+    au ColorScheme zenburn   source ~/.vim/local/colors/zenburn.vim
+    au ColorScheme solarized source ~/.vim/local/colors/solarized.vim
+
+augroup end
 
 " colorscheme settings {{{2
 
