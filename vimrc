@@ -300,13 +300,13 @@ NeoBundle 'tomtom/tskeleton_vim', { 'depends': [ 'tomtom/tlib_vim' ] }
 NeoBundle 'tomtom/tskeletons', { 'depends': [ 'tomtom/tskeleton_vim' ] }
 NeoBundle 'vitalk/vim-simple-todo'
 
-" jira 'integration'
+" jira 'integration' {{{2
 NeoBundle 'mnpk/vim-jira-complete'
 NeoBundle 'RsrchBoy/vim-jira-open'
 
 NeoBundle 'Shougo/neocomplete.vim'
 
-" 18 Jul 2015
+" 18 Jul 2015 {{{2
 " NOTE replaces: NeoBundle 'bronson/vim-trailing-whitespace'
 " FIXME ... if it would just work.  grr
 NeoBundle 'ntpeters/vim-better-whitespace'
@@ -320,11 +320,11 @@ NeoBundleLazy 'Shougo/junkfile.vim', {
       \ }
 \ }
 
-" 27 Jul 2015
+" 27 Jul 2015 {{{2
 NeoBundle 'tpope/vim-projectionist'
 NeoBundleLazy 'klen/python-mode', { 'autoload': { 'filetypes': 'python' }, 'verbose': 1 }
 
-" 11 Aug 2015
+" 11 Aug 2015 {{{2
 NeoBundleLazy 'WolfgangMehner/lua-support', {
             \ 'verbose': 1,
             \ 'autoload': {
