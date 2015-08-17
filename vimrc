@@ -158,7 +158,51 @@ let g:startify_skiplist = [
 
 NeoBundle 'mhinz/vim-startify'
 
-" remainder {{{2
+" Airline: {{{2
+
+" extensions config {{{3
+let g:airline#extensions#bufferline#enabled           = 0
+let g:airline#extensions#syntastic#enabled            = 1
+let g:airline#extensions#tabline#enabled              = 1
+let g:airline#extensions#tagbar#enabled               = 1
+let g:airline#extensions#tmuxline#enabled             = 0
+let g:airline#extensions#whitespace#mixed_indent_algo = 1
+
+" fugitive bits {{{3
+"" if a string is provided, it should be the name of a function that
+"" takes a string and returns the desired value
+"let g:airline#extensions#branch#format = 'CustomBranchName'
+"function! CustomBranchName(name)
+"    return '[' . a:name . ']'
+"endfunction
+
+" symbols {{{3
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = '⎇ '
+"let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+let g:airline_left_sep = ''
+"let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+let g:airline_right_sep = ''
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+"let g:airline_symbols.whitespace = 'Ξ'
+"let g:airline_symbols.linenr = '¶ '
+"let g:airline#extensions#branch#symbol = "\ue822"
+
+" }}}3
+
+NeoBundle 'bling/vim-airline'
+
+" Remainder: {{{2
 
 NeoBundleLazy 'vim-scripts/Align'
 NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
@@ -172,7 +216,6 @@ NeoBundle 'tsaleh/vim-align'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'bling/vim-airline'
 
 " ColorSchemes: {{{1
 " All Remaining Bundles: {{{2
@@ -628,51 +671,6 @@ let g:solarized_termtrans = 1
 colorscheme zenburn
 syntax on
 
-
-" }}}2
-
-" AirLine: A lightweight powerline replacement {{{1
-" settings {{{2
-
-" extensions {{{2
-
-let g:airline#extensions#bufferline#enabled           = 0
-let g:airline#extensions#syntastic#enabled            = 1
-let g:airline#extensions#tabline#enabled              = 1
-let g:airline#extensions#tagbar#enabled               = 1
-let g:airline#extensions#tmuxline#enabled             = 0
-let g:airline#extensions#whitespace#mixed_indent_algo = 1
-
-" fugitive bits {{{3
-"" if a string is provided, it should be the name of a function that
-"" takes a string and returns the desired value
-"let g:airline#extensions#branch#format = 'CustomBranchName'
-"function! CustomBranchName(name)
-"    return '[' . a:name . ']'
-"endfunction
-
-"}}}3
-" symbols {{{2
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.branch = '⎇ '
-"let g:airline_left_sep = '»'
-"let g:airline_left_sep = '▶'
-let g:airline_left_sep = ''
-"let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
-let g:airline_right_sep = ''
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-"let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-"let g:airline_symbols.whitespace = 'Ξ'
-"let g:airline_symbols.linenr = '¶ '
-"let g:airline#extensions#branch#symbol = "\ue822"
 
 " }}}2
 
