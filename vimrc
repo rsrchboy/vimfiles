@@ -162,8 +162,11 @@ func! SignifyOnBufEnter()
     "endif
 endfunc
 
-autocmd BufEnter * call SignifyOnBufEnter()
-autocmd WinEnter * call SignifyOnBufEnter()
+augroup vimrc-Signify
+    autocmd!
+    autocmd BufEnter * call SignifyOnBufEnter()
+    autocmd WinEnter * call SignifyOnBufEnter()
+augroup END
 
 NeoBundle 'mhinz/vim-signify'
 
@@ -176,7 +179,10 @@ NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump
 " Appish Or External Interface: bundles {{{1
 " TweetVim: ...and configuration {{{2
 
-autocmd FileType tweetvim setlocal nonumber foldcolumn=0
+augroup vimrc-tweetvim
+    autocmd!
+    autocmd FileType tweetvim setlocal nonumber foldcolumn=0
+augroup END
 
 nnoremap <Leader>TT :TweetVimHomeTimeline<CR>
 
