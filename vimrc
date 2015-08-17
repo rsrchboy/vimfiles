@@ -438,7 +438,13 @@ NeoBundle 'kurayama/systemd-vim-syntax'
 " Trial Bundles: maybe, maybe not! {{{1
 " VimGitLog: lazy {{{2
 NeoBundleLazy 'kablamo/vim-git-log', { 'depends': 'vim-fugitive', 'autoload': { 'commands': 'GitLog' }, 'verbose': 1 }
-" remainder {{{2
+
+" TSkeletons: {{{2
+
+NeoBundle 'tomtom/tskeleton_vim', { 'depends': [ 'tomtom/tlib_vim' ] }
+NeoBundle 'tomtom/tskeletons', { 'depends': [ 'tomtom/tskeleton_vim' ] }
+
+" Remainder: {{{2
 NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
 NeoBundle 'vim-scripts/gtk-vim-syntax'
 NeoBundle 'dhruvasagar/vim-table-mode'
@@ -449,8 +455,6 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'kien/tabman.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'tomtom/tskeleton_vim', { 'depends': [ 'tomtom/tlib_vim' ] }
-NeoBundle 'tomtom/tskeletons', { 'depends': [ 'tomtom/tskeleton_vim' ] }
 NeoBundle 'vitalk/vim-simple-todo'
 
 " jira 'integration' {{{2
