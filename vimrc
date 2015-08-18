@@ -227,6 +227,16 @@ NeoBundleLazy 'tpope/vim-dispatch', {
             \   'verbose': 1,
             \}
 
+" JunkFile: {{{2
+
+NeoBundleLazy 'Shougo/junkfile.vim', {
+      \ 'autoload' : {
+      \   'commands' : 'JunkfileOpen',
+      \   'unite_sources' : ['junkfile', 'junkfile/new'],
+      \ },
+      \ 'verbose': 1,
+\ }
+
 " }}}2
 NeoBundleLazy 'vim-scripts/Align'
 NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
@@ -474,12 +484,6 @@ NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'chrisbra/NrrwRgn'
 NeoBundle 'wesQ3/vim-windowswap'
-NeoBundleLazy 'Shougo/junkfile.vim', {
-      \ 'autoload' : {
-      \   'commands' : 'JunkfileOpen',
-      \   'unite_sources' : ['junkfile', 'junkfile/new'],
-      \ }
-\ }
 
 " 27 Jul 2015 {{{2
 NeoBundle 'tpope/vim-projectionist'
