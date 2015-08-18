@@ -218,6 +218,15 @@ let g:airline_right_sep = ''
 
 NeoBundle 'bling/vim-airline'
 
+" Vim Dispatch: {{{2
+
+NeoBundleLazy 'tpope/vim-dispatch', {
+            \   'autoload': {
+            \       'commands': [ 'Dispatch', 'Make', 'Start', 'Focus' ],
+            \   },
+            \   'verbose': 1,
+            \}
+
 " }}}2
 NeoBundleLazy 'vim-scripts/Align'
 NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
@@ -482,14 +491,6 @@ NeoBundleLazy 'WolfgangMehner/lua-support', {
             \ 'autoload': {
             \   'filetypes': 'lua',
             \ },
-            \}
-
-" 17 Aug 2015: vim-dispatch {{{2
-NeoBundleLazy 'tpope/vim-dispatch', {
-            \   'autoload': {
-            \       'commands': [ 'Dispatch', 'Make', 'Start', 'Focus' ],
-            \   },
-            \   'verbose': 1,
             \}
 
 " }}}2
