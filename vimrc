@@ -47,7 +47,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundleLazy 'MarcWeber/vim-addon-mw-utils'
 NeoBundleLazy 'mattn/webapi-vim'
 NeoBundleLazy 'vim-scripts/ingo-library'
-NeoBundleLazy 'vim-scripts/CountJump',         { 'depends': [ 'vim-scripts/ingo-library' ] }
+NeoBundleLazy 'vim-scripts/CountJump', { 'depends': [ 'vim-scripts/ingo-library' ] }
 NeoBundleLazy 'tomtom/tlib_vim'
 
 " General Bundles: {{{1
@@ -176,6 +176,8 @@ let g:startify_skiplist = [
 NeoBundle 'mhinz/vim-startify'
 
 " Airline: {{{2
+
+let g:airline_theme = 'dark'
 
 " extensions config {{{3
 let g:airline#extensions#bufferline#enabled           = 0
@@ -522,7 +524,6 @@ NeoBundleLazy 'WolfgangMehner/lua-support', {
 " }}}2
 
 " Probation: {{{1
-" All: {{{2
 NeoBundleLazy 'junegunn/vim-github-dashboard'
 NeoBundleLazy 'lukaszkorecki/vim-GitHubDashBoard'
 " github issues query
@@ -530,8 +531,6 @@ NeoBundleLazy 'mklabs/vim-issues'
 " to help handle other author's tabstop/etc settings w/o explicit modelines
 NeoBundleLazy 'embear/vim-localvimrc'
 NeoBundleLazy 'thinca/vim-localrc'
-
-" }}}2
 
 " Attic: no longer used {{{1
 " all {{{2
@@ -670,6 +669,9 @@ vnoremap <F8> :tabn<CR>
 " https://twitter.com/octodots/status/196996096910827520
 cmap w!! w !sudo tee % >/dev/null
 
+" }}}2
+
+" AutoCommands: {{{1
 " filetype-setting autocommands {{{2
 
 " NOTE: commands for specific filetypes are generally contained in
@@ -714,6 +716,13 @@ augroup end
 let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
 
 " APPEARANCE: colors, themes, etc {{{1
+" Syntax AU: {{{2
+
+augroup vimrc-syntax
+    au!
+    au Syntax * :hi SpecialKey ctermfg=darkgrey
+augroup end
+
 " colorscheme autocmds {{{2
 
 augroup vimrc-colorscheme
@@ -727,17 +736,14 @@ augroup end
 " colorscheme settings {{{2
 
 let g:zenburn_high_Contrast = 1
+let g:zenburn_transparent   = 1
 
 let g:solarized_termtrans = 1
 "let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
 
-" aaaaaaand enable! {{{2
-
+" }}}2
 colorscheme zenburn
 syntax on
-
-
-" }}}2
 
 " Indent Guides: no more counting up for matching! {{{1
 " settings {{{2
