@@ -47,6 +47,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundleLazy 'MarcWeber/vim-addon-mw-utils'
 NeoBundleLazy 'mattn/webapi-vim'
 NeoBundleLazy 'vim-scripts/ingo-library'
+NeoBundleLazy 'vim-scripts/CountJump',         { 'depends': [ 'vim-scripts/ingo-library' ] }
 NeoBundleLazy 'tomtom/tlib_vim'
 
 " General Bundles: {{{1
@@ -310,7 +311,6 @@ NeoBundle 'mhinz/vim-signify'
 
 " }}}2 
 NeoBundle 'bartman/git-wip',    { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
-NeoBundle 'vim-scripts/CountJump',         { 'depends': [ 'vim-scripts/ingo-library' ] }
 NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/CountJump'    ] }
 NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump'    ] }
 
