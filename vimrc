@@ -252,6 +252,34 @@ let g:indent_guides_guide_size  = 1
 
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
+" NeoComplete: ...and associated bundles {{{2
+
+" Archived settings; not sure what's going on with them
+"let g:SuperTabNoCompleteBefore = []
+"let g:SuperTabNoCompleteAfter  = ['^', '\s']
+
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+NeoBundleLazy 'Shougo/neco-syntax'
+NeoBundleLazy 'Shougo/neoinclude.vim'
+NeoBundleLazy 'c9s/perlomni.vim', { 'name': 'perlomni' }
+NeoBundleLazy 'Shougo/neocomplete.vim', {
+            \   'autoload': {
+            \       'commands': [ 'NeoCompleteEnable' ],
+            \   },
+            \   'depends': [ 'vimproc', 'perlomni', 'neoinclude.vim', 'neco-syntax' ],
+            \   'disabled': !has('lua'),
+            \   'verbose': 1,
+            \}
+
 " }}}2
 NeoBundleLazy 'ervandew/supertab', { 'autoload': { 'insert': 1 } }
 NeoBundleLazy 'vim-scripts/Align'
@@ -613,7 +641,6 @@ NeoBundle 'vitalk/vim-simple-todo'
 NeoBundle 'mnpk/vim-jira-complete'
 NeoBundle 'RsrchBoy/vim-jira-open'
 
-NeoBundle 'Shougo/neocomplete.vim'
 
 " 18 Jul 2015 {{{2
 " NOTE replaces: NeoBundle 'bronson/vim-trailing-whitespace'
@@ -656,8 +683,6 @@ NeoBundleLazy 'thinca/vim-localrc'
 
 " Attic: no longer used {{{1
 " all {{{2
-"let g:SuperTabNoCompleteBefore = []
-"let g:SuperTabNoCompleteAfter  = ['^', '\s']
 "NeoBundle 'bling/vim-bufferline'
 "NeoBundle 'kakkyz81/evervim'
 "NeoBundle 'Zuckonit/vim-airline-tomato'
