@@ -240,6 +240,13 @@ NeoBundleLazy 'Shougo/junkfile.vim', {
       \ 'verbose': 1,
 \ }
 
+" Vim Indent Guides: no more counting up for matching! {{{2
+
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size  = 1
+
+NeoBundle 'nathanaelkane/vim-indent-guides'
+
 " }}}2
 NeoBundleLazy 'vim-scripts/Align'
 NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
@@ -251,7 +258,6 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tsaleh/vim-align'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'Townk/vim-autoclose'
 
 " ColorSchemes: {{{1
@@ -752,13 +758,6 @@ let g:solarized_termtrans = 1
 " }}}2
 colorscheme zenburn
 syntax on
-
-" Indent Guides: no more counting up for matching! {{{1
-" settings {{{2
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size  = 1
-
-" }}}2
 
 " Tagbar And CTags: configuration {{{1
 " mappings {{{2
