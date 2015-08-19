@@ -84,11 +84,16 @@ NeoBundleLazy 'jamessan/vim-gnupg', {
             \ 'verbose': 1,
             \}
 
-let bundle = neobundle#get('vim-gnupg')
-function! bundle.hooks.on_post_source(bundle)
-  silent! execute 'doautocmd GnuPG BufReadCmd'
-  silent! execute 'doautocmd GnuPG FileReadCmd'
-endfunction
+if neobundle#tap('vim-gnupg')
+
+    function! neobundle#hooks.on_post_source(bundle)
+        silent! execute 'doautocmd GnuPG BufReadCmd'
+        silent! execute 'doautocmd GnuPG FileReadCmd'
+    endfunction
+
+    call neobundle#untap()
+endif
+
 
 " VimPipe: {{{2
 
