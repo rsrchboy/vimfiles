@@ -936,7 +936,7 @@ let g:tagbar_type_puppet = {
 command! -range -nargs=* Uniq <line1>,<line2>! uniq
 
 " json {{{2
-command! -range -nargs=* Tidy <line1>,<line2>! json_xs -f json -t json-pretty
+command! -range -nargs=* JsonTidy <line1>,<line2>! /usr/bin/json_xs -f json -t json-pretty
 
 " cowsay {{{2
 command! -range -nargs=* Cowsay <line1>,<line2>! cowsay -W 65
