@@ -370,7 +370,14 @@ NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive' }
 let g:Gitv_TruncateCommitSubjects = 1
 let g:Gitv_CommitStep             = 150
 
-NeoBundleLazy 'gregsexton/gitv',    { 'autoload': { 'commands': 'Gitv', 'functions': 'Gitv_OpenGitCommand' }, 'depends': ['vim-fugitive'] }
+NeoBundleLazy 'gregsexton/gitv', {
+            \ 'autoload': {
+            \   'commands': 'Gitv',
+            \   'functions': 'Gitv_OpenGitCommand',
+            \ },
+            \ 'depends': ['vim-fugitive'],
+            \ 'verbose': 1,
+            \}
 
 " Gist: {{{2
 
@@ -380,8 +387,7 @@ let g:gist_post_private           = 1
 let g:gist_show_privates          = 1
 let g:gist_get_multiplefile       = 1
 
-NeoBundleLazy 'mattn/gist-vim',
-            \{
+NeoBundleLazy 'mattn/gist-vim', {
             \ 'autoload': { 'commands': 'Gist' },
             \ 'depends': [ 'webapi-vim' ],
             \ 'verbose': 1,
@@ -390,8 +396,8 @@ NeoBundleLazy 'mattn/gist-vim',
 " Signify: {{{2
 
 " TODO: need to handle "normal" sign column
-let g:signify_vcs_list                       = [ 'git' ]
-let g:signify_skip_filetype                  = { 'gitcommit': 1 }
+let g:signify_vcs_list      = [ 'git' ]
+let g:signify_skip_filetype = { 'gitcommit': 1 }
 
 " NOTE: This also saves the buffer to disk!
 let g:signify_update_on_bufenter    = 1
@@ -415,8 +421,8 @@ NeoBundle 'mhinz/vim-signify'
 
 " }}}2 
 NeoBundle 'bartman/git-wip',    { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
-NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'vim-scripts/CountJump'    ] }
-NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'vim-scripts/CountJump'    ] }
+NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'CountJump' ] }
+NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'CountJump' ] }
 
 " Appish Or External Interface: bundles {{{1
 " TweetVim: ...and configuration {{{2
