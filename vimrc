@@ -267,6 +267,102 @@ NeoBundle 'jnurmine/Zenburn'
 " GIT And Version Controlish: bundles {{{1
 " Fugitive: {{{2
 
+" helper functions {{{3
+
+function! RunGitFixup()
+    perl ForkAndGitFixup::do_fixup
+    call SignifyOnBufEnter()
+endfunction
+
+function! RunGitSquash()
+    execute "Git! squash"
+    call SignifyOnBufEnter()
+endfunction
+
+function! RunGitWrite()
+    execute "Gwrite"
+    call SignifyOnBufEnter()
+endfunction
+
+function! RunGitAddParts()
+    execute "Git add -pi %"
+    call SignifyOnBufEnter()
+endfunction
+
+" {,re}mappings {{{3
+" this is a cross between the old git-vim commands I'm used to, but invoking
+" fugitive instead.
+
+nnoremap <Leader>gs :Gstatus<Enter>
+nnoremap <Leader>gd :call Gitv_OpenGitCommand("diff --no-color -- ".expand('%'), 'new')<CR>
+nnoremap <Leader>gD :call Gitv_OpenGitCommand("diff --no-color --cached %", 'new')<CR>
+nnoremap <Leader>gh :call Gitv_OpenGitCommand("show --no-color", 'new')<CR>
+nnoremap <Leader>ga :call RunGitWrite()<CR>
+nnoremap <Leader>gc :Gcommit<Enter>
+"nnoremap <Leader>gf :call RunGitFixup()<CR>
+nnoremap <Leader>gf :Gcommit --fixup HEAD<CR>
+nnoremap <Leader>gF :Gcommit --fixup 'HEAD~'<CR>
+"nnoremap <Leader>gS :call RunGitSquash()<CR>
+nnoremap <Leader>gS :Gcommit --squash HEAD
+
+nnoremap <Leader>gA :call RunGitAddParts()<CR>
+nnoremap <Leader>gl :Git lol<Enter>
+nnoremap <Leader>gD :Git! diff --word-diff %<Enter>
+nnoremap <Leader>gp :Git push<Enter>
+nnoremap <Leader>gb :Gblame -w<Enter>
+
+nnoremap <leader>gv :Gitv --all<cr>
+nnoremap <leader>gV :Gitv! --all<cr>
+vnoremap <leader>gV :Gitv! --all<cr>
+
+" not yet replaced
+"nnoremap <Leader>gp :GitPullRebase<Enter>
+"map <leader>gs :Gstatus<cr>
+"map <leader>gc :Gcommit<cr>
+"map <leader>ga :Git add --all<cr>:Gcommit<cr>
+"map <leader>gb :Gblame<cr>
+
+" make handling indexes a little easier {{{3
+
+" This section very happily stolen from / based on:
+" https://github.com/aaronjensen/vimfiles/blob/master/vimrc
+
+" Use j/k in status {{{3
+function! BufReadIndex()
+  setlocal cursorline
+  setlocal nohlsearch
+
+  nnoremap <buffer> <silent> j :call search('^#\t.*','W')<Bar>.<CR>
+  nnoremap <buffer> <silent> k :call search('^#\t.*','Wbe')<Bar>.<CR>
+endfunction
+
+autocmd BufReadCmd *.git/index exe BufReadIndex()
+autocmd BufEnter   *.git/index silent normal gg0j
+
+" Start in insert mode for commit {{{3
+function! BufEnterCommit()
+  setlocal filetype=gitcommit
+  setlocal nonumber
+  setlocal spell spelllang=en_us spellcapcheck=0
+  setlocal foldcolumn=0
+  setlocal textwidth=72
+  normal gg0
+  if getline('.') == ''
+    start
+  end
+endfunction
+
+" filetype autocmds (e.g. for pull req, tag edits, etc...) {{{3
+
+" the 'hub' tool creates a number of comment files formatted in the same way
+" as a git commit message.
+autocmd BufEnter *.git/*_EDITMSG exe BufEnterCommit()
+
+" Automatically remove fugitive buffers {{{3
+autocmd BufReadPost fugitive://* set bufhidden=delete
+
+" }}}3
+
 NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive' }
 
 " Gitv: {{{2
@@ -818,105 +914,6 @@ let g:tagbar_type_puppet = {
     \ ],
 \ }
 
-" }}}2
-
-" Fugitive And Git: fugitive (git) mappings and config {{{1
-" helper functions {{{2
-
-function! RunGitFixup()
-    perl ForkAndGitFixup::do_fixup
-    call SignifyOnBufEnter()
-endfunction
-
-function! RunGitSquash()
-    execute "Git! squash"
-    call SignifyOnBufEnter()
-endfunction
-
-function! RunGitWrite()
-    execute "Gwrite"
-    call SignifyOnBufEnter()
-endfunction
-
-function! RunGitAddParts()
-    execute "Git add -pi %"
-    call SignifyOnBufEnter()
-endfunction
-
-" {,re}mappings {{{2
-" this is a cross between the old git-vim commands I'm used to, but invoking
-" fugitive instead.
-
-nnoremap <Leader>gs :Gstatus<Enter>
-nnoremap <Leader>gd :call Gitv_OpenGitCommand("diff --no-color -- ".expand('%'), 'new')<CR>
-nnoremap <Leader>gD :call Gitv_OpenGitCommand("diff --no-color --cached %", 'new')<CR>
-nnoremap <Leader>gh :call Gitv_OpenGitCommand("show --no-color", 'new')<CR>
-nnoremap <Leader>ga :call RunGitWrite()<CR>
-nnoremap <Leader>gc :Gcommit<Enter>
-"nnoremap <Leader>gf :call RunGitFixup()<CR>
-nnoremap <Leader>gf :Gcommit --fixup HEAD<CR>
-nnoremap <Leader>gF :Gcommit --fixup 'HEAD~'<CR>
-"nnoremap <Leader>gS :call RunGitSquash()<CR>
-nnoremap <Leader>gS :Gcommit --squash HEAD
-
-nnoremap <Leader>gA :call RunGitAddParts()<CR>
-nnoremap <Leader>gl :Git lol<Enter>
-nnoremap <Leader>gD :Git! diff --word-diff %<Enter>
-nnoremap <Leader>gp :Git push<Enter>
-nnoremap <Leader>gb :Gblame -w<Enter>
-
-nnoremap <leader>gv :Gitv --all<cr>
-nnoremap <leader>gV :Gitv! --all<cr>
-vnoremap <leader>gV :Gitv! --all<cr>
-
-" not yet replaced
-"nnoremap <Leader>gp :GitPullRebase<Enter>
-"map <leader>gs :Gstatus<cr>
-"map <leader>gc :Gcommit<cr>
-"map <leader>ga :Git add --all<cr>:Gcommit<cr>
-"map <leader>gb :Gblame<cr>
-
-" autocmds {{{2
-" make handling indexes a little easier {{{3
-
-" This section very happily stolen from / based on:
-" https://github.com/aaronjensen/vimfiles/blob/master/vimrc
-
-" Use j/k in status {{{3
-function! BufReadIndex()
-  setlocal cursorline
-  setlocal nohlsearch
-
-  nnoremap <buffer> <silent> j :call search('^#\t.*','W')<Bar>.<CR>
-  nnoremap <buffer> <silent> k :call search('^#\t.*','Wbe')<Bar>.<CR>
-endfunction
-
-autocmd BufReadCmd *.git/index exe BufReadIndex()
-autocmd BufEnter   *.git/index silent normal gg0j
-
-" Start in insert mode for commit {{{3
-function! BufEnterCommit()
-  setlocal filetype=gitcommit
-  setlocal nonumber
-  setlocal spell spelllang=en_us spellcapcheck=0
-  setlocal foldcolumn=0
-  setlocal textwidth=72
-  normal gg0
-  if getline('.') == ''
-    start
-  end
-endfunction
-
-" filetype autocmds (e.g. for pull req, tag edits, etc...) {{{3
-
-" the 'hub' tool creates a number of comment files formatted in the same way
-" as a git commit message.
-autocmd BufEnter *.git/*_EDITMSG exe BufEnterCommit()
-
-" Automatically remove fugitive buffers {{{3
-autocmd BufReadPost fugitive://* set bufhidden=delete
-
-" }}}3
 " }}}2
 
 " Perl: Perl testing helpers {{{1
