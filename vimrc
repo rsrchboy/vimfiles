@@ -253,6 +253,7 @@ let g:indent_guides_guide_size  = 1
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " }}}2
+NeoBundleLazy 'ervandew/supertab', { 'autoload': { 'insert': 1 } }
 NeoBundleLazy 'vim-scripts/Align'
 NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
 NeoBundle 'DataWraith/auto_mkdir'
@@ -655,7 +656,6 @@ NeoBundleLazy 'thinca/vim-localrc'
 
 " Attic: no longer used {{{1
 " all {{{2
-"NeoBundle 'ervandew/supertab'
 "let g:SuperTabNoCompleteBefore = []
 "let g:SuperTabNoCompleteAfter  = ['^', '\s']
 "NeoBundle 'bling/vim-bufferline'
