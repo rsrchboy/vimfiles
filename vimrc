@@ -524,7 +524,15 @@ NeoBundleLazy 'WolfgangMehner/lua-support', {
 " }}}2
 
 " Probation: {{{1
+" GitHub Dashboard: {{{2
+
+let g:github_dashboard = {}
+let g:github_dashboard['emoji'] = 1
+let g:github_dashboard['RrschBoy'] = 1
+
 NeoBundleLazy 'junegunn/vim-github-dashboard'
+
+"}}}2
 NeoBundleLazy 'lukaszkorecki/vim-GitHubDashBoard'
 " github issues query
 NeoBundleLazy 'mklabs/vim-issues'
@@ -812,15 +820,6 @@ let g:tagbar_type_puppet = {
 \ }
 
 " }}}2
-
-" Dashboard: Github at the moment {{{1
-" settings: {{{2
-
-let g:github_dashboard = {}
-let g:github_dashboard['emoji'] = 1
-let g:github_dashboard['RrschBoy'] = 1
-
-"}}}2
 
 " Fugitive And Git: fugitive (git) mappings and config {{{1
 " helper functions {{{2
