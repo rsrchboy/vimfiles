@@ -132,7 +132,7 @@ NeoBundle 'kien/ctrlp.vim'
 " Tabular: {{{2
 
 nnoremap ,= :Tabularize /=><CR>
-vnoremap ,= :Tabularize /=><CR>
+nnoremap ,- :Tabularize /=<CR>
 
 NeoBundle 'godlygeek/tabular'
 
