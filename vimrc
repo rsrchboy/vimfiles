@@ -255,11 +255,6 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " NeoComplete: ...and associated bundles {{{2
 
-" Archived settings; not sure what's going on with them
-"let g:SuperTabNoCompleteBefore = []
-"let g:SuperTabNoCompleteAfter  = ['^', '\s']
-
-
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
@@ -281,8 +276,13 @@ NeoBundleLazy 'Shougo/neocomplete.vim', {
             \   'verbose': 1,
             \}
 
-" }}}2
+" SuperTab:
+
+let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
+
 NeoBundleLazy 'ervandew/supertab', { 'autoload': { 'insert': 1 } }
+
+" }}}2
 NeoBundleLazy 'vim-scripts/Align'
 NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
 NeoBundle 'DataWraith/auto_mkdir'
