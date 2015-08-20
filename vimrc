@@ -224,7 +224,8 @@ let g:airline_right_sep = ''
 
 " }}}3
 
-NeoBundle 'bling/vim-airline'
+"NeoBundle 'bling/vim-airline', { 'depends': [ 'vim-capslock', 'taboo' ] }
+NeoBundle 'bling/vim-airline', { 'depends': [ 'vim-capslock' ] }
 
 " Vim Dispatch: {{{2
 
@@ -663,6 +664,9 @@ NeoBundleLazy 'WolfgangMehner/lua-support', {
             \}
 
 " }}}2
+NeoBundleLazy 'dhruvasagar/vimmpc', { 'autoload': { 'commands': 'MPC' }, 'verbose': 1, 'disable': !has('python') }
+NeoBundleLazy 'gcmt/taboo.vim'
+NeoBundle 'tpope/vim-capslock'
 
 " Probation: {{{1
 " GitHub Dashboard: {{{2
