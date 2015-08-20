@@ -302,6 +302,9 @@ NeoBundle 'jnurmine/Zenburn'
 " GIT And Version Controlish: bundles {{{1
 " Fugitive: {{{2
 
+" FIXME Gfixup is a work in progress
+command! -nargs=? Gfixup :Gcommit --fixup=HEAD <q-args>
+
 " helper functions {{{3
 
 function! RunGitFixup()
