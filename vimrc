@@ -629,6 +629,16 @@ NeoBundleLazy 'kablamo/vim-git-log', { 'depends': 'vim-fugitive', 'autoload': { 
 NeoBundle 'tomtom/tskeleton_vim', { 'depends': [ 'tomtom/tlib_vim' ] }
 NeoBundle 'tomtom/tskeletons', { 'depends': [ 'tomtom/tskeleton_vim' ] }
 
+" TabMan:
+
+NeoBundleLazy 'kien/tabman.vim', {
+            \   'autoload': {
+            \       'commands': [ 'TMToggle', 'TMFocus' ],
+            \       'mappings': [ '<leader>mt', '<leader>mf' ],
+            \   },
+            \   'verbose': 1,
+            \}
+
 " }}}2
 NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
 NeoBundle 'vim-scripts/gtk-vim-syntax'
@@ -637,7 +647,6 @@ NeoBundle 'tpope/vim-obsession'
 NeoBundle 'freitass/todo.txt-vim'
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'kien/tabman.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'vitalk/vim-simple-todo'
