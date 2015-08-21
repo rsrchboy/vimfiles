@@ -27,13 +27,20 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-function! neobundle#init#_rc(path, is_block) "{{{
+function! neobundle#init#_rc(path) "{{{
   let path =
         \ neobundle#util#substitute_path_separator(
         \ neobundle#util#expand(a:path))
   if path =~ '/$'
     let path = path[: -2]
   endif
+
+  if path == ''
+    call neobundle#util#print_error(
+          \ 'neobundle#rc() argument is empty.')
+    return
+  endif
+
   call neobundle#set_neobundle_dir(path)
 
   " Join to the tail in runtimepath.
@@ -48,7 +55,7 @@ function! neobundle#init#_rc(path, is_block) "{{{
     autocmd!
   augroup END
 
-  call neobundle#config#init(a:is_block)
+  call neobundle#config#init()
   call neobundle#autoload#init()
 endfunction"}}}
 
@@ -71,6 +78,7 @@ function! neobundle#init#_bundle(bundle) "{{{
           \ 'rtp' : '',
           \ 'depends' : [],
           \ 'lazy' : 0,
+          \ 'fetch' : 0,
           \ 'force' : 0,
           \ 'gui' : 0,
           \ 'terminal' : 0,
@@ -95,6 +103,8 @@ function! neobundle#init#_bundle(bundle) "{{{
           \ 'recipe' : '',
           \ 'base' : neobundle#get_neobundle_dir(),
           \ 'install_rev' : '',
+          \ 'install_process_timeout'
+          \    : g:neobundle#install_process_timeout,
           \ }
   call extend(bundle, a:bundle)
 
@@ -104,7 +114,8 @@ function! neobundle#init#_bundle(bundle) "{{{
 
   if !has_key(bundle, 'normalized_name')
     let bundle.normalized_name = substitute(
-          \ fnamemodify(bundle.name, ':r'), '^vim-\|-vim$', '', 'g')
+          \ fnamemodify(bundle.name, ':r'),
+          \ '\c^vim[_-]\|[_-]vim$', '', 'g')
   endif
   if !has_key(bundle.orig_opts, 'name') &&
      \ g:neobundle#enable_name_conversion
@@ -143,7 +154,7 @@ function! neobundle#init#_bundle(bundle) "{{{
     " Chomp.
     let bundle.rtp = bundle.rtp[: -2]
   endif
-  if bundle.normalized_name ==# 'neobundle'
+  if bundle.normalized_name ==# 'neobundle' || bundle.fetch
     " Do not add runtimepath.
     let bundle.rtp = ''
   endif
@@ -169,6 +180,10 @@ function! neobundle#init#_bundle(bundle) "{{{
 
   if get(neobundle#config#get(bundle.name), 'sourced', 0)
     let bundle.sourced = 1
+  endif
+
+  if type(bundle.disabled) == type('')
+    sandbox let bundle.disabled = eval(bundle.disabled)
   endif
 
   let bundle.disabled = bundle.disabled

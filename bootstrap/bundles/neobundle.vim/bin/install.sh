@@ -23,7 +23,7 @@ fi
 # make bundle dir and fetch neobundle
 echo "Begin fetching NeoBundle..."
 mkdir -p $BUNDLE_DIR
-git clone https://github.com/Shougo/neobundle.vim $BUNDLE_DIR/neobundle.vim
+git clone https://github.com/Shougo/neobundle.vim $INSTALL_DIR
 echo "Done."
 
 # write initial setting for .vimrc
@@ -33,7 +33,9 @@ echo "Please add the following settings for NeoBundle to the top of your .vimrc 
     echo ""
     echo "\"NeoBundle Scripts-----------------------------"
     echo "if has('vim_starting')"
-    echo "  set nocompatible               \" Be iMproved"
+    echo "  if &compatible"
+    echo "    set nocompatible               \" Be iMproved"
+    echo "  endif"
     echo ""
     echo "  \" Required:"
     echo "  set runtimepath+=$BUNDLE_DIR/neobundle.vim/"
@@ -50,7 +52,7 @@ echo "Please add the following settings for NeoBundle to the top of your .vimrc 
     echo "NeoBundle 'Shougo/neosnippet.vim'"
     echo "NeoBundle 'Shougo/neosnippet-snippets'"
     echo "NeoBundle 'tpope/vim-fugitive'"
-    echo "NeoBundle 'kien/ctrlp.vim'"
+    echo "NeoBundle 'ctrlpvim/ctrlp.vim'"
     echo "NeoBundle 'flazz/vim-colorschemes'"
     echo ""
     echo "\" You can specify revision/branch/tag."
