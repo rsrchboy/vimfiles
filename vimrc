@@ -578,7 +578,7 @@ source ~/.vim/bundle/vim-markdown/ftdetect/mkd.vim
 
 " vim-chef and dependencies {{{2
 NeoBundleLazy 'vadv/vim-chef', {
-\   'autoload': { 'filetypes': [ 'chef', 'ruby.chef' ] },
+\   'autoload': { 'filetypes': [ 'chef' ] },
 \   'depends': [
 \       'tomtom/tlib_vim',
 \       'garbas/vim-snipmate',
