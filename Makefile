@@ -27,10 +27,13 @@ respell:
 commit-spellings: respell
 	git add -A spell/ && git commit -m 'more spellinks' spell/
 
-.PHONY: spell respell commit-spellings
+.PHONY: spell respell commit-spellings bootstrap
 
 ###########################################################
 # ...
+
+bootstrap:
+	git subtree pull --squash --prefix=bootstrap/bundles/neobundle.vim git://github.com/Shougo/neobundle.vim.git master
 
 fonts:
 	@ echo '# ensuring fonts...'
