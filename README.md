@@ -54,7 +54,8 @@ Refer to `:help neobundle` for more examples and for a full list of commands.
 1. Run below script.
 
      ```
-     $ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+     $ curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > install.sh
+     $ sh ./install.sh
      ```
 Complete.
 
@@ -73,10 +74,12 @@ Complete.
 
      ```vim
      " Note: Skip initialization for vim-tiny or vim-small.
-     if !1 | finish | endif
+     if 0 | endif
 
      if has('vim_starting')
-       set nocompatible               " Be iMproved
+       if &compatible
+         set nocompatible               " Be iMproved
+       endif
 
        " Required:
        set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -107,6 +110,14 @@ Complete.
 
 Launch `vim`, run `:NeoBundleInstall` or `:Unite neobundle/install` (required
 unite.vim) Or Command run `bin/neoinstall` or `vim +NeoBundleInstall +qall`
+
+
+## How to test
+
+Run `make test` command in command line(required vim-themis).
+
+https://github.com/thinca/vim-themis
+
 
 ## Advantages over Vundle
 

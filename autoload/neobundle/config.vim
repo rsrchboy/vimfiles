@@ -27,15 +27,21 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 if !exists('s:neobundles')
-  let s:is_block = 0
+  let s:within_block = 0
   let s:lazy_rtp_bundles = []
   let s:neobundles = {}
   let s:sourced_neobundles = {}
   let neobundle#tapped = {}
 endif
 
-function! neobundle#config#init(is_block) "{{{
-  filetype off
+function! neobundle#config#init() "{{{
+  if neobundle#config#within_block()
+    call neobundle#util#print_error(
+          \ 'neobundle#begin()/neobundle#end() usage is invalid.')
+    call neobundle#util#print_error(
+          \ 'Please check your .vimrc.')
+    return
+  endif
 
   for bundle in values(s:neobundles)
     if (!bundle.resettable && !bundle.lazy) ||
@@ -50,34 +56,70 @@ function! neobundle#config#init(is_block) "{{{
     endif
   endfor
 
-  " Load extra bundles configuration.
-  call neobundle#config#load_extra_bundles()
-
   augroup neobundle
     autocmd VimEnter * call s:on_vim_enter()
   augroup END
 
-  let s:is_block = a:is_block
+  call s:filetype_off()
+
+  let s:within_block = 1
+  let s:lazy_rtp_bundles = []
+
+  " Load extra bundles configuration.
+  call neobundle#config#load_extra_bundles()
+endfunction"}}}
+function! neobundle#config#append() "{{{
+  if neobundle#config#within_block()
+    call neobundle#util#print_error(
+          \ 'neobundle#begin()/neobundle#end() usage is invalid.')
+    call neobundle#util#print_error(
+          \ 'Please check your .vimrc.')
+    return
+  endif
+
+  if neobundle#get_rtp_dir() == ''
+    call neobundle#util#print_error(
+          \ 'You must call neobundle#begin() before.')
+    call neobundle#util#print_error(
+          \ 'Please check your .vimrc.')
+    return
+  endif
+
+  call s:filetype_off()
+
+  let s:within_block = 1
   let s:lazy_rtp_bundles = []
 endfunction"}}}
 function! neobundle#config#final() "{{{
+  if !neobundle#config#within_block()
+    call neobundle#util#print_error(
+          \ 'neobundle#begin()/neobundle#end() usage is invalid.')
+    call neobundle#util#print_error(
+          \ 'Please check your .vimrc.')
+    return
+  endif
+
   " Join to the tail in runtimepath.
   let rtps = neobundle#util#split_rtp(&runtimepath)
   let index = index(rtps, neobundle#get_rtp_dir())
-  for bundle in filter(s:lazy_rtp_bundles, 'isdirectory(v:val.rtp)')
+  for bundle in filter(s:lazy_rtp_bundles,
+        \ 'isdirectory(v:val.rtp) && !v:val.disabled')
     call insert(rtps, bundle.rtp, index)
     let index += 1
 
     if isdirectory(bundle.rtp.'/after')
-      call add(rtps, fnameescape(bundle.rtp.'/after'))
+      call add(rtps, s:get_rtp_after(bundle))
     endif
   endfor
   let &runtimepath = neobundle#util#join_rtp(rtps, &runtimepath, '')
 
   call neobundle#call_hook('on_source', s:lazy_rtp_bundles)
 
-  let s:is_block = 0
+  let s:within_block = 0
   let s:lazy_rtp_bundles = []
+endfunction"}}}
+function! neobundle#config#within_block() "{{{
+  return s:within_block
 endfunction"}}}
 
 function! neobundle#config#get(name) "{{{
@@ -90,7 +132,7 @@ endfunction"}}}
 
 function! neobundle#config#get_autoload_bundles() "{{{
   return filter(values(s:neobundles),
-        \ "!v:val.sourced && v:val.lazy")
+        \ "!v:val.sourced && v:val.lazy && !v:val.disabled")
 endfunction"}}}
 
 function! neobundle#config#source_bundles(bundles) "{{{
@@ -126,27 +168,18 @@ endfunction"}}}
 function! neobundle#config#source(names, ...) "{{{
   let is_force = get(a:000, 0, 1)
 
-  let names = neobundle#util#convert2list(a:names)
-  let bundles = empty(names) ?
-        \ neobundle#config#get_neobundles() :
-        \ neobundle#config#search(names)
+  let bundles = neobundle#config#search(
+        \ neobundle#util#convert2list(a:names))
 
   let rtps = neobundle#util#split_rtp(&runtimepath)
-  let bundles = filter(bundles,
-        \ "!neobundle#config#is_sourced(v:val.name) ||
-        \ (v:val.rtp != '' && index(rtps, v:val.rtp) < 0)")
+  let bundles = filter(bundles, "!v:val.disabled
+        \ && (!neobundle#config#is_sourced(v:val.name)
+        \ || (v:val.rtp != '' && index(rtps, v:val.rtp) < 0))")
   if empty(bundles)
     return
   endif
 
-  let filetype_out = ''
-  redir => filetype_out
-  silent filetype
-  redir END
-
-  redir => filetype_before
-  silent autocmd FileType
-  redir END
+  let filetype_before = neobundle#util#redir("autocmd FileType")
 
   let reset_ftplugin = 0
   for bundle in bundles
@@ -165,7 +198,13 @@ function! neobundle#config#source(names, ...) "{{{
     call neobundle#config#rtp_add(bundle)
 
     if exists('g:loaded_neobundle') || is_force
-      call s:on_source(bundle)
+      try
+        call s:on_source(bundle)
+      catch
+        call neobundle#util#print_error(
+              \ 'Uncaught error while sourcing "' . bundle.name .
+              \ '": '.v:exception . ' in ' . v:throwpoint)
+      endtry
     endif
 
     call neobundle#autoload#source(bundle.name)
@@ -175,12 +214,10 @@ function! neobundle#config#source(names, ...) "{{{
     endif
   endfor
 
-  redir => filetype_after
-  silent autocmd FileType
-  redir END
+  let filetype_after = neobundle#util#redir('autocmd FileType')
 
   if reset_ftplugin
-    call s:reset_ftplugin(filetype_out)
+    call s:reset_ftplugin()
   elseif filetype_before !=# filetype_after
     execute 'doautocmd FileType' &filetype
   endif
@@ -255,7 +292,7 @@ endfunction"}}}
 function! neobundle#config#rtp_rm(bundle) "{{{
   execute 'set rtp-='.fnameescape(a:bundle.rtp)
   if isdirectory(a:bundle.rtp.'/after')
-    execute 'set rtp-='.fnameescape(a:bundle.rtp.'/after')
+    execute 'set rtp-='.s:get_rtp_after(a:bundle)
   endif
 endfunction"}}}
 
@@ -264,7 +301,7 @@ function! neobundle#config#rtp_add(bundle) abort "{{{
     call neobundle#config#rtp_rm(s:neobundles[a:bundle.name])
   endif
 
-  if s:is_block
+  if s:within_block && !a:bundle.force
     " Add rtp lazily.
     call add(s:lazy_rtp_bundles, a:bundle)
     return
@@ -279,7 +316,7 @@ function! neobundle#config#rtp_add(bundle) abort "{{{
           \ &runtimepath, rtp)
   endif
   if isdirectory(rtp.'/after')
-    execute 'set rtp+='.fnameescape(rtp.'/after')
+    execute 'set rtp+='.s:get_rtp_after(a:bundle)
   endif
 
   call neobundle#call_hook('on_source', a:bundle)
@@ -369,7 +406,7 @@ function! neobundle#config#set(name, dict) "{{{
   let bundle = neobundle#config#get(a:name)
   if empty(bundle)
     call neobundle#util#print_error(
-          \ '[neobundle] Plugin name "' . a:name . '" is not defined.')
+          \ 'Plugin name "' . a:name . '" is not defined.')
     return
   endif
 
@@ -432,18 +469,6 @@ function! neobundle#config#add(bundle, ...) "{{{
   elseif bundle.lazy
     call s:add_lazy(bundle)
   endif
-
-  if !is_force && bundle.overwrite &&
-        \ !empty(prev_bundle) && prev_bundle.overwrite &&
-        \ bundle.orig_arg !=# prev_bundle.orig_arg &&
-        \ prev_bundle.resettable && prev_bundle.overwrite
-    " echomsg string(bundle.orig_arg)
-    " echomsg string(prev_bundle.orig_arg)
-    " Warning.
-    call neobundle#util#print_error(
-          \ '[neobundle] Plugin "' . bundle.name .
-          \ '" appears to be defined multiple times in .vimrc.')
-  endif
 endfunction"}}}
 
 function! neobundle#config#tsort(bundles) "{{{
@@ -504,7 +529,7 @@ endfunction"}}}
 function! s:on_vim_enter() "{{{
   if !empty(s:lazy_rtp_bundles)
     call neobundle#util#print_error(
-          \ '[neobundle] neobundle#begin() was called without calling ' .
+          \ 'neobundle#begin() was called without calling ' .
           \ 'neobundle#end() in .vimrc.')
     " We're past the point of plugins being sourced, so don't bother
     " trying to recover.
@@ -534,24 +559,32 @@ function! s:add_lazy(bundle) "{{{
         \ 'filetypes', 'filename_patterns',
         \ 'commands', 'functions', 'mappings', 'unite_sources',
         \ 'insert', 'explorer', 'on_source',
-        \ 'function_prefix', 'command_prefix',
+        \ 'command_prefix',
         \ ], 'has_key(bundle, v:val)')
     let bundle.autoload[key] = bundle[key]
     call remove(bundle, key)
   endfor
 
-  if !has_key(bundle.autoload, 'function_prefix')
-    let bundle.autoload.function_prefix =
-          \ neobundle#parser#_function_prefix(bundle.name)
-  endif
+  " Auto convert2list.
+  for key in filter([
+        \ 'filetypes', 'filename_patterns', 'on_source',
+        \ 'commands', 'functions', 'mappings', 'unite_sources',
+        \ ], "has_key(bundle.autoload, v:val)
+        \     && type(bundle.autoload[v:val]) != type([])
+        \")
+    let bundle.autoload[key] = [bundle.autoload[key]]
+  endfor
+
   if !has_key(bundle.autoload, 'command_prefix')
     let bundle.autoload.command_prefix =
           \ substitute(bundle.normalized_name, '[_-]', '', 'g')
   endif
   if !has_key(bundle.autoload, 'unite_sources')
-        \ && bundle.name =~ '^\%(vim-\)\?unite-'
-    let bundle.autoload.unite_sources =
-          \ matchstr(bundle.name, '^\%(vim-\)\?-unite-\zs.*')
+        \ && bundle.name =~# '^\%(vim-\)\?unite-'
+    let unite_source = matchstr(bundle.name, '^\%(vim-\)\?unite-\zs.*')
+    if unite_source != ''
+      let bundle.autoload.unite_sources = [unite_source]
+    endif
   endif
 
   if neobundle#config#is_sourced(bundle.name)
@@ -570,8 +603,7 @@ endfunction"}}}
 
 function! s:add_dummy_commands(bundle) "{{{
   let a:bundle.dummy_commands = []
-  for command in map(copy(neobundle#util#convert2list(
-        \ a:bundle.autoload.commands)), "
+  for command in map(copy(a:bundle.autoload.commands), "
         \ type(v:val) == type('') ?
           \ { 'name' : v:val } : v:val
           \")
@@ -591,17 +623,21 @@ function! s:add_dummy_commands(bundle) "{{{
 endfunction"}}}
 function! s:add_dummy_mappings(bundle) "{{{
   let a:bundle.dummy_mappings = []
-  for [modes, mappings] in map(neobundle#util#convert2list(
-        \ copy(a:bundle.autoload.mappings)), "
+  for [modes, mappings] in map(copy(a:bundle.autoload.mappings), "
         \   type(v:val) == type([]) ?
         \     [v:val[0], v:val[1:]] : ['nxo', [v:val]]
         \ ")
-    for mapping in mappings
-      if mapping ==# '<Plug>'
-        " Use plugin name.
-        let mapping = '<Plug>(' . a:bundle.normalized_name
+    if mappings ==# ['<Plug>']
+      " Use plugin name.
+      let mappings = ['<Plug>(' . a:bundle.normalized_name]
+      if stridx(a:bundle.normalized_name, '-') >= 0
+        " The plugin mappings may use "_" instead of "-".
+        call add(mappings, '<Plug>(' .
+              \ substitute(a:bundle.normalized_name, '-', '_', 'g'))
       endif
+    endif
 
+    for mapping in mappings
       " Define dummy mappings.
       for mode in filter(split(modes, '\zs'),
             \ "index(['n', 'v', 'x', 'o', 'i', 'c'], v:val) >= 0")
@@ -625,19 +661,22 @@ function! s:on_source(bundle) "{{{
   endif
 
   " Reload script files.
-  for directory in filter(
-        \ ['ftdetect', 'after/ftdetect', 'plugin', 'after/plugin'],
+  for directory in filter(['plugin', 'after/plugin'],
         \ "isdirectory(a:bundle.rtp.'/'.v:val)")
     for file in split(glob(a:bundle.rtp.'/'.directory.'/**/*.vim'), '\n')
-      silent! execute 'source' fnameescape(file)
+      " NOTE: "silent!" is required to ignore E122, E174 and E227.
+      "       try/catching them aborts sourcing of the file.
+      "       "unsilent" then displays any messages while sourcing.
+      execute 'silent! unsilent source' fnameescape(file)
     endfor
   endfor
 
   if !has('vim_starting') && exists('#'.a:bundle.augroup.'#VimEnter')
-    execute 'silent doautocmd' a:bundle.augroup 'VimEnter'
+    execute 'doautocmd' a:bundle.augroup 'VimEnter'
 
     if has('gui_running') && &term ==# 'builtin_gui'
-      execute 'silent doautocmd' a:bundle.augroup 'GUIEnter'
+          \ && exists('#'.a:bundle.augroup.'#GUIEnter')
+      execute 'doautocmd' a:bundle.augroup 'GUIEnter'
     endif
   endif
 
@@ -667,33 +706,53 @@ function! s:is_reset_ftplugin(filetype, rtp) "{{{
   return 0
 endfunction"}}}
 
-function! s:reset_ftplugin(filetype_out) "{{{
-  filetype off
+function! s:reset_ftplugin() "{{{
+  let filetype_out = s:filetype_off()
 
-  if a:filetype_out =~# 'detection:ON'
-        \ && a:filetype_out =~# 'plugin:ON'
-        \ && a:filetype_out =~# 'indent:ON'
+  if filetype_out =~# 'detection:ON'
+        \ && filetype_out =~# 'plugin:ON'
+        \ && filetype_out =~# 'indent:ON'
     silent! filetype plugin indent on
   else
-    if a:filetype_out =~# 'detection:ON'
+    if filetype_out =~# 'detection:ON'
       silent! filetype on
     endif
 
-    if a:filetype_out =~# 'plugin:ON'
+    if filetype_out =~# 'plugin:ON'
       silent! filetype plugin on
     endif
 
-    if a:filetype_out =~# 'indent:ON'
+    if filetype_out =~# 'indent:ON'
       silent! filetype indent on
     endif
   endif
 
-  if a:filetype_out =~# 'detection:ON'
+  if filetype_out =~# 'detection:ON'
     filetype detect
   endif
 
   " Reload filetype plugins.
   let &l:filetype = &l:filetype
+endfunction"}}}
+
+function! s:filetype_off() "{{{
+  let filetype_out = neobundle#util#redir('filetype')
+
+  if filetype_out =~# 'plugin:ON'
+        \ || filetype_out =~# 'indent:ON'
+    filetype plugin indent off
+  endif
+
+  if filetype_out =~# 'detection:ON'
+    filetype off
+  endif
+
+  return filetype_out
+endfunction"}}}
+
+function! s:get_rtp_after(bundle) abort "{{{
+  return substitute(
+          \ fnameescape(a:bundle.rtp . '/after'), '//', '/', 'g')
 endfunction"}}}
 
 let &cpo = s:save_cpo
