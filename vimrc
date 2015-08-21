@@ -861,17 +861,18 @@ augroup vimrc-filetype-set
     " this usually works, but sometimes vim thinks a .t file isn't Perl
     au BufNewFile,BufRead *.t set filetype=perl
 
+    " common Chef patterns
+    au BufNewFile,BufRead attributes/*.rb   set filetype=ruby.chef
+    au BufNewFile,BufRead recipies/*.rb     set filetype=ruby.chef
+    au BufNewFile,BufRead templates/*/*.erb set filetype=eruby.chef
+
 augroup end
 
 " filetype-specific autocommands {{{2
 
 augroup vimrc-filetype
     au!
-
-    " Many of these are stored in a ftplugin/ file.
-    au FileType ruby setlocal tabstop=2 shiftwidth=2
-    au FileType git  setlocal foldcolumn=0
-
+    " these have been moved to ftplugin/ files.
 augroup end
 
 " }}}2

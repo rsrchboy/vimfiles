@@ -6,6 +6,8 @@ if exists("b:did_local_git_ftplugin")
 endif
 let b:did_local_git_ftplugin = 1
 
+setlocal foldcolumn=0
+
 " close with a single q
 nnoremap <buffer> <silent> q :q<CR>
 "nnoremap <buffer> <silent> F :call RunGitFixup() <bar> call fugitive#reload_status()<CR>
