@@ -619,6 +619,7 @@ NeoBundle 'apeschel/vim-syntax-syslog-ng'
 NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'kurayama/systemd-vim-syntax'
+NeoBundle 'vim-ruby/vim-ruby'
 
 " Trial Bundles: maybe, maybe not! {{{1
 " VimGitLog: lazy {{{2
