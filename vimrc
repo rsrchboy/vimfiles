@@ -47,7 +47,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundleLazy 'MarcWeber/vim-addon-mw-utils'
 NeoBundleLazy 'mattn/webapi-vim'
 NeoBundleLazy 'vim-scripts/ingo-library'
-NeoBundleLazy 'vim-scripts/CountJump', { 'depends': [ 'vim-scripts/ingo-library' ] }
+NeoBundleLazy 'vim-scripts/CountJump', { 'depends': 'ingo-library' }
 NeoBundleLazy 'tomtom/tlib_vim'
 
 " General Bundles: {{{1
@@ -284,10 +284,10 @@ NeoBundleLazy 'ervandew/supertab', { 'autoload': { 'insert': 1 } }
 
 " }}}2
 NeoBundleLazy 'vim-scripts/Align'
-NeoBundle 'vim-scripts/AutoAlign', { 'depends': [ 'vim-scripts/Align' ] }
+NeoBundle 'vim-scripts/AutoAlign', { 'depends': 'Align' }
 NeoBundle 'DataWraith/auto_mkdir'
 NeoBundle 'majutsushi/tagbar'
-NeoBundle 'garbas/vim-snipmate', { 'depends': 'MarcWeber/vim-addon-mw-utils' }
+NeoBundle 'garbas/vim-snipmate', { 'depends': 'vim-addon-mw-utils' }
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
@@ -484,10 +484,10 @@ NeoBundleLazy 'tyru/open-browser.vim'
 NeoBundleLazy 'mattn/favstar-vim'
 NeoBundleLazy 'basyura/TweetVim', {
 \ 'depends': [
-\   'basyura/twibill.vim',
+\   'twibill.vim',
 \   'bitly.vim',
 \   'favstar-vim',
-\   'tyru/open-browser.vim',
+\   'open-browser.vim',
 \   'webapi-vim',
 \ ],
 \ 'autoload': { 'commands' : [ 'TweetVimHomeTimeline', 'TweetVimSay', 'TweetVimCommandSay' ] },
@@ -580,8 +580,8 @@ source ~/.vim/bundle/vim-markdown/ftdetect/mkd.vim
 NeoBundleLazy 'vadv/vim-chef', {
 \   'autoload': { 'filetypes': [ 'chef' ] },
 \   'depends': [
-\       'tomtom/tlib_vim',
-\       'garbas/vim-snipmate',
+\       'tlib_vim',
+\       'vim-snipmate',
 \   ],
 \   'verbose': 1,
 \}
@@ -627,8 +627,8 @@ NeoBundleLazy 'kablamo/vim-git-log', { 'depends': 'vim-fugitive', 'autoload': { 
 
 " TSkeletons: {{{2
 
-NeoBundle 'tomtom/tskeleton_vim', { 'depends': [ 'tomtom/tlib_vim' ] }
-NeoBundle 'tomtom/tskeletons', { 'depends': [ 'tomtom/tskeleton_vim' ] }
+NeoBundle 'tomtom/tskeleton_vim', { 'depends': [ 'tlib_vim' ] }
+NeoBundle 'tomtom/tskeletons', { 'depends': [ 'tskeleton_vim' ] }
 
 " TabMan:
 
