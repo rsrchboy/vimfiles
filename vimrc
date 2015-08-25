@@ -604,6 +604,7 @@ NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'kurayama/systemd-vim-syntax'
 NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'tpope/vim-git'
 
 " Trial Bundles: maybe, maybe not! {{{1
 " VimGitLog: lazy {{{2
