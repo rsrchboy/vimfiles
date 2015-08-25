@@ -669,6 +669,8 @@ NeoBundle 'tpope/vim-speeddating'
 " see https://github.com/LucHermitte/local_vimrc
 "NeoBundle 'LucHermitte/lh-vim-lib', {'name': 'lh-vim-lib'}
 "NeoBundle 'LucHermitte/local_vimrc', {'depends': 'lh-vim-lib'}
+" FIXME TODO need b:endwise_* settings for perl!
+NeoBundle 'tpope/vim-endwise'
 
 " Probation: {{{1
 " GitHub Dashboard: {{{2
