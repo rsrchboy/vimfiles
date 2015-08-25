@@ -695,6 +695,11 @@ NeoBundleLazy 'thinca/vim-localrc'
 
 " }}}2
 
+" Source Local Bundles: if any... {{{1
+if filereadable(expand("~/.vimrc.bundles.local"))
+    source ~/.vimrc.bundles.local
+endif
+
 " BUNDLES END: Initialization: {{{1
 " end(): {{{2
 call neobundle#end()
