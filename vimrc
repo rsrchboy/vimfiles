@@ -61,6 +61,15 @@ NeoBundle 'Shougo/vimproc', {
     \ },
 \ }
 
+" Dispatch: {{{2
+
+NeoBundleLazy 'tpope/vim-dispatch', {
+            \   'autoload': {
+            \       'commands': [ 'Dispatch', 'Make', 'Start', 'Focus' ],
+            \   },
+            \   'verbose': 1,
+            \}
+
 " VimGnuPG: transparently work with encrypted files {{{2
 
 " settings {{{3
@@ -227,15 +236,6 @@ let g:airline_right_sep = ''
 "NeoBundle 'bling/vim-airline', { 'depends': [ 'vim-capslock', 'taboo' ] }
 NeoBundle 'bling/vim-airline', { 'depends': [ 'vim-capslock' ] }
 
-" Vim Dispatch: {{{2
-
-NeoBundleLazy 'tpope/vim-dispatch', {
-            \   'autoload': {
-            \       'commands': [ 'Dispatch', 'Make', 'Start', 'Focus' ],
-            \   },
-            \   'verbose': 1,
-            \}
-
 " JunkFile: {{{2
 
 NeoBundleLazy 'Shougo/junkfile.vim', {
@@ -263,7 +263,7 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
- 
+
 let g:neocomplete#enable_smart_case = 1
 "g:neocomplete#enable_auto_close_preview
 
@@ -279,7 +279,7 @@ NeoBundleLazy 'Shougo/neocomplete.vim', {
             \   'verbose': 1,
             \}
 
-" SuperTab:
+" SuperTab: {{{2
 
 let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
 
