@@ -331,27 +331,27 @@ endfunction
 " this is a cross between the old git-vim commands I'm used to, but invoking
 " fugitive instead.
 
-nnoremap <Leader>gs :Gstatus<Enter>
-nnoremap <Leader>gd :call Gitv_OpenGitCommand("diff --no-color -- ".expand('%'), 'new')<CR>
-nnoremap <Leader>gD :call Gitv_OpenGitCommand("diff --no-color --cached %", 'new')<CR>
-nnoremap <Leader>gh :call Gitv_OpenGitCommand("show --no-color", 'new')<CR>
-nnoremap <Leader>ga :call RunGitWrite()<CR>
-nnoremap <Leader>gc :Gcommit<Enter>
-"nnoremap <Leader>gf :call RunGitFixup()<CR>
-nnoremap <Leader>gf :Gcommit --fixup HEAD<CR>
-nnoremap <Leader>gF :Gcommit --fixup 'HEAD~'<CR>
-"nnoremap <Leader>gS :call RunGitSquash()<CR>
-nnoremap <Leader>gS :Gcommit --squash HEAD
+nnoremap <silent> <Leader>gs :Gstatus<Enter>
+nnoremap <silent> <Leader>gd :call Gitv_OpenGitCommand("diff --no-color -- ".expand('%'), 'new')<CR>
+nnoremap <silent> <Leader>gD :call Gitv_OpenGitCommand("diff --no-color --cached %", 'new')<CR>
+nnoremap <silent> <Leader>gh :call Gitv_OpenGitCommand("show --no-color", 'new')<CR>
+nnoremap <silent> <Leader>ga :call RunGitWrite()<CR>
+nnoremap <silent> <Leader>gc :Gcommit<Enter>
+"nnoremap <silent>  <Leader>gf :call RunGitFixup()<CR>
+nnoremap <silent> <Leader>gf :Gcommit --fixup HEAD<CR>
+nnoremap <silent> <Leader>gF :Gcommit --fixup 'HEAD~'<CR>
+"nnoremap <silent>  <Leader>gS :call RunGitSquash()<CR>
+nnoremap <silent> <Leader>gS :Gcommit --squash HEAD
 
-nnoremap <Leader>gA :call RunGitAddParts()<CR>
-nnoremap <Leader>gl :Git lol<Enter>
-nnoremap <Leader>gD :Git! diff --word-diff %<Enter>
-nnoremap <Leader>gp :Git push<Enter>
-nnoremap <Leader>gb :Gblame -w<Enter>
+nnoremap <silent> <Leader>gA :call RunGitAddParts()<CR>
+nnoremap <silent> <Leader>gl :Git lol<Enter>
+nnoremap <silent> <Leader>gD :Git! diff --word-diff %<Enter>
+nnoremap <silent> <Leader>gp :Git push<Enter>
+nnoremap <silent> <Leader>gb :Gblame -w<Enter>
 
-nnoremap <leader>gv :Gitv --all<cr>
-nnoremap <leader>gV :Gitv! --all<cr>
-vnoremap <leader>gV :Gitv! --all<cr>
+nnoremap <silent> <leader>gv :Gitv --all<cr>
+nnoremap <silent> <leader>gV :Gitv! --all<cr>
+vnoremap <silent> <leader>gV :Gitv! --all<cr>
 
 " not yet replaced
 "nnoremap <Leader>gp :GitPullRebase<Enter>
