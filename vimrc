@@ -263,6 +263,9 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+ 
+let g:neocomplete#enable_smart_case = 1
+"g:neocomplete#enable_auto_close_preview
 
 NeoBundleLazy 'Shougo/neco-syntax'
 NeoBundleLazy 'Shougo/neoinclude.vim'
@@ -307,16 +310,6 @@ command! -nargs=? Gfixup :Gcommit --fixup=HEAD <q-args>
 
 " helper functions {{{3
 
-function! RunGitFixup()
-    perl ForkAndGitFixup::do_fixup
-    call SignifyOnBufEnter()
-endfunction
-
-function! RunGitSquash()
-    execute "Git! squash"
-    call SignifyOnBufEnter()
-endfunction
-
 function! RunGitWrite()
     execute "Gwrite"
     call SignifyOnBufEnter()
@@ -337,10 +330,8 @@ nnoremap <silent> <Leader>gD :call Gitv_OpenGitCommand("diff --no-color --cached
 nnoremap <silent> <Leader>gh :call Gitv_OpenGitCommand("show --no-color", 'new')<CR>
 nnoremap <silent> <Leader>ga :call RunGitWrite()<CR>
 nnoremap <silent> <Leader>gc :Gcommit<Enter>
-"nnoremap <silent>  <Leader>gf :call RunGitFixup()<CR>
 nnoremap <silent> <Leader>gf :Gcommit --fixup HEAD<CR>
 nnoremap <silent> <Leader>gF :Gcommit --fixup 'HEAD~'<CR>
-"nnoremap <silent>  <Leader>gS :call RunGitSquash()<CR>
 nnoremap <silent> <Leader>gS :Gcommit --squash HEAD
 
 nnoremap <silent> <Leader>gA :call RunGitAddParts()<CR>
@@ -352,13 +343,6 @@ nnoremap <silent> <Leader>gb :Gblame -w<Enter>
 nnoremap <silent> <leader>gv :Gitv --all<cr>
 nnoremap <silent> <leader>gV :Gitv! --all<cr>
 vnoremap <silent> <leader>gV :Gitv! --all<cr>
-
-" not yet replaced
-"nnoremap <Leader>gp :GitPullRebase<Enter>
-"map <leader>gs :Gstatus<cr>
-"map <leader>gc :Gcommit<cr>
-"map <leader>ga :Git add --all<cr>:Gcommit<cr>
-"map <leader>gb :Gblame<cr>
 
 " make handling indexes a little easier {{{3
 
