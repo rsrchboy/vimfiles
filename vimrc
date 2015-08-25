@@ -276,7 +276,7 @@ NeoBundleLazy 'Shougo/neocomplete.vim', {
             \   },
             \   'depends': [ 'vimproc', 'perlomni', 'neoinclude.vim', 'neco-syntax' ],
             \   'disabled': !has('lua'),
-            \   'verbose': 1,
+            \   'verbose': 0,
             \}
 
 " SuperTab: {{{2
