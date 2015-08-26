@@ -589,6 +589,18 @@ NeoBundleLazy 'fmoralesc/vim-pinpoint', {
 \ },
 \}
 "source ~/.vim/bundle/vim-pinpoint/ftdetect/pinpoint.vim
+
+" HiLinks: see the stack of syntax for the current text {{{2
+
+NeoBundleLazy 'kergoth/vim-hilinks', {
+            \   'augroup': 'HLTMODE',
+            \   'autoload': {
+            \       'commands': [ 'HLT', 'HLTm' ],
+            \       'mappings': '<Leader>hlt',
+            \   },
+            \   'verbose': 1,
+            \}
+
 " }}}2
 NeoBundleLazy 'nono/jquery.vim', { 'autoload': { 'filetypes': 'jquery' } }
 NeoBundle 'zaiste/tmux.vim'
