@@ -531,8 +531,8 @@ NeoBundle 'hsitz/VimOrganizer'
 
 " Perl Bundles: {{{1
 " perl-in-vim bundles {{{2
-NeoBundleLazy 'vim-scripts/update_perl_line_directives',    { 'autoload': { 'filetypes': 'vim' }, 'disabled': !has('perl') }
-NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'filetypes': 'vim' }, 'disabled': !has('perl') }
+NeoBundleLazy 'vim-scripts/update_perl_line_directives',    { 'autoload': { 'filetypes': 'vim.perl' }, 'disabled': !has('perl') }
+NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'filetypes': 'vim.perl' }, 'disabled': !has('perl') }
 " }}}2
 NeoBundle     'vim-perl/vim-perl'
 NeoBundleLazy 'vim-scripts/log4perl.vim', { 'autoload': { 'filetypes': 'log4perl' } }
