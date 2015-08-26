@@ -673,27 +673,36 @@ NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'tpope/vim-endwise'
 " GithubIssues: {{{2
 
+" NOTE: don't autoload on gitcommit f/t at the moment, as this plugin either
+" does not support authenticated requests (or we don't have it configured) and
+" it's WICKED SLOW when the number of allowed requests is exceeded.
+
 NeoBundleLazy 'jaxbot/github-issues.vim', {
             \   'disable': !has('python'),
             \   'autoload': {
             \       'commands': ['Gissues', 'Gmiles', 'Giadd'],
-            \       'filetypes': 'gitcommit',
+            \       'filetypes_DISABLED': 'gitcommit',
             \   },
             \   'verbose': 1,
             \}
 
-" }}}2
-
-" Probation: {{{1
 " GitHub Dashboard: {{{2
 
 let g:github_dashboard = {}
 let g:github_dashboard['emoji'] = 1
 let g:github_dashboard['RrschBoy'] = 1
 
-NeoBundleLazy 'junegunn/vim-github-dashboard'
+NeoBundleLazy 'junegunn/vim-github-dashboard', {
+            \   'disable': !has('ruby'),
+            \   'verbose': 1,
+            \   'autoload': {
+            \       'commands': ['GHA', 'GHD', 'GHDashboard', 'GHActivity'],
+            \   },
+            \}
 
 "}}}2
+
+" Probation: {{{1
 NeoBundleLazy 'lukaszkorecki/vim-GitHubDashBoard'
 " github issues query
 NeoBundleLazy 'mklabs/vim-issues'
