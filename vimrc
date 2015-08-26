@@ -671,6 +671,18 @@ NeoBundle 'tpope/vim-speeddating'
 "NeoBundle 'LucHermitte/local_vimrc', {'depends': 'lh-vim-lib'}
 " FIXME TODO need b:endwise_* settings for perl!
 NeoBundle 'tpope/vim-endwise'
+" GithubIssues: {{{2
+
+NeoBundleLazy 'jaxbot/github-issues.vim', {
+            \   'disable': !has('python'),
+            \   'autoload': {
+            \       'commands': ['Gissues', 'Gmiles', 'Giadd'],
+            \       'filetypes': 'gitcommit',
+            \   },
+            \   'verbose': 1,
+            \}
+
+" }}}2
 
 " Probation: {{{1
 " GitHub Dashboard: {{{2
