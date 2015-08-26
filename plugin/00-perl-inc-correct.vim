@@ -34,3 +34,5 @@ endif
 
 " something arcane happens here.
 let &cpo = s:save_cpo
+
+" vim: set ft=vim.perl :
