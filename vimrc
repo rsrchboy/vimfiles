@@ -340,9 +340,8 @@ nnoremap <silent> <Leader>gD :Git! diff --word-diff %<Enter>
 nnoremap <silent> <Leader>gp :Git push<Enter>
 nnoremap <silent> <Leader>gb :Gblame -w<Enter>
 
-nnoremap <silent> <leader>gv :Gitv --all<cr>
+nnoremap <silent> <leader>gv :Gitv<cr>
 nnoremap <silent> <leader>gV :Gitv! --all<cr>
-vnoremap <silent> <leader>gV :Gitv! --all<cr>
 
 " make handling indexes a little easier {{{3
 
