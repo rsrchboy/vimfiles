@@ -637,12 +637,22 @@ NeoBundleLazy 'kien/tabman.vim', {
             \   'verbose': 1,
             \}
 
+" ToDo: aka ~/todo.txt {{{2
+
+nnoremap <silent> <Leader>td :split ~/todo.txt<CR>
+
+" we're not autoload... right now.
+NeoBundle 'freitass/todo.txt-vim', {
+            \   'autoload': {
+            \       'mappings': '<Leader>td',
+            \   },
+            \}
+
 " }}}2
 NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
 NeoBundle 'vim-scripts/gtk-vim-syntax'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'tpope/vim-obsession'
-NeoBundle 'freitass/todo.txt-vim'
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'Shougo/unite.vim'
