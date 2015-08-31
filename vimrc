@@ -627,7 +627,7 @@ NeoBundleLazy 'kablamo/vim-git-log', { 'depends': 'vim-fugitive', 'autoload': { 
 NeoBundle 'tomtom/tskeleton_vim', { 'depends': [ 'tlib_vim' ] }
 NeoBundle 'tomtom/tskeletons', { 'depends': [ 'tskeleton_vim' ] }
 
-" TabMan:
+" TabMan: {{{2
 
 NeoBundleLazy 'kien/tabman.vim', {
             \   'autoload': {
@@ -662,6 +662,7 @@ NeoBundle 'chrisbra/NrrwRgn'
 NeoBundle 'wesQ3/vim-windowswap'
 
 " 27 Jul 2015 {{{2
+" FIXME need a ProjectionistDetect au for detecting Perl projects
 NeoBundle 'tpope/vim-projectionist'
 NeoBundleLazy 'klen/python-mode', { 'autoload': { 'filetypes': 'python' }, 'verbose': 1 }
 
