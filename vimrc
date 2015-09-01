@@ -348,7 +348,6 @@ nnoremap <silent> <leader>gV :Gitv! --all<cr>
 " This section very happily stolen from / based on:
 " https://github.com/aaronjensen/vimfiles/blob/master/vimrc
 
-" Use j/k in status {{{3
 function! BufReadIndex()
   setlocal cursorline
   setlocal nohlsearch
@@ -357,10 +356,6 @@ function! BufReadIndex()
   nnoremap <buffer> <silent> k :call search('^#\t.*','Wbe')<Bar>.<CR>
 endfunction
 
-autocmd BufReadCmd *.git/index exe BufReadIndex()
-autocmd BufEnter   *.git/index silent normal gg0j
-
-" Start in insert mode for commit {{{3
 function! BufEnterCommit()
   setlocal filetype=gitcommit
   setlocal nonumber
@@ -373,15 +368,23 @@ function! BufEnterCommit()
   end
 endfunction
 
-" filetype autocmds (e.g. for pull req, tag edits, etc...) {{{3
+" autocmds (e.g. for pull req, tag edits, etc...) {{{3
 
-" the 'hub' tool creates a number of comment files formatted in the same way
-" as a git commit message.
-autocmd BufEnter *.git/*_EDITMSG exe BufEnterCommit()
+augroup vimrc-fugitive
+    au!
 
-" Automatically remove fugitive buffers {{{3
-autocmd BufReadPost fugitive://* set bufhidden=delete
+    " Use j/k in status
+    autocmd BufReadCmd *.git/index exe BufReadIndex()
+    autocmd BufEnter   *.git/index silent normal gg0j
 
+    " the 'hub' tool creates a number of comment files formatted in the same way
+    " as a git commit message.
+    autocmd BufEnter *.git/*_EDITMSG exe BufEnterCommit()
+
+    " Automatically remove fugitive buffers
+    autocmd BufReadPost fugitive://* set bufhidden=delete
+
+augroup END
 " }}}3
 
 NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive' }
