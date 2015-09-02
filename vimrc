@@ -742,6 +742,8 @@ NeoBundleLazy 'junegunn/vim-github-dashboard', {
             \}
 
 "}}}2
+NeoBundleLazy 'kana/vim-textobj-user'
+NeoBundle     'kana/vim-textobj-syntax', { 'depends': 'vim-textobj-user' }
 
 " Probation: {{{1
 NeoBundleLazy 'lukaszkorecki/vim-GitHubDashBoard'
