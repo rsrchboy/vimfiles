@@ -621,6 +621,11 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-git'
 
 " Trial Bundles: maybe, maybe not! {{{1
+" Gerrit Code Review: ...maybe we can make life easier {{{2
+
+NeoBundleLazy 'stargrave/gerrvim', { 'depends': 'vim-fugitive' }
+NeoBundleLazy 'itissid/gv', { 'disable': !has('python') }
+
 " VimGitLog: lazy {{{2
 NeoBundleLazy 'kablamo/vim-git-log', { 'depends': 'vim-fugitive', 'autoload': { 'commands': 'GitLog' }, 'verbose': 1 }
 
