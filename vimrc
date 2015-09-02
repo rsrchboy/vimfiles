@@ -646,13 +646,24 @@ NeoBundleLazy 'kien/tabman.vim', {
 
 " ToDo: aka ~/todo.txt {{{2
 
+" Mappings:
 nnoremap <silent> <Leader>td :split ~/todo.txt<CR>
 
+" Autocmds:
+augroup vimrc-todo.txt
+    au!
+
+    " self-removes on execution
+    au BufNewFile,BufRead todo.txt call neobundle#source('todo.txt-vim') | execute('set ft=todo | au! vimrc-todo.txt')
+augroup END
+
 " we're not autoload... right now.
-NeoBundle 'freitass/todo.txt-vim', {
+NeoBundleLazy 'freitass/todo.txt-vim', {
             \   'autoload': {
             \       'mappings': '<Leader>td',
+            \       'filetypes': 'todo',
             \   },
+            \   'verbose': 1,
             \}
 
 " }}}2
