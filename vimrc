@@ -526,15 +526,34 @@ augroup end
 NeoBundleLazy 'vim-scripts/tracwiki', { 'autoload': { 'filetypes': 'tracwiki' } }
 NeoBundleLazy 'nsmgr8/vitra', { 'depends': 'tracwiki', 'verbose': 1 }
 
+" VimOrganizer: {{{2
+
+NeoBundleLazy 'hsitz/VimOrganizer', {
+            \   'autoload': {
+            \       'filetypes': ['org', 'vimorg-agenda-mappings', 'vimorg-main-mappings'],
+            \   },
+            \   'verbose': 1,
+            \}
+
 " }}}2
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'vim-scripts/vimwiki'
-NeoBundle 'hsitz/VimOrganizer'
 
 " Perl Bundles: {{{1
 " perl-in-vim bundles {{{2
-NeoBundleLazy 'vim-scripts/update_perl_line_directives',    { 'autoload': { 'filetypes': 'vim.perl' }, 'disabled': !has('perl') }
-NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'filetypes': 'vim.perl' }, 'disabled': !has('perl') }
+
+augroup vimrc-perl-in-vim
+    au!
+
+    " self-removes on execution
+    au FileType vim.perl call neobundle#source('update_perl_line_directives') | call neobundle#source('syntax_check_embedded_perl') | execute('au! vimrc-perl-in-vim')
+augroup END
+
+"neobundle#source('update_perl_line_directives')
+"neobundle#source('syntax_check_embedded_perl')
+
+NeoBundleLazy 'vim-scripts/update_perl_line_directives',    { 'autoload': { 'filetypes': 'vim.perl' }, 'verbose': 1, 'disabled': !has('perl') }
+NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'filetypes': 'vim.perl' }, 'verbose': 1, 'disabled': !has('perl') }
 " }}}2
 NeoBundle     'vim-perl/vim-perl'
 NeoBundleLazy 'vim-scripts/log4perl.vim', { 'autoload': { 'filetypes': 'log4perl' } }
