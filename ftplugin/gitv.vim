@@ -14,3 +14,6 @@ setlocal nohlsearch
 " j, k skip between commit lines
 nnoremap <buffer> <silent> j :call search('^\(\W\s\)*\*','W')<Bar>.<CR>
 nnoremap <buffer> <silent> k :call search('^\(\W\s\)*\*','Wbe')<Bar>.<CR>
+
+" tab just goes to the diff/commit buffer
+nmap <buffer> <Tab> <C-W>l
