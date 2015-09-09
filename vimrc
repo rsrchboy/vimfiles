@@ -176,7 +176,7 @@ map <leader>l :NERDTreeToggle<CR>
 augroup vimrc-nerdtree
     au!
 
-    " clVose if we're the only window left
+    " close if we're the only window left
     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
 augroup end
