@@ -5,15 +5,24 @@ if exists("b:did_gitv_ckw_ftplugin")
 endif
 let b:did_gitv_ckw_ftplugin = 1
 
-"nnoremap <buffer> <silent> F :echo ':Gcommit --fixup ' . gitv#util#line#sha('.')<CR>
-nnoremap <buffer> <silent> F :Gcommit --fixup ' . gitv#util#line#sha('.')<CR>
+" Buffer Options: {{{1
 
 setlocal cursorline
 setlocal nohlsearch
 
+" Mappings: {{{1
+
+" note -- the git aliases are based off my personal gitconfig -- proably ought
+" to expand them here
+nmap <buffer> <silent> F   :execute 'Gcommit --fixup ' . gitv#util#line#sha('.')<bar>normal u<CR>
+nmap <buffer> <silent> ria :Git ria<bar>normal u<CR>
+nmap <buffer> <silent> ca  :Git ca<bar>normal u<CR>
+
+nmap <buffer> <silent> h   :help gitv-browser-mappings<CR>
+
 " j, k skip between commit lines
-nnoremap <buffer> <silent> j :call search('^\(\W\s\)*\*','W')<Bar>.<CR>
-nnoremap <buffer> <silent> k :call search('^\(\W\s\)*\*','Wbe')<Bar>.<CR>
+nmap <buffer> <silent> j :call search('^\(\W\s\)*\*','W')<Bar>.<CR>
+nmap <buffer> <silent> k :call search('^\(\W\s\)*\*','Wbe')<Bar>.<CR>
 
 " tab just goes to the diff/commit buffer
 nmap <buffer> <Tab> <C-W>l
