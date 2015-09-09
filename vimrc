@@ -394,6 +394,13 @@ NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive' }
 let g:Gitv_TruncateCommitSubjects = 1
 let g:Gitv_CommitStep             = 150
 
+augroup vimrc-gitv
+    au!
+
+    " prettify gerrit refs
+    au User GitvSetupBuffer silent %s/refs\/changes\/\d\d\//change:/ge
+augroup END
+
 NeoBundleLazy 'gregsexton/gitv', {
             \ 'autoload': {
             \   'commands': 'Gitv',
