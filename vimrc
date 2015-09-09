@@ -299,8 +299,21 @@ NeoBundle 'thinca/vim-ref'
 NeoBundle 'Townk/vim-autoclose'
 
 " ColorSchemes: {{{1
-NeoBundle 'altercation/vim-colors-solarized'
+" ZenBurn: {{{2
+
+let g:zenburn_high_Contrast = 1
+let g:zenburn_transparent   = 1
+
 NeoBundle 'jnurmine/Zenburn'
+
+" Solarized: {{{2
+
+let g:solarized_termtrans = 1
+"let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
+
+NeoBundle 'altercation/vim-colors-solarized'
+
+" }}}2
 
 " GIT And Version Controlish: bundles {{{1
 " Fugitive: {{{2
@@ -701,32 +714,8 @@ let g:better_whitespace_filetypes_blacklist = [ 'git' ]
 
 NeoBundle 'ntpeters/vim-better-whitespace'
 
-" }}}2
-NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
-NeoBundle 'vim-scripts/gtk-vim-syntax'
-NeoBundle 'dhruvasagar/vim-table-mode'
-NeoBundle 'tpope/vim-obsession'
-NeoBundle 'mhinz/vim-tmuxify'
-NeoBundle 'christoomey/vim-tmux-navigator'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'vitalk/vim-simple-todo'
-" jira 'integration' {{{2
-NeoBundle 'mnpk/vim-jira-complete'
-NeoBundle 'RsrchBoy/vim-jira-open'
+" LuaSupport: {{{2
 
-
-" 18 Jul 2015 {{{2
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'chrisbra/NrrwRgn'
-NeoBundle 'wesQ3/vim-windowswap'
-
-" 27 Jul 2015 {{{2
-" FIXME need a ProjectionistDetect au for detecting Perl projects
-NeoBundle 'tpope/vim-projectionist'
-NeoBundleLazy 'klen/python-mode', { 'autoload': { 'filetypes': 'python' }, 'verbose': 1 }
-
-" 11 Aug 2015 {{{2
 NeoBundleLazy 'WolfgangMehner/lua-support', {
             \ 'verbose': 1,
             \ 'autoload': {
@@ -734,16 +723,6 @@ NeoBundleLazy 'WolfgangMehner/lua-support', {
             \ },
             \}
 
-" }}}2
-NeoBundleLazy 'dhruvasagar/vimmpc', { 'autoload': { 'commands': 'MPC' }, 'verbose': 1, 'disable': !has('python') }
-NeoBundleLazy 'gcmt/taboo.vim'
-NeoBundle 'tpope/vim-capslock'
-NeoBundle 'tpope/vim-speeddating'
-" see https://github.com/LucHermitte/local_vimrc
-"NeoBundle 'LucHermitte/lh-vim-lib', {'name': 'lh-vim-lib'}
-"NeoBundle 'LucHermitte/local_vimrc', {'depends': 'lh-vim-lib'}
-" FIXME TODO need b:endwise_* settings for perl!
-NeoBundle 'tpope/vim-endwise'
 " GithubIssues: {{{2
 
 " NOTE: don't autoload on gitcommit f/t at the moment, as this plugin either
@@ -773,7 +752,37 @@ NeoBundleLazy 'junegunn/vim-github-dashboard', {
             \   },
             \}
 
-"}}}2
+" }}}2
+NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
+NeoBundle 'vim-scripts/gtk-vim-syntax'
+NeoBundle 'dhruvasagar/vim-table-mode'
+NeoBundle 'tpope/vim-obsession'
+NeoBundle 'mhinz/vim-tmuxify'
+NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'vitalk/vim-simple-todo'
+" jira 'integration'
+NeoBundle 'mnpk/vim-jira-complete'
+NeoBundle 'RsrchBoy/vim-jira-open'
+" 18 Jul 2015
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'chrisbra/NrrwRgn'
+NeoBundle 'wesQ3/vim-windowswap'
+" 27 Jul 2015
+" FIXME need a ProjectionistDetect au for detecting Perl projects
+NeoBundle 'tpope/vim-projectionist'
+NeoBundleLazy 'klen/python-mode', { 'autoload': { 'filetypes': 'python' }, 'verbose': 1 }
+" 11 Aug 2015
+NeoBundleLazy 'dhruvasagar/vimmpc', { 'autoload': { 'commands': 'MPC' }, 'verbose': 1, 'disable': !has('python') }
+NeoBundleLazy 'gcmt/taboo.vim'
+NeoBundle 'tpope/vim-capslock'
+NeoBundle 'tpope/vim-speeddating'
+" see https://github.com/LucHermitte/local_vimrc
+"NeoBundle 'LucHermitte/lh-vim-lib', {'name': 'lh-vim-lib'}
+"NeoBundle 'LucHermitte/local_vimrc', {'depends': 'lh-vim-lib'}
+" FIXME TODO need b:endwise_* settings for perl!
+NeoBundle 'tpope/vim-endwise'
 NeoBundleLazy 'kana/vim-textobj-user'
 NeoBundle     'kana/vim-textobj-syntax', { 'depends': 'vim-textobj-user' }
 
@@ -988,14 +997,6 @@ augroup vimrc-colorscheme
     au ColorScheme solarized source ~/.vim/local/colors/solarized.vim
 
 augroup end
-
-" colorscheme settings {{{2
-
-let g:zenburn_high_Contrast = 1
-let g:zenburn_transparent   = 1
-
-let g:solarized_termtrans = 1
-"let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
 
 " }}}2
 colorscheme zenburn
