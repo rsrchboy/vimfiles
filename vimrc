@@ -692,6 +692,15 @@ NeoBundleLazy 'freitass/todo.txt-vim', {
             \   'verbose': 1,
             \}
 
+" BetterWhitespace: 18 Jul 2015 {{{2
+
+" NOTE replaces: NeoBundle 'bronson/vim-trailing-whitespace'
+" FIXME ... if it would just work.  grr
+
+let g:better_whitespace_filetypes_blacklist = [ 'git' ]
+
+NeoBundle 'ntpeters/vim-better-whitespace'
+
 " }}}2
 NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
 NeoBundle 'vim-scripts/gtk-vim-syntax'
@@ -708,9 +717,6 @@ NeoBundle 'RsrchBoy/vim-jira-open'
 
 
 " 18 Jul 2015 {{{2
-" NOTE replaces: NeoBundle 'bronson/vim-trailing-whitespace'
-" FIXME ... if it would just work.  grr
-NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'chrisbra/NrrwRgn'
 NeoBundle 'wesQ3/vim-windowswap'
