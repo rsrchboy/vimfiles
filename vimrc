@@ -140,10 +140,34 @@ NeoBundle 'kien/ctrlp.vim'
 
 " Tabular: {{{2
 
-nnoremap ,= :Tabularize /=><CR>
-nnoremap ,- :Tabularize /=<CR>
+nnoremap <silent> ,= :Tabularize first_fat_comma<CR>
+nnoremap <silent> ,- :Tabularize /=<CR>
 
-NeoBundle 'godlygeek/tabular'
+nnoremap <silent> ,{ :Tabularize /{<CR>
+nnoremap <silent> ,} :Tabularize /}/l1c0<CR>
+
+NeoBundleLazy 'godlygeek/tabular', {
+            \   'autoload': {
+            \       'commands': [
+            \           'Tabularize',
+            \           'AddTabularPattern',
+            \           'AddTabularPipeline',
+            \       ],
+            \   },
+            \   'verbose': 1,
+            \}
+
+if neobundle#tap('tabular')
+
+    " Do Things when the bundle is vivified
+    function! neobundle#hooks.on_post_source(bundle)
+
+        " ...kinda.  assumes that the first '=' found is part of a fat comma
+        AddTabularPattern first_fat_comma /^[^=]*\zs=>/l1
+    endfunction
+
+    call neobundle#untap()
+endif
 
 " NERD Tree: {{{2
 
