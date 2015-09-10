@@ -473,16 +473,10 @@ let g:signify_update_on_focusgained = 1
 let g:signify_cursorhold_normal     = 0
 let g:signify_cursorhold_insert     = 0
 
-func! SignifyOnBufEnter()
-    "if exists('sy_path')
-        call sy#start()
-    "endif
-endfunc
-
 augroup vimrc-Signify
     autocmd!
-    autocmd BufEnter * call SignifyOnBufEnter()
-    autocmd WinEnter * call SignifyOnBufEnter()
+    autocmd BufEnter * call sy#start()
+    autocmd WinEnter * call sy#start()
 augroup END
 
 NeoBundle 'mhinz/vim-signify'
