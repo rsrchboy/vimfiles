@@ -426,24 +426,24 @@ endfunction
 " this is a cross between the old git-vim commands I'm used to, but invoking
 " fugitive instead.
 
-nnoremap <silent> <Leader>gs :Gstatus<Enter>
-nnoremap <silent> <Leader>gd :call Gitv_OpenGitCommand("diff --no-color -- ".expand('%'), 'new')<CR>
-nnoremap <silent> <Leader>gD :call Gitv_OpenGitCommand("diff --no-color --cached %", 'new')<CR>
-nnoremap <silent> <Leader>gh :call Gitv_OpenGitCommand("show --no-color", 'new')<CR>
-nnoremap <silent> <Leader>ga :call RunGitWrite()<CR>
-nnoremap <silent> <Leader>gc :Gcommit<Enter>
-nnoremap <silent> <Leader>gf :Gcommit --fixup HEAD<CR>
-nnoremap <silent> <Leader>gF :Gcommit --fixup 'HEAD~'<CR>
-nnoremap <silent> <Leader>gS :Gcommit --squash HEAD
+nmap <silent> <Leader>gs :Gstatus<Enter>
+nmap <silent> <Leader>gd :call Gitv_OpenGitCommand("diff --no-color -- ".expand('%'), 'new')<CR>
+nmap <silent> <Leader>gD :call Gitv_OpenGitCommand("diff --no-color --cached %", 'new')<CR>
+nmap <silent> <Leader>gh :call Gitv_OpenGitCommand("show --no-color", 'new')<CR>
+nmap <silent> <Leader>ga :call RunGitWrite()<CR>
+nmap <silent> <Leader>gc :Gcommit<Enter>
+nmap <silent> <Leader>gf :Gcommit --fixup HEAD<CR>
+nmap <silent> <Leader>gF :Gcommit --fixup 'HEAD~'<CR>
+nmap <silent> <Leader>gS :Gcommit --squash HEAD
 
-nnoremap <silent> <Leader>gA :call RunGitAddParts()<CR>
-nnoremap <silent> <Leader>gl :Git lol<Enter>
-nnoremap <silent> <Leader>gD :Git! diff --word-diff %<Enter>
-nnoremap <silent> <Leader>gp :Git push<Enter>
-nnoremap <silent> <Leader>gb :Gblame -w<Enter>
+nmap <silent> <Leader>gA :call RunGitAddParts()<CR>
+nmap <silent> <Leader>gl :Git lol<Enter>
+nmap <silent> <Leader>gD :Git! diff --word-diff %<Enter>
+nmap <silent> <Leader>gp :Git push<Enter>
+nmap <silent> <Leader>gb :Gblame -w<Enter>
 
-nnoremap <silent> <leader>gv :Gitv<cr>
-nnoremap <silent> <leader>gV :Gitv!<cr>
+nmap <silent> <leader>gv :Gitv<cr>
+nmap <silent> <leader>gV :Gitv!<cr>
 
 " make handling indexes a little easier {{{3
 
