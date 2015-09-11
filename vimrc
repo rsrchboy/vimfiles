@@ -443,7 +443,7 @@ nnoremap <silent> <Leader>gp :Git push<Enter>
 nnoremap <silent> <Leader>gb :Gblame -w<Enter>
 
 nnoremap <silent> <leader>gv :Gitv<cr>
-nnoremap <silent> <leader>gV :Gitv! --all<cr>
+nnoremap <silent> <leader>gV :Gitv!<cr>
 
 " make handling indexes a little easier {{{3
 
