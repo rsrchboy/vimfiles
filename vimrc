@@ -309,11 +309,73 @@ let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
 
 NeoBundleLazy 'ervandew/supertab', { 'autoload': { 'insert': 1 } }
 
+" Tagbar: {{{2
+
+nmap <silent> <leader>ttb :TagbarToggle<CR>
+
+let g:tagbar_autoclose = 1
+let g:tagbar_autofocus = 1
+
+" Perl: ctags configuration {{{3
+
+"    \ 'ctagsbin': 'perl-tags',
+"    \ 'ctagsargs': '--outfile -',
+let g:tagbar_type_perl = {
+    \ 'sort' : 1,
+    \ 'deffile' : '$HOME/.vim/ctags/perl',
+    \ 'kinds' : [
+        \ 'p:packages:1:0',
+        \ 'u:uses:1:0',
+        \ 'A:aliases:0:0',
+        \ 'q:requires:1:0',
+        \ 'c:constants:0:0',
+        \ 'o:package globals:0:0',
+        \ 'R:readonly:0:0',
+        \ 'f:formats:0:0',
+        \ 'e:extends',
+        \ 'r:roles:1:0',
+        \ 'a:attributes',
+        \ 's:subroutines',
+        \ 'l:labels',
+        \ 'P:POD',
+    \ ],
+    \ 'sro' : '',
+    \ 'kind2scope' : {
+        \ 'p' : 'packages',
+    \ },
+    \ 'scope2kind' : {
+        \ 'packages' : 'p',
+        \ 'subroutines' : 's',
+    \ },
+\ }
+
+" Puppet: ctags configuration {{{3
+
+let g:tagbar_type_puppet = {
+    \ 'sort' : 1,
+    \ 'ctagstype': 'puppet',
+    \ 'deffile' : '$HOME/.vim/ctags/puppet',
+    \ 'kinds' : [
+        \ 'c:class:0:0',
+        \ 's:site:0:0',
+        \ 'n:node:0:0',
+        \ 'd:definition:0:0',
+    \ ],
+\ }
+
+" }}}3
+
+NeoBundleLazy 'majutsushi/tagbar', {
+            \   'autoload': {
+            \       'commands': 'Tagbar',
+            \   },
+            \   'verbose': 1,
+            \}
+
 " }}}2
 NeoBundleLazy 'vim-scripts/Align'
 NeoBundle 'vim-scripts/AutoAlign', { 'depends': 'Align' }
 NeoBundle 'DataWraith/auto_mkdir'
-NeoBundle 'majutsushi/tagbar'
 NeoBundle 'garbas/vim-snipmate', { 'depends': 'vim-addon-mw-utils' }
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-surround'
@@ -1033,66 +1095,6 @@ augroup end
 " }}}2
 colorscheme zenburn
 syntax on
-
-" Tagbar And CTags: configuration {{{1
-" mappings {{{2
-
-nmap <silent> <leader>ttb :TagbarToggle<CR>
-
-" settings {{{2
-
-let g:tagbar_autoclose = 0
-
-" How to display different "custom" filetypes
-"
-" perl {{{3
-
-"    \ 'ctagsbin': 'perl-tags',
-"    \ 'ctagsargs': '--outfile -',
-let g:tagbar_type_perl = {
-    \ 'sort' : 1,
-    \ 'deffile' : '$HOME/.vim/ctags/perl',
-    \ 'kinds' : [
-        \ 'p:packages:1:0',
-        \ 'u:uses:1:0',
-        \ 'A:aliases:0:0',
-        \ 'q:requires:1:0',
-        \ 'c:constants:0:0',
-        \ 'o:package globals:0:0',
-        \ 'R:readonly:0:0',
-        \ 'f:formats:0:0',
-        \ 'e:extends',
-        \ 'r:roles:1:0',
-        \ 'a:attributes',
-        \ 's:subroutines',
-        \ 'l:labels',
-        \ 'P:POD',
-    \ ],
-    \ 'sro' : '',
-    \ 'kind2scope' : {
-        \ 'p' : 'packages',
-    \ },
-    \ 'scope2kind' : {
-        \ 'packages' : 'p',
-        \ 'subroutines' : 's',
-    \ },
-\ }
-
-" puppet {{{3
-
-let g:tagbar_type_puppet = {
-    \ 'sort' : 1,
-    \ 'ctagstype': 'puppet',
-    \ 'deffile' : '$HOME/.vim/ctags/puppet',
-    \ 'kinds' : [
-        \ 'c:class:0:0',
-        \ 's:site:0:0',
-        \ 'n:node:0:0',
-        \ 'd:definition:0:0',
-    \ ],
-\ }
-
-" }}}2
 
 " Perl: Perl testing helpers {{{1
 " TODO where did I go?! {{{2
