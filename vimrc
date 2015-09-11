@@ -1037,8 +1037,7 @@ syntax on
 " Tagbar And CTags: configuration {{{1
 " mappings {{{2
 
-nnoremap <leader>q :TagbarToggle<CR>
-nnoremap <leader>w :TagbarOpenAutoClose<CR>
+nmap <silent> <leader>ttb :TagbarToggle<CR>
 
 " settings {{{2
 
