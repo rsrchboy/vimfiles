@@ -226,13 +226,13 @@ let g:airline#extensions#tagbar#enabled               = 1
 let g:airline#extensions#tmuxline#enabled             = 0
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
 
-" fugitive bits {{{3
-"" if a string is provided, it should be the name of a function that
-"" takes a string and returns the desired value
-"let g:airline#extensions#branch#format = 'CustomBranchName'
-"function! CustomBranchName(name)
-"    return '[' . a:name . ']'
-"endfunction
+" if a string is provided, it should be the name of a function that
+" takes a string and returns the desired value
+let g:airline#extensions#branch#format = 'CustomBranchName'
+function! CustomBranchName(name)
+    "return '[' . a:name . ']'
+    return fugitive#repo().git_chomp('describe', '--all', '--long')
+endfunction
 
 " symbols {{{3
 if !exists('g:airline_symbols')
