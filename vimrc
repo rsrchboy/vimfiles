@@ -495,6 +495,7 @@ NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive', 'depends': 'vim-dispatc
 
 let g:Gitv_TruncateCommitSubjects = 1
 let g:Gitv_CommitStep             = 150
+let g:Gitv_TellMeAboutIt          = 0
 
 augroup vimrc-gitv
     au!
