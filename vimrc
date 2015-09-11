@@ -513,6 +513,15 @@ NeoBundleLazy 'gregsexton/gitv', {
             \ 'verbose': 1,
             \}
 
+" Git WIP: {{{2
+
+NeoBundleLazy 'bartman/git-wip', {
+            \   'rtp': 'vim',
+            \   'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' },
+            \   'autoload': { 'insert': 1 },
+            \   'verbose': 1,
+            \}
+
 " Gist: {{{2
 
 let g:gist_detect_filetype        = 1
@@ -548,7 +557,6 @@ augroup END
 NeoBundle 'mhinz/vim-signify'
 
 " }}}2
-NeoBundle 'bartman/git-wip',    { 'rtp': 'vim', 'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' } }
 NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'CountJump' ] }
 NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'CountJump' ] }
 
