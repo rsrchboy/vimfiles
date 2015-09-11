@@ -770,6 +770,20 @@ NeoBundleLazy 'junegunn/vim-github-dashboard', {
             \   },
             \}
 
+" ToggleLists: toggle the quickfix / locationlist windows easily {{{2
+
+let g:toggle_list_no_mappings = 1
+
+nmap <silent> <Leader>tqf :call ToggleQuickfixList()<cr>
+nmap <silent> <Leader>tll :call ToggleLocationList()<cr>
+
+NeoBundleLazy 'milkypostman/vim-togglelist', {
+            \   'autoload': {
+            \       'functions': [ 'ToggleLocationList', 'ToggleQuickfixList' ],
+            \   },
+            \   'verbose': 0,
+            \}
+
 " }}}2
 NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
 NeoBundle 'vim-scripts/gtk-vim-syntax'
