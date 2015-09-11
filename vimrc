@@ -489,7 +489,7 @@ augroup vimrc-fugitive
 augroup END
 " }}}3
 
-NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive' }
+NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive', 'depends': 'vim-dispatch' }
 
 " Gitv: {{{2
 
