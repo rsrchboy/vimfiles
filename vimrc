@@ -217,7 +217,8 @@ NeoBundle 'mhinz/vim-startify'
 
 let g:airline_theme = 'dark'
 
-" extensions config {{{3
+" Extensions Config: {{{3
+
 let g:airline#extensions#bufferline#enabled           = 0
 let g:airline#extensions#syntastic#enabled            = 1
 let g:airline#extensions#tabline#enabled              = 1
@@ -257,7 +258,6 @@ let g:airline_right_sep = ''
 
 " }}}3
 
-"NeoBundle 'bling/vim-airline', { 'depends': [ 'vim-capslock', 'taboo' ] }
 NeoBundle 'bling/vim-airline', { 'depends': [ 'vim-capslock' ] }
 
 " JunkFile: {{{2
@@ -372,9 +372,12 @@ NeoBundleLazy 'majutsushi/tagbar', {
             \   'verbose': 1,
             \}
 
-" }}}2
+" AutoAlign: {{{2
+
 NeoBundleLazy 'vim-scripts/Align'
-NeoBundle 'vim-scripts/AutoAlign', { 'depends': 'Align' }
+NeoBundle     'vim-scripts/AutoAlign', { 'depends': 'Align' }
+
+" }}}2
 NeoBundle 'DataWraith/auto_mkdir'
 NeoBundle 'garbas/vim-snipmate', { 'depends': 'vim-addon-mw-utils' }
 NeoBundle 'scrooloose/nerdcommenter'
@@ -745,6 +748,11 @@ NeoBundle 'tpope/vim-git'
 NeoBundleLazy 'stargrave/gerrvim', { 'depends': 'vim-fugitive' }
 NeoBundleLazy 'itissid/gv', { 'disable': !has('python') }
 
+" Jira Integration: {{{2
+
+NeoBundle 'mnpk/vim-jira-complete'
+NeoBundle 'RsrchBoy/vim-jira-open'
+
 " VimGitLog: lazy {{{2
 NeoBundleLazy 'kablamo/vim-git-log', { 'depends': 'vim-fugitive', 'autoload': { 'commands': 'GitLog' }, 'verbose': 1 }
 
@@ -856,9 +864,6 @@ NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'vitalk/vim-simple-todo'
-" jira 'integration'
-NeoBundle 'mnpk/vim-jira-complete'
-NeoBundle 'RsrchBoy/vim-jira-open'
 " 18 Jul 2015
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'chrisbra/NrrwRgn'
@@ -888,8 +893,8 @@ NeoBundleLazy 'mklabs/vim-issues'
 NeoBundleLazy 'embear/vim-localvimrc'
 NeoBundleLazy 'thinca/vim-localrc'
 
-" Attic: no longer used {{{1
-" all {{{2
+" Bundles Attic: {{{1
+" no longer used! {{{2
 "NeoBundle 'bling/vim-bufferline'
 "NeoBundle 'kakkyz81/evervim'
 "NeoBundle 'Zuckonit/vim-airline-tomato'
@@ -1002,26 +1007,31 @@ func! FoldOnLeadingPounds(lnum)
     return '='
 endfunc
 
-" key {,re}mappings {{{2
+"}}}2
+
+" Mappings: {{{1
+" Configy: {{{2
 set pastetoggle=<F2>
 
-" normal mode remappings
-nnoremap <LocalLeader>fc :call ToggleFoldColumn()<CR>
-nnoremap <F3> :setlocal nonumber!<CR>
-nnoremap <F5> :setlocal spell! spelllang=en_us<CR>
-nnoremap <F7> :tabp<CR>
-nnoremap <F8> :tabn<CR>
-
-" visual/insert mode remappings
-vnoremap <F3> :setlocal nonumber!<CR>
-vnoremap <F5> :setlocal spell! spelllang=en_us<CR>
-vnoremap <F7> :tabp<CR>
-vnoremap <F8> :tabn<CR>
+" Normal Mode Mappings: {{{2
+nmap <LocalLeader>fc :call ToggleFoldColumn()<CR>
+nmap <F3> :setlocal nonumber!<CR>
+nmap <F5> :setlocal spell! spelllang=en_us<CR>
+nmap <F7> :tabp<CR>
+nmap <F8> :tabn<CR>
 
 " make C-PgUp and C-PgDn work, even under screen
 " see https://bugs.launchpad.net/ubuntu/+source/screen/+bug/82708/comments/1
-:nmap <ESC>[5;5~ <C-PageUp>
-:nmap <ESC>[6;5~ <C-PageDown>
+nmap <ESC>[5;5~ <C-PageUp>
+nmap <ESC>[6;5~ <C-PageDown>
+
+" Visual Mode Mappings: {{{2
+vmap <F3> :setlocal nonumber!<CR>
+vmap <F5> :setlocal spell! spelllang=en_us<CR>
+vmap <F7> :tabp<CR>
+vmap <F8> :tabn<CR>
+
+" Command: {{{2
 
 " Save with sudo if you're editing a readonly file in #vim
 " https://twitter.com/octodots/status/196996096910827520
@@ -1206,4 +1216,3 @@ set exrc
 " }}}2
 
 " vim: set foldmethod=marker foldlevel=1 foldcolumn=5 :
-
