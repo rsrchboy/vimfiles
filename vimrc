@@ -219,6 +219,9 @@ let g:airline_theme = 'dark'
 
 " Extensions Config: {{{3
 
+" enabled by a post-load hook for vim-capslock
+let g:airline#extensions#capslock#enabled = 0
+
 let g:airline#extensions#bufferline#enabled           = 0
 let g:airline#extensions#syntastic#enabled            = 1
 let g:airline#extensions#tabline#enabled              = 1
@@ -258,7 +261,7 @@ let g:airline_right_sep = ''
 
 " }}}3
 
-NeoBundle 'bling/vim-airline', { 'depends': [ 'vim-capslock' ] }
+NeoBundle 'bling/vim-airline'
 
 " JunkFile: {{{2
 
@@ -376,6 +379,34 @@ NeoBundleLazy 'majutsushi/tagbar', {
 
 NeoBundleLazy 'vim-scripts/Align'
 NeoBundle     'vim-scripts/AutoAlign', { 'depends': 'Align' }
+
+" CapsLock: a kinder, gentler capslock {{{2
+
+NeoBundleLazy 'tpope/vim-capslock', {
+            \   'autoload': {
+            \       'mappings': [
+            \           '<Plug>CapsLock',
+            \           [ 'n', 'gC'     ],
+            \           [ 'i', '<C-G>c' ],
+            \       ],
+            \   },
+            \   'verbose': 1,
+            \}
+
+if neobundle#tap('vim-capslock')
+
+    function! neobundle#hooks.on_post_source(bundle)
+
+        " "Hey, Airline -- I exist!"
+        let g:airline#extensions#capslock#enabled = 1
+        call airline#parts#define_function('capslock', 'airline#extensions#capslock#status')
+        unlet g:airline_section_a
+        call airline#init#sections()
+        call airline#update_statusline()
+    endfunction
+
+    call neobundle#untap()
+endif
 
 " }}}2
 NeoBundle 'DataWraith/auto_mkdir'
@@ -898,7 +929,6 @@ NeoBundleLazy 'klen/python-mode', { 'autoload': { 'filetypes': 'python' }, 'verb
 " 11 Aug 2015
 NeoBundleLazy 'dhruvasagar/vimmpc', { 'autoload': { 'commands': 'MPC' }, 'verbose': 1, 'disable': !has('python') }
 NeoBundleLazy 'gcmt/taboo.vim'
-NeoBundle 'tpope/vim-capslock'
 NeoBundle 'tpope/vim-speeddating'
 " see https://github.com/LucHermitte/local_vimrc
 "NeoBundle 'LucHermitte/lh-vim-lib', {'name': 'lh-vim-lib'}
