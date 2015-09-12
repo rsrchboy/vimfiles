@@ -863,6 +863,18 @@ NeoBundleLazy 'milkypostman/vim-togglelist', {
             \   'verbose': 0,
             \}
 
+" IndentObject: because indentation is ... {{{2
+
+NeoBundleLazy 'austintaylor/vim-indentobject', {
+            \   'autoload': {
+            \       'mappings': [
+            \           ['ov', 'ai'],
+            \           ['ov', 'ii'],
+            \       ],
+            \   },
+            \   'verbose': 1,
+            \}
+
 " }}}2
 NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
 NeoBundle 'vim-scripts/gtk-vim-syntax'
