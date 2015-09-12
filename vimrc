@@ -681,6 +681,7 @@ NeoBundleLazy 'hsitz/VimOrganizer', {
 " }}}2
 NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'vim-scripts/vimwiki'
+NeoBundle 'christoomey/vim-tmux-navigator'
 
 " Perl Bundles: {{{1
 " perl-in-vim bundles {{{2
@@ -922,7 +923,6 @@ NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands':
 NeoBundle 'vim-scripts/gtk-vim-syntax'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'mhinz/vim-tmuxify'
-NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'vitalk/vim-simple-todo'
