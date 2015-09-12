@@ -908,11 +908,19 @@ NeoBundleLazy 'austintaylor/vim-indentobject', {
             \   'verbose': 1,
             \}
 
+" Obsession: by tpope {{{2
+
+NeoBundleLazy 'tpope/vim-obsession', {
+            \   'autoload': {
+            \       'commands': 'Obsession',
+            \   },
+            \   'verbose': 1,
+            \}
+
 " }}}2
 NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
 NeoBundle 'vim-scripts/gtk-vim-syntax'
 NeoBundle 'dhruvasagar/vim-table-mode'
-NeoBundle 'tpope/vim-obsession'
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'Shougo/unite.vim'
