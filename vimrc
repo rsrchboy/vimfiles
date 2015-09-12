@@ -971,6 +971,7 @@ set shiftwidth=4               " Indent/outdent by four columns
 set shiftround                 " Indent/outdent to nearest tabstop
 set matchpairs+=<:>            " Allow % to bounce between angles too
 set splitright                 " open new vsplit to the right
+set ignorecase
 set smartcase
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
