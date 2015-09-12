@@ -809,6 +809,8 @@ NeoBundleLazy 'freitass/todo.txt-vim', {
 
 let g:better_whitespace_filetypes_blacklist = [ 'git' ]
 
+nmap ,<space> :StripWhitespace<CR>
+
 NeoBundle 'ntpeters/vim-better-whitespace'
 
 " LuaSupport: {{{2
