@@ -678,9 +678,24 @@ NeoBundleLazy 'hsitz/VimOrganizer', {
             \   'verbose': 1,
             \}
 
+" VimWiki: {{{2
+
+NeoBundleLazy 'vim-scripts/vimwiki', {
+            \   'autoload': {
+            \       'commands': ['Vimwiki', 'VimwikiIndex'],
+            \       'mappings': [
+            \           '<Plug>Vimwiki',
+            \           '<leader>ww',
+            \           '<leader>wt',
+            \           '<leader>ws',
+            \           '<leader>w<leader>t',
+            \       ],
+            \   },
+            \   'verbose': 1,
+            \}
+
 " }}}2
 NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'vim-scripts/vimwiki'
 NeoBundle 'christoomey/vim-tmux-navigator'
 
 " Perl Bundles: {{{1
