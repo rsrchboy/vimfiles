@@ -933,6 +933,13 @@ NeoBundleLazy 'tpope/vim-obsession', {
             \   'verbose': 1,
             \}
 
+" WindowSwap: {{{2
+
+" FIXME needs config, etc
+
+let g:windowswap_map_keys = 0
+NeoBundleLazy 'wesQ3/vim-windowswap'
+
 " }}}2
 NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
 NeoBundle 'vim-scripts/gtk-vim-syntax'
@@ -944,7 +951,6 @@ NeoBundle 'vitalk/vim-simple-todo'
 " 18 Jul 2015
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'chrisbra/NrrwRgn'
-NeoBundle 'wesQ3/vim-windowswap'
 " 27 Jul 2015
 " FIXME need a ProjectionistDetect au for detecting Perl projects
 NeoBundle 'tpope/vim-projectionist'
