@@ -5,6 +5,10 @@ if exists("b:did_gitv_ckw_ftplugin")
 endif
 let b:did_gitv_ckw_ftplugin = 1
 
+" update commit list on :Dispatch finish
+" NOTE this does not update the commit in the preview pane
+au QuickFixCmdPost <buffer> :normal u<CR>
+
 " Buffer Options: {{{1
 
 setlocal cursorline
@@ -14,8 +18,6 @@ setlocal nohlsearch
 
 " TODO for mappings:
 "
-" qf  should hook into the qf-post autocmd event to refresh our buffer, as
-"     that's when any displayable ref updates will present themselves
 " C   should cause gitv to auto-update on the closing of the commit buffer
 
 " note -- the git aliases are based off my personal gitconfig -- proably ought
