@@ -723,6 +723,39 @@ NeoBundleLazy 'LStinson/perlhelp-vim', { 'autoload': { 'filetypes': 'perl' } }
 NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
 " General Syntax And Filetype Plugins: bundles {{{1
+" Lua: {{{2
+
+" TODO these are basically all TRIAL bundles, as I haven't worked with much
+" lua before now
+
+" sooooo.... yeah.  may have to try these suckers out independently.
+
+NeoBundleLazy 'xolox/vim-misc'
+
+NeoBundleLazy 'xolox/vim-lua-ftplugin', {
+            \   'depends': 'vim-misc',
+            \   'autoload': {
+            \       'filetypes': 'lua',
+            \   },
+            \   'verbose': 1,
+            \}
+
+NeoBundleLazy 'xolox/vim-lua-inspect', {
+            \   'depends': 'vim-misc',
+            \   'autoload': {
+            \       'filetypes': 'lua',
+            \       'external_commands': 'luainspect',
+            \   },
+            \   'verbose': 1,
+            \}
+
+NeoBundleLazy 'WolfgangMehner/lua-support', {
+            \   'autoload': {
+            \       'filetypes': 'lua',
+            \   },
+            \   'verbose': 1,
+            \}
+
 " haml {{{2
 NeoBundleLazy 'tpope/vim-haml', { 'autoload': { 'filetypes': ['haml','sass','scss'] } }
 source ~/.vim/bundle/vim-haml/ftdetect/haml.vim
@@ -861,36 +894,6 @@ let g:better_whitespace_filetypes_blacklist = [ 'git' ]
 nmap ,<space> :StripWhitespace<CR>
 
 NeoBundle 'ntpeters/vim-better-whitespace'
-
-" Lua: {{{2
-
-" sooooo.... yeah.  may have to try these suckers out independently.
-
-NeoBundleLazy 'xolox/vim-misc'
-
-NeoBundleLazy 'xolox/vim-lua-ftplugin', {
-            \   'depends': 'vim-misc',
-            \   'autoload': {
-            \       'filetypes': 'lua',
-            \   },
-            \   'verbose': 1,
-            \}
-
-NeoBundleLazy 'xolox/vim-lua-inspect', {
-            \   'depends': 'vim-misc',
-            \   'autoload': {
-            \       'filetypes': 'lua',
-            \       'external_commands': 'luainspect',
-            \   },
-            \   'verbose': 1,
-            \}
-
-NeoBundleLazy 'WolfgangMehner/lua-support', {
-            \   'autoload': {
-            \       'filetypes': 'lua',
-            \   },
-            \   'verbose': 1,
-            \}
 
 " Notes: an alternative to vimwiki?? {{{2
 
