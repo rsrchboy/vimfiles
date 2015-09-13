@@ -6,6 +6,9 @@ if exists("b:did_local_git_ftplugin")
 endif
 let b:did_local_git_ftplugin = 1
 
+" e.g. after we did something :Dispatchy, like :Gfetch
+au QuickFixCmdPost <buffer> call fugitive#reload_status()<CR>
+
 setlocal foldcolumn=0
 
 nmap <buffer> <silent> q :q<CR>
