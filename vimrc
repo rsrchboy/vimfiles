@@ -744,7 +744,6 @@ NeoBundleLazy 'xolox/vim-lua-inspect', {
             \   'depends': 'vim-misc',
             \   'autoload': {
             \       'filetypes': 'lua',
-            \       'external_commands': 'luainspect',
             \   },
             \   'verbose': 1,
             \}
