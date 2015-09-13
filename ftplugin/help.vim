@@ -11,6 +11,6 @@ setlocal foldcolumn=0
 
 nnoremap <buffer> <silent> q :q<CR>
 
-" FIXME: not quite.
-highlight clear ExtraWhitespace
-"autocmd BufWinEnter * <buffer> highlight clear ExtraWhitespace
+" add '|' and '*' to our autoclose pairs
+" FIXME adding '*' throws weird errors!
+let b:AutoClosePairs = AutoClose#DefaultPairsModified('|', '')
