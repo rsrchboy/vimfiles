@@ -867,10 +867,20 @@ NeoBundle 'ntpeters/vim-better-whitespace'
 " sooooo.... yeah.  may have to try these suckers out independently.
 
 NeoBundleLazy 'xolox/vim-misc'
+
 NeoBundleLazy 'xolox/vim-lua-ftplugin', {
             \   'depends': 'vim-misc',
             \   'autoload': {
             \       'filetypes': 'lua',
+            \   },
+            \   'verbose': 1,
+            \}
+
+NeoBundleLazy 'xolox/vim-lua-inspect', {
+            \   'depends': 'vim-misc',
+            \   'autoload': {
+            \       'filetypes': 'lua',
+            \       'external_commands': 'luainspect',
             \   },
             \   'verbose': 1,
             \}
