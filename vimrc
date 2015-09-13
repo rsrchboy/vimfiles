@@ -234,6 +234,9 @@ let g:airline#extensions#whitespace#mixed_indent_algo = 1
 let g:airline#extensions#branch#format = 'CustomBranchName'
 function! CustomBranchName(name)
     "return '[' . a:name . ']'
+    if a:name == ''
+        return a:name
+    endif
     return fugitive#repo().git_chomp('describe', '--all', '--long')
 endfunction
 
