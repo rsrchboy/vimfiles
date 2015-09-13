@@ -444,18 +444,6 @@ NeoBundle 'altercation/vim-colors-solarized'
 " FIXME Gfixup is a work in progress
 command! -nargs=? Gfixup :Gcommit --fixup=HEAD <q-args>
 
-" helper functions {{{3
-
-function! RunGitWrite()
-    execute "Gwrite"
-    call SignifyOnBufEnter()
-endfunction
-
-function! RunGitAddParts()
-    execute "Git add -pi %"
-    call SignifyOnBufEnter()
-endfunction
-
 " {,re}mappings {{{3
 " this is a cross between the old git-vim commands I'm used to, but invoking
 " fugitive instead.
@@ -464,13 +452,13 @@ nmap <silent> <Leader>gs :Gstatus<Enter>
 nmap <silent> <Leader>gd :call Gitv_OpenGitCommand("diff --no-color -- ".expand('%'), 'new')<CR>
 nmap <silent> <Leader>gD :call Gitv_OpenGitCommand("diff --no-color --cached %", 'new')<CR>
 nmap <silent> <Leader>gh :call Gitv_OpenGitCommand("show --no-color", 'new')<CR>
-nmap <silent> <Leader>ga :call RunGitWrite()<CR>
+nmap <silent> <Leader>ga :Gwrite<bar>call sy#start()<CR>
 nmap <silent> <Leader>gc :Gcommit<Enter>
 nmap <silent> <Leader>gf :Gcommit --fixup HEAD<CR>
 nmap <silent> <Leader>gF :Gcommit --fixup 'HEAD~'<CR>
 nmap <silent> <Leader>gS :Gcommit --squash HEAD
 
-nmap <silent> <Leader>gA :call RunGitAddParts()<CR>
+nmap <silent> <Leader>gA :Git add -pi %<bar>call sy#start()<CR>
 nmap <silent> <Leader>gl :Git lol<Enter>
 nmap <silent> <Leader>gD :Git! diff --word-diff %<Enter>
 nmap <silent> <Leader>gp :Git push<Enter>
