@@ -1143,6 +1143,8 @@ nmap <F8> :tabn<CR>
 nmap <ESC>[5;5~ <C-PageUp>
 nmap <ESC>[6;5~ <C-PageDown>
 
+nmap <silent> OO :only<CR>
+
 " Visual Mode Mappings: {{{2
 vmap <F3> :setlocal nonumber!<CR>
 vmap <F5> :setlocal spell! spelllang=en_us<CR>
