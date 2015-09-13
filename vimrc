@@ -576,7 +576,12 @@ augroup vimrc-Signify
     autocmd WinEnter * call sy#start()
 augroup END
 
-NeoBundle 'mhinz/vim-signify'
+NeoBundle 'mhinz/vim-signify', {
+            \   'augroup': 'signify',
+            \   'autoload': {
+            \       'functions': 'sy#',
+            \   },
+            \}
 
 " }}}2
 NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'CountJump' ] }
@@ -671,6 +676,11 @@ NeoBundleLazy 'hsitz/VimOrganizer', {
 
 " VimWiki: {{{2
 
+let g:vimwiki_use_calendar = 1
+let g:calendar_action      = 'vimwiki#diary#calendar_action'
+let g:calendar_sign        = 'vimwiki#diary#calendar_sign'
+
+
 NeoBundleLazy 'vim-scripts/vimwiki', {
             \   'autoload': {
             \       'commands': ['Vimwiki', 'VimwikiIndex'],
@@ -681,6 +691,7 @@ NeoBundleLazy 'vim-scripts/vimwiki', {
             \           '<leader>ws',
             \           '<leader>w<leader>t',
             \       ],
+            \       'functions': 'vimwiki#',
             \   },
             \   'verbose': 1,
             \}
@@ -851,13 +862,34 @@ nmap ,<space> :StripWhitespace<CR>
 
 NeoBundle 'ntpeters/vim-better-whitespace'
 
-" LuaSupport: {{{2
+" Lua: {{{2
+
+" sooooo.... yeah.  may have to try these suckers out independently.
+
+NeoBundleLazy 'xolox/vim-misc'
+NeoBundleLazy 'xolox/vim-lua-ftplugin', {
+            \   'depends': 'vim-misc',
+            \   'autoload': {
+            \       'filetypes': 'lua',
+            \   },
+            \   'verbose': 1,
+            \}
 
 NeoBundleLazy 'WolfgangMehner/lua-support', {
-            \ 'verbose': 1,
-            \ 'autoload': {
-            \   'filetypes': 'lua',
-            \ },
+            \   'autoload': {
+            \       'filetypes': 'lua',
+            \   },
+            \   'verbose': 1,
+            \}
+
+" Notes: an alternative to vimwiki?? {{{2
+
+NeoBundleLazy 'xolox/vim-notes', {
+            \   'depends': 'vim-misc',
+            \   'autoload': {
+            \       'commands': ['Note'],
+            \   },
+            \   'verbose': 1,
             \}
 
 " GithubIssues: {{{2
