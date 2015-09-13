@@ -66,6 +66,7 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundleLazy 'tpope/vim-dispatch', {
             \   'autoload': {
             \       'commands': [ 'Dispatch', 'Make', 'Start', 'Focus' ],
+            \       'functions': 'dispatch#',
             \   },
             \   'verbose': 1,
             \}
