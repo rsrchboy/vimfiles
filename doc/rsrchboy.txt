@@ -19,9 +19,8 @@
  1.  Mappings ... |rsrchboy-mappings|
     1.1 Normal mode ... |rsrchboy-normal-mappings|
  2.  Commands ... |rsrchboy-commands|
- 2.  Bundles  |rsrchboy-bundles|
-
-
+ 3.  Bundles  |rsrchboy-bundles|
+ 4.  Filetypes ||
 
 ==============================================================================
 1. Mappings                                       *rsrchboy-mappings*
@@ -51,6 +50,8 @@ we deviate -- or I feel like it :) -- those will be documented here.
     <Leader>gv      |Gitv|
     <Leader>gV      |Gitv!|
 
+    OO              invoke ':only'
+
     ,<Space>        trim trailing whitespace (|StripWhitespace|)
 
     Alignment mappings:
@@ -60,10 +61,10 @@ we deviate -- or I feel like it :) -- those will be documented here.
     ,}    }
 
     Note these leverage |tmux-navigator|
-    <C-h>           window left
-    <C-j>           window up
-    <C-k>           window down
-    <C-l>           window right
+    <C-H>           window left
+    <C-J>           window up
+    <C-K>           window down
+    <C-L>           window right
 
 
 1.2 Visual mode, generally:                    *rsrchboy-visual-mappings*
