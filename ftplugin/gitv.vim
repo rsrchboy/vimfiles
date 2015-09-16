@@ -7,7 +7,7 @@ let b:did_gitv_ckw_ftplugin = 1
 
 " update commit list on :Dispatch finish
 " NOTE this does not update the commit in the preview pane
-au QuickFixCmdPost <buffer> :normal u<CR>
+au QuickFixCmdPost <buffer> normal u
 
 " Buffer Options: {{{1
 
