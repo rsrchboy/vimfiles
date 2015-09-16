@@ -44,11 +44,44 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "NeoBundle 'Shougo/neobundle-vim-recipes', { 'force' : 1 }
 
 " Libraries: library plugins/bundles {{{1
+" WebAPI: {{{2
+
+NeoBundleLazy 'mattn/webapi-vim', {
+            \   'autoload': {
+            \       'functions': 'webapi#',
+            \   },
+            \}
+
+" Vim Misc: ...by xolox {{{2
+
+NeoBundleLazy 'xolox/vim-misc', {
+            \   'autoload': {
+            \       'functions': 'xolox#misc#',
+            \   },
+            \   'verbose': 0,
+            \}
+
+" Ingo Library: {{{2
+
+NeoBundleLazy 'vim-scripts/ingo-library', {
+            \   'autoload': {
+            \       'functions': 'ingo#',
+            \   },
+            \   'verbose': 0,
+            \}
+
+" TLib: {{{2
+
+NeoBundleLazy 'tomtom/tlib_vim', {
+            \   'autoload': {
+            \       'functions': 'tlib#',
+            \   },
+            \   'verbose': 0,
+            \}
+
+" }}}2
 NeoBundleLazy 'MarcWeber/vim-addon-mw-utils'
-NeoBundleLazy 'mattn/webapi-vim'
-NeoBundleLazy 'vim-scripts/ingo-library'
 NeoBundleLazy 'vim-scripts/CountJump', { 'depends': 'ingo-library' }
-NeoBundleLazy 'tomtom/tlib_vim'
 
 " General Bundles: {{{1
 " VimProc: {{{2
@@ -730,8 +763,6 @@ NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 " lua before now
 
 " sooooo.... yeah.  may have to try these suckers out independently.
-
-NeoBundleLazy 'xolox/vim-misc'
 
 NeoBundleLazy 'xolox/vim-lua-ftplugin', {
             \   'depends': 'vim-misc',
