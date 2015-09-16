@@ -271,7 +271,16 @@ function! CustomBranchName(name)
     if a:name == ''
         return a:name
     endif
-    return fugitive#repo().git_chomp('describe', '--all', '--long')
+    "return fugitive#repo().git_chomp('describe', '--all', '--long')
+    let l:info    = fugitive#repo().git_chomp('describe', '--all', '--long')
+    "let l:info . = fugitive#repo().git_chomp('rev-parse', '--verify', a:name.'@{upstream}', '--symbolic-full-name')
+
+    let l:ahead  = fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD')
+    let l:behind = fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}')
+
+    let l:info .= ' +' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n'))
+
+    return l:info
 endfunction
 
 " symbols {{{3
@@ -542,6 +551,9 @@ augroup vimrc-fugitive
     " Automatically remove fugitive buffers
     autocmd BufReadPost fugitive://* set bufhidden=delete
 
+    " e.g. after we did something :Dispatchy, like :Gfetch
+    au QuickFixCmdPost .git/index call fugitive#reload_status()
+
 augroup END
 " }}}3
 
@@ -558,11 +570,27 @@ augroup vimrc-gitv
 
     " prettify gerrit refs
     au User GitvSetupBuffer silent %s/refs\/changes\/\d\d\//change:/ge
+
+    " update commit list on :Dispatch finish
+    " NOTE this does not update the commit in the preview pane
+    "au QuickFixCmdPost <buffer> :normal u
+    "
+    " For whatever reason the buffer-local au above isn't being created when
+    " in the gitv ftplugin...?!  So we'll do this here.  *le sigh*
+    au QuickFixCmdPost gitv-* :normal u
+
+    au BufNewFile gitv-* au QuickFixCmdPost <buffer=abuf> normal u
+
 augroup END
 
 NeoBundleLazy 'gregsexton/gitv', {
             \ 'autoload': {
-            \   'commands': 'Gitv',
+            \   'commands': [
+            \       {
+            \           'name': 'Gitv',
+            \           'complete': 'customlist,gitv#util#completion',
+            \       },
+            \   ],
             \   'functions': 'Gitv_OpenGitCommand',
             \ },
             \ 'depends': ['vim-fugitive'],

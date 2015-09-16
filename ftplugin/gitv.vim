@@ -7,7 +7,11 @@ let b:did_gitv_ckw_ftplugin = 1
 
 " update commit list on :Dispatch finish
 " NOTE this does not update the commit in the preview pane
-au QuickFixCmdPost <buffer> normal u
+"au QuickFixCmdPost <buffer> :normal u
+"
+" FIXME For whatever reason the buffer-local au above isn't being created...?!
+" This is being handled over in the vimrc for now, until I can sort what's
+" going on.
 
 " Buffer Options: {{{1
 
@@ -27,7 +31,6 @@ nmap <buffer> <silent> S   :execute 'Gcommit --squash ' . gitv#util#line#sha('.'
 nmap <buffer> <silent> C   :Gcommit<CR>
 nmap <buffer> <silent> ria :call dispatch#compile_command(0, fugitive#repo().git_command('ria'), 1)<CR>
 nmap <buffer> <silent> ca  :call dispatch#compile_command(0, fugitive#repo().git_command('ca'), 1)<CR>
-"nmap <buffer> <silent> gf  :call dispatch#compile_command(0, fugitive#repo().git_command('fetch'), 1)<CR>
 nmap <buffer> <silent> gf  :execute 'Dispatch ' . fugitive#repo().git_command('fetch')<CR>
 
 "nmap <buffer> <silent> ria :Git ria<bar>normal u<CR>

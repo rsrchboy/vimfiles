@@ -5,9 +5,6 @@ if exists("b:did_gitcommit_local_ftplugin")
 endif
 let b:did_gitcommit_local_ftplugin = 1
 
-" e.g. after we did something :Dispatchy, like :Gfetch
-au QuickFixCmdPost <buffer> call fugitive#reload_status()
-
 setlocal nofoldenable
 setlocal foldcolumn=0
 
