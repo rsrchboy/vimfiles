@@ -900,7 +900,18 @@ NeoBundle 'ntpeters/vim-better-whitespace'
 NeoBundleLazy 'xolox/vim-notes', {
             \   'depends': 'vim-misc',
             \   'autoload': {
-            \       'commands': ['Note'],
+            \       'commands': [
+            \           {
+            \               'name': ['Note', 'RecentNotes'],
+            \               'complete': 'customlist,xolox#notes#cmd_complete',
+            \           },
+            \           {
+            \               'name': ['SearchNotes'],
+            \               'complete': 'customlist,xolox#notes#keyword_complete',
+            \           },
+            \           'RecentNotes', 'MostRecentNote',
+            \       ],
+            \       'functions': 'xolox#notes#',
             \   },
             \   'verbose': 1,
             \}
