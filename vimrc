@@ -665,6 +665,7 @@ let g:tweetvim_display_source   = 1
 let g:tweetvim_display_time     = 1
 let g:tweetvim_expand_t_co      = 1
 let g:tweetvim_display_username = 1
+let g:tweetvim_open_buffer_cmd  = '$tabnew'
 
 NeoBundleLazy 'basyura/twibill.vim'
 NeoBundleLazy 'basyura/bitly.vim', { 'depends': 'webapi-vim' }
