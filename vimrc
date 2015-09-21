@@ -657,7 +657,8 @@ augroup vimrc-tweetvim
     autocmd FileType tweetvim setlocal nonumber foldcolumn=0
 augroup END
 
-nnoremap <Leader>TT :TweetVimHomeTimeline<CR>
+nnoremap <silent> <Leader>TT :TweetVimHomeTimeline<CR>
+nnoremap <silent> <Leader>TS :TweetVimSay<CR>
 
 let g:tweetvim_tweet_per_page   = 50
 let g:tweetvim_display_source   = 1

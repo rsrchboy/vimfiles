@@ -28,6 +28,10 @@
 Note that many of the bundles we consume set up mappings of their own.  Where
 we deviate -- or I feel like it :) -- those will be documented here.
 
+These are general mappings, too.  Buffer/filetype/etc-specific mappings will
+be documented in their own sections, so as to (hopefully) keep things
+minimally confusing.
+
 1.1. Normal mode, generally:                    *rsrchboy-normal-mappings*
 
     <Leader>tqf     toggle the quickfix window
@@ -49,6 +53,9 @@ we deviate -- or I feel like it :) -- those will be documented here.
     <Leader>gb
     <Leader>gv      |Gitv|
     <Leader>gV      |Gitv!|
+
+    <Leader>TT      |:TweetVimHomeTimeline|
+    <Leader>TS      |:TweetVimSay|
 
     OO              invoke ':only'
 
