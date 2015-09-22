@@ -865,6 +865,12 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-git'
 
 " Trial Bundles: maybe, maybe not! {{{1
+" DbExt: {{{2
+
+" TODO check this one out, too: NLKNguyen/pipe-mysql.vim
+
+NeoBundleLazy 'vim-scripts/dbext.vim'
+
 " Gerrit Code Review: ...maybe we can make life easier {{{2
 
 NeoBundleLazy 'stargrave/gerrvim', { 'depends': 'vim-fugitive' }
