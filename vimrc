@@ -579,7 +579,8 @@ augroup vimrc-gitv
     " in the gitv ftplugin...?!  So we'll do this here.  *le sigh*
     au QuickFixCmdPost gitv-* :normal u
 
-    au BufNewFile gitv-* au QuickFixCmdPost <buffer=abuf> normal u
+    "au BufNewFile gitv-* au QuickFixCmdPost <buffer=abuf> normal u
+    au FileType gitv au QuickFixCmdPost <buffer=abuf> normal u
 
 augroup END
 
@@ -897,9 +898,19 @@ NeoBundle 'tpope/vim-git'
 " Trial Bundles: maybe, maybe not! {{{1
 " DbExt: {{{2
 
-" TODO check this one out, too: NLKNguyen/pipe-mysql.vim
-
 NeoBundleLazy 'vim-scripts/dbext.vim'
+
+" PipeMySQL: {{{2
+
+" TODO check this one out, too: NLKNguyen/pipe-mysql.vim
+NeoBundleLazy 'NLKNguyen/pipe.vim',{
+            \   'autoload': { 'commands': 'Pipe' },
+            \   'verbose': 1,
+            \}
+NeoBundleLazy 'NLKNguyen/pipe-mysql.vim', {
+            \   'depends': 'pipe-mysql.vim',
+            \   'verbose': 1,
+            \}
 
 " Gerrit Code Review: ...maybe we can make life easier {{{2
 
@@ -963,6 +974,11 @@ nmap <silent> ,<space> :StripWhitespace<CR>
 NeoBundle 'ntpeters/vim-better-whitespace'
 
 " Notes: an alternative to vimwiki?? {{{2
+
+" FIXME need to figure out the significance of other files in the notes dirs
+" first
+let g:notes_directories = [ '~/notes' ]
+let g:notes_suffix = '.notes'
 
 NeoBundleLazy 'xolox/vim-notes', {
             \   'depends': 'vim-misc',
