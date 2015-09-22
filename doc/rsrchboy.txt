@@ -57,7 +57,7 @@ minimally confusing.
     <Leader>TT      |:TweetVimHomeTimeline|
     <Leader>TS      |:TweetVimSay|
 
-    OO              invoke ':only'
+    OO              |:only|
 
     ,<Space>        trim trailing whitespace (|StripWhitespace|)
 
