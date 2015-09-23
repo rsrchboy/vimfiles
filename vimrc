@@ -898,6 +898,7 @@ NeoBundleLazy 'kergoth/vim-hilinks', {
             \}
 
 " }}}2
+NeoBundle 'tpope/vim-commentary'
 NeoBundleLazy 'nono/jquery.vim', { 'autoload': { 'filetypes': 'jquery' } }
 NeoBundle 'zaiste/tmux.vim'
 NeoBundle 'othree/html5-syntax.vim'
