@@ -50,7 +50,7 @@ minimally confusing.
     <Leader>gA      git add -pi %
     <Leader>gl
     <Leader>gp
-    <Leader>gb
+    <Leader>gb      |Gblame| -w
     <Leader>gv      |Gitv|
     <Leader>gV      |Gitv!|
 
@@ -63,7 +63,7 @@ minimally confusing.
 
     Alignment mappings:
     ,-    =
-    ,=    => (first)
+    ,=    => (aligns against first on line only)
     ,{    {
     ,}    }
 
