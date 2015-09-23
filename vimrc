@@ -251,10 +251,15 @@ NeoBundle 'mhinz/vim-startify'
 
 let g:airline_theme = 'dark'
 
+NeoBundle 'bling/vim-airline'
+
 " Extensions Config: {{{3
 
 " enabled by a post-load hook for vim-capslock
 let g:airline#extensions#capslock#enabled = 0
+
+" still working on this one
+let g:airline#extensions#head#enabled = 0
 
 let g:airline#extensions#bufferline#enabled           = 0
 let g:airline#extensions#syntastic#enabled            = 1
@@ -311,9 +316,15 @@ let g:airline_right_sep = ''
 "let g:airline_symbols.linenr = '¶ '
 "let g:airline#extensions#branch#symbol = "\ue822"
 
-" }}}3
+" AutoCommands: {{{3
 
-NeoBundle 'bling/vim-airline'
+augroup vimrc#airline
+    au!
+
+    " wipe on, say, :Dispatch or similar
+    au QuickFixCmdPost dispatch-make-complete unlet b:airline_head
+augroup END
+
 
 " JunkFile: {{{2
 
