@@ -563,7 +563,9 @@ augroup vimrc-fugitive
 augroup END
 " }}}3
 
-NeoBundle 'tpope/vim-fugitive', { 'augroup': 'fugitive', 'depends': 'vim-dispatch' }
+" Origin: is really 'tpope/vim-fugitive', but there's some git-workdirs fixes
+" I'm pulling into my own fork that I'm needing at the moment.
+NeoBundle 'RsrchBoy/vim-fugitive', { 'augroup': 'fugitive', 'depends': 'vim-dispatch' }
 
 " Gitv: {{{2
 
