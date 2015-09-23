@@ -8,7 +8,6 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-
 if has('perl')
 
 perl << EOP
@@ -25,7 +24,6 @@ use lib "$ENV{HOME}/.vim/bootstrap/perl5/lib";
 use local::lib "$ENV{HOME}/.vim/perl5";
 
 BEGIN {
-    delete $ENV{PERL5LIB};
     @INC = grep { ! /perlbrew/ } @INC;
 }
 
