@@ -280,7 +280,9 @@ function! CustomBranchName(name)
     let l:behind = fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}')
     let l:info  .= '[+' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n')) . '] '
 
-    let l:info .= fugitive#repo().git_chomp('describe', '--all', '--long')
+    let l:info .= a:name . ' '
+    let l:info .= '{' . fugitive#repo().git_chomp('log', '-1', '--pretty=%s') . '}'
+    "let l:info .= fugitive#repo().git_chomp('describe', '--all', '--long')
     "let l:info . = fugitive#repo().git_chomp('rev-parse', '--verify', a:name.'@{upstream}', '--symbolic-full-name')
 
 
