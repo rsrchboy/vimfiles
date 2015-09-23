@@ -902,9 +902,35 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-git'
 
 " Trial Bundles: maybe, maybe not! {{{1
+" VimSignature: show marks in sign column {{{2
+
+" commands: Signature*
+
+" FIXME this currently appears to overwrite signify signs -- well, all other
+" signs, really.
+
+NeoBundleLazy 'kshenoy/vim-signature', {
+            \   'disable': !has('signs'),
+            \}
+
 " DbExt: {{{2
 
-NeoBundleLazy 'vim-scripts/dbext.vim'
+" TODO: disable unless we have DBI, etc, installed.
+
+NeoBundleLazy 'vim-scripts/dbext.vim', {
+            \   'disable': !has('perl'),
+            \   'autoload': {
+            \       'functions': ['dbext#', 'dbext_dbi#'],
+            \       'commands': [
+            \           'DBDescribe',
+            \           'DBExec',
+            \           'DBList',
+            \           'DBPrompt',
+            \           'DBSelect',
+            \       ],
+            \   },
+            \   'verbose': 1,
+            \}
 
 " PipeMySQL: {{{2
 
