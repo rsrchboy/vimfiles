@@ -904,6 +904,52 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-git'
 
 " Trial Bundles: maybe, maybe not! {{{1
+" Extradite: gitv-ish...? {{{2
+
+NeoBundleLazy 'int3/vim-extradite', {
+            \   'depends': 'vim-fugitive',
+            \   'autoload': {
+            \       'commands': 'Extradite',
+            \   },
+            \   'verbose': 1,
+            \}
+
+" Settings: {{{3
+
+let g:extradite_showhash = 1
+
+" Mappings: {{{3
+
+nnoremap <silent> <Leader>gE :Extradite<CR>
+
+" AutoCmds: {{{3
+
+augroup vimrc#extradite
+    au!
+
+    au FileType extradite nnoremap <buffer> <silent> <F1> :h extradite-mappings<CR>
+augroup END
+
+" PostSource Hook: {{{3
+
+if neobundle#tap('vim-extradite')
+
+    function! neobundle#hooks.on_post_source(bundle)
+
+        " create the buffer-local :Extradite command
+        silent! execute 'doautocmd User Fugitive'
+
+        augroup vimrc#extradite#post_source_hook
+            au!
+
+            " ...and in buffers created before we loaded extradite, too
+            au CmdUndefined Extradite :doautocmd User Fugitive
+        augroup END
+    endfunction
+
+    call neobundle#untap()
+endif
+
 " VimSignature: show marks in sign column {{{2
 
 " commands: Signature*

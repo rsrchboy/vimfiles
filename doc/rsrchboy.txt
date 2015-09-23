@@ -41,6 +41,7 @@ minimally confusing.
     <Leader>gs      |Gstatus| window
     <Leader>gd      git diff
     <Leader>gD      git diff --cached
+    <Leader>gE      |:Extradite|<CR>
     <Leader>gh      git show HEAD
     <Leader>ga      git add %
     <Leader>gc      |Gcommit|
@@ -92,7 +93,17 @@ minimally confusing.
 
 
 ==============================================================================
-3. Bundles
+3. Bundles                                            *rsrchboy-bundles*
+
+
+3.1. Extradite                                          *rsrchboy-extradite*
+
+Yet Another Git Commit Browser.
+
+See also |extradite|.
+
+    <F1>    :h |extradite-mappings|
+
 
 ==============================================================================
 |Calendar|
