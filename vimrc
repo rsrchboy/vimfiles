@@ -106,7 +106,14 @@ NeoBundleLazy 'tpope/vim-dispatch', {
 
 " VimGnuPG: transparently work with encrypted files {{{2
 
-" settings {{{3
+NeoBundleLazy 'jamessan/vim-gnupg', {
+            \   'autoload': { 'filename_patterns': ['\.gpg$','\.asc$','\.pgp$'] },
+            \   'augroup':  'GnuPG',
+            \   'verbose': 1,
+            \}
+
+" Settings: {{{3
+
 let g:GPGPreferArmor       = 1
 let g:GPGDefaultRecipients = ["cweyl@alumni.drew.edu"]
 
@@ -119,13 +126,7 @@ let g:GPGDefaultRecipients = ["cweyl@alumni.drew.edu"]
 " ok, this is more complex than it needs to be, but works :)
 let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
 
-" }}}3
-
-NeoBundleLazy 'jamessan/vim-gnupg', {
-            \ 'autoload': { 'filename_patterns': ['\.gpg$','\.asc$','\.pgp$'] },
-            \ 'augroup':  'GnuPG',
-            \ 'verbose': 1,
-            \}
+" PostSource Hook: {{{3
 
 if neobundle#tap('vim-gnupg')
 
@@ -136,7 +137,6 @@ if neobundle#tap('vim-gnupg')
 
     call neobundle#untap()
 endif
-
 
 " VimPipe: {{{2
 
