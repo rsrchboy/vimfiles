@@ -263,6 +263,7 @@ let g:airline#extensions#tagbar#enabled               = 1
 let g:airline#extensions#tmuxline#enabled             = 0
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
 
+" Branchname Config: {{{3
 " if a string is provided, it should be the name of a function that
 " takes a string and returns the desired value
 let g:airline#extensions#branch#format = 'CustomBranchName'
@@ -272,13 +273,16 @@ function! CustomBranchName(name)
         return a:name
     endif
     "return fugitive#repo().git_chomp('describe', '--all', '--long')
-    let l:info    = fugitive#repo().git_chomp('describe', '--all', '--long')
-    "let l:info . = fugitive#repo().git_chomp('rev-parse', '--verify', a:name.'@{upstream}', '--symbolic-full-name')
+
+    let l:info   = ""
 
     let l:ahead  = fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD')
     let l:behind = fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}')
+    let l:info  .= '[+' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n')) . '] '
 
-    let l:info .= ' +' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n'))
+    let l:info .= fugitive#repo().git_chomp('describe', '--all', '--long')
+    "let l:info . = fugitive#repo().git_chomp('rev-parse', '--verify', a:name.'@{upstream}', '--symbolic-full-name')
+
 
     return l:info
 endfunction
