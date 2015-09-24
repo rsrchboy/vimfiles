@@ -58,6 +58,9 @@ minimally confusing.
     <Leader>TT      |:TweetVimHomeTimeline|
     <Leader>TS      |:TweetVimSay|
 
+    <Leader>gj      <Plug>(signify-next-hunk)
+    <Leader>gk      <Plug>(signify-prev-hunk)
+
     OO              |:only|
 
     ,<Space>        trim trailing whitespace (|StripWhitespace|)

@@ -642,6 +642,21 @@ NeoBundleLazy 'mattn/gist-vim', {
 
 " Signify: {{{2
 
+NeoBundle 'mhinz/vim-signify', {
+            \   'augroup': 'signify',
+            \   'autoload': {
+            \       'functions': 'sy#',
+            \       'mappings': '<Plug>(signify-',
+            \   },
+            \}
+
+" Mappings: {{{3
+
+nmap <leader>gj <Plug>(signify-next-hunk)
+nmap <leader>gk <Plug>(signify-prev-hunk)
+
+" Settings: {{{3
+
 " TODO: need to handle "normal" sign column
 let g:signify_vcs_list      = [ 'git' ]
 let g:signify_skip_filetype = { 'gitcommit': 1 }
@@ -652,18 +667,14 @@ let g:signify_update_on_focusgained = 1
 let g:signify_cursorhold_normal     = 0
 let g:signify_cursorhold_insert     = 0
 
+" AutoCommands: {{{3
+
 augroup vimrc-Signify
     autocmd!
+
     autocmd BufEnter * call sy#start()
     autocmd WinEnter * call sy#start()
 augroup END
-
-NeoBundle 'mhinz/vim-signify', {
-            \   'augroup': 'signify',
-            \   'autoload': {
-            \       'functions': 'sy#',
-            \   },
-            \}
 
 " }}}2
 NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'CountJump' ] }
