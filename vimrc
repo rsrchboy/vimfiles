@@ -1030,8 +1030,10 @@ NeoBundleLazy 'kablamo/vim-git-log', { 'depends': 'vim-fugitive', 'autoload': { 
 
 " TSkeletons: {{{2
 
-NeoBundle 'tomtom/tskeleton_vim', { 'depends': [ 'tlib_vim' ] }
-NeoBundle 'tomtom/tskeletons', { 'depends': [ 'tskeleton_vim' ] }
+NeoBundleLazy 'tomtom/tskeleton_vim', { 'depends': [ 'tlib_vim' ] }
+NeoBundleLazy 'tomtom/tskeletons', { 'depends': [ 'tskeleton_vim' ] }
+
+let g:tskelMapGoToNextTag = 0
 
 " TabMan: {{{2
 
