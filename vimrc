@@ -840,6 +840,12 @@ NeoBundleLazy 'LStinson/perlhelp-vim', { 'autoload': { 'filetypes': 'perl' } }
 NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
 " General Syntax And Filetype Plugins: bundles {{{1
+" vim: {{{2
+
+" FIXME we should probably lazify this
+
+NeoBundle 'tpope/vim-scriptease'
+
 " Lua: {{{2
 
 " TODO these are basically all TRIAL bundles, as I haven't worked with much
