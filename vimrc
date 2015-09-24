@@ -159,6 +159,7 @@ NeoBundleLazy 'krisajenkins/vim-pipe', {
 " BufExplorer: {{{2
 
 let g:bufExplorerShowRelativePath = 1
+let g:bufExplorerShowTabBuffer    = 1
 
 NeoBundleLazy 'RsrchBoy/bufexplorer.zip', {
 \'augroup':  'BufExplorer',
@@ -322,7 +323,8 @@ augroup vimrc#airline
     au!
 
     " wipe on, say, :Dispatch or similar
-    au QuickFixCmdPost dispatch-make-complete unlet b:airline_head
+    au QuickFixCmdPost dispatch-make-complete if exists('b:airline_head') | unlet b:airline_head | fi
+    au User FugitiveCommitPost                if exists('b:airline_head') | unlet b:airline_head | fi
 augroup END
 
 
@@ -927,6 +929,34 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-git'
 
 " Trial Bundles: maybe, maybe not! {{{1
+" MultipleCursors: {{{2
+
+NeoBundleLazy 'terryma/vim-multiple-cursors', {
+            \   'autoload': {
+            \       'commands': 'MultipleCursors',
+            \       'mappings': [['n', '<C-n>']],
+            \   },
+            \   'verbose': 1,
+            \}
+
+" Play Nice: with neocomplete {{{3
+
+" Called once right before you start selecting multiple cursors
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+
+" Called once only when the multiple selection is canceled (default <Esc>)
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
+
+" }}}3
+
 " Extradite: gitv-ish...? {{{2
 
 NeoBundleLazy 'int3/vim-extradite', {
@@ -1441,6 +1471,10 @@ command! -range -nargs=* Uniq <line1>,<line2>! uniq
 
 " json {{{2
 command! -range -nargs=* JsonTidy <line1>,<line2>! /usr/bin/json_xs -f json -t json-pretty
+
+" columns {{{2
+
+command! -range -nargs=* ColumnTidy <line1>,<line2>! /usr/bin/column -t
 
 " cowsay {{{2
 command! -range -nargs=* Cowsay <line1>,<line2>! cowsay -W 65
