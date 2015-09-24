@@ -949,6 +949,10 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-git'
 
 " Trial Bundles: maybe, maybe not! {{{1
+" Abolish: NEEDS CONFIGURATION {{{2
+
+NeoBundleLazy 'tpope/vim-abolish'
+
 " Afterimage: because... too cool. {{{2
 
 " I'm not sure I'll ever use this... but dang.
