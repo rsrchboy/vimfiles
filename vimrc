@@ -949,6 +949,10 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-git'
 
 " Trial Bundles: maybe, maybe not! {{{1
+" Umimpaired: {{{2
+
+NeoBundle 'tpope/vim-unimpaired'
+
 " MultipleCursors: {{{2
 
 NeoBundleLazy 'terryma/vim-multiple-cursors', {
