@@ -949,6 +949,17 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-git'
 
 " Trial Bundles: maybe, maybe not! {{{1
+" Afterimage: because... too cool. {{{2
+
+" I'm not sure I'll ever use this... but dang.
+
+NeoBundleLazy 'tpope/vim-afterimage', {
+            \   'autoload': {
+            \       'filename_patterns': ['\.ico$','\.png$','\.gif$','\.pdf$','\.plist$'],
+            \   },
+            \   'verbose': 1,
+            \}
+
 " Umimpaired: {{{2
 
 NeoBundle 'tpope/vim-unimpaired'
