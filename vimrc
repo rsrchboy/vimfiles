@@ -140,6 +140,13 @@ endif
 
 " VimPipe: {{{2
 
+NeoBundleLazy 'krisajenkins/vim-pipe', {
+            \   'autoload': { 'commands': ['VimPipe'], 'mappings': ['<LocalLeader>r'] },
+            \   'verbose': 1,
+            \}
+
+" AutoCommands: {{{3
+
 augroup vimrc-vimpipe
     au!
 
@@ -151,10 +158,7 @@ augroup vimrc-vimpipe
 
 augroup end
 
-NeoBundleLazy 'krisajenkins/vim-pipe', {
-            \   'autoload': { 'commands': ['VimPipe'], 'mappings': ['<LocalLeader>r'] },
-            \   'verbose': 1,
-            \}
+" }}}3
 
 " BufExplorer: {{{2
 
@@ -250,9 +254,11 @@ NeoBundle 'mhinz/vim-startify'
 
 " Airline: {{{2
 
-let g:airline_theme = 'dark'
-
 NeoBundle 'bling/vim-airline'
+
+" Settings: {{{3
+
+let g:airline_theme = 'dark'
 
 " Extensions Config: {{{3
 
@@ -327,6 +333,7 @@ augroup vimrc#airline
     au User FugitiveCommitPost                if exists('b:airline_head') | unlet b:airline_head | fi
 augroup END
 
+" }}}3
 
 " JunkFile: {{{2
 
@@ -582,9 +589,13 @@ NeoBundle 'RsrchBoy/vim-fugitive', { 'augroup': 'fugitive', 'depends': 'vim-disp
 
 " Gitv: {{{2
 
+" Settings: {{{3
+
 let g:Gitv_TruncateCommitSubjects = 1
 let g:Gitv_CommitStep             = 150
 let g:Gitv_TellMeAboutIt          = 0
+
+" AutoCommands: {{{3
 
 augroup vimrc-gitv
     au!
@@ -604,6 +615,8 @@ augroup vimrc-gitv
     au FileType gitv au QuickFixCmdPost <buffer=abuf> normal u
 
 augroup END
+
+" }}}3
 
 NeoBundleLazy 'gregsexton/gitv', {
             \ 'autoload': {
@@ -683,22 +696,7 @@ NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'CountJump' ] }
 NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'CountJump' ] }
 
 " Appish Or External Interface: bundles {{{1
-" TweetVim: ...and configuration {{{2
-
-augroup vimrc-tweetvim
-    autocmd!
-    autocmd FileType tweetvim setlocal nonumber foldcolumn=0
-augroup END
-
-nnoremap <silent> <Leader>TT :TweetVimHomeTimeline<CR>
-nnoremap <silent> <Leader>TS :TweetVimSay<CR>
-
-let g:tweetvim_tweet_per_page   = 50
-let g:tweetvim_display_source   = 1
-let g:tweetvim_display_time     = 1
-let g:tweetvim_expand_t_co      = 1
-let g:tweetvim_display_username = 1
-let g:tweetvim_open_buffer_cmd  = '$tabnew'
+" TweetVim: {{{2
 
 NeoBundleLazy 'basyura/twibill.vim'
 NeoBundleLazy 'basyura/bitly.vim', { 'depends': 'webapi-vim' }
@@ -715,6 +713,29 @@ NeoBundleLazy 'basyura/TweetVim', {
 \ 'autoload': { 'commands' : [ 'TweetVimHomeTimeline', 'TweetVimSay', 'TweetVimCommandSay' ] },
 \ 'verbose': 1,
 \}
+
+" AutoCommands: {{{3
+
+augroup vimrc-tweetvim
+    autocmd!
+    autocmd FileType tweetvim setlocal nonumber foldcolumn=0
+augroup END
+
+" Mappings: {{{3
+
+nnoremap <silent> <Leader>TT :TweetVimHomeTimeline<CR>
+nnoremap <silent> <Leader>TS :TweetVimSay<CR>
+
+" Settings: {{{3
+
+let g:tweetvim_tweet_per_page   = 50
+let g:tweetvim_display_source   = 1
+let g:tweetvim_display_time     = 1
+let g:tweetvim_expand_t_co      = 1
+let g:tweetvim_display_username = 1
+let g:tweetvim_open_buffer_cmd  = '$tabnew'
+
+" }}}3
 
 " TmuxLine: {{{2
 NeoBundleLazy 'edkolev/tmuxline.vim', { 'autoload': { 'commands': ['Tmuxline', 'TmuxlineSnapshot'] }, 'verbose': 0 }
@@ -776,7 +797,6 @@ NeoBundleLazy 'hsitz/VimOrganizer', {
 let g:vimwiki_use_calendar = 1
 let g:calendar_action      = 'vimwiki#diary#calendar_action'
 let g:calendar_sign        = 'vimwiki#diary#calendar_sign'
-
 
 NeoBundleLazy 'vim-scripts/vimwiki', {
             \   'autoload': {
