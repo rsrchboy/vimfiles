@@ -83,8 +83,30 @@ NeoBundleLazy 'tomtom/tlib_vim', {
 NeoBundleLazy 'MarcWeber/vim-addon-mw-utils'
 NeoBundleLazy 'vim-scripts/CountJump', { 'depends': 'ingo-library' }
 
-" General Bundles: {{{1
+" Process Execution Bundles: {{{1
+" Dispatch Via Shell: a "glue" plugin? {{{2
+
+NeoBundleLazy 'p0deje/vim-dispatch-vimshell', {
+            \   'augroup': 'dispatch-vimshell',
+            \   'depends': ['vimshell.vim'],
+            \}
+
+" VimShell: {{{2
+
+" taken from neobundle's help (same author)
+NeoBundleLazy 'Shougo/vimshell.vim',{
+        \ 'depends' : 'vimproc',
+        \ 'autoload' : {
+        \   'commands' : [{ 'name' : 'VimShell',
+        \                   'complete' : 'customlist,vimshell#complete'},
+        \                 'VimShellExecute', 'VimShellInteractive',
+        \                 'VimShellTerminal', 'VimShellPop'],
+        \   'mappings' : '<Plug>'
+        \ }}
+
+
 " VimProc: {{{2
+
 NeoBundle 'Shougo/vimproc', {
     \ 'build' : {
     \ 'windows' : 'make -f make_mingw32.mak',
@@ -96,7 +118,10 @@ NeoBundle 'Shougo/vimproc', {
 
 " Dispatch: {{{2
 
+let g:dispatch_handlers = ['vimshell', 'tmux', 'screen', 'windows', 'iterm', 'x11', 'headless']
+
 NeoBundleLazy 'tpope/vim-dispatch', {
+            \   'depends': 'vim-dispatch-vimshell',
             \   'autoload': {
             \       'commands': [ 'Dispatch', 'Make', 'Start', 'Focus' ],
             \       'functions': 'dispatch#',
@@ -104,6 +129,9 @@ NeoBundleLazy 'tpope/vim-dispatch', {
             \   'verbose': 1,
             \}
 
+" }}}2
+
+" General Bundles: {{{1
 " VimGnuPG: transparently work with encrypted files {{{2
 
 NeoBundleLazy 'jamessan/vim-gnupg', {
