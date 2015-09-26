@@ -361,6 +361,18 @@ augroup vimrc#airline
     au User FugitiveCommitPost                if exists('b:airline_head') | unlet b:airline_head | fi
 augroup END
 
+" PostSource Hook: {{{3
+
+if neobundle#tap('vim-airline')
+
+    function! neobundle#hooks.on_post_source(bundle)
+
+        let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'capslock', 'tablemode', 'iminsert'])
+    endfunction
+
+    call neobundle#untap()
+endif
+
 " }}}3
 
 " JunkFile: {{{2
