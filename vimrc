@@ -523,7 +523,6 @@ endif
 " }}}2
 NeoBundle 'DataWraith/auto_mkdir'
 NeoBundle 'garbas/vim-snipmate', { 'depends': 'vim-addon-mw-utils' }
-NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tsaleh/vim-align'
@@ -1318,6 +1317,7 @@ NeoBundleLazy 'kana/vim-textobj-user'
 NeoBundle     'kana/vim-textobj-syntax', { 'depends': 'vim-textobj-user' }
 
 " Probation: {{{1
+NeoBundleLazy 'scrooloose/nerdcommenter'
 NeoBundleLazy 'lukaszkorecki/vim-GitHubDashBoard'
 " github issues query
 NeoBundleLazy 'mklabs/vim-issues'
