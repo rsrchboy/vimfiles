@@ -40,7 +40,7 @@ nmap <buffer> <silent> gf  :execute 'Dispatch ' . fugitive#repo().git_command('f
 "nmap <buffer> <silent> ria :Git ria<bar>normal u<CR>
 "nmap <buffer> <silent> ca  :Git ca<bar>normal u<CR>
 
-nmap <buffer> <silent> h   :help gitv-browser-mappings<CR>
+nmap <buffer> <silent> <F1>   :help gitv-browser-mappings<CR>
 
 " j, k skip between commit lines
 nmap <buffer> <silent> j :call search('^\(\W\s\)*\*','W')<Bar>.<CR>
