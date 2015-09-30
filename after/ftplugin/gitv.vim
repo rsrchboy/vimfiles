@@ -10,7 +10,7 @@
 augroup ftplugin-gitv
     au!
 
-    au! QuickFixCmdPost <buffer> :normal u
+    au! QuickFixCmdPost <buffer> :normal "u"
 augroup END
 "
 " FIXME For whatever reason the buffer-local au above isn't being created...?!

@@ -379,11 +379,11 @@ endif
 
 NeoBundleLazy 'Shougo/junkfile.vim', {
       \ 'autoload' : {
-      \   'commands' : 'JunkfileOpen',
-      \   'unite_sources' : ['junkfile', 'junkfile/new'],
+      \     'commands' : 'JunkfileOpen',
+      \     'unite_sources' : ['junkfile', 'junkfile/new'],
       \ },
       \ 'verbose': 1,
-\ }
+      \}
 
 " Vim Indent Guides: no more counting up for matching! {{{2
 
@@ -957,12 +957,14 @@ NeoBundleLazy 'fatih/vim-go', {
 \ 'verbose': 1,
 \}
 " vim-pinpoint {{{2
+
 NeoBundleLazy 'fmoralesc/vim-pinpoint', {
-\ 'autoload': {
-\   'filetypes': 'pinpoint', 'filename_patterns': '\.pin$',
-\ },
-\}
-"source ~/.vim/bundle/vim-pinpoint/ftdetect/pinpoint.vim
+            \   'autoload': {
+            \       'filetypes': 'pinpoint',
+            \       'filename_patterns': '\.pin$',
+            \   },
+            \   'verbose': 1,
+            \}
 
 " HiLinks: see the stack of syntax for the current text {{{2
 
