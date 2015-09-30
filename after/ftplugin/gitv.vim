@@ -7,7 +7,11 @@
 
 " update commit list on :Dispatch finish
 " NOTE this does not update the commit in the preview pane
-au! QuickFixCmdPost <buffer> :normal u
+augroup ftplugin-gitv
+    au!
+
+    au! QuickFixCmdPost <buffer> :normal u
+augroup END
 "
 " FIXME For whatever reason the buffer-local au above isn't being created...?!
 " This is being handled over in the vimrc for now, until I can sort what's
