@@ -390,7 +390,7 @@ NeoBundleLazy 'Shougo/junkfile.vim', {
 let g:indent_guides_start_level = 2
 let g:indent_guides_guide_size  = 1
 
-NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundleLazy 'nathanaelkane/vim-indent-guides', { 'autoload': { 'insert': 1 } }
 
 " NeoComplete: ...and associated bundles {{{2
 
@@ -1443,6 +1443,11 @@ endfunc
 "}}}2
 
 " Mappings: {{{1
+" Text Formatting: {{{2
+
+vmap Q gq
+nmap Q gqap
+
 " Configy: {{{2
 set pastetoggle=<F2>
 
