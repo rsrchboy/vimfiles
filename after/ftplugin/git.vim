@@ -11,4 +11,4 @@ setlocal foldcolumn=0
 nmap <buffer> <silent> q :q<CR>
 nmap <buffer> <silent> F :Gcommit --fixup HEAD <bar> call fugitive#reload_status()<CR>
 nmap <buffer> <silent> Q :Gcommit --squash HEAD<CR>
-nmap <buffer> <silent> V :Gitv<cr>
+"nmap <buffer> <silent> V :Gitv<cr>

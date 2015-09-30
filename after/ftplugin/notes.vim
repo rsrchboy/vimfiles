@@ -13,9 +13,3 @@ setlocal spellfile+=~/.vim/spell/notes.utf-8.add
 
 " write them, even when jumping to another buffer
 setlocal autowriteall
-
-" additional mappings for our notes
-
-" 'deepen' a heading
-nnoremap <silent> <buffer> + mz0i#<Esc>'zla<Esc>
-nnoremap <silent> <buffer> - :s/^#//<CR>

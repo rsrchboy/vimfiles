@@ -1,13 +1,13 @@
 " Additional setup for gitv files
 
-if exists("b:did_gitv_ckw_ftplugin")
-    finish
-endif
-let b:did_gitv_ckw_ftplugin = 1
+"if exists("b:did_gitv_ckw_ftplugin")
+    "finish
+"endif
+"let b:did_gitv_ckw_ftplugin = 1
 
 " update commit list on :Dispatch finish
 " NOTE this does not update the commit in the preview pane
-"au QuickFixCmdPost <buffer> :normal u
+au! QuickFixCmdPost <buffer> :normal u
 "
 " FIXME For whatever reason the buffer-local au above isn't being created...?!
 " This is being handled over in the vimrc for now, until I can sort what's
