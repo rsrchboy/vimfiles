@@ -14,8 +14,9 @@ setlocal spellfile+=~/.vim/spell/todo.utf-8.add
 setlocal nonumber
 setlocal foldcolumn=0
 
-" close with a single q
-nnoremap <buffer> <silent> q :q<CR>
-"nnoremap <buffer> <silent> F :call RunGitFixup() <bar> call futodoive#reload_status()<CR>
-"nnoremap <buffer> <silent> F :Gcommit --fixup HEAD <bar> call futodoive#reload_status()<CR>
-"nnoremap <buffer> <silent> Q :Gcommit --squash HEAD<CR>
+" " close with a single q
+" nnoremap <buffer> <silent> q :q<CR>
+" nnoremap <buffer> <silent> F :call RunGitFixup() <bar> call futodoive#reload_status()<CR>
+" nnoremap <buffer> <silent> F :Gcommit --fixup HEAD <bar> call futodoive#reload_status()<CR>
+" nnoremap <buffer> <silent> Q :Gcommit --squash HEAD<CR>
+nnoremap <buffer> <silent> <F1> :h todo-commands<CR>

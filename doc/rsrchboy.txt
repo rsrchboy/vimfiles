@@ -127,4 +127,11 @@ Normal Mappings
 
     <F1>    :h |gitv-browser-mappings|
 
+==============================================================================
+|todo.txt|
+
+Normal Mappings
+
+    <F1>    :h |todo-commands|
+
 " vim: set ft=help :
