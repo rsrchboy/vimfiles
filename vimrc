@@ -735,6 +735,17 @@ NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'CountJump' ] }
 NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'CountJump' ] }
 
 " Appish Or External Interface: bundles {{{1
+" Tmux Navigator: {{{2
+
+NeoBundle 'christoomey/vim-tmux-navigator'
+
+" Mappings: move even in insert mode
+inoremap <silent> <C-H> <ESC>:TmuxNavigateLeft<cr>
+inoremap <silent> <C-J> <ESC>:TmuxNavigateDown<cr>
+inoremap <silent> <C-K> <ESC>:TmuxNavigateUp<cr>
+inoremap <silent> <C-L> <ESC>:TmuxNavigateRight<cr>
+inoremap <silent> <C-\> <ESC>:TmuxNavigatePrevious<cr>
+
 " TweetVim: {{{2
 
 NeoBundleLazy 'basyura/twibill.vim'
@@ -854,7 +865,6 @@ NeoBundleLazy 'vim-scripts/vimwiki', {
 
 " }}}2
 NeoBundle 'tpope/vim-eunuch'
-NeoBundle 'christoomey/vim-tmux-navigator'
 
 " Perl Bundles: {{{1
 " perl-in-vim bundles {{{2
