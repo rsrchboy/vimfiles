@@ -927,22 +927,18 @@ NeoBundleLazy 'WolfgangMehner/lua-support', {
 
 " haml {{{2
 NeoBundleLazy 'tpope/vim-haml', { 'autoload': { 'filetypes': ['haml','sass','scss'] } }
-source ~/.vim/bundle/vim-haml/ftdetect/haml.vim
 
 " puppet {{{2
 NeoBundleLazy 'puppetlabs/puppet-syntax-vim', { 'autoload': { 'filetypes': 'puppet' } }
-source ~/.vim/bundle/puppet-syntax-vim/ftdetect/puppet.vim
 
 " CSV {{{2
 NeoBundleLazy 'chrisbra/csv.vim', { 'autoload': { 'filetypes': 'csv' } }
-source ~/.vim/bundle/csv.vim/ftdetect/csv.vim
 
 " mkd {{{2
 
 let g:vim_markdown_initial_foldlevel=1
 
 NeoBundleLazy 'plasticboy/vim-markdown', { 'autoload': { 'filetypes': 'mkd' } }
-source ~/.vim/bundle/vim-markdown/ftdetect/mkd.vim
 
 " vim-chef and dependencies {{{2
 NeoBundleLazy 'vadv/vim-chef', {
