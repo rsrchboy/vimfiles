@@ -528,6 +528,7 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tsaleh/vim-align'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'tpope/vim-commentary'
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
@@ -992,7 +993,6 @@ NeoBundleLazy 'kergoth/vim-hilinks', {
             \}
 
 " }}}2
-NeoBundle 'tpope/vim-commentary'
 NeoBundleLazy 'nono/jquery.vim', { 'autoload': { 'filetypes': 'jquery' } }
 NeoBundle 'zaiste/tmux.vim'
 NeoBundle 'othree/html5-syntax.vim'
