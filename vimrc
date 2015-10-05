@@ -898,6 +898,15 @@ NeoBundleLazy 'LStinson/perlhelp-vim', { 'autoload': { 'filetypes': 'perl' } }
 NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
 " General Syntax And Filetype Plugins: bundles {{{1
+" Ruby: {{{2
+
+NeoBundleLazy 'vim-ruby/vim-ruby', {
+            \   'autoload': {
+            \       'filetypes': [ 'ruby', 'eruby' ],
+            \   },
+            \   'verbose': 1,
+            \}
+
 " vim: {{{2
 
 " FIXME we should probably lazify this
@@ -1006,7 +1015,6 @@ NeoBundle 'apeschel/vim-syntax-syslog-ng'
 NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'kurayama/systemd-vim-syntax'
-NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-git'
 
 " Trial Bundles: maybe, maybe not! {{{1
