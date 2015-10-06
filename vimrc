@@ -898,6 +898,15 @@ NeoBundleLazy 'LStinson/perlhelp-vim', { 'autoload': { 'filetypes': 'perl' } }
 NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
 " General Syntax And Filetype Plugins: bundles {{{1
+" HTML5: {{{2
+
+NeoBundleLazy 'othree/html5-syntax.vim', {
+            \   'autoload': {
+            \       'filetypes': ['html5', 'html.html5'],
+            \   },
+            \   'verbose': 1,
+            \}
+
 " Ruby: {{{2
 
 NeoBundleLazy 'vim-ruby/vim-ruby', {
@@ -1012,7 +1021,6 @@ NeoBundleLazy 'kergoth/vim-hilinks', {
 " }}}2
 NeoBundleLazy 'nono/jquery.vim', { 'autoload': { 'filetypes': 'jquery' } }
 NeoBundle 'zaiste/tmux.vim'
-NeoBundle 'othree/html5-syntax.vim'
 NeoBundle 'argent-smith/JSON.vim'
 NeoBundle 'tmatilai/gitolite.vim'
 NeoBundle 'evanmiller/nginx-vim-syntax'
