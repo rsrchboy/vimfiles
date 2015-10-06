@@ -954,9 +954,17 @@ NeoBundleLazy 'chrisbra/csv.vim', { 'autoload': { 'filetypes': 'csv' } }
 
 " mkd {{{2
 
-let g:vim_markdown_initial_foldlevel=1
+NeoBundleLazy 'plasticboy/vim-markdown', {
+            \   'depends': 'tabular',
+            \   'autoload': {
+            \       'filetypes': [ 'mkd', 'markdown', 'mkd.markdown' ],
+            \       'mappings': [ '<Plug>Markdown_' ],
+            \   },
+            \   'verbose': 1,
+            \}
 
-NeoBundleLazy 'plasticboy/vim-markdown', { 'autoload': { 'filetypes': 'mkd' } }
+let g:vim_markdown_initial_foldlevel = 1
+let g:vim_markdown_frontmatter       = 1
 
 " vim-chef and dependencies {{{2
 NeoBundleLazy 'vadv/vim-chef', {
