@@ -1551,6 +1551,9 @@ augroup vimrc-filetype-set
     au BufNewFile,BufRead .gitconfig.local    set filetype=gitconfig
     au BufNewFile,BufRead gitconfig.local     set filetype=gitconfig
 
+    " e.g. /etc/NetworkManager/dnsmasq.d/...
+    au BufNewFile,BufRead **/dnsmasq.d/*         set filetype=dnsmasq
+
     " this usually works, but sometimes vim thinks a .t file isn't Perl
     au BufNewFile,BufRead *.t set filetype=perl
 
