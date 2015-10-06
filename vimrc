@@ -898,6 +898,15 @@ NeoBundleLazy 'LStinson/perlhelp-vim', { 'autoload': { 'filetypes': 'perl' } }
 NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
 " General Syntax And Filetype Plugins: bundles {{{1
+" Git: {{{2
+
+NeoBundleLazy 'tpope/vim-git', {
+            \   'autoload': {
+            \       'filetypes': [ 'git', 'gitcommit', 'gitrebase', 'gitsendemail', 'gitconfig' ],
+            \   },
+            \   'verbose': 1,
+            \}
+
 " HTML5: {{{2
 
 NeoBundleLazy 'othree/html5-syntax.vim', {
@@ -1031,7 +1040,6 @@ NeoBundle 'apeschel/vim-syntax-syslog-ng'
 NeoBundle 'ekalinin/Dockerfile.vim'
 NeoBundle 'groenewege/vim-less'
 NeoBundle 'kurayama/systemd-vim-syntax'
-NeoBundle 'tpope/vim-git'
 
 " Trial Bundles: maybe, maybe not! {{{1
 " Abolish: NEEDS CONFIGURATION {{{2
