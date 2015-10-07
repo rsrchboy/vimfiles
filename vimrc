@@ -293,9 +293,6 @@ let g:airline_theme = 'dark'
 " enabled by a post-load hook for vim-capslock
 let g:airline#extensions#capslock#enabled = 0
 
-" still working on this one
-let g:airline#extensions#head#enabled = 0
-
 let g:airline#extensions#bufferline#enabled           = 0
 let g:airline#extensions#syntastic#enabled            = 1
 let g:airline#extensions#tabline#enabled              = 1
@@ -318,13 +315,7 @@ function! CustomBranchName(name)
 
     let l:ahead  = fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD')
     let l:behind = fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}')
-    let l:info  .= '[+' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n')) . '] '
-
-    let l:info .= a:name . ' '
-    let l:info .= '{' . fugitive#repo().git_chomp('log', '-1', '--pretty=%s') . '}'
-    "let l:info .= fugitive#repo().git_chomp('describe', '--all', '--long')
-    "let l:info . = fugitive#repo().git_chomp('rev-parse', '--verify', a:name.'@{upstream}', '--symbolic-full-name')
-
+    let l:info  .= '[+' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n')) . ']'
 
     return l:info
 endfunction
