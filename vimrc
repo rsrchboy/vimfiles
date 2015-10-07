@@ -381,6 +381,7 @@ NeoBundleLazy 'Shougo/junkfile.vim', {
       \ 'autoload' : {
       \     'commands' : 'JunkfileOpen',
       \     'unite_sources' : ['junkfile', 'junkfile/new'],
+      \     'functions': 'junkfile#',
       \ },
       \ 'verbose': 1,
       \}
