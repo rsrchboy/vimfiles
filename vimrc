@@ -207,12 +207,6 @@ NeoBundle 'kien/ctrlp.vim'
 
 " Tabular: {{{2
 
-nnoremap <silent> ,= :Tabularize first_fat_comma<CR>
-nnoremap <silent> ,- :Tabularize /=<CR>
-
-nnoremap <silent> ,{ :Tabularize /{<CR>
-nnoremap <silent> ,} :Tabularize /}/l1c0<CR>
-
 NeoBundleLazy 'godlygeek/tabular', {
             \   'autoload': {
             \       'commands': [
@@ -223,6 +217,16 @@ NeoBundleLazy 'godlygeek/tabular', {
             \   },
             \   'verbose': 1,
             \}
+
+" Mappings: {{{3
+
+nnoremap <silent> ,= :Tabularize first_fat_comma<CR>
+nnoremap <silent> ,- :Tabularize /=<CR>
+
+nnoremap <silent> ,{ :Tabularize /{<CR>
+nnoremap <silent> ,} :Tabularize /}/l1c0<CR>
+
+" PostSource Hook: {{{3
 
 if neobundle#tap('tabular')
 
@@ -235,6 +239,8 @@ if neobundle#tap('tabular')
 
     call neobundle#untap()
 endif
+
+" }}}3
 
 " NERD Tree: {{{2
 
@@ -1568,7 +1574,7 @@ augroup end
 let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
 
 " APPEARANCE: colors, themes, etc {{{1
-" Syntax AU: {{{2
+" Syntax AutoCommands: {{{2
 
 augroup vimrc-syntax
     au!
