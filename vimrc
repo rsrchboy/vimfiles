@@ -317,11 +317,11 @@ function! CustomBranchName(name)
     endif
     "return fugitive#repo().git_chomp('describe', '--all', '--long')
 
-    let l:info   = ""
+    let l:info   = a:name
 
     let l:ahead  = fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD')
     let l:behind = fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}')
-    let l:info  .= '[+' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n')) . ']'
+    let l:info  .= ' [+' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n')) . ']'
 
     return l:info
 endfunction
