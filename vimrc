@@ -1040,6 +1040,16 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'kurayama/systemd-vim-syntax'
 
 " Trial Bundles: maybe, maybe not! {{{1
+" Packer: {{{2
+
+NeoBundleLazy 'markcornick/vim-packer', {
+            \   'augroup': 'packer',
+            \   'autoload': {
+            \       'commands': 'Packer'
+            \   },
+            \   'verbose': 1,
+            \}
+
 " Abolish: NEEDS CONFIGURATION {{{2
 
 NeoBundleLazy 'tpope/vim-abolish'
