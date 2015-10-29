@@ -1040,6 +1040,10 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'kurayama/systemd-vim-syntax'
 
 " Trial Bundles: maybe, maybe not! {{{1
+" NumberToggle: {{{2
+
+NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
+
 " Packer: {{{2
 
 NeoBundleLazy 'markcornick/vim-packer', {
