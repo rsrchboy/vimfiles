@@ -24,6 +24,7 @@ OrePAN2
 PluginBundle
 RSRCHBOY
 Regexp
+ReportVersions
 RsrchBoy
 TMM
 TempDir
@@ -33,6 +34,7 @@ Zilla
 autobox
 autoclean
 autodie
+automagically
 cpanm
 cpanminus
 cpants
@@ -41,10 +43,4 @@ https
 prereq
 pw
 travis
-ConfigForReleaseBranch
-MX
-MXAS
-automagically
-Util
-ReportVersions
 v5
