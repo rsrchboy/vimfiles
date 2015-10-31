@@ -1026,7 +1026,8 @@ NeoBundleLazy 'kergoth/vim-hilinks', {
             \}
 
 " }}}2
-NeoBundleLazy 'nono/jquery.vim', { 'autoload': { 'filetypes': 'jquery' } }
+NeoBundleLazy 'nono/jquery.vim',      { 'autoload': { 'filetypes':      'jquery' } }
+NeoBundleLazy 'xevz/vim-sshauthkeys', { 'autoload': { 'filetypes': 'sshauthkeys' } }
 NeoBundle 'zaiste/tmux.vim'
 NeoBundle 'argent-smith/JSON.vim'
 NeoBundle 'tmatilai/gitolite.vim'
