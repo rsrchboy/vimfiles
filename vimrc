@@ -1514,6 +1514,9 @@ set pastetoggle=<F2>
 " Normal Mode Mappings: {{{2
 nmap <LocalLeader>fc :call ToggleFoldColumn()<CR>
 
+" this is somewhat irksome
+nmap <silent> <LocalLeader>ft :filetype detect<CR>
+
 nmap <silent> <F1> :h rsrchboy-normal-mappings<CR>
 nmap <silent> <F3> :setlocal nonumber!<CR>
 nmap <silent> <F5> :setlocal spell! spelllang=en_us<CR>

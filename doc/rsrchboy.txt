@@ -36,6 +36,8 @@ minimally confusing.
 
     <F1>            help, often overridden to be ft- or buffer-specific
 
+    <Leader>ft      |filetype-detect| the current buffer
+
     <Leader>tqf     toggle the quickfix window
     <Leader>tll     toggle the locationlist window
     <Leader>ttb     toggle the tags window
