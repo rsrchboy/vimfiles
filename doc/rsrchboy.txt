@@ -70,7 +70,7 @@ minimally confusing.
     ,<Space>        trim trailing whitespace (|StripWhitespace|)
 
     Alignment mappings:
-    ,-    =
+    ,-    =  (aligns against first on line only)
     ,=    => (aligns against first on line only)
     ,{    {
     ,}    }

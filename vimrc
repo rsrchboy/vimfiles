@@ -221,7 +221,7 @@ NeoBundleLazy 'godlygeek/tabular', {
 " Mappings: {{{3
 
 nnoremap <silent> ,= :Tabularize first_fat_comma<CR>
-nnoremap <silent> ,- :Tabularize /=<CR>
+nnoremap <silent> ,- :Tabularize first_equals<CR>
 
 nnoremap <silent> ,{ :Tabularize /{<CR>
 nnoremap <silent> ,} :Tabularize /}/l1c0<CR>
@@ -235,6 +235,7 @@ if neobundle#tap('tabular')
 
         " ...kinda.  assumes that the first '=' found is part of a fat comma
         AddTabularPattern first_fat_comma /^[^=]*\zs=>/l1
+        AddTabularPattern first_equals    /^[^=]*\zs=/l1
     endfunction
 
     call neobundle#untap()
