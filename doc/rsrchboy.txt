@@ -91,6 +91,10 @@ minimally confusing.
 
     w!!  use sudo to write out the buffer
 
+1.4 Insert mappings, generally: *rsrchboy-insert-mappings*
+
+    jj   <ESC>
+
 ==============================================================================
 2. Commands                                                *rsrchboy-commands*
 

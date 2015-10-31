@@ -1537,6 +1537,10 @@ vmap <F5> :setlocal spell! spelllang=en_us<CR>
 vmap <F7> :tabp<CR>
 vmap <F8> :tabn<CR>
 
+" Insert Mode Mappings: {{{2
+
+imap <silent> jj <ESC>
+
 " Command: {{{2
 
 " Save with sudo if you're editing a readonly file in #vim
