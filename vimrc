@@ -1027,8 +1027,9 @@ NeoBundleLazy 'kergoth/vim-hilinks', {
             \}
 
 " }}}2
-NeoBundleLazy 'nono/jquery.vim',      { 'autoload': { 'filetypes':      'jquery' } }
-NeoBundleLazy 'xevz/vim-sshauthkeys', { 'autoload': { 'filetypes': 'sshauthkeys' } }
+NeoBundleLazy 'nono/jquery.vim', { 'autoload': { 'filetypes': 'jquery' } }
+" FIXME ...ftdetect neobundle cache is hosed for the next?! (autoload on ft fails)
+NeoBundle 'RsrchBoy/vim-sshauthkeys', { 'autoload': { 'filetypes': 'sshauthkeys' } }
 NeoBundle 'zaiste/tmux.vim'
 NeoBundle 'argent-smith/JSON.vim'
 NeoBundle 'tmatilai/gitolite.vim'
