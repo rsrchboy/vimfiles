@@ -735,6 +735,16 @@ NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'CountJump' ] }
 NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'CountJump' ] }
 
 " Appish Or External Interface: bundles {{{1
+" Grrrit: gerrit interface... ish {{{2
+
+NeoBundleLazy 'RsrchBoy/vim-grrrit', {
+            \   'autoload': {
+            \       'functions': 'grrrit#',
+            \       'commands': 'GrrritChanges',
+            \   },
+            \   'verbose': 1,
+            \}
+
 " Tmux Navigator: {{{2
 
 NeoBundle 'christoomey/vim-tmux-navigator'
