@@ -941,9 +941,30 @@ NeoBundleLazy 'vim-ruby/vim-ruby', {
 
 " vim: {{{2
 
-" FIXME we should probably lazify this
+" Not a complete autovivification, but enough. 90% of the time we'll have at
+" least one buffer open with a vim ft and that'll trigger the load anyways.
 
-NeoBundle 'tpope/vim-scriptease'
+NeoBundleLazy 'tpope/vim-scriptease', {
+            \   'autoload': {
+            \       'commands': [
+            \           'Breakadd',
+            \           'Disarm',
+            \           'PP', 'PPmsg',
+            \           'Runtime',
+            \           'Scriptnames',
+            \           'Time',
+            \           'Verbose',
+            \           'Vedit', 'Vopen', 'Vsplit', 'Vvsplit', 'Vtabedit', 'Vpedit',
+            \       ],
+            \       'mappings': [
+            \           ['n', 'zS'],
+            \           ['n', 'g!'],
+            \           ['v', 'g!'],
+            \       ],
+            \       'filetypes': ['vim'],
+            \   },
+            \   'verbose': 1,
+            \}
 
 " Lua: {{{2
 
