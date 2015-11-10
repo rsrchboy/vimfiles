@@ -1640,7 +1640,7 @@ augroup vimrc-filetype-set
 
     " common Chef patterns
     au BufNewFile,BufRead attributes/*.rb   set filetype=ruby.chef
-    au BufNewFile,BufRead recipies/*.rb     set filetype=ruby.chef
+    au BufNewFile,BufRead recipes/*.rb      set filetype=ruby.chef
     au BufNewFile,BufRead templates/*/*.erb set filetype=eruby.chef
 
 augroup end
