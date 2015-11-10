@@ -740,6 +740,18 @@ NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'CountJump' ] }
 NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'CountJump' ] }
 
 " Appish Or External Interface: bundles {{{1
+" MediaWiki Editor: {{{2
+
+NeoBundleLazy 'aquach/vim-mediawiki-editor', {
+            \   'disabled': !has('python'),
+            \   'depends': 'mediawiki.vim',
+            \   'autoload': {
+            \       'filetypes': 'mediawiki',
+            \       'commands': ['MWRead', 'MWWrite', 'MWBrowse'],
+            \   },
+            \   'verbose': 1,
+            \}
+
 " Grrrit: gerrit interface... ish {{{2
 
 NeoBundleLazy 'RsrchBoy/vim-grrrit', {
@@ -912,6 +924,15 @@ NeoBundleLazy 'LStinson/perlhelp-vim', { 'autoload': { 'filetypes': 'perl' } }
 NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
 " General Syntax And Filetype Plugins: bundles {{{1
+" mediawiki {{{2
+
+NeoBundleLazy 'chikamichi/mediawiki.vim', {
+            \   'autoload': {
+            \       'filetypes': 'mediawiki',
+            \   },
+            \   'verbose': 1,
+            \}
+
 " Git: {{{2
 
 NeoBundleLazy 'tpope/vim-git', {
