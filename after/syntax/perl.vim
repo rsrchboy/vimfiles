@@ -104,8 +104,7 @@ endif
 " well...  where Data::Section::Simple will be unable to read from.  *le sigh*
 "
 "   @@ template/name
-syn match perlDATASectionDecl "^@@\s+" nextgroup=PERLDATASectionName contained containedin=perlDATA
-syn match perlDATASectionName "[\w\./]+" nextgroup=perlDATA contains=perlDATASectionStatementMarker contained
-syn keyword perlDATASectionStatementMarker @@ contained
+syn region perlDATASectionDecl matchgroup=perlDATASectionStatementMarker start=/^@@ / end=/$/ oneline contained containedin=perlDATA
 
-hi def link perlDATASectionDecl perlTodo
+hi def link perlDATASectionDecl            perlTodo
+hi def link perlDATASectionStatementMarker Keyword
