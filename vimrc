@@ -657,7 +657,12 @@ augroup END
 
 " }}}3
 
-NeoBundleLazy 'gregsexton/gitv', {
+" FIXME use our upstream, for the moment
+"
+" ...as there are a number of PR's I have outstanding with upstream.
+"
+" NeoBundleLazy 'gregsexton/gitv', {
+NeoBundleLazy 'RsrchBoy/gitv', {
             \ 'autoload': {
             \   'commands': [
             \       {
