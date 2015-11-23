@@ -11,5 +11,4 @@ setlocal spelllang=en_us
 setlocal spellcapcheck=0
 setlocal spellfile+=~/.vim/spell/mail.utf-8.add
 
-setlocal nonumber
 setlocal foldcolumn=0
