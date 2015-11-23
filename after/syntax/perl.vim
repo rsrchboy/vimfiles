@@ -26,11 +26,9 @@ syn match perlFunction      "\<\%(role\)\>"
 syn match perlMooseAttribute +\<parameter\>\_s*+ nextgroup=perlMooseAttributeName
 syn match perlMooseAttribute +\<\%(before\|method\|around\|after\)\>\_s*+ nextgroup=perlMooseAttributeName
 
-syn match perlMooseAttribute +\<has\>\_s*+ nextgroup=perlMooseAttributeName
-"syn match perlMooseAttributeName "\<\%(\)\>" contained
-syn match perlMooseAttributeName +\%(\h*\)+  contained nextgroup=perlFatComma
-
-syn match  perlFatComma "\%(\s*=>\)" contained
+syn match perlMooseAttribute     +\<has\>\_s*+ nextgroup=perlMooseAttributeName
+syn match perlMooseAttributeName +\<(\i*\>+    nextgroup=perlFatComma contained
+syn match perlFatComma           +=>+          contained
 
 hi def link perlMooseAttribute perlFunction
 hi def link perlMooseAttributeName perlSubName
