@@ -1424,7 +1424,11 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'vitalk/vim-simple-todo'
 " 18 Jul 2015
-NeoBundle 'scrooloose/syntastic'
+" Syntastic: {{{2
+
+NeoBundleLazy 'scrooloose/syntastic', { 'verbose': 1 }
+
+" }}}
 NeoBundle 'chrisbra/NrrwRgn'
 " 27 Jul 2015
 " FIXME need a ProjectionistDetect au for detecting Perl projects
