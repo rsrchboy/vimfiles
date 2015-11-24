@@ -815,7 +815,13 @@ let g:tweetvim_open_buffer_cmd  = '$tabnew'
 " }}}3
 
 " TmuxLine: {{{2
-NeoBundleLazy 'edkolev/tmuxline.vim', { 'autoload': { 'commands': ['Tmuxline', 'TmuxlineSnapshot'] }, 'verbose': 0 }
+NeoBundleLazy 'edkolev/tmuxline.vim', {
+            \   'external_commands': 'tmux',
+            \   'autoload': {
+            \       'commands': ['Tmuxline', 'TmuxlineSnapshot'],
+            \   },
+            \   'verbose': 0,
+            \}
 
 let g:tmuxline_powerline_separators = 0
 
