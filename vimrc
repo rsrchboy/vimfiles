@@ -1110,6 +1110,10 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'kurayama/systemd-vim-syntax'
 
 " Trial Bundles: maybe, maybe not! {{{1
+" RIV: reStructured Text {{{2
+
+NeoBundleLazy 'Rykka/riv.vim'
+
 " Packer: {{{2
 
 NeoBundleLazy 'markcornick/vim-packer', {
