@@ -682,6 +682,8 @@ NeoBundleLazy 'RsrchBoy/gitv', {
 
 " Git WIP: {{{2
 
+let g:git_wip_disable_signing = 1
+
 NeoBundleLazy 'bartman/git-wip', {
             \   'rtp': 'vim',
             \   'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' },
