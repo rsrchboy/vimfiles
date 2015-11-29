@@ -132,6 +132,10 @@ NeoBundleLazy 'tpope/vim-dispatch', {
 " }}}2
 
 " General Bundles: {{{1
+" NumberToggle: {{{2
+
+NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
+
 " VimGnuPG: transparently work with encrypted files {{{2
 
 NeoBundleLazy 'jamessan/vim-gnupg', {
@@ -1106,10 +1110,6 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'kurayama/systemd-vim-syntax'
 
 " Trial Bundles: maybe, maybe not! {{{1
-" NumberToggle: {{{2
-
-NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
-
 " Packer: {{{2
 
 NeoBundleLazy 'markcornick/vim-packer', {
