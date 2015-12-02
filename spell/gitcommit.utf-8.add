@@ -147,3 +147,6 @@ wip
 www
 zsh
 zshrc
+autoload
+gpg
+gpgSign
