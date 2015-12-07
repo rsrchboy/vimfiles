@@ -360,7 +360,7 @@ augroup vimrc#airline
 
     " wipe on, say, :Dispatch or similar
     au QuickFixCmdPost dispatch-make-complete if exists('b:airline_head') | unlet b:airline_head | fi
-    au User FugitiveCommitPost                if exists('b:airline_head') | unlet b:airline_head | fi
+    au User FugitiveCommit                    if exists('b:airline_head') | unlet b:airline_head | fi
 augroup END
 
 " PostSource Hook: {{{3
