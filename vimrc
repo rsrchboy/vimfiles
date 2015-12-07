@@ -914,6 +914,18 @@ NeoBundleLazy 'vim-scripts/vimwiki', {
 " }}}2
 NeoBundle 'tpope/vim-eunuch'
 
+" OS Specific Bundles: OSX {{{1
+" Vitality: iTerm2/tmux {{{2
+
+" this looks worth examining...  if we're ever in the situation of needing to
+" use a mac :\
+
+NeoBundleLazy 'sjl/vitality.vim', {
+            \   'external_commands': 'tmux',
+            \}
+
+" }}}2
+
 " Perl Bundles: {{{1
 " Perl: the master bundle {{{2
 
