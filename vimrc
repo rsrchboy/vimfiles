@@ -7,6 +7,87 @@
 " This must be first, because it changes other options as side effect
 set nocompatible
 
+" CONFIGURATION: global or general {{{1
+" notes {{{2
+"
+" Configuration options that impact vim itself, rather than plugin or syntax
+" settings.  (generally)
+"
+" "global" vars for use here and elsewhere {{{2
+
+" settings {{{2
+
+set modeline
+set modelines=2
+set number
+set sm
+set scs
+set title
+set incsearch
+set hidden
+set laststatus=2
+set nostartofline              " try to preserve column on motion commands
+set autoread                   " reload when changed -- e.g. 'git co ...'
+set encoding=utf-8             " Necessary to show Unicode glyphs
+set t_Co=256                   " Explicitly tell Vim we can handle 256 colors
+set autoindent                 " Preserve current indent on new lines
+set textwidth=78               " Wrap at this column
+set backspace=indent,eol,start " Make backspaces delete sensibly
+set tabstop=4                  " Indentation levels every four columns
+set smarttab
+set expandtab                  " Convert all tabs typed to spaces
+set shiftwidth=4               " Indent/outdent by four columns
+set shiftround                 " Indent/outdent to nearest tabstop
+set matchpairs+=<:>            " Allow % to bounce between angles too
+set splitright                 " open new vsplit to the right
+set ignorecase
+set smartcase
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+set background=dark
+" XXX reexamine 'nobackup'
+set nobackup                   " we're stashing everything in git, anyways
+" XXX reexamine 'noswapfile'
+set noswapfile
+" XXX reexamine 'lazyredraw' vs 'ttyfast'
+"set lazyredraw
+set ttyfast
+set spellfile+=~/.vim/spell/en.utf-8.add
+
+" folding {{{2
+
+"set foldmethod=marker
+set foldlevel=1
+set foldcolumn=3
+
+" fold functions {{{2
+
+" toggle fold columns on/off, issuing a VimResized event afterwards (so things
+" can sensibly redraw themselves)
+func! ToggleFoldColumn()
+    if &foldcolumn > 0
+        setlocal foldcolumn=0
+    else
+        setlocal foldcolumn=3
+    endif
+
+    doau VimResized
+endfunc
+
+func! FoldOnLeadingPounds(lnum)
+    let l0 = getline(a:lnum)
+
+    if l0 =~ '^##'
+        return '>'.(matchend(getline(v:lnum),'^#\+')-1)
+    elseif l0 =~ '^#='
+        return '>0'
+    endif
+
+    return '='
+endfunc
+
+"}}}2
+
 " NeoBundle: NeoBundle for bundle/plugin management {{{1
 " notes {{{2
 
@@ -1517,87 +1598,6 @@ if !has('vim_starting')
 endif
 
 " }}}2
-
-" CONFIGURATION: global or general {{{1
-" notes {{{2
-"
-" Configuration options that impact vim itself, rather than plugin or syntax
-" settings.  (generally)
-"
-" "global" vars for use here and elsewhere {{{2
-
-" settings {{{2
-
-set modeline
-set modelines=2
-set number
-set sm
-set scs
-set title
-set incsearch
-set hidden
-set laststatus=2
-set nostartofline              " try to preserve column on motion commands
-set autoread                   " reload when changed -- e.g. 'git co ...'
-set encoding=utf-8             " Necessary to show Unicode glyphs
-set t_Co=256                   " Explicitly tell Vim we can handle 256 colors
-set autoindent                 " Preserve current indent on new lines
-set textwidth=78               " Wrap at this column
-set backspace=indent,eol,start " Make backspaces delete sensibly
-set tabstop=4                  " Indentation levels every four columns
-set smarttab
-set expandtab                  " Convert all tabs typed to spaces
-set shiftwidth=4               " Indent/outdent by four columns
-set shiftround                 " Indent/outdent to nearest tabstop
-set matchpairs+=<:>            " Allow % to bounce between angles too
-set splitright                 " open new vsplit to the right
-set ignorecase
-set smartcase
-set backspace=eol,start,indent
-set whichwrap+=<,>,h,l
-set background=dark
-" XXX reexamine 'nobackup'
-set nobackup                   " we're stashing everything in git, anyways
-" XXX reexamine 'noswapfile'
-set noswapfile
-" XXX reexamine 'lazyredraw' vs 'ttyfast'
-"set lazyredraw
-set ttyfast
-set spellfile+=~/.vim/spell/en.utf-8.add
-
-" folding {{{2
-
-"set foldmethod=marker
-set foldlevel=1
-set foldcolumn=3
-
-" fold functions {{{2
-
-" toggle fold columns on/off, issuing a VimResized event afterwards (so things
-" can sensibly redraw themselves)
-func! ToggleFoldColumn()
-    if &foldcolumn > 0
-        setlocal foldcolumn=0
-    else
-        setlocal foldcolumn=3
-    endif
-
-    doau VimResized
-endfunc
-
-func! FoldOnLeadingPounds(lnum)
-    let l0 = getline(a:lnum)
-
-    if l0 =~ '^##'
-        return '>'.(matchend(getline(v:lnum),'^#\+')-1)
-    elseif l0 =~ '^#='
-        return '>0'
-    endif
-
-    return '='
-endfunc
-
-"}}}2
 
 " Mappings: {{{1
 " Text Formatting: {{{2
