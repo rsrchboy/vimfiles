@@ -54,6 +54,18 @@ set noswapfile
 set ttyfast
 set spellfile+=~/.vim/spell/en.utf-8.add
 
+" terminal bits: {{{2
+
+" initial hackery to let us set terminal titles!
+
+if &term =~ "screen.*"
+    set t_ts=k
+    set t_fs=\
+endif
+if &term =~ "screen.*" || &term == "xterm"
+    set title
+endif
+
 " folding {{{2
 
 "set foldmethod=marker
