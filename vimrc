@@ -64,6 +64,7 @@ if &term =~ "screen.*"
 endif
 if &term =~ "screen.*" || &term == "xterm"
     set title
+    set titlestring=%{rsrchboy#termtitle()}
 endif
 
 " folding {{{2
