@@ -774,9 +774,10 @@ NeoBundleLazy 'RsrchBoy/gitv', {
 
 let g:git_wip_disable_signing = 1
 
+" FIXME make git-wip build step *WORK*
+            " \   'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' },
 NeoBundleLazy 'bartman/git-wip', {
             \   'rtp': 'vim',
-            \   'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' },
             \   'autoload': { 'insert': 1 },
             \   'verbose': 1,
             \}
