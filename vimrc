@@ -1461,6 +1461,7 @@ NeoBundleLazy 'xolox/vim-notes', {
             \           },
             \           'RecentNotes', 'MostRecentNote',
             \       ],
+            \       'filetypes': 'notes',
             \       'functions': 'xolox#notes#',
             \   },
             \   'verbose': 1,
