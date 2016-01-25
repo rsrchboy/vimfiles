@@ -33,8 +33,11 @@ syn match perlFatComma           +=>+          contained
 hi def link perlMooseAttribute perlFunction
 hi def link perlMooseAttributeName perlSubName
 
+" dzil
+syn keyword perlTodo PODNAME: ABSTRACT: contained
 
-syn keyword perlTodo PODNAME: ABSTRACT: TODO TODO: TBD TBD: FIXME FIXME: XXX XXX: NOTE NOTE: contained
+" "normal"
+syn match   perlTodo /\<\(NOTE\|TBD\|FIXME\|XXX\|PLAN\)[:]\?/ contained contains=NONE,@NoSpell
 
 if !exists("perl_include_pod") || perl_include_pod == 1
   " Include a while extra syntax file
