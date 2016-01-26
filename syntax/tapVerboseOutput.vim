@@ -28,12 +28,15 @@ syn match tapTestStatusOK /ok/ contained
 syn match tapTestStatusNotOK /not ok/ contained
 
 " look behind so "ok 123" and "not ok 124" match test number
-syn match tapTestNumber /\(ok \)\@<=\d\d*/ contained
+syn match tapTestNumber /\(ok \)\@<=\d*/ contained
 syn match tapTestLoadMessage /\*\*\*.*\*\*\*/ contained contains=tapTestThreeStars,tapTestFileWithDot
 syn match tapTestThreeStars /\*\*\*/ contained
 
 syn region tapTestRegion start=/^\(not \)\?ok.*$/me=e+1 end=/^\(\(not \)\?ok\|# Looks like you planned \|All tests successful\|Bailout called\)/me=s-1 fold transparent excludenl
 syn region tapTestResultsRegion start=/^\(# Looks like you planned \|All tests successful\|Bailout called\)/ end=/$/
+
+" soooooo crude. but kinda works.  (ish)
+syn match tapIgnore /^[^1on# ].*/
 
 set foldtext=TAPTestLine_foldtext()
 function! TAPTestLine_foldtext()
@@ -48,23 +51,21 @@ set foldenable
 set foldmethod=syntax
 syn sync fromstart
 
-if !exists("did_tapverboseoutput_syntax_inits")
-  let did_tapverboseoutput_syntax_inits = 1
+hi      tapTestStatusOK    term=bold    ctermfg=green                 guifg=Green
+hi      tapTestStatusNotOK term=reverse                ctermbg=red                    guibg=Red
+hi      tapTestTime        term=bold    ctermfg=blue                  guifg=Blue
+hi      tapTestFile        term=reverse ctermfg=black  ctermbg=yellow guibg=Black     guifg=Yellow
+hi      tapTestLoadedFile  term=bold    ctermfg=black  ctermbg=cyan   guibg=Cyan      guifg=Black
+hi      tapTestThreeStars  term=reverse ctermfg=blue                                  guifg=Blue
+" hi      tapTestPlan        term=bold    ctermfg=yellow                                guifg=Yellow
 
-  hi      tapTestStatusOK    term=bold    ctermfg=green                 guifg=Green
-  hi      tapTestStatusNotOK term=reverse                ctermbg=red                    guibg=Red
-  hi      tapTestTime        term=bold    ctermfg=blue                  guifg=Blue
-  hi      tapTestFile        term=reverse ctermfg=black  ctermbg=yellow guibg=Black     guifg=Yellow
-  hi      tapTestLoadedFile  term=bold    ctermfg=black  ctermbg=cyan   guibg=Cyan      guifg=Black
-  hi      tapTestThreeStars  term=reverse ctermfg=blue                                  guifg=Blue
-  hi      tapTestPlan        term=bold    ctermfg=yellow                                guifg=Yellow
+hi link tapTestFileWithDot tapTestLoadedFile
+hi link tapTestNumber      Number
+hi link tapTestDiag        Comment
+hi link tapIgnore          Ignore
+hi link tapTestPlan        String
 
-  hi link tapTestFileWithDot tapTestLoadedFile
-  hi link tapTestNumber      Number
-  hi link tapTestDiag        Comment
-
-  hi tapTestRegion ctermbg=green
-  hi tapTestResultsRegion ctermbg=red
-endif
+hi tapTestRegion ctermbg=green
+hi tapTestResultsRegion ctermbg=red
 
 let b:current_syntax="tapVerboseOutput"
