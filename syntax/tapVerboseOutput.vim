@@ -17,7 +17,7 @@ syn match tapTestFileWithDot /\w\+\/[^ ]*/ contained
 syn match tapTestPlan /^\(    \)*\d\+\.\.\d\+$/
 
 " tapTest is a line like 'ok 1', 'not ok 2', 'ok 3 - xxxx'
-syn match tapTest /^\(    \)*\(not \)\?ok \d\+.*/ contains=tapTestStatusOK,tapTestStatusNotOK,tapTestLine
+syn match tapTest /^\(    \)*\(not \)\?ok \d*.*/ contains=tapTestStatusOK,tapTestStatusNotOK,tapTestLine
 
 " tapTestLine is the line without the ok/not ok status - i.e. number and
 " optional message
