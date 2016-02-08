@@ -150,3 +150,5 @@ zshrc
 autoload
 gpg
 gpgSign
+majorly
+SIDF
