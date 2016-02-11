@@ -366,7 +366,7 @@ let g:startify_empty_buffer_key    = 'o'
 let g:startify_restore_position    = 1
 
 let g:startify_custom_header       =
-    \ map(split(system('fortune | cowsay -W 60 ; echo .; echo .; uname -a'), '\n'), '"   ". v:val') + ['','']
+    \ map(split(system('echo $USER@$HOST | figlet -t ; echo .; echo .; uname -a'), '\n'), '"   ". v:val') + ['','']
 "let g:startify_custom_footer = ''
 
 augroup vimrc-startify
