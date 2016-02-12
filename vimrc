@@ -928,6 +928,16 @@ let g:tweetvim_open_buffer_cmd  = '$tabnew'
 " }}}3
 
 " TmuxLine: {{{2
+
+let g:tmuxline_powerline_separators = 0
+
+let g:tmuxline_preset = {
+    \'a'    : ['#(whoami)@#H'],
+    \'b'    : '#S',
+    \'win'  : ['#I#F', '#W'],
+    \'cwin' : ['#I#F', '#W'],
+    \}
+
 NeoBundleLazy 'edkolev/tmuxline.vim', {
             \   'external_commands': 'tmux',
             \   'autoload': {
@@ -935,8 +945,6 @@ NeoBundleLazy 'edkolev/tmuxline.vim', {
             \   },
             \   'verbose': 0,
             \}
-
-let g:tmuxline_powerline_separators = 0
 
 " VimRepress: {{{2
 NeoBundleLazy 'pentie/VimRepress', {
