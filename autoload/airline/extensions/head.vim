@@ -38,7 +38,7 @@ function! airline#extensions#head#apply(...)
     augroup airline#extensions#head
         au!
 
-        autocmd CursorHold,ShellCmdPost,CmdwinLeave * unlet! b:airline_head_subject
+        autocmd CursorHold,FileChangedShellPost,ShellCmdPost,CmdwinLeave * unlet! b:airline_head_subject
         autocmd User FugitiveCommitPost unlet! b:airline_head_subject
     augroup END
 endfunction
