@@ -516,6 +516,8 @@ let g:neocomplete#enable_smart_case = 1
 
 " SuperTab: {{{2
 
+" FIXME appears to conflict with snipmate :(
+
 let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
 
 " NeoBundleLazy 'ervandew/supertab', { 'autoload': { 'insert': 1 } }
