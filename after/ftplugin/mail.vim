@@ -12,3 +12,9 @@ setlocal spellcapcheck=0
 setlocal spellfile+=~/.vim/spell/mail.utf-8.add
 
 setlocal foldcolumn=0
+
+" local to the buffer
+set tw=72
+
+" first line, start in insert
+silent normal gg0i
