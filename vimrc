@@ -712,18 +712,20 @@ augroup vimrc-fugitive
     au!
 
     " Use j/k in status
-    autocmd BufReadCmd *.git/index exe BufReadIndex()
-    autocmd BufEnter   *.git/index silent normal gg0j
+    autocmd BufReadCmd *.git/index             exe BufReadIndex()
+    autocmd BufReadCmd *.git/worktrees/*/index exe BufReadIndex()
+    autocmd BufEnter   *.git/index             silent normal j
+    autocmd BufEnter   *.git/worktrees/*/index silent normal j
 
     " the 'hub' tool creates a number of comment files formatted in the same way
     " as a git commit message.
-    autocmd BufEnter *.git/*_EDITMSG exe BufEnterCommit()
+    autocmd BufEnter *.git/**/*_EDITMSG exe BufEnterCommit()
 
     " Automatically remove fugitive buffers
     autocmd BufReadPost fugitive://* set bufhidden=delete
 
     " e.g. after we did something :Dispatchy, like :Gfetch
-    au QuickFixCmdPost .git/index call fugitive#reload_status()
+    au QuickFixCmdPost .git/**/index call fugitive#reload_status()
 
 augroup END
 " }}}3
