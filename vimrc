@@ -320,8 +320,9 @@ NeoBundleLazy 'godlygeek/tabular', {
 nnoremap <silent> ,= :Tabularize first_fat_comma<CR>
 nnoremap <silent> ,- :Tabularize first_equals<CR>
 
-nnoremap <silent> ,{ :Tabularize /{<CR>
-nnoremap <silent> ,} :Tabularize /}/l1c0<CR>
+nnoremap <silent> ,{  :Tabularize first_squiggly<CR>
+nnoremap <silent> ,}  :Tabularize /}/l1c0<CR>
+nnoremap <silent> ,]  :Tabularize /]/l1c0<CR>
 
 " PostSource Hook: {{{3
 
@@ -333,6 +334,7 @@ if neobundle#tap('tabular')
         " ...kinda.  assumes that the first '=' found is part of a fat comma
         AddTabularPattern first_fat_comma /^[^=]*\zs=>/l1
         AddTabularPattern first_equals    /^[^=]*\zs=/l1
+        AddTabularPattern first_squiggly  /^[^{]*\zs{/l1
     endfunction
 
     call neobundle#untap()
