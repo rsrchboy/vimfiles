@@ -66,6 +66,7 @@ minimally confusing.
     <Leader>gk      <Plug>(signify-prev-hunk)
 
     OO              |:only|
+    Q               |gq|p (that is, word-wrap the current paragraph)
 
     ,<Space>        trim trailing whitespace (|StripWhitespace|)
 
