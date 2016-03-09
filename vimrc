@@ -1245,6 +1245,14 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'kurayama/systemd-vim-syntax'
 
 " Trial Bundles: maybe, maybe not! {{{1
+" LazyList: {{{2
+
+NeoBundleLazy 'KabbAmine/lazyList.vim', {
+            \   'autoload': {
+            \       'commands': 'LazyList',
+            \   },
+            \}
+
 " RIV: reStructured Text {{{2
 
 NeoBundleLazy 'Rykka/riv.vim'
