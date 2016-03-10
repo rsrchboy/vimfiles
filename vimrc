@@ -265,10 +265,11 @@ endif
 
 " VimPipe: {{{2
 
-NeoBundleLazy 'krisajenkins/vim-pipe', {
-            \   'autoload': { 'commands': ['VimPipe'], 'mappings': ['<LocalLeader>r'] },
-            \   'verbose': 1,
-            \}
+" Settings: {{{3
+
+" default mappings conflict with PerlHelp
+let g:vimpipe_invoke_map = ',r'
+let g:vimpipe_close_map  = ',p'
 
 " AutoCommands: {{{3
 
@@ -284,6 +285,14 @@ augroup vimrc-vimpipe
 augroup end
 
 " }}}3
+
+NeoBundleLazy 'krisajenkins/vim-pipe', {
+            \   'autoload': {
+            \       'commands': ['VimPipe'],
+            \       'mappings': [[ 'n', g:vimpipe_invoke_map ]],
+            \   },
+            \   'verbose': 1,
+            \}
 
 " BufExplorer: {{{2
 
