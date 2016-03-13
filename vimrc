@@ -1360,6 +1360,8 @@ if neobundle#tap('vim-extradite')
     call neobundle#untap()
 endif
 
+" }}}3
+
 " VimSignature: show marks in sign column {{{2
 
 " commands: Signature*
