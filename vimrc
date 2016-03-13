@@ -733,6 +733,9 @@ augroup END
 " }}}3
 
 " "plugins"
+
+" Remove once https://github.com/tpope/vim-rhubarb/issues/13 is addressed
+let g:loaded_rhubarb = 1
 NeoBundle 'tpope/vim-rhubarb'
 
 " Origin: is really 'tpope/vim-fugitive', but there's some git-workdirs fixes
