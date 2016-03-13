@@ -1715,6 +1715,7 @@ augroup vimrc-filetype-set
     au BufNewFile,BufRead .oh-my-zsh/themes/* set filetype=zsh
     au BufNewFile,BufRead .gitconfig.local    set filetype=gitconfig
     au BufNewFile,BufRead gitconfig.local     set filetype=gitconfig
+    au BufNewFile,BufRead .vagrantuser        set filetype=yaml
 
     " e.g. /etc/NetworkManager/dnsmasq.d/...
     au BufNewFile,BufRead **/dnsmasq.d/*         set filetype=dnsmasq
