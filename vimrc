@@ -1645,7 +1645,12 @@ endif
 " Text Formatting: {{{2
 
 vmap Q gq
+
+" FIXME: should this be "gqip"?
 nmap Q gqap
+
+nnoremap <silent> ,++ <c-a>
+nnoremap <silent> ,-- <c-x>
 
 " Configy: {{{2
 set pastetoggle=<F2>
