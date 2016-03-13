@@ -70,7 +70,7 @@ minimally confusing.
 
     ,<Space>        trim trailing whitespace (|StripWhitespace|)
 
-    Alignment mappings:
+    Alignment mappings (generally via |:Tabularize|):
     ,-    =  (aligns against first on line only)
     ,=    => (aligns against first on line only)
     ,{    {
@@ -81,6 +81,19 @@ minimally confusing.
     <C-J>           window up
     <C-K>           window down
     <C-L>           window right
+
+    ,++     increment
+    ,--     decrement
+
+1.1.1 Buffer-local mappings
+
+1.1.1.1 'sh' f/t
+
+    ,;;     |:Tabularize| /;;
+
+1.1.1.2 'vim' f/t
+
+    ,l     |:Tabularize| /let
 
 
 1.2 Visual mode, generally:                    *rsrchboy-visual-mappings*
