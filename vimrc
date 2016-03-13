@@ -859,6 +859,10 @@ NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'CountJump' ] }
 NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'CountJump' ] }
 
 " Appish Or External Interface: bundles {{{1
+" REST Console: {{{2
+
+NeoBundleLazy 'diepm/vim-rest-console'
+
 " MediaWiki Editor: {{{2
 
 NeoBundleLazy 'aquach/vim-mediawiki-editor', {
