@@ -1044,6 +1044,7 @@ NeoBundle 'tpope/vim-eunuch'
 
 NeoBundleLazy 'sjl/vitality.vim', {
             \   'external_commands': 'tmux',
+            \   'disabled': !neobundle#util#is_mac(),
             \}
 
 " }}}2
