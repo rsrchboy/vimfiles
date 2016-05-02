@@ -865,6 +865,15 @@ NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'CountJump' ] }
 NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'CountJump' ] }
 
 " Appish Or External Interface: bundles {{{1
+" Terraform: {{{2
+
+NeoBundleLazy 'hashivim/vim-terraform', {
+            \   'autoload': {
+            \       'filename_patterns': [ '\.tf$', '\.tfvars$', '\.tfstate$' ],
+            \       'verbose': 1,
+            \   },
+            \}
+
 " REST Console: {{{2
 
 NeoBundleLazy 'diepm/vim-rest-console'
