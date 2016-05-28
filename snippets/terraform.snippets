@@ -1,0 +1,48 @@
+snippet var
+	variable "${1}" {
+		type        = "${2:string}"
+		description = "${3}"
+		default     = "${4}"
+	}
+snippet varm
+	variable "${1}" {
+		description = "${2}"
+		default = {
+			${3} = ${4}
+		}
+	}
+snippet vnd
+	variable "${1}" {
+		description = "${2}"
+	}
+snippet out
+	output "${1}" {
+		value = "${2}"
+	}
+snippet mod
+	module "${1}" {
+		source = "${2}"
+	}
+snippet res
+	resource "${1}" "${2}" {
+		${3}
+	}
+snippet rosi
+	resource "openstack_compute_instance_v2" "${1}" {
+		count           = "${2:1}"
+		name            = "${3}"
+		image_name      = "${4:var.image}"
+		flavor_name     = "${5:var.flavor}"
+		key_pair        = "${openstack_compute_keypair_v2.${6}.name}"
+		security_groups = [ "${7:var.security_groups}" ]
+	}
+snippet conn
+	connection {
+		host     = "${1:${self.access_ip_v6}}"
+		user     = "${2:${var.ssh_user_name}}"
+		key_file = "${3:${var.ssh_key_file}}"
+	}
+snippet prov
+	provisioner "${1:remote-exec}" {
+		${2:inline... or whatever}
+	}
