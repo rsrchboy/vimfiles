@@ -15,6 +15,11 @@ source ~/.vim/bundle/vim-perl/contrib/carp.vim
 source ~/.vim/bundle/vim-perl/contrib/moose.vim
 source ~/.vim/bundle/vim-perl/contrib/try-tiny.vim
 
+" I like to do shift->this->that->[1]->{...} sometimes.
+"
+" ok, all the time.
+syn match  perlVarPlain "shift" nextgroup=perlVarMember,perlVarSimpleMember,perlMethod,perlPostDeref extend
+
 " Moose: {{{1
 syn match perlOperator           "\<\%(blessed\)\>"
 

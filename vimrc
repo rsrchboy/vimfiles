@@ -46,9 +46,9 @@ set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 set background=dark
 " XXX reexamine 'nobackup'
-" set nobackup                   " we're stashing everything in git, anyways
+set nobackup                   " we're stashing everything in git, anyways
 " XXX reexamine 'noswapfile'
-" set noswapfile
+set noswapfile
 " XXX reexamine 'lazyredraw' vs 'ttyfast'
 "set lazyredraw
 set ttyfast
