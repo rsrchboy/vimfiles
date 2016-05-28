@@ -1089,6 +1089,15 @@ NeoBundleLazy 'LStinson/perlhelp-vim', { 'autoload': { 'filetypes': 'perl' } }
 NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
 " General Syntax And Filetype Plugins: bundles {{{1
+" TomL: {{2
+
+NeoBundleLazy 'cespare/vim-toml', {
+            \   'autoload': {
+            \       'filetypes': 'toml',
+            \   },
+            \   'verbose': 1,
+            \}
+
 " mediawiki {{{2
 
 NeoBundleLazy 'chikamichi/mediawiki.vim', {
