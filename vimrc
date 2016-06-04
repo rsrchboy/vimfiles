@@ -1745,6 +1745,7 @@ augroup vimrc-filetype-set
     au BufNewFile,BufRead .gitconfig.local    set filetype=gitconfig
     au BufNewFile,BufRead gitconfig.local     set filetype=gitconfig
     au BufNewFile,BufRead .vagrantuser        set filetype=yaml
+    au BufNewFile,BufRead .aws/credentials    set filetype=dosini
 
     " e.g. /etc/NetworkManager/dnsmasq.d/...
     au BufNewFile,BufRead **/dnsmasq.d/*         set filetype=dnsmasq
