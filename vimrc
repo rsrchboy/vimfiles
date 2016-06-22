@@ -1068,6 +1068,19 @@ NeoBundleLazy 'sjl/vitality.vim', {
 " }}}2
 
 " Perl Bundles: {{{1
+" PerlHelp: {{{2
+
+" hardly a complete list of commands to load off of, but the
+" common ones I hit at least.
+
+NeoBundleLazy 'LStinson/perlhelp-vim', {
+            \   'autoload': {
+            \       'filetypes': 'perl',
+            \       'commands': ['PerlHelp', 'PerlMod'],
+            \   },
+            \   'verbose': 1,
+            \}
+
 " Perl: the master bundle {{{2
 
 NeoBundleLazy 'vim-perl/vim-perl', {
@@ -1094,11 +1107,10 @@ NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'fil
 " }}}2
 NeoBundleLazy 'vim-scripts/log4perl.vim', { 'autoload': { 'filetypes': 'log4perl' } }
 " NeoBundleLazy 'osfameron/perl-tags-vim',  { 'autoload': { 'filetypes': 'perl'     } }
-NeoBundleLazy 'LStinson/perlhelp-vim', { 'autoload': { 'filetypes': 'perl' } }
 NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
 " General Syntax And Filetype Plugins: bundles {{{1
-" TomL: {{2
+" TomL: {{{2
 
 NeoBundleLazy 'cespare/vim-toml', {
             \   'autoload': {
