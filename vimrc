@@ -1297,10 +1297,45 @@ NeoBundle 'kurayama/systemd-vim-syntax'
 " Trial Bundles: maybe, maybe not! {{{1
 " LazyList: {{{2
 
+" the plugin author's configuration:
+
+nnoremap gli :LazyList
+vnoremap gli :LazyList
+
+let g:lazylist_omap = 'il'
+let g:lazylist_maps = [
+                        \ 'gl',
+                        \ {
+                                \ 'l'  : '',
+                                \ '*'  : '* ',
+                                \ '-'   : '- ',
+                                \ 't'   : '- [ ] ',
+                                \ '2'  : '%2%. ',
+                                \ '3'  : '%3%. ',
+                                \ '4'  : '%4%. ',
+                                \ '5'  : '%5%. ',
+                                \ '6'  : '%6%. ',
+                                \ '7'  : '%7%. ',
+                                \ '8'  : '%8%. ',
+                                \ '9'  : '%9%. ',
+                                \ '.1' : '1.%1%. ',
+                                \ '.2' : '2.%1%. ',
+                                \ '.3' : '3.%1%. ',
+                                \ '.4' : '4.%1%. ',
+                                \ '.5' : '5.%1%. ',
+                                \ '.6' : '6.%1%. ',
+                                \ '.7' : '7.%1%. ',
+                                \ '.8' : '8.%1%. ',
+                                \ '.9' : '9.%1%. ',
+                        \ }
+                \ ]
+
+
 NeoBundleLazy 'KabbAmine/lazyList.vim', {
             \   'autoload': {
             \       'commands': 'LazyList',
             \   },
+            \   'verbose': 1,
             \}
 
 " RIV: reStructured Text {{{2
