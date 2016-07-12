@@ -62,9 +62,11 @@ if &term =~ "screen.*"
     set t_ts=k
     set t_fs=\
 endif
-if &term =~ "screen.*" || &term == "xterm"
-    set title
-    set titlestring=%{rsrchboy#termtitle()}
+" if &term =~ "screen.*" || &term == "xterm"
+" if exists("$TMUX")
+if exists("$TMUX") && empty($TMUX)
+    " set title
+    " set titlestring=%{rsrchboy#termtitle()}
 endif
 
 " folding {{{2
