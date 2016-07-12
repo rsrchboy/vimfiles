@@ -115,6 +115,14 @@ endfunc
 "
 " see also: https://github.com/Shougo/neobundle.vim
 
+" Config: neobundle defaults, etc {{{2
+
+let g:neobundle#default_options = {
+            \   '_': {
+            \       'lazy': 0,
+            \   },
+            \}
+
 " Setup: setup NB proper; bootstrap from embedded if needs be {{{2
 
 " I've subtree-embedded a copy of neobundle here for bootstrap purpose
