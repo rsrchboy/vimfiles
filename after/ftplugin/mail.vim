@@ -13,8 +13,16 @@ setlocal spellfile+=~/.vim/spell/mail.utf-8.add
 
 setlocal foldcolumn=0
 
+" auto-wrap paragraphs!
+set fo=aw2tq
+
 " local to the buffer
 set tw=72
+
+setlocal backup
+set swapfile
+
+" TODO: append to b:undo_ftplugin
 
 " first line, start in insert
 silent normal gg0i
