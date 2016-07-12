@@ -10,3 +10,6 @@ setlocal spell
 setlocal spelllang=en_us
 setlocal spellcapcheck=0
 setlocal spellfile+=~/.vim/spell/perl.utf-8.add
+
+" when working inside a CPAN-style dist, for instance.
+let &l:path="lib/,".&l:path
