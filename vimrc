@@ -1502,12 +1502,39 @@ NeoBundleLazy 'NLKNguyen/pipe-mysql.vim', {
 " Gerrit Code Review: ...maybe we can make life easier {{{2
 
 NeoBundleLazy 'stargrave/gerrvim', { 'depends': 'vim-fugitive' }
-NeoBundleLazy 'itissid/gv', { 'disable': !has('python') }
+
+NeoBundleLazy 'itissid/gv', {
+            \   'disable': !has('python'),
+            \   'autoload': {
+            \       'commands': ['GvShowChanges','GvShowStatus'],
+            \       'functions': 'gv#',
+            \   },
+            \   'verbose': 1,
+            \}
+
+" Unite Issues: jira and github, really {{{2
+
+NeoBundleLazy 'rafi/vim-unite-issue', {
+            \   'directory': 'unite-issue',
+            \   'unite_sources': [ 'issue' ],
+            \   'depends': [
+            \       'webapi-vim', 'open-browser.vim', 'unite.vim',
+            \   ],
+            \}
+
+" Pull Requests: github/unite {{{2
+
+NeoBundleLazy 'joker1007/unite-pull-request', {
+            \   'unite_sources': [ 'pull-request' ],
+            \   'depends': [
+            \       'webapi-vim', 'unite.vim',
+            \   ],
+            \}
 
 " Jira Integration: {{{2
-
 NeoBundle 'mnpk/vim-jira-complete'
 NeoBundle 'RsrchBoy/vim-jira-open'
+" }}}2
 
 " VimGitLog: lazy {{{2
 NeoBundleLazy 'kablamo/vim-git-log', { 'depends': 'vim-fugitive', 'autoload': { 'commands': 'GitLog' }, 'verbose': 1 }
