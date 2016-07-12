@@ -4,3 +4,5 @@ Powerline_default_default_fancy.cache
 bundle/
 cache/
 node_modules/
+perl5/
+Session.vim
