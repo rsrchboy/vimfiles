@@ -307,7 +307,7 @@ NeoBundleLazy 'krisajenkins/vim-pipe', {
 " BufExplorer: {{{2
 
 let g:bufExplorerShowRelativePath = 1
-let g:bufExplorerShowTabBuffer    = 1
+" let g:bufExplorerShowTabBuffer    = 1
 
 NeoBundleLazy 'RsrchBoy/bufexplorer.zip', {
 \'augroup':  'BufExplorer',
