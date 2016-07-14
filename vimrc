@@ -1715,8 +1715,8 @@ NeoBundle 'tpope/vim-speeddating'
 "NeoBundle 'LucHermitte/local_vimrc', {'depends': 'lh-vim-lib'}
 " FIXME TODO need b:endwise_* settings for perl!
 NeoBundle 'tpope/vim-endwise'
-NeoBundleLazy 'kana/vim-textobj-user'
-NeoBundle     'kana/vim-textobj-syntax', { 'depends': 'vim-textobj-user' }
+NeoBundle 'kana/vim-textobj-user'
+NeoBundle 'kana/vim-textobj-syntax', { 'depends': 'vim-textobj-user' }
 NeoBundle 'tpope/vim-vinegar'
 
 " Probation: {{{1
