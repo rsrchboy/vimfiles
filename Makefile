@@ -33,7 +33,7 @@ commit-spellings: respell
 # ...
 
 bootstrap:
-	git subtree pull --squash --prefix=bootstrap/bundles/neobundle.vim git://github.com/Shougo/neobundle.vim.git master
+	git subtree pull --prefix=bootstrap/vim-plug --squash https://github.com/junegunn/vim-plug.git master
 
 fonts:
 	@ echo '# ensuring fonts...'
@@ -44,10 +44,6 @@ dotfiles:
 	@echo '# setting up dotfiles...'
 	cd && test -e .gitconfig || ln -s .vim/dotfiles/gitconfig .gitconfig
 	cd && touch .gitconfig.local && chmod 0600 .gitconfig.local
-
-cleanup:
-	@echo '# ensure obsolete bundles are removed...'
-	./bin/rm-bundle vim-puppet
 
 install: fonts
 	@echo '# Setting up .vimrc, etc....'
@@ -60,21 +56,3 @@ zsh:
 	curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 
 install-all: install dotfiles cleanup
-
-bundle-update:
-	@echo '# committing submodule/bundle updates...'
-	m=`git submodule | grep '^\+' | awk '{ print $$2 }' | xargs` ; git commit -m "updating: $$m" $$m
-
-fetch-submodule-upstream:
-	@echo '# pulling the latest submodule/bundle updates...'
-	#m=`git submodule | grep '^\+' | awk '{ print $$2 }' | xargs` ; git commit -m "updating: $$m" $$m
-	git submodule update --init
-	git submodule foreach "sh -c '( git co master && git pull )'"
-
-submodule-ensure-rebase:
-	for sm in `git submodule | awk '{ print $$2 }'` ; do git config --file .gitmodules submodule.$$sm.update rebase ; done
-	for sm in `git submodule | awk '{ print $$2 }'` ; do git config                    submodule.$$sm.update rebase ; done
-	git submodule sync
-
-ignore-tags:
-	 find .git/modules -name 'exclude' -exec sh -c "echo 'doc/tags' >> {}" \;
