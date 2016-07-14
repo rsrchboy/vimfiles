@@ -1717,6 +1717,7 @@ NeoBundle 'tpope/vim-speeddating'
 NeoBundle 'tpope/vim-endwise'
 NeoBundleLazy 'kana/vim-textobj-user'
 NeoBundle     'kana/vim-textobj-syntax', { 'depends': 'vim-textobj-user' }
+NeoBundle 'tpope/vim-vinegar'
 
 " Probation: {{{1
 NeoBundleLazy 'scrooloose/nerdcommenter'
