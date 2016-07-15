@@ -7,6 +7,22 @@
 " This must be first, because it changes other options as side effect
 set nocompatible
 
+" VimPlug BEGIN: "strategic" plugin manager ;) {{{1
+call plug#begin()
+
+" General Bundles: {{{1
+Plug 'tpope/vim-sensible'
+
+" Libraries: library plugins/bundles {{{1
+" WebAPI: {{{2
+
+Plug 'mattn/webapi-vim'
+
+" }}}2
+
+" VimPlug END: "strategic" plugin manager ;) {{{1
+call plug#end()
+
 " CONFIGURATION: global or general {{{1
 " notes {{{2
 "
@@ -148,14 +164,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "NeoBundle 'Shougo/neobundle-vim-recipes', { 'force' : 1 }
 
 " Libraries: library plugins/bundles {{{1
-" WebAPI: {{{2
-
-NeoBundleLazy 'mattn/webapi-vim', {
-            \   'autoload': {
-            \       'functions': 'webapi#',
-            \   },
-            \}
-
 " Vim Misc: ...by xolox {{{2
 
 NeoBundleLazy 'xolox/vim-misc', {
@@ -839,7 +847,6 @@ let g:gist_get_multiplefile       = 1
 
 NeoBundleLazy 'mattn/gist-vim', {
             \ 'autoload': { 'commands': 'Gist' },
-            \ 'depends': [ 'webapi-vim' ],
             \ 'verbose': 1,
             \}
 
@@ -933,7 +940,7 @@ inoremap <silent> <C-\> <ESC>:TmuxNavigatePrevious<cr>
 " TweetVim: {{{2
 
 NeoBundleLazy 'basyura/twibill.vim'
-NeoBundleLazy 'basyura/bitly.vim', { 'depends': 'webapi-vim' }
+NeoBundleLazy 'basyura/bitly.vim'
 NeoBundleLazy 'tyru/open-browser.vim'
 NeoBundleLazy 'mattn/favstar-vim'
 NeoBundleLazy 'basyura/TweetVim', {
@@ -942,7 +949,6 @@ NeoBundleLazy 'basyura/TweetVim', {
 \   'bitly.vim',
 \   'favstar-vim',
 \   'open-browser.vim',
-\   'webapi-vim',
 \ ],
 \ 'autoload': { 'commands' : [ 'TweetVimHomeTimeline', 'TweetVimSay', 'TweetVimCommandSay' ] },
 \ 'verbose': 1,
@@ -1361,7 +1367,7 @@ NeoBundleLazy 'markcornick/vim-packer', {
             \   },
             \   'verbose': 1,
             \}
-
++
 " Abolish: NEEDS CONFIGURATION {{{2
 
 NeoBundleLazy 'tpope/vim-abolish'
@@ -1518,7 +1524,7 @@ NeoBundleLazy 'rafi/vim-unite-issue', {
             \   'directory': 'unite-issue',
             \   'unite_sources': [ 'issue' ],
             \   'depends': [
-            \       'webapi-vim', 'open-browser.vim', 'unite.vim',
+            \       'open-browser.vim', 'unite.vim',
             \   ],
             \}
 
@@ -1527,7 +1533,7 @@ NeoBundleLazy 'rafi/vim-unite-issue', {
 NeoBundleLazy 'joker1007/unite-pull-request', {
             \   'unite_sources': [ 'pull-request' ],
             \   'depends': [
-            \       'webapi-vim', 'unite.vim',
+            \       'unite.vim',
             \   ],
             \}
 
@@ -1689,6 +1695,7 @@ NeoBundleLazy 'wesQ3/vim-windowswap'
 
 " }}}2
 NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
+NeoBundle 'jtratner/vim-flavored-markdown'
 NeoBundle 'vim-scripts/gtk-vim-syntax'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'mhinz/vim-tmuxify'
