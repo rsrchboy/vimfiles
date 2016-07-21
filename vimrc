@@ -139,6 +139,8 @@ Plug 'altercation/vim-colors-solarized'
 " Trial Bundles: maybe, maybe not! {{{1
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-syntax' " , { 'depends': 'vim-textobj-user' }
+" filetype
+Plug 'jtratner/vim-flavored-markdown'
 
 " VimPlug END: "strategic" plugin manager ;) {{{1
 call plug#end()
@@ -1620,7 +1622,6 @@ NeoBundleLazy 'wesQ3/vim-windowswap'
 
 " }}}2
 NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
-NeoBundle 'jtratner/vim-flavored-markdown'
 NeoBundle 'vim-scripts/gtk-vim-syntax'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'mhinz/vim-tmuxify'
