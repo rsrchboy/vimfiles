@@ -14,6 +14,10 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 
 " Libraries: library plugins/bundles {{{1
+" Vim Misc: ...by xolox {{{2
+
+Plug 'xolox/vim-misc'
+
 " Ingo Library: {{{2"{{{"}}}
 
 " NOTE: no non-autoload viml
@@ -181,16 +185,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "NeoBundle 'Shougo/neobundle-vim-recipes', { 'force' : 1 }
 
 " Libraries: library plugins/bundles {{{1
-" Vim Misc: ...by xolox {{{2
-
-NeoBundleLazy 'xolox/vim-misc', {
-            \   'autoload': {
-            \       'functions': 'xolox#misc#',
-            \   },
-            \   'verbose': 0,
-            \}
-
-
 " TLib: {{{2
 
 NeoBundleLazy 'tomtom/tlib_vim', {
@@ -1212,7 +1206,6 @@ NeoBundleLazy 'tpope/vim-scriptease', {
 " sooooo.... yeah.  may have to try these suckers out independently.
 
 NeoBundleLazy 'xolox/vim-lua-ftplugin', {
-            \   'depends': 'vim-misc',
             \   'autoload': {
             \       'filetypes': 'lua',
             \   },
@@ -1220,7 +1213,6 @@ NeoBundleLazy 'xolox/vim-lua-ftplugin', {
             \}
 
 NeoBundleLazy 'xolox/vim-lua-inspect', {
-            \   'depends': 'vim-misc',
             \   'autoload': {
             \       'filetypes': 'lua',
             \   },
@@ -1609,7 +1601,6 @@ let g:notes_directories = [ '~/notes' ]
 let g:notes_suffix = '.notes'
 
 NeoBundleLazy 'xolox/vim-notes', {
-            \   'depends': 'vim-misc',
             \   'autoload': {
             \       'commands': [
             \           {
