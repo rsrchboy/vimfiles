@@ -25,6 +25,8 @@ Plug 'thinca/vim-ref'
 Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+
 
 " Libraries: library plugins/bundles {{{1
 " Vim Misc: ...by xolox {{{2
@@ -334,10 +336,6 @@ NeoBundleLazy 'tpope/vim-dispatch', {
 " }}}2
 
 " General Bundles: {{{1
-" NumberToggle: {{{2
-
-NeoBundle 'jeffkreeftmeijer/vim-numbertoggle'
-
 " VimGnuPG: transparently work with encrypted files {{{2
 
 NeoBundleLazy 'jamessan/vim-gnupg', {
