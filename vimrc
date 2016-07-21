@@ -41,6 +41,8 @@ Plug 'mattn/webapi-vim'
 " GIT And Version Controlish: bundles {{{1
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 
+" Trial Bundles: maybe, maybe not! {{{1
+
 " VimPlug END: "strategic" plugin manager ;) {{{1
 call plug#end()
 
