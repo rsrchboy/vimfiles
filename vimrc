@@ -46,6 +46,8 @@ Plug 'mattn/webapi-vim'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 
 " Trial Bundles: maybe, maybe not! {{{1
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-syntax' " , { 'depends': 'vim-textobj-user' }
 
 " VimPlug END: "strategic" plugin manager ;) {{{1
 call plug#end()
@@ -1715,9 +1717,6 @@ NeoBundle 'tpope/vim-speeddating'
 " see https://github.com/LucHermitte/local_vimrc
 "NeoBundle 'LucHermitte/lh-vim-lib', {'name': 'lh-vim-lib'}
 "NeoBundle 'LucHermitte/local_vimrc', {'depends': 'lh-vim-lib'}
-" FIXME TODO need b:endwise_* settings for perl!
-NeoBundle 'kana/vim-textobj-user'
-NeoBundle 'kana/vim-textobj-syntax', { 'depends': 'vim-textobj-user' }
 
 " Probation: {{{1
 NeoBundleLazy 'scrooloose/nerdcommenter'
