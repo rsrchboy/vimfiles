@@ -17,6 +17,14 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-capslock'
+Plug 'DataWraith/auto_mkdir'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tsaleh/vim-align'
+Plug 'thinca/vim-ref'
+Plug 'Townk/vim-autoclose'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-eunuch'
 
 " Libraries: library plugins/bundles {{{1
 " Vim Misc: ...by xolox {{{2
@@ -86,6 +94,20 @@ augroup END
 
 " }}}2
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
+
+" General Syntax And Filetype Plugins: bundles {{{1
+Plug 'RsrchBoy/vim-sshauthkeys'
+Plug 'zaiste/tmux.vim'
+Plug 'argent-smith/JSON.vim'
+Plug 'tmatilai/gitolite.vim'
+Plug 'evanmiller/nginx-vim-syntax'
+Plug 'vim-scripts/iptables'
+Plug 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
+Plug 'smancill/conky-syntax.vim'
+Plug 'apeschel/vim-syntax-syslog-ng'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'groenewege/vim-less'
+Plug 'kurayama/systemd-vim-syntax'
 
 " Trial Bundles: maybe, maybe not! {{{1
 Plug 'kana/vim-textobj-user'
@@ -674,13 +696,6 @@ NeoBundle 'MarcWeber/vim-addon-mw-utils'
 NeoBundle 'garbas/vim-snipmate', { 'depends': 'vim-addon-mw-utils' }
 
 " }}}2
-NeoBundle 'DataWraith/auto_mkdir'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tsaleh/vim-align'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'Townk/vim-autoclose'
-NeoBundle 'tpope/vim-commentary'
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
@@ -1038,7 +1053,6 @@ NeoBundleLazy 'vim-scripts/vimwiki', {
             \}
 
 " }}}2
-NeoBundle 'tpope/vim-eunuch'
 
 " OS Specific Bundles: OSX {{{1
 " Vitality: iTerm2/tmux {{{2
@@ -1264,19 +1278,6 @@ NeoBundleLazy 'kergoth/vim-hilinks', {
 
 " }}}2
 NeoBundleLazy 'nono/jquery.vim', { 'autoload': { 'filetypes': 'jquery' } }
-" FIXME ...ftdetect neobundle cache is hosed for the next?! (autoload on ft fails)
-NeoBundle 'RsrchBoy/vim-sshauthkeys', { 'autoload': { 'filetypes': 'sshauthkeys' } }
-NeoBundle 'zaiste/tmux.vim'
-NeoBundle 'argent-smith/JSON.vim'
-NeoBundle 'tmatilai/gitolite.vim'
-NeoBundle 'evanmiller/nginx-vim-syntax'
-NeoBundle 'vim-scripts/iptables'
-NeoBundle 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
-NeoBundle 'smancill/conky-syntax.vim'
-NeoBundle 'apeschel/vim-syntax-syslog-ng'
-NeoBundle 'ekalinin/Dockerfile.vim'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'kurayama/systemd-vim-syntax'
 
 " Trial Bundles: maybe, maybe not! {{{1
 " LazyList: {{{2
