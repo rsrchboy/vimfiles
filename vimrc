@@ -109,6 +109,23 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'groenewege/vim-less'
 Plug 'kurayama/systemd-vim-syntax'
 
+" ColorSchemes: {{{1
+" ZenBurn: {{{2
+
+let g:zenburn_high_Contrast = 1
+let g:zenburn_transparent   = 1
+
+Plug 'jnurmine/Zenburn'
+
+" Solarized: {{{2
+
+let g:solarized_termtrans = 1
+"let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
+
+Plug 'altercation/vim-colors-solarized'
+
+" }}}2
+
 " Trial Bundles: maybe, maybe not! {{{1
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-syntax' " , { 'depends': 'vim-textobj-user' }
@@ -694,23 +711,6 @@ NeoBundle     'vim-scripts/AutoAlign', { 'depends': 'Align' }
 
 NeoBundle 'MarcWeber/vim-addon-mw-utils'
 NeoBundle 'garbas/vim-snipmate', { 'depends': 'vim-addon-mw-utils' }
-
-" }}}2
-
-" ColorSchemes: {{{1
-" ZenBurn: {{{2
-
-let g:zenburn_high_Contrast = 1
-let g:zenburn_transparent   = 1
-
-NeoBundle 'jnurmine/Zenburn'
-
-" Solarized: {{{2
-
-let g:solarized_termtrans = 1
-"let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
-
-NeoBundle 'altercation/vim-colors-solarized'
 
 " }}}2
 
