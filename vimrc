@@ -14,6 +14,8 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-endwise'
 
 " Libraries: library plugins/bundles {{{1
 " Vim Misc: ...by xolox {{{2
@@ -1714,10 +1716,8 @@ NeoBundle 'tpope/vim-speeddating'
 "NeoBundle 'LucHermitte/lh-vim-lib', {'name': 'lh-vim-lib'}
 "NeoBundle 'LucHermitte/local_vimrc', {'depends': 'lh-vim-lib'}
 " FIXME TODO need b:endwise_* settings for perl!
-NeoBundle 'tpope/vim-endwise'
 NeoBundle 'kana/vim-textobj-user'
 NeoBundle 'kana/vim-textobj-syntax', { 'depends': 'vim-textobj-user' }
-NeoBundle 'tpope/vim-vinegar'
 
 " Probation: {{{1
 NeoBundleLazy 'scrooloose/nerdcommenter'
