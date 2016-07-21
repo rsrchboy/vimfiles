@@ -12,6 +12,8 @@ call plug#begin()
 
 " General Bundles: {{{1
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-unimpaired'
 
 " Libraries: library plugins/bundles {{{1
 " Vim Misc: ...by xolox {{{2
@@ -1368,10 +1370,6 @@ NeoBundleLazy 'markcornick/vim-packer', {
             \   'verbose': 1,
             \}
 +
-" Abolish: NEEDS CONFIGURATION {{{2
-
-NeoBundleLazy 'tpope/vim-abolish'
-
 " Afterimage: because... too cool. {{{2
 
 " I'm not sure I'll ever use this... but dang.
@@ -1382,10 +1380,6 @@ NeoBundleLazy 'tpope/vim-afterimage', {
             \   },
             \   'verbose': 1,
             \}
-
-" Umimpaired: {{{2
-
-NeoBundle 'tpope/vim-unimpaired'
 
 " MultipleCursors: {{{2
 
