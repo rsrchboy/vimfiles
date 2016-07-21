@@ -43,6 +43,16 @@ Plug 'mattn/webapi-vim'
 " }}}2
 
 " GIT And Version Controlish: bundles {{{1
+" Gist: {{{2
+
+let g:gist_detect_filetype        = 1
+let g:gist_clip_command           = 'xclip -selection clipboard'
+let g:gist_post_private           = 1
+let g:gist_show_privates          = 1
+let g:gist_get_multiplefile       = 1
+
+Plug 'mattn/gist-vim', { 'on': 'Gist' }
+
 " Signify: {{{2
 
 Plug 'mhinz/vim-signify'
@@ -874,19 +884,6 @@ NeoBundleLazy 'bartman/git-wip', {
             \   'rtp': 'vim',
             \   'autoload': { 'insert': 1 },
             \   'verbose': 1,
-            \}
-
-" Gist: {{{2
-
-let g:gist_detect_filetype        = 1
-let g:gist_clip_command           = 'xclip -selection clipboard'
-let g:gist_post_private           = 1
-let g:gist_show_privates          = 1
-let g:gist_get_multiplefile       = 1
-
-NeoBundleLazy 'mattn/gist-vim', {
-            \ 'autoload': { 'commands': 'Gist' },
-            \ 'verbose': 1,
             \}
 
 " }}}2
