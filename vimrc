@@ -98,6 +98,10 @@ augroup END
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 
 " General Syntax And Filetype Plugins: bundles {{{1
+Plug 'tpope/vim-git'
+Plug 'othree/html5-syntax.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'cespare/vim-toml'
 Plug 'RsrchBoy/vim-sshauthkeys'
 Plug 'zaiste/tmux.vim'
 Plug 'argent-smith/JSON.vim'
@@ -1108,47 +1112,11 @@ NeoBundleLazy 'vim-scripts/log4perl.vim', { 'autoload': { 'filetypes': 'log4perl
 NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
 " General Syntax And Filetype Plugins: bundles {{{1
-" TomL: {{{2
-
-NeoBundleLazy 'cespare/vim-toml', {
-            \   'autoload': {
-            \       'filetypes': 'toml',
-            \   },
-            \   'verbose': 1,
-            \}
-
 " mediawiki {{{2
 
 NeoBundleLazy 'chikamichi/mediawiki.vim', {
             \   'autoload': {
             \       'filetypes': 'mediawiki',
-            \   },
-            \   'verbose': 1,
-            \}
-
-" Git: {{{2
-
-NeoBundleLazy 'tpope/vim-git', {
-            \   'autoload': {
-            \       'filetypes': [ 'git', 'gitcommit', 'gitrebase', 'gitsendemail', 'gitconfig' ],
-            \   },
-            \   'verbose': 1,
-            \}
-
-" HTML5: {{{2
-
-NeoBundleLazy 'othree/html5-syntax.vim', {
-            \   'autoload': {
-            \       'filetypes': ['html5', 'html.html5'],
-            \   },
-            \   'verbose': 1,
-            \}
-
-" Ruby: {{{2
-
-NeoBundleLazy 'vim-ruby/vim-ruby', {
-            \   'autoload': {
-            \       'filetypes': [ 'ruby', 'eruby' ],
             \   },
             \   'verbose': 1,
             \}
