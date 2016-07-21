@@ -43,6 +43,37 @@ Plug 'mattn/webapi-vim'
 " }}}2
 
 " GIT And Version Controlish: bundles {{{1
+" Signify: {{{2
+
+Plug 'mhinz/vim-signify'
+
+" Mappings: {{{3
+
+nmap <leader>gj <Plug>(signify-next-hunk)
+nmap <leader>gk <Plug>(signify-prev-hunk)
+
+" Settings: {{{3
+
+" TODO: need to handle "normal" sign column
+let g:signify_vcs_list      = [ 'git' ]
+let g:signify_skip_filetype = { 'gitcommit': 1 }
+
+" NOTE: This also saves the buffer to disk!
+let g:signify_update_on_bufenter    = 1
+let g:signify_update_on_focusgained = 1
+let g:signify_cursorhold_normal     = 0
+let g:signify_cursorhold_insert     = 0
+
+" AutoCommands: {{{3
+
+augroup vimrc-Signify
+    autocmd!
+
+    autocmd BufEnter * call sy#start()
+    autocmd WinEnter * call sy#start()
+augroup END
+
+" }}}2
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 
 " Trial Bundles: maybe, maybe not! {{{1
@@ -857,42 +888,6 @@ NeoBundleLazy 'mattn/gist-vim', {
             \ 'autoload': { 'commands': 'Gist' },
             \ 'verbose': 1,
             \}
-
-" Signify: {{{2
-
-NeoBundle 'mhinz/vim-signify', {
-            \   'augroup': 'signify',
-            \   'autoload': {
-            \       'functions': 'sy#',
-            \       'mappings': '<Plug>(signify-',
-            \   },
-            \}
-
-" Mappings: {{{3
-
-nmap <leader>gj <Plug>(signify-next-hunk)
-nmap <leader>gk <Plug>(signify-prev-hunk)
-
-" Settings: {{{3
-
-" TODO: need to handle "normal" sign column
-let g:signify_vcs_list      = [ 'git' ]
-let g:signify_skip_filetype = { 'gitcommit': 1 }
-
-" NOTE: This also saves the buffer to disk!
-let g:signify_update_on_bufenter    = 1
-let g:signify_update_on_focusgained = 1
-let g:signify_cursorhold_normal     = 0
-let g:signify_cursorhold_insert     = 0
-
-" AutoCommands: {{{3
-
-augroup vimrc-Signify
-    autocmd!
-
-    autocmd BufEnter * call sy#start()
-    autocmd WinEnter * call sy#start()
-augroup END
 
 " }}}2
 NeoBundle 'vim-scripts/ConflictMotions'
