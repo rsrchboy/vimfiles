@@ -54,6 +54,97 @@ Plug 'mattn/webapi-vim'
 " }}}2
 
 " GIT And Version Controlish: bundles {{{1
+" Fugitive: {{{2
+
+" FIXME Gfixup is a work in progress
+command! -nargs=? Gfixup :Gcommit --fixup=HEAD <q-args>
+
+" {,re}mappings {{{3
+" this is a cross between the old git-vim commands I'm used to, but invoking
+" fugitive instead.
+
+nmap <silent> <Leader>gs :Gstatus<Enter>
+nmap <silent> <Leader>gd :call Gitv_OpenGitCommand("diff --no-color -- ".expand('%'), 'new')<CR>
+nmap <silent> <Leader>gD :call Gitv_OpenGitCommand("diff --no-color --cached %", 'new')<CR>
+nmap <silent> <Leader>gh :call Gitv_OpenGitCommand("show --no-color", 'new')<CR>
+nmap <silent> <Leader>ga :Gwrite<bar>call sy#start()<CR>
+nmap <silent> <Leader>gc :Gcommit<Enter>
+nmap <silent> <Leader>gf :Gcommit --fixup HEAD<CR>
+nmap <silent> <Leader>gF :Gcommit --fixup 'HEAD~'<CR>
+nmap <silent> <Leader>gS :Gcommit --squash HEAD
+
+" trial -- intent to add
+nmap <silent> <Leader>gI :Git add --intent-to-add %<bar>call sy#start()<CR>
+
+nmap <silent> <Leader>gA :Git add -pi %<bar>call sy#start()<CR>
+nmap <silent> <Leader>gl :Git lol<Enter>
+nmap <silent> <Leader>gD :Git! diff --word-diff %<Enter>
+nmap <silent> <Leader>gp :Git push<Enter>
+nmap <silent> <Leader>gb :Gblame -w<Enter>
+
+nmap <silent> <leader>gv :Gitv<cr>
+nmap <silent> <leader>gV :Gitv!<cr>
+
+" make handling indexes a little easier {{{3
+
+" This section very happily stolen from / based on:
+" https://github.com/aaronjensen/vimfiles/blob/master/vimrc
+
+function! BufReadIndex()
+  setlocal cursorline
+  setlocal nohlsearch
+
+  nnoremap <buffer> <silent> j :call search('^#\t.*','W')<Bar>.<CR>
+  nnoremap <buffer> <silent> k :call search('^#\t.*','Wbe')<Bar>.<CR>
+endfunction
+
+function! BufEnterCommit()
+  setlocal filetype=gitcommit
+  setlocal nonumber
+  setlocal spell spelllang=en_us spellcapcheck=0
+  setlocal foldcolumn=0
+  setlocal textwidth=72
+  normal gg0
+  if getline('.') == ''
+    start
+  end
+endfunction
+
+" autocmds (e.g. for pull req, tag edits, etc...) {{{3
+
+augroup vimrc-fugitive
+    au!
+
+    " Use j/k in status
+    autocmd BufReadCmd *.git/index             exe BufReadIndex()
+    autocmd BufReadCmd *.git/worktrees/*/index exe BufReadIndex()
+    autocmd BufEnter   *.git/index             silent normal j
+    autocmd BufEnter   *.git/worktrees/*/index silent normal j
+
+    " the 'hub' tool creates a number of comment files formatted in the same way
+    " as a git commit message.
+    autocmd BufEnter *.git/**/*_EDITMSG exe BufEnterCommit()
+
+    " Automatically remove fugitive buffers
+    autocmd BufReadPost fugitive://* set bufhidden=delete
+
+    " e.g. after we did something :Dispatchy, like :Gfetch
+    au QuickFixCmdPost .git/**/index call fugitive#reload_status()
+
+    " on buffer initialization, set our work and common dirs
+    au User Fugitive     let b:git_worktree  = fugitive#buffer().repo().tree()
+    au User FugitiveBoot let b:git_commondir = fugitive#buffer().repo().git_chomp('rev-parse','--git-common-dir')
+augroup END
+" }}}3
+
+" "plugins"
+
+Plug 'tpope/vim-rhubarb'
+
+" Origin: is really 'tpope/vim-fugitive', but there's some git-workdirs fixes
+" I'm pulling into my own fork that I'm needing at the moment.
+Plug 'tpope/vim-fugitive'
+
 " Gist: {{{2
 
 let g:gist_detect_filetype        = 1
@@ -724,100 +815,6 @@ NeoBundle 'garbas/vim-snipmate', { 'depends': 'vim-addon-mw-utils' }
 " }}}2
 
 " GIT And Version Controlish: bundles {{{1
-" Fugitive: {{{2
-
-" FIXME Gfixup is a work in progress
-command! -nargs=? Gfixup :Gcommit --fixup=HEAD <q-args>
-
-" {,re}mappings {{{3
-" this is a cross between the old git-vim commands I'm used to, but invoking
-" fugitive instead.
-
-nmap <silent> <Leader>gs :Gstatus<Enter>
-nmap <silent> <Leader>gd :call Gitv_OpenGitCommand("diff --no-color -- ".expand('%'), 'new')<CR>
-nmap <silent> <Leader>gD :call Gitv_OpenGitCommand("diff --no-color --cached %", 'new')<CR>
-nmap <silent> <Leader>gh :call Gitv_OpenGitCommand("show --no-color", 'new')<CR>
-nmap <silent> <Leader>ga :Gwrite<bar>call sy#start()<CR>
-nmap <silent> <Leader>gc :Gcommit<Enter>
-nmap <silent> <Leader>gf :Gcommit --fixup HEAD<CR>
-nmap <silent> <Leader>gF :Gcommit --fixup 'HEAD~'<CR>
-nmap <silent> <Leader>gS :Gcommit --squash HEAD
-
-" trial -- intent to add
-nmap <silent> <Leader>gI :Git add --intent-to-add %<bar>call sy#start()<CR>
-
-nmap <silent> <Leader>gA :Git add -pi %<bar>call sy#start()<CR>
-nmap <silent> <Leader>gl :Git lol<Enter>
-nmap <silent> <Leader>gD :Git! diff --word-diff %<Enter>
-nmap <silent> <Leader>gp :Git push<Enter>
-nmap <silent> <Leader>gb :Gblame -w<Enter>
-
-nmap <silent> <leader>gv :Gitv<cr>
-nmap <silent> <leader>gV :Gitv!<cr>
-
-" make handling indexes a little easier {{{3
-
-" This section very happily stolen from / based on:
-" https://github.com/aaronjensen/vimfiles/blob/master/vimrc
-
-function! BufReadIndex()
-  setlocal cursorline
-  setlocal nohlsearch
-
-  nnoremap <buffer> <silent> j :call search('^#\t.*','W')<Bar>.<CR>
-  nnoremap <buffer> <silent> k :call search('^#\t.*','Wbe')<Bar>.<CR>
-endfunction
-
-function! BufEnterCommit()
-  setlocal filetype=gitcommit
-  setlocal nonumber
-  setlocal spell spelllang=en_us spellcapcheck=0
-  setlocal foldcolumn=0
-  setlocal textwidth=72
-  normal gg0
-  if getline('.') == ''
-    start
-  end
-endfunction
-
-" autocmds (e.g. for pull req, tag edits, etc...) {{{3
-
-augroup vimrc-fugitive
-    au!
-
-    " Use j/k in status
-    autocmd BufReadCmd *.git/index             exe BufReadIndex()
-    autocmd BufReadCmd *.git/worktrees/*/index exe BufReadIndex()
-    autocmd BufEnter   *.git/index             silent normal j
-    autocmd BufEnter   *.git/worktrees/*/index silent normal j
-
-    " the 'hub' tool creates a number of comment files formatted in the same way
-    " as a git commit message.
-    autocmd BufEnter *.git/**/*_EDITMSG exe BufEnterCommit()
-
-    " Automatically remove fugitive buffers
-    autocmd BufReadPost fugitive://* set bufhidden=delete
-
-    " e.g. after we did something :Dispatchy, like :Gfetch
-    au QuickFixCmdPost .git/**/index call fugitive#reload_status()
-
-    " on buffer initialization, set our work and common dirs
-    au User Fugitive     let b:git_worktree  = fugitive#buffer().repo().tree()
-    au User FugitiveBoot let b:git_commondir = fugitive#buffer().repo().git_chomp('rev-parse','--git-common-dir')
-augroup END
-" }}}3
-
-" "plugins"
-
-NeoBundle 'tpope/vim-rhubarb'
-
-" Origin: is really 'tpope/vim-fugitive', but there's some git-workdirs fixes
-" I'm pulling into my own fork that I'm needing at the moment.
-NeoBundle 'RsrchBoy/vim-fugitive', {
-            \   'augroup': 'fugitive',
-            \   'depends': [ 'vim-dispatch', 'vim-rhubarb' ],
-            \}
-
 " Gitv: {{{2
 
 " Settings: {{{3
@@ -864,7 +861,6 @@ NeoBundleLazy 'RsrchBoy/gitv', {
             \   ],
             \   'functions': 'Gitv_OpenGitCommand',
             \ },
-            \ 'depends': ['vim-fugitive'],
             \ 'verbose': 1,
             \}
 
@@ -1336,7 +1332,6 @@ endfunction
 " Extradite: gitv-ish...? {{{2
 
 NeoBundleLazy 'int3/vim-extradite', {
-            \   'depends': 'vim-fugitive',
             \   'autoload': {
             \       'commands': 'Extradite',
             \   },
@@ -1425,7 +1420,7 @@ NeoBundleLazy 'NLKNguyen/pipe-mysql.vim', {
 
 " Gerrit Code Review: ...maybe we can make life easier {{{2
 
-NeoBundleLazy 'stargrave/gerrvim', { 'depends': 'vim-fugitive' }
+NeoBundleLazy 'stargrave/gerrvim'
 
 NeoBundleLazy 'itissid/gv', {
             \   'disable': !has('python'),
@@ -1461,7 +1456,7 @@ NeoBundle 'RsrchBoy/vim-jira-open'
 " }}}2
 
 " VimGitLog: lazy {{{2
-NeoBundleLazy 'kablamo/vim-git-log', { 'depends': 'vim-fugitive', 'autoload': { 'commands': 'GitLog' }, 'verbose': 1 }
+NeoBundleLazy 'kablamo/vim-git-log', { 'autoload': { 'commands': 'GitLog' }, 'verbose': 1 }
 
 " TSkeletons: {{{2
 
