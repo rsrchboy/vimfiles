@@ -14,6 +14,20 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 
 " Libraries: library plugins/bundles {{{1
+" Ingo Library: {{{2"{{{"}}}
+
+" NOTE: no non-autoload viml
+
+Plug 'vim-scripts/ingo-library'
+
+" CountJump: {{{2
+
+" NOTE: no non-autoload viml
+
+" depends: ingo-library
+
+Plug 'vim-scripts/CountJump'
+
 " WebAPI: {{{2
 
 Plug 'mattn/webapi-vim'
@@ -176,14 +190,6 @@ NeoBundleLazy 'xolox/vim-misc', {
             \   'verbose': 0,
             \}
 
-" Ingo Library: {{{2
-
-NeoBundleLazy 'vim-scripts/ingo-library', {
-            \   'autoload': {
-            \       'functions': 'ingo#',
-            \   },
-            \   'verbose': 0,
-            \}
 
 " TLib: {{{2
 
@@ -195,7 +201,6 @@ NeoBundleLazy 'tomtom/tlib_vim', {
             \}
 
 " }}}2
-NeoBundleLazy 'vim-scripts/CountJump', { 'depends': 'ingo-library' }
 
 " Process Execution Bundles: {{{1
 " Dispatch Via Shell: a "glue" plugin? {{{2
@@ -888,8 +893,8 @@ augroup vimrc-Signify
 augroup END
 
 " }}}2
-NeoBundle 'vim-scripts/ConflictMotions',   { 'depends': [ 'CountJump' ] }
-NeoBundle 'vim-scripts/ConflictDetection', { 'depends': [ 'CountJump' ] }
+NeoBundle 'vim-scripts/ConflictMotions'
+NeoBundle 'vim-scripts/ConflictDetection'
 
 " Appish Or External Interface: bundles {{{1
 " Terraform: {{{2
