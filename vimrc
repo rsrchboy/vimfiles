@@ -116,6 +116,8 @@ Plug 'apeschel/vim-syntax-syslog-ng'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'groenewege/vim-less'
 Plug 'kurayama/systemd-vim-syntax'
+Plug 'tpope/vim-haml'
+
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
@@ -1175,9 +1177,6 @@ NeoBundleLazy 'WolfgangMehner/lua-support', {
             \   },
             \   'verbose': 1,
             \}
-
-" haml {{{2
-NeoBundleLazy 'tpope/vim-haml', { 'autoload': { 'filetypes': ['haml','sass','scss'] } }
 
 " puppet {{{2
 NeoBundleLazy 'puppetlabs/puppet-syntax-vim', { 'autoload': { 'filetypes': 'puppet' } }
