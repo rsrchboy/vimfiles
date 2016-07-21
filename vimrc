@@ -117,7 +117,8 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'groenewege/vim-less'
 Plug 'kurayama/systemd-vim-syntax'
 Plug 'tpope/vim-haml'
-
+Plug 'nono/jquery.vim'
+Plug 'fmoralesc/vim-pinpoint'
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
@@ -1222,16 +1223,6 @@ NeoBundleLazy 'fatih/vim-go', {
 \ },
 \ 'verbose': 1,
 \}
-" vim-pinpoint {{{2
-
-NeoBundleLazy 'fmoralesc/vim-pinpoint', {
-            \   'autoload': {
-            \       'filetypes': 'pinpoint',
-            \       'filename_patterns': '\.pin$',
-            \   },
-            \   'verbose': 1,
-            \}
-
 " HiLinks: see the stack of syntax for the current text {{{2
 
 NeoBundleLazy 'kergoth/vim-hilinks', {
@@ -1244,7 +1235,6 @@ NeoBundleLazy 'kergoth/vim-hilinks', {
             \}
 
 " }}}2
-NeoBundleLazy 'nono/jquery.vim', { 'autoload': { 'filetypes': 'jquery' } }
 
 " Trial Bundles: maybe, maybe not! {{{1
 " LazyList: {{{2
