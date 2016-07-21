@@ -96,6 +96,8 @@ augroup END
 
 " }}}2
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
+Plug 'vim-scripts/ConflictMotions'
+Plug 'vim-scripts/ConflictDetection'
 
 " General Syntax And Filetype Plugins: bundles {{{1
 Plug 'tpope/vim-git'
@@ -874,8 +876,6 @@ NeoBundleLazy 'bartman/git-wip', {
             \}
 
 " }}}2
-NeoBundle 'vim-scripts/ConflictMotions'
-NeoBundle 'vim-scripts/ConflictDetection'
 
 " Appish Or External Interface: bundles {{{1
 " Terraform: {{{2
