@@ -16,6 +16,7 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-capslock'
 
 " Libraries: library plugins/bundles {{{1
 " Vim Misc: ...by xolox {{{2
@@ -474,9 +475,6 @@ let g:airline_theme = 'dark'
 
 " Extensions Config: {{{3
 
-" enabled by a post-load hook for vim-capslock
-let g:airline#extensions#capslock#enabled = 0
-
 let g:airline#extensions#bufferline#enabled           = 0
 let g:airline#extensions#syntastic#enabled            = 1
 let g:airline#extensions#tabline#enabled              = 1
@@ -669,34 +667,6 @@ NeoBundleLazy 'majutsushi/tagbar', {
 
 NeoBundleLazy 'vim-scripts/Align'
 NeoBundle     'vim-scripts/AutoAlign', { 'depends': 'Align' }
-
-" CapsLock: a kinder, gentler capslock {{{2
-
-NeoBundleLazy 'tpope/vim-capslock', {
-            \   'autoload': {
-            \       'mappings': [
-            \           '<Plug>CapsLock',
-            \           [ 'n', 'gC'     ],
-            \           [ 'i', '<C-G>c' ],
-            \       ],
-            \   },
-            \   'verbose': 1,
-            \}
-
-if neobundle#tap('vim-capslock')
-
-    function! neobundle#hooks.on_post_source(bundle)
-
-        " "Hey, Airline -- I exist!"
-        let g:airline#extensions#capslock#enabled = 1
-        call airline#parts#define_function('capslock', 'airline#extensions#capslock#status')
-        unlet g:airline_section_a
-        call airline#init#sections()
-        call airline#update_statusline()
-    endfunction
-
-    call neobundle#untap()
-endif
 
 " Snipmate: {{{2
 
