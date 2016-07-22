@@ -445,9 +445,6 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Recipies: yay for shortcuts! (disabled) {{{1
-"NeoBundle 'Shougo/neobundle-vim-recipes', { 'force' : 1 }
-
 " Libraries: library plugins/bundles {{{1
 " TLib: {{{2
 
