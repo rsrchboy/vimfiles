@@ -210,6 +210,8 @@ augroup END
 
 " }}}2
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
+Plug 'int3/vim-extradite', { 'on': 'Extradite' }
+
 Plug 'vim-scripts/ConflictMotions'
 Plug 'vim-scripts/ConflictDetection'
 
@@ -1282,15 +1284,6 @@ function! Multiple_cursors_after()
 endfunction
 
 " }}}3
-
-" Extradite: gitv-ish...? {{{2
-
-NeoBundleLazy 'int3/vim-extradite', {
-            \   'autoload': {
-            \       'commands': 'Extradite',
-            \   },
-            \   'verbose': 1,
-            \}
 
 " Settings: {{{3
 
