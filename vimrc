@@ -315,6 +315,7 @@ let g:lazylist_maps = [
 Plug 'KabbAmine/lazyList.vim', { 'on': 'LazyList' }
 
 " }}}2
+Plug 'gcmt/taboo.vim', { 'on': [ 'TabooReset', 'TabooOpen', 'TabooRename' ] }
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-syntax' " , { 'depends': 'vim-textobj-user' }
 " filetype
@@ -1572,7 +1573,6 @@ NeoBundle 'tpope/vim-projectionist'
 NeoBundleLazy 'klen/python-mode', { 'autoload': { 'filetypes': 'python' }, 'verbose': 1 }
 " 11 Aug 2015
 NeoBundleLazy 'dhruvasagar/vimmpc', { 'autoload': { 'commands': 'MPC' }, 'verbose': 1, 'disable': !has('python') }
-NeoBundleLazy 'gcmt/taboo.vim'
 NeoBundle 'tpope/vim-speeddating'
 " see https://github.com/LucHermitte/local_vimrc
 "NeoBundle 'LucHermitte/lh-vim-lib', {'name': 'lh-vim-lib'}
