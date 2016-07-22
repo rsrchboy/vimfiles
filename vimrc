@@ -213,6 +213,11 @@ Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'vim-scripts/ConflictMotions'
 Plug 'vim-scripts/ConflictDetection'
 
+" Perl Bundles: {{{1
+Plug 'vim-perl/vim-perl'
+Plug 'LStinson/perlhelp-vim', { 'on': ['PerlHelp', 'PerlMod'] }
+Plug 'vim-scripts/log4perl.vim'
+
 " General Syntax And Filetype Plugins: bundles {{{1
 Plug 'tpope/vim-git'
 Plug 'othree/html5-syntax.vim'
@@ -1069,28 +1074,6 @@ NeoBundleLazy 'sjl/vitality.vim', {
 " }}}2
 
 " Perl Bundles: {{{1
-" PerlHelp: {{{2
-
-" hardly a complete list of commands to load off of, but the
-" common ones I hit at least.
-
-NeoBundleLazy 'LStinson/perlhelp-vim', {
-            \   'autoload': {
-            \       'filetypes': 'perl',
-            \       'commands': ['PerlHelp', 'PerlMod'],
-            \   },
-            \   'verbose': 1,
-            \}
-
-" Perl: the master bundle {{{1
-
-NeoBundleLazy 'vim-perl/vim-perl', {
-            \   'autoload': {
-            \       'filetypes': [ 'perl', 'perl6', 'mason', 'pod', 'tap', 'tt2html', 'tt2js', 'tt2', 'xs' ],
-            \   },
-            \   'verbose': 1,
-            \}
-
 " perl-in-vim bundles {{{2
 
 augroup vimrc-perl-in-vim
@@ -1106,9 +1089,8 @@ augroup END
 NeoBundleLazy 'vim-scripts/update_perl_line_directives',    { 'autoload': { 'filetypes': 'vim.perl' }, 'verbose': 1, 'disabled': !has('perl') }
 NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'filetypes': 'vim.perl' }, 'verbose': 1, 'disabled': !has('perl') }
 " }}}2
-NeoBundleLazy 'vim-scripts/log4perl.vim', { 'autoload': { 'filetypes': 'log4perl' } }
 " NeoBundleLazy 'osfameron/perl-tags-vim',  { 'autoload': { 'filetypes': 'perl'     } }
-NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
+" NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
 " General Syntax And Filetype Plugins: bundles {{{1
 " mediawiki {{{2
