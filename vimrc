@@ -238,6 +238,7 @@ Plug 'kurayama/systemd-vim-syntax'
 Plug 'tpope/vim-haml'
 Plug 'nono/jquery.vim'
 Plug 'fmoralesc/vim-pinpoint'
+Plug 'vim-scripts/deb.vim'
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
@@ -1185,11 +1186,6 @@ NeoBundleLazy 'vadv/vim-chef', {
 \       'vim-snipmate',
 \   ],
 \   'verbose': 1,
-\}
-" deb.vim {{{2
-NeoBundleLazy 'vim-scripts/deb.vim', {
-\ 'autoload': { 'filename_patterns': '\.deb$' },
-\ 'verbose': 1,
 \}
 " vim-go {{{2
 NeoBundleLazy 'fatih/vim-go', {
