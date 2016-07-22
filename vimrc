@@ -305,6 +305,16 @@ Plug 'jtratner/vim-flavored-markdown'
 " unite
 Plug 'Shougo/unite.vim'
 
+" Unmanaged Plugins: {{{1
+" Grrrit: gerrit interface... ish {{{2
+
+" still in development
+
+Plug 'RsrchBoy/vim-grrrit', { 'on': 'GrrritChanges' }
+" Plug '~/work/vim/vim-grrrit', { 'on': 'GrrritChanges' }
+
+" }}}2
+
 " VimPlug END: "strategic" plugin manager ;) {{{1
 call plug#end()
 
@@ -964,16 +974,6 @@ NeoBundleLazy 'aquach/vim-mediawiki-editor', {
             \   'autoload': {
             \       'filetypes': 'mediawiki',
             \       'commands': ['MWRead', 'MWWrite', 'MWBrowse'],
-            \   },
-            \   'verbose': 1,
-            \}
-
-" Grrrit: gerrit interface... ish {{{2
-
-NeoBundleLazy 'RsrchBoy/vim-grrrit', {
-            \   'autoload': {
-            \       'functions': 'grrrit#',
-            \       'commands': 'GrrritChanges',
             \   },
             \   'verbose': 1,
             \}
