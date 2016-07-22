@@ -53,6 +53,29 @@ Plug 'mattn/webapi-vim'
 
 " }}}2
 
+" Appish Or External Interface: bundles {{{1
+" Calendar: +config {{{2
+
+let g:calendar_google_calendar = 1
+let g:calendar_google_task     = 1
+
+Plug 'itchyny/calendar.vim', { 'on': 'Calendar' }
+
+" Tmux Navigator: {{{2
+
+Plug 'christoomey/vim-tmux-navigator'
+
+" Mappings: move even in insert mode
+inoremap <silent> <C-H> <ESC>:TmuxNavigateLeft<cr>
+inoremap <silent> <C-J> <ESC>:TmuxNavigateDown<cr>
+inoremap <silent> <C-K> <ESC>:TmuxNavigateUp<cr>
+inoremap <silent> <C-L> <ESC>:TmuxNavigateRight<cr>
+inoremap <silent> <C-\> <ESC>:TmuxNavigatePrevious<cr>
+
+" }}}2
+Plug 'diepm/vim-rest-console'
+
+
 " GIT And Version Controlish: bundles {{{1
 " Fugitive: {{{2
 
@@ -890,10 +913,6 @@ NeoBundleLazy 'hashivim/vim-terraform', {
             \   },
             \}
 
-" REST Console: {{{2
-
-NeoBundleLazy 'diepm/vim-rest-console'
-
 " MediaWiki Editor: {{{2
 
 NeoBundleLazy 'aquach/vim-mediawiki-editor', {
@@ -915,17 +934,6 @@ NeoBundleLazy 'RsrchBoy/vim-grrrit', {
             \   },
             \   'verbose': 1,
             \}
-
-" Tmux Navigator: {{{2
-
-NeoBundle 'christoomey/vim-tmux-navigator'
-
-" Mappings: move even in insert mode
-inoremap <silent> <C-H> <ESC>:TmuxNavigateLeft<cr>
-inoremap <silent> <C-J> <ESC>:TmuxNavigateDown<cr>
-inoremap <silent> <C-K> <ESC>:TmuxNavigateUp<cr>
-inoremap <silent> <C-L> <ESC>:TmuxNavigateRight<cr>
-inoremap <silent> <C-\> <ESC>:TmuxNavigatePrevious<cr>
 
 " TweetVim: {{{2
 
@@ -994,18 +1002,6 @@ NeoBundleLazy 'pentie/VimRepress', {
 \ 'disabled': !has('python'),
 \ 'verbose': 1,
 \}
-" Calendar: +config {{{2
-
-let g:calendar_google_calendar = 1
-let g:calendar_google_task     = 1
-
-NeoBundleLazy 'itchyny/calendar.vim', {
-\ 'autoload': {
-\   'commands': 'Calendar',
-\ },
-\ 'verbose': 1,
-\}
-
 " Vitra: Trac interface {{{2
 
 " NOTE: we don't actually use this plugin anymore, not having need to access
@@ -1086,7 +1082,7 @@ NeoBundleLazy 'LStinson/perlhelp-vim', {
             \   'verbose': 1,
             \}
 
-" Perl: the master bundle {{{2
+" Perl: the master bundle {{{1
 
 NeoBundleLazy 'vim-perl/vim-perl', {
             \   'autoload': {
