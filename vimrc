@@ -26,7 +26,8 @@ Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-
+Plug 'vim-scripts/Align'
+Plug 'vim-scripts/AutoAlign'
 
 " Libraries: library plugins/bundles {{{1
 " Vim Misc: ...by xolox {{{2
@@ -897,11 +898,6 @@ NeoBundleLazy 'majutsushi/tagbar', {
             \   },
             \   'verbose': 1,
             \}
-
-" AutoAlign: {{{2
-
-NeoBundleLazy 'vim-scripts/Align'
-NeoBundle     'vim-scripts/AutoAlign', { 'depends': 'Align' }
 
 " Snipmate: {{{2
 
