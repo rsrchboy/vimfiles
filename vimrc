@@ -219,6 +219,18 @@ Plug 'LStinson/perlhelp-vim', { 'on': ['PerlHelp', 'PerlMod'] }
 Plug 'vim-scripts/log4perl.vim'
 
 " General Syntax And Filetype Plugins: bundles {{{1
+" Lua: {{{2
+
+" TODO these are basically all TRIAL bundles, as I haven't worked with much
+" lua before now
+
+" sooooo.... yeah.  may have to try these suckers out independently.
+
+Plug 'xolox/vim-lua-ftplugin', { 'for': 'lua' }
+Plug 'xolox/vim-lua-inspect', { 'for': 'lua' }
+Plug 'WolfgangMehner/lua-support', { 'for': 'lua' }
+
+" }}}2
 Plug 'tpope/vim-git'
 Plug 'othree/html5-syntax.vim'
 Plug 'vim-ruby/vim-ruby'
@@ -1163,34 +1175,6 @@ NeoBundleLazy 'tpope/vim-scriptease', {
             \           ['v', 'g!'],
             \       ],
             \       'filetypes': ['vim'],
-            \   },
-            \   'verbose': 1,
-            \}
-
-" Lua: {{{2
-
-" TODO these are basically all TRIAL bundles, as I haven't worked with much
-" lua before now
-
-" sooooo.... yeah.  may have to try these suckers out independently.
-
-NeoBundleLazy 'xolox/vim-lua-ftplugin', {
-            \   'autoload': {
-            \       'filetypes': 'lua',
-            \   },
-            \   'verbose': 1,
-            \}
-
-NeoBundleLazy 'xolox/vim-lua-inspect', {
-            \   'autoload': {
-            \       'filetypes': 'lua',
-            \   },
-            \   'verbose': 1,
-            \}
-
-NeoBundleLazy 'WolfgangMehner/lua-support', {
-            \   'autoload': {
-            \       'filetypes': 'lua',
             \   },
             \   'verbose': 1,
             \}
