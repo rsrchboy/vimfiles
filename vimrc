@@ -204,8 +204,10 @@ let g:signify_cursorhold_insert     = 0
 augroup vimrc-Signify
     autocmd!
 
-    autocmd BufEnter * call sy#start()
-    autocmd WinEnter * call sy#start()
+    autocmd BufEnter             * call sy#start()
+    autocmd WinEnter             * call sy#start()
+    autocmd FileChangedShellPost * call sy#start()
+    autocmd ShellCmdPost         * call sy#start()
 augroup END
 
 " }}}2
@@ -763,6 +765,8 @@ augroup vimrc#airline
     " wipe on, say, :Dispatch or similar
     au QuickFixCmdPost dispatch-make-complete if exists('b:airline_head') | unlet b:airline_head | fi
     au User FugitiveCommit                    if exists('b:airline_head') | unlet b:airline_head | fi
+    au FileChangedShellPost * AirlineRefresh
+    au ShellCmdPost         * AirlineRefresh
 augroup END
 
 " PostSource Hook: {{{3
