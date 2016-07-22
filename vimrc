@@ -233,6 +233,8 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-syntax' " , { 'depends': 'vim-textobj-user' }
 " filetype
 Plug 'jtratner/vim-flavored-markdown'
+" unite
+Plug 'Shougo/unite.vim'
 
 " VimPlug END: "strategic" plugin manager ;) {{{1
 call plug#end()
@@ -1610,7 +1612,6 @@ NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands':
 NeoBundle 'vim-scripts/gtk-vim-syntax'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'mhinz/vim-tmuxify'
-NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'vitalk/vim-simple-todo'
 " 18 Jul 2015
