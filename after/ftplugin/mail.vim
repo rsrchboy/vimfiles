@@ -14,7 +14,7 @@ setlocal spellfile+=~/.vim/spell/mail.utf-8.add
 setlocal foldcolumn=0
 
 " auto-wrap paragraphs!
-set fo=aw2tq
+set fo=a2tcqlnjr
 
 " local to the buffer
 set tw=72
