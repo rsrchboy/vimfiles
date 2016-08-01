@@ -275,6 +275,31 @@ Plug 'altercation/vim-colors-solarized'
 " }}}2
 
 " Trial Bundles: maybe, maybe not! {{{1
+" ToDo Style Plugins: ...because there's more than one?! {{{2
+
+" 'vitalk/vim-simple-todo' {{{3
+
+Plug 'vitalk/vim-simple-todo'
+
+" 'freitass/todo.txt-vim' {{{3
+
+" settings unchanged
+
+nnoremap <silent> <Leader>td :split ~/todo.txt<CR>
+
+" Autocmds:
+augroup vimrc-todo.txt
+    au!
+
+    " self-removes on execution
+    au BufNewFile,BufRead *todo.txt call plug#load('todo.txt-vim') | execute 'set ft=todo | au! vimrc-todo.txt'
+augroup END
+
+" note this syntax prevents autoloading
+Plug 'freitass/todo.txt-vim', { 'on': [] }
+
+" }}}3
+
 " LazyList: {{{2
 
 " the plugin author's configuration:
@@ -1423,28 +1448,6 @@ NeoBundleLazy 'kien/tabman.vim', {
             \   'verbose': 1,
             \}
 
-" ToDo: aka ~/todo.txt {{{2
-
-" Mappings:
-nnoremap <silent> <Leader>td :split ~/todo.txt<CR>
-
-" Autocmds:
-augroup vimrc-todo.txt
-    au!
-
-    " self-removes on execution
-    au BufNewFile,BufRead todo.txt call neobundle#source('todo.txt-vim') | execute('set ft=todo | au! vimrc-todo.txt')
-augroup END
-
-" we're not autoload... right now.
-NeoBundleLazy 'freitass/todo.txt-vim', {
-            \   'autoload': {
-            \       'mappings': '<Leader>td',
-            \       'filetypes': 'todo',
-            \   },
-            \   'verbose': 1,
-            \}
-
 " BetterWhitespace: 18 Jul 2015 {{{2
 
 " NOTE replaces: NeoBundle 'bronson/vim-trailing-whitespace'
@@ -1559,7 +1562,6 @@ NeoBundle 'vim-scripts/gtk-vim-syntax'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'vitalk/vim-simple-todo'
 " 18 Jul 2015
 " Syntastic: {{{2
 
