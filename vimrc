@@ -340,7 +340,6 @@ let g:lazylist_maps = [
 Plug 'KabbAmine/lazyList.vim', { 'on': 'LazyList' }
 
 " }}}2
-Plug 'gcmt/taboo.vim', { 'on': [ 'TabooReset', 'TabooOpen', 'TabooRename' ] }
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-syntax' " , { 'depends': 'vim-textobj-user' }
 " filetype
