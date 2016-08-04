@@ -78,6 +78,14 @@ Plug 'diepm/vim-rest-console'
 
 
 " GIT And Version Controlish: bundles {{{1
+" Git WIP: {{{2
+
+let g:git_wip_disable_signing = 1
+
+" FIXME make git-wip build step *WORK*
+            " \   'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' },
+Plug 'bartman/git-wip', { 'rtp': 'vim' }
+
 " Fugitive: {{{2
 
 " FIXME Gfixup is a work in progress
@@ -979,18 +987,6 @@ NeoBundleLazy 'RsrchBoy/gitv', {
             \   'functions': 'Gitv_OpenGitCommand',
             \ },
             \ 'verbose': 1,
-            \}
-
-" Git WIP: {{{2
-
-let g:git_wip_disable_signing = 1
-
-" FIXME make git-wip build step *WORK*
-            " \   'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' },
-NeoBundleLazy 'bartman/git-wip', {
-            \   'rtp': 'vim',
-            \   'autoload': { 'insert': 1 },
-            \   'verbose': 1,
             \}
 
 " }}}2
