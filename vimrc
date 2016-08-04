@@ -1768,6 +1768,7 @@ command! -range -nargs=* Cowsay <line1>,<line2>! cowsay -W 65
 command! -range -nargs=* BorgCowsay <line1>,<line2>! cowsay -W 65 -b
 
 " Perl helpers {{{2
+command! -range -nargs=* PerlTidy <line1>,<line2>! perltidy
 command! -range -nargs=* MXRCize <line1>,<line2>perldo perldo return unless /$NS/; s/$NS([A-Za-z0-9:]+)/\$self->\l$1_class/; s/::(.)/__\l$1/g; s/([A-Z])/_\l$1/g
 
 " }}}2
