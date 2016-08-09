@@ -1448,7 +1448,7 @@ NeoBundleLazy 'kien/tabman.vim', {
 " NOTE replaces: NeoBundle 'bronson/vim-trailing-whitespace'
 " FIXME ... if it would just work.  grr
 
-let g:better_whitespace_filetypes_blacklist = [ 'git', 'mail', 'help' ]
+let g:better_whitespace_filetypes_blacklist = [ 'git', 'mail', 'help', 'startify' ]
 
 nmap <silent> ,<space> :StripWhitespace<CR>
 
