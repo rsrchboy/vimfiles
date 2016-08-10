@@ -55,6 +55,10 @@ Plug 'mattn/webapi-vim'
 " }}}2
 
 " Appish Or External Interface: bundles {{{1
+" Slack: hmmmm {{{2
+
+Plug 'heavenshell/vim-slack', { 'on': ['Slack','SlackFile'] }
+
 " Calendar: +config {{{2
 
 let g:calendar_google_calendar = 1
