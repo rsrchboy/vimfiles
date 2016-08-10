@@ -141,6 +141,7 @@ Reload .vimrc and `:PlugInstall` to install plugins.
 | `g:plug_retries`    | 2                                 | Number of retries in case of timeout (*Ruby & Python*) |
 | `g:plug_shallow`    | 1                                 | Use shallow clone                                      |
 | `g:plug_window`     | `vertical topleft new`            | Command to open plug window                            |
+| `g:plug_pwindow`    | `above 12new`                     | Command to open preview window in `PlugDiff`           |
 | `g:plug_url_format` | `https://git::@github.com/%s.git` | `printf` format to build repo URL (Only applies to the subsequent `Plug` commands) |
 
 
@@ -182,9 +183,9 @@ Plug 'kovisoft/paredit', { 'for': ['clojure', 'scheme'] }
 " On-demand loading on both conditions
 Plug 'junegunn/vader.vim',  { 'on': 'Vader', 'for': 'vader' }
 
-" Code to execute when the plugin is loaded on demand
-Plug 'Valloric/YouCompleteMe', { 'for': 'cpp' }
-autocmd! User YouCompleteMe if !has('vim_starting') | call youcompleteme#Enable() | endif
+" Code to execute when the plugin is lazily loaded on demand
+Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
+autocmd! User goyo.vim echom 'Goyo is now loaded!'
 ```
 
 `for` option is generally not needed as most plugins for specific file types
