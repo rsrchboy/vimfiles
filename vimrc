@@ -63,6 +63,37 @@ Plug 'mattn/webapi-vim'
 " }}}2
 
 " Appish Or External Interface: bundles {{{1
+" TweetVim: {{{2
+
+Plug 'basyura/twibill.vim'
+Plug 'basyura/bitly.vim'
+Plug 'tyru/open-browser.vim'
+Plug 'mattn/favstar-vim'
+Plug 'basyura/TweetVim', { 'on': [ 'TweetVimHomeTimeline', 'TweetVimSay', 'TweetVimCommandSay' ] }
+
+" AutoCommands: {{{3
+
+augroup vimrc-tweetvim
+    autocmd!
+    autocmd FileType tweetvim setlocal nonumber foldcolumn=0
+augroup END
+
+" Mappings: {{{3
+
+nnoremap <silent> <Leader>TT :TweetVimHomeTimeline<CR>
+nnoremap <silent> <Leader>TS :TweetVimSay<CR>
+
+" Settings: {{{3
+
+let g:tweetvim_tweet_per_page   = 50
+let g:tweetvim_display_source   = 1
+let g:tweetvim_display_time     = 1
+let g:tweetvim_expand_t_co      = 1
+let g:tweetvim_display_username = 1
+let g:tweetvim_open_buffer_cmd  = '$tabnew'
+
+" }}}3
+
 " Slack: hmmmm {{{2
 
 Plug 'heavenshell/vim-slack', { 'on': ['Slack','SlackFile'] }
@@ -1017,46 +1048,6 @@ NeoBundleLazy 'aquach/vim-mediawiki-editor', {
             \   },
             \   'verbose': 1,
             \}
-
-" TweetVim: {{{2
-
-NeoBundleLazy 'basyura/twibill.vim'
-NeoBundleLazy 'basyura/bitly.vim'
-NeoBundleLazy 'tyru/open-browser.vim'
-NeoBundleLazy 'mattn/favstar-vim'
-NeoBundleLazy 'basyura/TweetVim', {
-\ 'depends': [
-\   'twibill.vim',
-\   'bitly.vim',
-\   'favstar-vim',
-\   'open-browser.vim',
-\ ],
-\ 'autoload': { 'commands' : [ 'TweetVimHomeTimeline', 'TweetVimSay', 'TweetVimCommandSay' ] },
-\ 'verbose': 1,
-\}
-
-" AutoCommands: {{{3
-
-augroup vimrc-tweetvim
-    autocmd!
-    autocmd FileType tweetvim setlocal nonumber foldcolumn=0
-augroup END
-
-" Mappings: {{{3
-
-nnoremap <silent> <Leader>TT :TweetVimHomeTimeline<CR>
-nnoremap <silent> <Leader>TS :TweetVimSay<CR>
-
-" Settings: {{{3
-
-let g:tweetvim_tweet_per_page   = 50
-let g:tweetvim_display_source   = 1
-let g:tweetvim_display_time     = 1
-let g:tweetvim_expand_t_co      = 1
-let g:tweetvim_display_username = 1
-let g:tweetvim_open_buffer_cmd  = '$tabnew'
-
-" }}}3
 
 " TmuxLine: {{{2
 
