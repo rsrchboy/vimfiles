@@ -11,6 +11,14 @@ set nocompatible
 call plug#begin()
 
 " General Bundles: {{{1
+" CtrlP: {{{2
+
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+let g:ctrlp_reuse_window = 'netrw\|help\|quickfix\|startify'
+
+Plug 'kien/ctrlp.vim'
+
+" }}}2
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
@@ -645,13 +653,6 @@ NeoBundleLazy 'RsrchBoy/bufexplorer.zip', {
 \'autoload': { 'commands': ['BufExplorer'], 'mappings': ['<LocalLeader>be'] },
 \'verbose': 1,
 \}
-" CtrlP: {{{2
-
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
-let g:ctrlp_reuse_window = 'netrw\|help\|quickfix\|startify'
-
-NeoBundle 'kien/ctrlp.vim'
-
 " Tabular: {{{2
 
 NeoBundleLazy 'godlygeek/tabular', {
