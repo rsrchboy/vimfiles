@@ -397,6 +397,19 @@ Plug 'kana/vim-textobj-syntax' " , { 'depends': 'vim-textobj-user' }
 Plug 'jtratner/vim-flavored-markdown'
 " unite
 Plug 'Shougo/unite.vim'
+" Unite Issues: jira and github, really {{{2
+
+Plug 'rafi/vim-unite-issue'
+
+" Pull Requests: github/unite {{{2
+
+Plug 'joker1007/unite-pull-request'
+
+" Jira Integration: {{{2
+Plug 'mnpk/vim-jira-complete'
+Plug 'RsrchBoy/vim-jira-open'
+" }}}2
+
 
 " Unmanaged Plugins: {{{1
 " Grrrit: gerrit interface... ish {{{2
@@ -1394,30 +1407,6 @@ NeoBundleLazy 'itissid/gv', {
             \   },
             \   'verbose': 1,
             \}
-
-" Unite Issues: jira and github, really {{{2
-
-NeoBundleLazy 'rafi/vim-unite-issue', {
-            \   'directory': 'unite-issue',
-            \   'unite_sources': [ 'issue' ],
-            \   'depends': [
-            \       'open-browser.vim', 'unite.vim',
-            \   ],
-            \}
-
-" Pull Requests: github/unite {{{2
-
-NeoBundleLazy 'joker1007/unite-pull-request', {
-            \   'unite_sources': [ 'pull-request' ],
-            \   'depends': [
-            \       'unite.vim',
-            \   ],
-            \}
-
-" Jira Integration: {{{2
-NeoBundle 'mnpk/vim-jira-complete'
-NeoBundle 'RsrchBoy/vim-jira-open'
-" }}}2
 
 " VimGitLog: lazy {{{2
 NeoBundleLazy 'kablamo/vim-git-log', { 'autoload': { 'commands': 'GitLog' }, 'verbose': 1 }
