@@ -446,8 +446,11 @@ Plug 'RsrchBoy/vim-jira-open'
 
 " still in development
 
-Plug 'RsrchBoy/vim-grrrit', { 'on': 'GrrritChanges' }
-" Plug '~/work/vim/vim-grrrit', { 'on': 'GrrritChanges' }
+if filereadable(expand("~/work/vim/vim-grrrit/README.md"))
+    Plug '~/work/vim/vim-grrrit', { 'on': 'GrrritChanges' }
+else
+    Plug 'RsrchBoy/vim-grrrit', { 'on': 'GrrritChanges' }
+endif
 
 " }}}2
 
