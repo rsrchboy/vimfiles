@@ -68,6 +68,10 @@ Plug 'vim-scripts/Align'
 Plug 'vim-scripts/AutoAlign'
 
 " Libraries: library plugins/bundles {{{1
+" TLib: {{{2
+
+Plug 'tomtom/tlib_vim'
+
 " Vim Misc: ...by xolox {{{2
 
 Plug 'xolox/vim-misc'
@@ -595,15 +599,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Libraries: library plugins/bundles {{{1
-" TLib: {{{2
-
-NeoBundleLazy 'tomtom/tlib_vim', {
-            \   'autoload': {
-            \       'functions': 'tlib#',
-            \   },
-            \   'verbose': 0,
-            \}
-
 " }}}2
 
 " Process Execution Bundles: {{{1
@@ -1268,7 +1263,6 @@ let g:vim_markdown_frontmatter       = 1
 NeoBundleLazy 'vadv/vim-chef', {
 \   'autoload': { 'filetypes': [ 'chef' ] },
 \   'depends': [
-\       'tlib_vim',
 \       'vim-snipmate',
 \   ],
 \   'verbose': 1,
@@ -1446,7 +1440,7 @@ NeoBundleLazy 'kablamo/vim-git-log', { 'autoload': { 'commands': 'GitLog' }, 've
 
 " TSkeletons: {{{2
 
-NeoBundleLazy 'tomtom/tskeleton_vim', { 'depends': [ 'tlib_vim' ] }
+NeoBundleLazy 'tomtom/tskeleton_vim'
 NeoBundleLazy 'tomtom/tskeletons', { 'depends': [ 'tskeleton_vim' ] }
 
 let g:tskelMapGoToNextTag = 0
