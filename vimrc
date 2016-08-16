@@ -776,36 +776,6 @@ augroup end
 
 NeoBundle 'scrooloose/nerdtree', { 'augroup': 'NERDTreeHijackNetrw' }
 
-" Startify: nifty start screen {{{2
-
-"let g:startify_bookmarks = [ '~/.vimrc' ]
-" autouse sessions with startify.  (aka be useful!)
-let g:startify_session_detection   = 1
-let g:startify_session_autoload    = 1
-let g:startify_session_persistence = 1
-let g:startify_change_to_vcs_root  = 1
-let g:startify_empty_buffer_key    = 'o'
-let g:startify_restore_position    = 1
-
-let g:startify_custom_header       =
-    \ map(split(system('echo $USER@$HOST | figlet -t ; echo .; echo .; uname -a'), '\n'), '"   ". v:val') + ['','']
-"let g:startify_custom_footer = ''
-
-augroup vimrc-startify
-    au!
-    autocmd BufWinEnter startify* setlocal nonumber foldcolumn=0
-augroup end
-
-
-" files to skip including in the list
-let g:startify_skiplist = [
-           \ 'COMMIT_EDITMSG',
-           \ $VIMRUNTIME .'/doc',
-           \ 'bundle/.*/doc',
-           \ ]
-
-NeoBundle 'mhinz/vim-startify'
-
 " Airline: {{{2
 
 NeoBundle 'bling/vim-airline'
