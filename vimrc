@@ -598,9 +598,6 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Libraries: library plugins/bundles {{{1
-" }}}2
-
 " Process Execution Bundles: {{{1
 " Dispatch Via Shell: a "glue" plugin? {{{2
 
