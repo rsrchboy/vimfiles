@@ -552,6 +552,7 @@ Plug 'vim-scripts/gtk-vim-syntax'
 Plug 'chikamichi/mediawiki.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'puppetlabs/puppet-syntax-vim', { 'for': 'puppet' }
+Plug 'klen/python-mode', { 'for': 'python' }
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
@@ -1472,7 +1473,6 @@ NeoBundle 'chrisbra/NrrwRgn'
 " 27 Jul 2015
 " FIXME need a ProjectionistDetect au for detecting Perl projects
 NeoBundle 'tpope/vim-projectionist'
-NeoBundleLazy 'klen/python-mode', { 'autoload': { 'filetypes': 'python' }, 'verbose': 1 }
 " 11 Aug 2015
 NeoBundleLazy 'dhruvasagar/vimmpc', { 'autoload': { 'commands': 'MPC' }, 'verbose': 1, 'disable': !has('python') }
 NeoBundle 'tpope/vim-speeddating'
