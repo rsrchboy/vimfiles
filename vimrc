@@ -291,6 +291,15 @@ if has('python')
     Plug 'pentie/VimRepress', { 'on': ['BlogNew', 'BlogOpen', 'BlogList'] }
 endif
 
+" MediaWiki Editor: {{{2
+
+if has('python')
+    Plug 'aquach/vim-mediawiki-editor', {
+                \   'for': 'mediawiki',
+                \   'on': ['MWRead', 'MWWrite', 'MWBrowse'],
+                \}
+endif
+
 " Tmux Navigator: {{{2
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -1072,17 +1081,6 @@ NeoBundleLazy 'hashivim/vim-terraform', {
             \       'filename_patterns': [ '\.tf$', '\.tfvars$', '\.tfstate$' ],
             \       'verbose': 1,
             \   },
-            \}
-
-" MediaWiki Editor: {{{2
-
-NeoBundleLazy 'aquach/vim-mediawiki-editor', {
-            \   'disabled': !has('python'),
-            \   'autoload': {
-            \       'filetypes': 'mediawiki',
-            \       'commands': ['MWRead', 'MWWrite', 'MWBrowse'],
-            \   },
-            \   'verbose': 1,
             \}
 
 " TmuxLine: {{{2
