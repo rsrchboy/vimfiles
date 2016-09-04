@@ -551,7 +551,7 @@ Plug 'vim-scripts/deb.vim'
 Plug 'vim-scripts/gtk-vim-syntax'
 Plug 'chikamichi/mediawiki.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'puppetlabs/puppet-syntax-vim', { 'autoload': { 'filetypes': 'puppet' } }
+Plug 'puppetlabs/puppet-syntax-vim', { 'for': 'puppet' }
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
