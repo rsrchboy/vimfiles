@@ -470,6 +470,19 @@ Plug 'LStinson/perlhelp-vim', { 'on': ['PerlHelp', 'PerlMod'] }
 Plug 'vim-scripts/log4perl.vim'
 
 " General Syntax And Filetype Plugins: bundles {{{1
+" vim: {{{2
+
+" Not a complete autovivification, but enough. 90% of the time we'll have at
+" least one buffer open with a vim ft and that'll trigger the load anyways.
+
+" we may (will) use this mapping largely outside of vim-ft files
+nmap zS <Plug>ScripteaseSynnames
+
+Plug 'tpope/vim-scriptease', {
+            \   'on': '<Plug>ScripteaseSynname',
+            \   'for': 'vim',
+            \}
+
 " Lua: {{{2
 
 " TODO these are basically all TRIAL bundles, as I haven't worked with much
@@ -1168,33 +1181,6 @@ NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'fil
 " NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
 " General Syntax And Filetype Plugins: bundles {{{1
-" vim: {{{2
-
-" Not a complete autovivification, but enough. 90% of the time we'll have at
-" least one buffer open with a vim ft and that'll trigger the load anyways.
-
-NeoBundleLazy 'tpope/vim-scriptease', {
-            \   'autoload': {
-            \       'commands': [
-            \           'Breakadd',
-            \           'Disarm',
-            \           'PP', 'PPmsg',
-            \           'Runtime',
-            \           'Scriptnames',
-            \           'Time',
-            \           'Verbose',
-            \           'Vedit', 'Vopen', 'Vsplit', 'Vvsplit', 'Vtabedit', 'Vpedit',
-            \       ],
-            \       'mappings': [
-            \           ['n', 'zS'],
-            \           ['n', 'g!'],
-            \           ['v', 'g!'],
-            \       ],
-            \       'filetypes': ['vim'],
-            \   },
-            \   'verbose': 1,
-            \}
-
 " puppet {{{2
 NeoBundleLazy 'puppetlabs/puppet-syntax-vim', { 'autoload': { 'filetypes': 'puppet' } }
 
