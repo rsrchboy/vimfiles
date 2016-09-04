@@ -475,8 +475,10 @@ augroup END
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'int3/vim-extradite', { 'on': 'Extradite' }
 
-Plug 'vim-scripts/ConflictMotions'
-Plug 'vim-scripts/ConflictDetection'
+" TODO do we want to use this instead? https://github.com/rhysd/conflict-marker.vim
+" Plug 'vim-scripts/ConflictMotions'
+" Plug 'vim-scripts/ConflictDetection'
+Plug 'rhysd/conflict-marker.vim'
 
 " Perl Bundles: {{{1
 Plug 'vim-perl/vim-perl'
