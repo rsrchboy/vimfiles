@@ -41,6 +41,88 @@ let g:startify_skiplist = [
 
 Plug 'mhinz/vim-startify'
 
+" Airline: {{{2
+
+Plug 'bling/vim-airline'
+
+" Settings: {{{3
+
+let g:airline_theme = 'dark'
+
+" Extensions Config: {{{3
+
+let g:airline#extensions#bufferline#enabled           = 0
+let g:airline#extensions#syntastic#enabled            = 1
+let g:airline#extensions#tabline#enabled              = 1
+let g:airline#extensions#tagbar#enabled               = 1
+let g:airline#extensions#tmuxline#enabled             = 0
+let g:airline#extensions#whitespace#mixed_indent_algo = 1
+
+" Branchname Config: {{{3
+" if a string is provided, it should be the name of a function that
+" takes a string and returns the desired value
+let g:airline#extensions#branch#format = 'CustomBranchName'
+function! CustomBranchName(name)
+    "return '[' . a:name . ']'
+    if a:name == ''
+        return a:name
+    endif
+    "return fugitive#repo().git_chomp('describe', '--all', '--long')
+
+    let l:info   = a:name
+
+    let l:ahead  = fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD')
+    let l:behind = fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}')
+    let l:info  .= ' [+' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n')) . ']'
+
+    return l:info
+endfunction
+
+" symbols {{{3
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = '⎇ '
+"let g:airline_left_sep = '»'
+"let g:airline_left_sep = '▶'
+let g:airline_left_sep = ''
+"let g:airline_right_sep = '«'
+"let g:airline_right_sep = '◀'
+let g:airline_right_sep = ''
+"let g:airline_symbols.linenr = '␊'
+"let g:airline_symbols.linenr = '␤'
+"let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.paste = 'ρ'
+"let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+"let g:airline_symbols.whitespace = 'Ξ'
+"let g:airline_symbols.linenr = '¶ '
+"let g:airline#extensions#branch#symbol = "\ue822"
+
+" AutoCommands: {{{3
+
+augroup vimrc#airline
+    au!
+
+    " wipe on, say, :Dispatch or similar
+    au QuickFixCmdPost dispatch-make-complete if exists('b:airline_head') | unlet b:airline_head | fi
+    au User FugitiveCommit                    if exists('b:airline_head') | unlet b:airline_head | fi
+    au FileChangedShellPost * AirlineRefresh
+    au ShellCmdPost         * AirlineRefresh
+augroup END
+
+" PostSource Hook: {{{3
+
+au! User airline call s:PluginLoadedAirline()
+
+" Do Things when the bundle is vivified
+function! s:PluginLoadedAirline()
+    let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'capslock', 'tablemode', 'iminsert'])
+endfunction
+
+" }}}3
+
 " Tabular: {{{2
 
 Plug 'godlygeek/tabular', {
@@ -799,91 +881,6 @@ augroup vimrc-nerdtree
 augroup end
 
 NeoBundle 'scrooloose/nerdtree', { 'augroup': 'NERDTreeHijackNetrw' }
-
-" Airline: {{{2
-
-NeoBundle 'bling/vim-airline'
-
-" Settings: {{{3
-
-let g:airline_theme = 'dark'
-
-" Extensions Config: {{{3
-
-let g:airline#extensions#bufferline#enabled           = 0
-let g:airline#extensions#syntastic#enabled            = 1
-let g:airline#extensions#tabline#enabled              = 1
-let g:airline#extensions#tagbar#enabled               = 1
-let g:airline#extensions#tmuxline#enabled             = 0
-let g:airline#extensions#whitespace#mixed_indent_algo = 1
-
-" Branchname Config: {{{3
-" if a string is provided, it should be the name of a function that
-" takes a string and returns the desired value
-let g:airline#extensions#branch#format = 'CustomBranchName'
-function! CustomBranchName(name)
-    "return '[' . a:name . ']'
-    if a:name == ''
-        return a:name
-    endif
-    "return fugitive#repo().git_chomp('describe', '--all', '--long')
-
-    let l:info   = a:name
-
-    let l:ahead  = fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD')
-    let l:behind = fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}')
-    let l:info  .= ' [+' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n')) . ']'
-
-    return l:info
-endfunction
-
-" symbols {{{3
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.branch = '⎇ '
-"let g:airline_left_sep = '»'
-"let g:airline_left_sep = '▶'
-let g:airline_left_sep = ''
-"let g:airline_right_sep = '«'
-"let g:airline_right_sep = '◀'
-let g:airline_right_sep = ''
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-"let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-"let g:airline_symbols.whitespace = 'Ξ'
-"let g:airline_symbols.linenr = '¶ '
-"let g:airline#extensions#branch#symbol = "\ue822"
-
-" AutoCommands: {{{3
-
-augroup vimrc#airline
-    au!
-
-    " wipe on, say, :Dispatch or similar
-    au QuickFixCmdPost dispatch-make-complete if exists('b:airline_head') | unlet b:airline_head | fi
-    au User FugitiveCommit                    if exists('b:airline_head') | unlet b:airline_head | fi
-    au FileChangedShellPost * AirlineRefresh
-    au ShellCmdPost         * AirlineRefresh
-augroup END
-
-" PostSource Hook: {{{3
-
-if neobundle#tap('vim-airline')
-
-    function! neobundle#hooks.on_post_source(bundle)
-
-        let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'capslock', 'tablemode', 'iminsert'])
-    endfunction
-
-    call neobundle#untap()
-endif
-
-" }}}3
 
 " JunkFile: {{{2
 
