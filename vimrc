@@ -41,6 +41,40 @@ let g:startify_skiplist = [
 
 Plug 'mhinz/vim-startify'
 
+" Tabular: {{{2
+
+Plug 'godlygeek/tabular', {
+            \   'on': [
+            \       'Tabularize',
+            \       'AddTabularPattern',
+            \       'AddTabularPipeline',
+            \   ],
+            \}
+
+" Mappings: {{{3
+
+nnoremap <silent> ,= :Tabularize first_fat_comma<CR>
+nnoremap <silent> ,- :Tabularize first_equals<CR>
+
+nnoremap <silent> ,{  :Tabularize first_squiggly<CR>
+nnoremap <silent> ,}  :Tabularize /}/l1c0<CR>
+nnoremap <silent> ,]  :Tabularize /]/l1c0<CR>
+
+" PostSource Hook: {{{3
+
+au! User tabular call s:PluginLoadedTabular()
+
+" Do Things when the bundle is vivified
+function! s:PluginLoadedTabular()
+
+    " ...kinda.  assumes that the first '=' found is part of a fat comma
+    AddTabularPattern first_fat_comma /^[^=]*\zs=>/l1
+    AddTabularPattern first_equals    /^[^=]*\zs=/l1
+    AddTabularPattern first_squiggly  /^[^{]*\zs{/l1
+endfunction
+
+" }}}3
+
 " CtrlP: {{{2
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
@@ -726,46 +760,6 @@ NeoBundleLazy 'RsrchBoy/bufexplorer.zip', {
 \'autoload': { 'commands': ['BufExplorer'], 'mappings': ['<LocalLeader>be'] },
 \'verbose': 1,
 \}
-" Tabular: {{{2
-
-NeoBundleLazy 'godlygeek/tabular', {
-            \   'autoload': {
-            \       'commands': [
-            \           'Tabularize',
-            \           'AddTabularPattern',
-            \           'AddTabularPipeline',
-            \       ],
-            \   },
-            \   'verbose': 1,
-            \}
-
-" Mappings: {{{3
-
-nnoremap <silent> ,= :Tabularize first_fat_comma<CR>
-nnoremap <silent> ,- :Tabularize first_equals<CR>
-
-nnoremap <silent> ,{  :Tabularize first_squiggly<CR>
-nnoremap <silent> ,}  :Tabularize /}/l1c0<CR>
-nnoremap <silent> ,]  :Tabularize /]/l1c0<CR>
-
-" PostSource Hook: {{{3
-
-if neobundle#tap('tabular')
-
-    " Do Things when the bundle is vivified
-    function! neobundle#hooks.on_post_source(bundle)
-
-        " ...kinda.  assumes that the first '=' found is part of a fat comma
-        AddTabularPattern first_fat_comma /^[^=]*\zs=>/l1
-        AddTabularPattern first_equals    /^[^=]*\zs=/l1
-        AddTabularPattern first_squiggly  /^[^{]*\zs{/l1
-    endfunction
-
-    call neobundle#untap()
-endif
-
-" }}}3
-
 " NERD Tree: {{{2
 
 map <leader>l :NERDTreeToggle<CR>
@@ -1219,7 +1213,6 @@ NeoBundleLazy 'chrisbra/csv.vim', { 'autoload': { 'filetypes': 'csv' } }
 " mkd {{{2
 
 NeoBundleLazy 'plasticboy/vim-markdown', {
-            \   'depends': 'tabular',
             \   'autoload': {
             \       'filetypes': [ 'mkd', 'markdown', 'mkd.markdown' ],
             \       'mappings': [ '<Plug>Markdown_' ],
