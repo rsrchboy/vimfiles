@@ -97,6 +97,10 @@ Plug 'mattn/webapi-vim'
 " }}}2
 
 " Appish Or External Interface: bundles {{{1
+" GitHub Integration: {{{2
+
+Plug 'rhysd/github-complete.vim'
+
 " TweetVim: {{{2
 
 Plug 'basyura/twibill.vim'
