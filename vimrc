@@ -214,6 +214,23 @@ Plug 'mattn/webapi-vim'
 " }}}2
 
 " Appish Or External Interface: bundles {{{1
+" DbExt: {{{2
+
+
+if has('perl')
+
+    " TODO: disable unless we have DBI, etc, installed.
+    Plug 'vim-scripts/dbext.vim', {
+                \   'on': [
+                \       'DBDescribe',
+                \       'DBExec',
+                \       'DBList',
+                \       'DBPrompt',
+                \       'DBSelect',
+                \   ],
+                \}
+endif
+
 " GitHub Integration: {{{2
 
 Plug 'rhysd/github-complete.vim'
@@ -1285,25 +1302,6 @@ endif
 
 NeoBundleLazy 'kshenoy/vim-signature', {
             \   'disable': !has('signs'),
-            \}
-
-" DbExt: {{{2
-
-" TODO: disable unless we have DBI, etc, installed.
-
-NeoBundleLazy 'vim-scripts/dbext.vim', {
-            \   'disable': !has('perl'),
-            \   'autoload': {
-            \       'functions': ['dbext#', 'dbext_dbi#'],
-            \       'commands': [
-            \           'DBDescribe',
-            \           'DBExec',
-            \           'DBList',
-            \           'DBPrompt',
-            \           'DBSelect',
-            \       ],
-            \   },
-            \   'verbose': 1,
             \}
 
 " PipeMySQL: {{{2
