@@ -488,6 +488,7 @@ Plug 'nono/jquery.vim'
 Plug 'fmoralesc/vim-pinpoint'
 Plug 'vim-scripts/deb.vim'
 Plug 'vim-scripts/gtk-vim-syntax'
+Plug 'chikamichi/mediawiki.vim'
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
@@ -1071,7 +1072,6 @@ NeoBundleLazy 'hashivim/vim-terraform', {
 
 NeoBundleLazy 'aquach/vim-mediawiki-editor', {
             \   'disabled': !has('python'),
-            \   'depends': 'mediawiki.vim',
             \   'autoload': {
             \       'filetypes': 'mediawiki',
             \       'commands': ['MWRead', 'MWWrite', 'MWBrowse'],
@@ -1171,15 +1171,6 @@ NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'fil
 " NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
 " General Syntax And Filetype Plugins: bundles {{{1
-" mediawiki {{{2
-
-NeoBundleLazy 'chikamichi/mediawiki.vim', {
-            \   'autoload': {
-            \       'filetypes': 'mediawiki',
-            \   },
-            \   'verbose': 1,
-            \}
-
 " vim: {{{2
 
 " Not a complete autovivification, but enough. 90% of the time we'll have at
