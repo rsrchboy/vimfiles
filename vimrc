@@ -504,6 +504,7 @@ Plug 'fmoralesc/vim-pinpoint'
 Plug 'vim-scripts/deb.vim'
 Plug 'vim-scripts/gtk-vim-syntax'
 Plug 'chikamichi/mediawiki.vim'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
@@ -1220,14 +1221,6 @@ NeoBundleLazy 'vadv/vim-chef', {
 \       'vim-snipmate',
 \   ],
 \   'verbose': 1,
-\}
-" vim-go {{{2
-NeoBundleLazy 'fatih/vim-go', {
-\ 'augroup': 'vim-go',
-\ 'autoload': {
-\   'filetypes': ['godoc', 'gohtmltmpl', 'gotexttmpl', 'go', 'vimgo'],
-\ },
-\ 'verbose': 1,
 \}
 " HiLinks: see the stack of syntax for the current text {{{2
 
