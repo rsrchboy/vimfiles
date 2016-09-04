@@ -285,6 +285,12 @@ endfunction
 Plug 'vim-scripts/tracwiki'
 Plug 'nsmgr8/vitra', { 'on': 'TTOpen' }
 
+" VimRepress: {{{2
+
+if has('python')
+    Plug 'pentie/VimRepress', { 'on': ['BlogNew', 'BlogOpen', 'BlogList'] }
+endif
+
 " Tmux Navigator: {{{2
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -1098,14 +1104,6 @@ NeoBundleLazy 'edkolev/tmuxline.vim', {
             \   'verbose': 0,
             \}
 
-" VimRepress: {{{2
-NeoBundleLazy 'pentie/VimRepress', {
-\ 'autoload': {
-\   'commands': ['BlogNew', 'BlogOpen', 'BlogList'],
-\ },
-\ 'disabled': !has('python'),
-\ 'verbose': 1,
-\}
 " VimOrganizer: {{{2
 
 NeoBundleLazy 'hsitz/VimOrganizer', {
