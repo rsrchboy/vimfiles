@@ -177,6 +177,32 @@ let g:calendar_google_task     = 1
 
 Plug 'itchyny/calendar.vim', { 'on': 'Calendar' }
 
+" Vitra: Trac interface {{{2
+
+" NOTE: we don't actually use this plugin anymore, not having need to access
+" any Trac servers.
+
+" most of our trac server configuration will be done in ~/.vimrc.local
+" so as to prevent userids and passwords from floating about :)
+
+" default: 'status!=closed'
+let g:tracTicketClause = 'owner=cweyl&status!=closed'
+let g:tracServerList   = {}
+
+au! User vitra call s:PluginLoadedVitra()
+
+" Do Things when the bundle is vivified
+function! s:PluginLoadedVitra()
+    augroup vimrc-vitra
+        au!
+        autocmd BufWinEnter Ticket:*      setlocal nonumber foldcolumn=0
+        autocmd BufWinEnter Ticket:.Edit* setlocal filetype=tracwiki spell spelllang=en_us spellcapcheck=0 foldcolumn=0
+    augroup end
+endfunction
+
+Plug 'vim-scripts/tracwiki'
+Plug 'nsmgr8/vitra', { 'on': 'TTOpen' }
+
 " Tmux Navigator: {{{2
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -1082,27 +1108,6 @@ NeoBundleLazy 'pentie/VimRepress', {
 \ 'disabled': !has('python'),
 \ 'verbose': 1,
 \}
-" Vitra: Trac interface {{{2
-
-" NOTE: we don't actually use this plugin anymore, not having need to access
-" any Trac servers.
-
-" most of our trac server configuration will be done in ~/.vimrc.local
-" so as to prevent userids and passwords from floating about :)
-
-" default: 'status!=closed'
-let g:tracTicketClause = 'owner=cweyl&status!=closed'
-let g:tracServerList   = {}
-
-augroup vimrc-vitra
-    au!
-    autocmd BufWinEnter Ticket:*      setlocal nonumber foldcolumn=0
-    autocmd BufWinEnter Ticket:.Edit* setlocal filetype=tracwiki spell spelllang=en_us spellcapcheck=0 foldcolumn=0
-augroup end
-
-NeoBundleLazy 'vim-scripts/tracwiki', { 'autoload': { 'filetypes': 'tracwiki' } }
-NeoBundleLazy 'nsmgr8/vitra', { 'depends': 'tracwiki', 'verbose': 1 }
-
 " VimOrganizer: {{{2
 
 NeoBundleLazy 'hsitz/VimOrganizer', {
