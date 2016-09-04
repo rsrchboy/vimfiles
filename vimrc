@@ -182,6 +182,7 @@ Plug 'tpope/vim-eunuch'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'vim-scripts/Align'
 Plug 'vim-scripts/AutoAlign'
+Plug 'tpope/vim-dispatch'
 
 " Libraries: library plugins/bundles {{{1
 " TLib: {{{2
@@ -789,28 +790,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Process Execution Bundles: {{{1
-" Dispatch Via Shell: a "glue" plugin? {{{2
-
-NeoBundleLazy 'p0deje/vim-dispatch-vimshell', {
-            \   'augroup': 'dispatch-vimshell',
-            \   'depends': ['vimshell.vim'],
-            \}
-
-" VimShell: {{{2
-
-" taken from neobundle's help (same author)
-NeoBundleLazy 'Shougo/vimshell.vim',{
-        \ 'depends' : 'vimproc',
-        \ 'autoload' : {
-        \   'commands' : [{ 'name' : 'VimShell',
-        \                   'complete' : 'customlist,vimshell#complete'},
-        \                 'VimShellExecute', 'VimShellInteractive',
-        \                 'VimShellTerminal', 'VimShellPop'],
-        \   'mappings' : '<Plug>'
-        \ }}
-
-
 " VimProc: {{{2
+
+" NOTE: leave this one in while we're still using neobundle
 
 NeoBundle 'Shougo/vimproc', {
     \ 'build' : {
@@ -820,19 +802,6 @@ NeoBundle 'Shougo/vimproc', {
     \ 'unix'    : 'make -f make_unix.mak',
     \ },
 \ }
-
-" Dispatch: {{{2
-
-let g:dispatch_handlers = ['vimshell', 'tmux', 'screen', 'windows', 'iterm', 'x11', 'headless']
-
-NeoBundleLazy 'tpope/vim-dispatch', {
-            \   'depends': 'vim-dispatch-vimshell',
-            \   'autoload': {
-            \       'commands': [ 'Dispatch', 'Make', 'Start', 'Focus' ],
-            \       'functions': 'dispatch#',
-            \   },
-            \   'verbose': 1,
-            \}
 
 " }}}2
 
