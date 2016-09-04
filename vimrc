@@ -300,6 +300,19 @@ if has('python')
                 \}
 endif
 
+" TmuxLine: {{{2
+
+let g:tmuxline_powerline_separators = 0
+
+let g:tmuxline_preset = {
+    \'a'    : ['#(whoami)@#H'],
+    \'b'    : '#S',
+    \'win'  : ['#I#F', '#W'],
+    \'cwin' : ['#I#F', '#W'],
+    \}
+
+Plug 'edkolev/tmuxline.vim', { 'on': ['Tmuxline', 'TmuxlineSnapshot'] }
+
 " Tmux Navigator: {{{2
 
 Plug 'christoomey/vim-tmux-navigator'
@@ -1095,25 +1108,6 @@ NeoBundleLazy 'hashivim/vim-terraform', {
             \       'filename_patterns': [ '\.tf$', '\.tfvars$', '\.tfstate$' ],
             \       'verbose': 1,
             \   },
-            \}
-
-" TmuxLine: {{{2
-
-let g:tmuxline_powerline_separators = 0
-
-let g:tmuxline_preset = {
-    \'a'    : ['#(whoami)@#H'],
-    \'b'    : '#S',
-    \'win'  : ['#I#F', '#W'],
-    \'cwin' : ['#I#F', '#W'],
-    \}
-
-NeoBundleLazy 'edkolev/tmuxline.vim', {
-            \   'external_commands': 'tmux',
-            \   'autoload': {
-            \       'commands': ['Tmuxline', 'TmuxlineSnapshot'],
-            \   },
-            \   'verbose': 0,
             \}
 
 " VimOrganizer: {{{2
