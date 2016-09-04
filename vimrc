@@ -487,6 +487,7 @@ Plug 'tpope/vim-haml'
 Plug 'nono/jquery.vim'
 Plug 'fmoralesc/vim-pinpoint'
 Plug 'vim-scripts/deb.vim'
+Plug 'vim-scripts/gtk-vim-syntax'
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
@@ -1531,7 +1532,6 @@ NeoBundleLazy 'wesQ3/vim-windowswap'
 
 " }}}2
 NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
-NeoBundle 'vim-scripts/gtk-vim-syntax'
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'Shougo/neomru.vim'
