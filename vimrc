@@ -183,7 +183,10 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'vim-scripts/Align'
 Plug 'vim-scripts/AutoAlign'
 Plug 'tpope/vim-dispatch'
+Plug 'Shougo/unite.vim'
 Plug 'Shougo/junkfile.vim'
+Plug 'rafi/vim-unite-issue'
+Plug 'joker1007/unite-pull-request'
 
 " Libraries: library plugins/bundles {{{1
 " TLib: {{{2
@@ -651,15 +654,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-syntax' " , { 'depends': 'vim-textobj-user' }
 " filetype
 Plug 'jtratner/vim-flavored-markdown'
-" unite
-Plug 'Shougo/unite.vim'
-" Unite Issues: jira and github, really {{{2
-
-Plug 'rafi/vim-unite-issue'
-
-" Pull Requests: github/unite {{{2
-
-Plug 'joker1007/unite-pull-request'
+" Plug 'kien/rainbow_parentheses.vim'
 
 " Jira Integration: {{{2
 Plug 'mnpk/vim-jira-complete'
