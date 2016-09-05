@@ -183,6 +183,7 @@ Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'vim-scripts/Align'
 Plug 'vim-scripts/AutoAlign'
 Plug 'tpope/vim-dispatch'
+Plug 'Shougo/junkfile.vim'
 
 " Libraries: library plugins/bundles {{{1
 " TLib: {{{2
@@ -924,17 +925,6 @@ augroup vimrc-nerdtree
 augroup end
 
 NeoBundle 'scrooloose/nerdtree', { 'augroup': 'NERDTreeHijackNetrw' }
-
-" JunkFile: {{{2
-
-NeoBundleLazy 'Shougo/junkfile.vim', {
-      \ 'autoload' : {
-      \     'commands' : 'JunkfileOpen',
-      \     'unite_sources' : ['junkfile', 'junkfile/new'],
-      \     'functions': 'junkfile#',
-      \ },
-      \ 'verbose': 1,
-      \}
 
 " Vim Indent Guides: no more counting up for matching! {{{2
 
