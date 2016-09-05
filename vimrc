@@ -173,6 +173,13 @@ endfunction
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'garbas/vim-snipmate'
 
+" Vim Indent Guides: no more counting up for matching! {{{2
+
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size  = 1
+
+Plug 'nathanaelkane/vim-indent-guides', { 'on': [ 'IndentGuidesEnable', 'IndentGuidesToggle' ] }
+
 " CtrlP: {{{2
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
@@ -1005,13 +1012,6 @@ augroup vimrc-nerdtree
 augroup end
 
 NeoBundle 'scrooloose/nerdtree', { 'augroup': 'NERDTreeHijackNetrw' }
-
-" Vim Indent Guides: no more counting up for matching! {{{2
-
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size  = 1
-
-NeoBundleLazy 'nathanaelkane/vim-indent-guides', { 'autoload': { 'insert': 1 } }
 
 " NeoComplete: ...and associated bundles {{{2
 
