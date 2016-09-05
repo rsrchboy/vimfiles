@@ -1214,17 +1214,6 @@ NeoBundleLazy 'vadv/vim-chef', {
 \   ],
 \   'verbose': 1,
 \}
-" HiLinks: see the stack of syntax for the current text {{{2
-
-NeoBundleLazy 'kergoth/vim-hilinks', {
-            \   'augroup': 'HLTMODE',
-            \   'autoload': {
-            \       'commands': [ 'HLT', 'HLTm' ],
-            \       'mappings': '<Leader>hlt',
-            \   },
-            \   'verbose': 1,
-            \}
-
 " }}}2
 
 " Trial Bundles: maybe, maybe not! {{{1
@@ -1342,8 +1331,7 @@ NeoBundleLazy 'NLKNguyen/pipe-mysql.vim', {
             \   'verbose': 1,
             \}
 
-" VimGitLog: lazy {{{2
-NeoBundleLazy 'kablamo/vim-git-log', { 'autoload': { 'commands': 'GitLog' }, 'verbose': 1 }
+
 
 " TSkeletons: {{{2
 
@@ -1424,39 +1412,12 @@ NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands':
 NeoBundle 'dhruvasagar/vim-table-mode'
 NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'Shougo/neomru.vim'
-" 18 Jul 2015
-" Syntastic: {{{2
-
-NeoBundleLazy 'scrooloose/syntastic', { 'verbose': 1 }
-
-" }}}
 NeoBundle 'chrisbra/NrrwRgn'
-" 27 Jul 2015
-" FIXME need a ProjectionistDetect au for detecting Perl projects
-NeoBundle 'tpope/vim-projectionist'
-" 11 Aug 2015
-NeoBundleLazy 'dhruvasagar/vimmpc', { 'autoload': { 'commands': 'MPC' }, 'verbose': 1, 'disable': !has('python') }
-NeoBundle 'tpope/vim-speeddating'
-" see https://github.com/LucHermitte/local_vimrc
-"NeoBundle 'LucHermitte/lh-vim-lib', {'name': 'lh-vim-lib'}
-"NeoBundle 'LucHermitte/local_vimrc', {'depends': 'lh-vim-lib'}
 
 " Probation: {{{1
-NeoBundleLazy 'scrooloose/nerdcommenter'
 NeoBundleLazy 'lukaszkorecki/vim-GitHubDashBoard'
 " github issues query
 NeoBundleLazy 'mklabs/vim-issues'
-" to help handle other author's tabstop/etc settings w/o explicit modelines
-NeoBundleLazy 'embear/vim-localvimrc'
-NeoBundleLazy 'thinca/vim-localrc'
-
-" Bundles Attic: {{{1
-" no longer used! {{{2
-"NeoBundle 'bling/vim-bufferline'
-"NeoBundle 'kakkyz81/evervim'
-"NeoBundle 'Zuckonit/vim-airline-tomato'
-
-" }}}2
 
 " Source Local Bundles: if any... {{{1
 if filereadable(expand("~/.vimrc.bundles.local"))
