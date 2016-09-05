@@ -168,6 +168,11 @@ endfunction
 
 " }}}3
 
+" Snipmate: {{{2
+
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'garbas/vim-snipmate'
+
 " CtrlP: {{{2
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
@@ -1098,11 +1103,6 @@ NeoBundleLazy 'majutsushi/tagbar', {
             \   'verbose': 1,
             \}
 
-" Snipmate: {{{2
-
-NeoBundle 'MarcWeber/vim-addon-mw-utils'
-NeoBundle 'garbas/vim-snipmate', { 'depends': 'vim-addon-mw-utils' }
-
 " }}}2
 
 " GIT And Version Controlish: bundles {{{1
@@ -1248,9 +1248,6 @@ let g:vim_markdown_frontmatter       = 1
 " vim-chef and dependencies {{{2
 NeoBundleLazy 'vadv/vim-chef', {
 \   'autoload': { 'filetypes': [ 'chef' ] },
-\   'depends': [
-\       'vim-snipmate',
-\   ],
 \   'verbose': 1,
 \}
 " }}}2
