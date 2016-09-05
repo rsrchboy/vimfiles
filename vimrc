@@ -644,6 +644,7 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'puppetlabs/puppet-syntax-vim', { 'for': 'puppet' }
 Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
+Plug 'vadv/vim-chef', { 'for': 'chef' }
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
@@ -1245,11 +1246,6 @@ NeoBundleLazy 'plasticboy/vim-markdown', {
 let g:vim_markdown_initial_foldlevel = 1
 let g:vim_markdown_frontmatter       = 1
 
-" vim-chef and dependencies {{{2
-NeoBundleLazy 'vadv/vim-chef', {
-\   'autoload': { 'filetypes': [ 'chef' ] },
-\   'verbose': 1,
-\}
 " }}}2
 
 " Trial Bundles: maybe, maybe not! {{{1
