@@ -599,6 +599,7 @@ Plug 'chikamichi/mediawiki.vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'puppetlabs/puppet-syntax-vim', { 'for': 'puppet' }
 Plug 'klen/python-mode', { 'for': 'python' }
+Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
@@ -1192,9 +1193,6 @@ NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'fil
 " NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
 " General Syntax And Filetype Plugins: bundles {{{1
-" CSV {{{2
-NeoBundleLazy 'chrisbra/csv.vim', { 'autoload': { 'filetypes': 'csv' } }
-
 " mkd {{{2
 
 NeoBundleLazy 'plasticboy/vim-markdown', {
