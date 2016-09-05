@@ -248,6 +248,16 @@ endif
 
 Plug 'rhysd/github-complete.vim'
 
+" GitHub Dashboard: {{{3
+
+let g:github_dashboard = {}
+let g:github_dashboard['emoji'] = 1
+let g:github_dashboard['RrschBoy'] = 1
+
+if has('ruby')
+    Plug 'junegunn/vim-github-dashboard', { 'on': ['GHA', 'GHD', 'GHDashboard', 'GHActivity'] }
+endif
+
 " TweetVim: {{{2
 
 Plug 'basyura/twibill.vim'
@@ -1368,20 +1378,6 @@ NeoBundleLazy 'jaxbot/github-issues.vim', {
             \       'filetypes_DISABLED': 'gitcommit',
             \   },
             \   'verbose': 1,
-            \}
-
-" GitHub Dashboard: {{{2
-
-let g:github_dashboard = {}
-let g:github_dashboard['emoji'] = 1
-let g:github_dashboard['RrschBoy'] = 1
-
-NeoBundleLazy 'junegunn/vim-github-dashboard', {
-            \   'disable': !has('ruby'),
-            \   'verbose': 1,
-            \   'autoload': {
-            \       'commands': ['GHA', 'GHD', 'GHDashboard', 'GHActivity'],
-            \   },
             \}
 
 " ToggleLists: toggle the quickfix / locationlist windows easily {{{2
