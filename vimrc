@@ -593,6 +593,13 @@ Plug 'LStinson/perlhelp-vim', { 'on': ['PerlHelp', 'PerlMod'] }
 Plug 'vim-scripts/log4perl.vim'
 
 " General Syntax And Filetype Plugins: bundles {{{1
+" mkd {{{2
+
+Plug 'plasticboy/vim-markdown', { 'for': [ 'mkd', 'markdown', 'mkd.markdown' ] }
+
+let g:vim_markdown_initial_foldlevel = 1
+let g:vim_markdown_frontmatter       = 1
+
 " vim: {{{2
 
 " Not a complete autovivification, but enough. 90% of the time we'll have at
@@ -1233,19 +1240,6 @@ NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'fil
 " NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
 " General Syntax And Filetype Plugins: bundles {{{1
-" mkd {{{2
-
-NeoBundleLazy 'plasticboy/vim-markdown', {
-            \   'autoload': {
-            \       'filetypes': [ 'mkd', 'markdown', 'mkd.markdown' ],
-            \       'mappings': [ '<Plug>Markdown_' ],
-            \   },
-            \   'verbose': 1,
-            \}
-
-let g:vim_markdown_initial_foldlevel = 1
-let g:vim_markdown_frontmatter       = 1
-
 " }}}2
 
 " Trial Bundles: maybe, maybe not! {{{1
