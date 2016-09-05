@@ -234,6 +234,36 @@ Plug 'mattn/webapi-vim'
 " }}}2
 
 " Appish Or External Interface: bundles {{{1
+" VimPipe: {{{2
+
+" Settings: {{{3
+
+" default mappings conflict with PerlHelp
+let g:vimpipe_invoke_map = ',r'
+let g:vimpipe_close_map  = ',p'
+
+" AutoCommands: set pipe commands for specific filetypes {{{3
+
+augroup vimrc-vimpipe
+    au!
+
+    " tapVerboseOutput appears to be significantly better than perl.tap
+    autocmd FileType perl let b:vimpipe_filetype = "tapVerboseOutput"
+    autocmd FileType perl let b:vimpipe_command  = "source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -"
+
+    autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-lint $T; rm $T"
+
+augroup end
+
+" AutoLoad: {{{3
+
+" load, then run.  this mapping will be overwritten on plugin load
+execute "nnoremap <silent> " . g:vimpipe_invoke_map . " :call plug#load('vim-pipe') <bar> %call VimPipe()<CR>"
+
+" }}}3
+
+Plug 'krisajenkins/vim-pipe', { 'on': [] }
+
 " Notes: an alternative to vimwiki?? {{{2
 
 " FIXME need to figure out the significance of other files in the notes dirs
@@ -951,37 +981,6 @@ if neobundle#tap('vim-gnupg')
 
     call neobundle#untap()
 endif
-
-" VimPipe: {{{2
-
-" Settings: {{{3
-
-" default mappings conflict with PerlHelp
-let g:vimpipe_invoke_map = ',r'
-let g:vimpipe_close_map  = ',p'
-
-" AutoCommands: {{{3
-
-augroup vimrc-vimpipe
-    au!
-
-    " tapVerboseOutput appears to be significantly better than perl.tap
-    autocmd FileType perl let b:vimpipe_filetype = "tapVerboseOutput"
-    autocmd FileType perl let b:vimpipe_command  = "source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -"
-
-    autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-lint $T; rm $T"
-
-augroup end
-
-" }}}3
-
-NeoBundleLazy 'krisajenkins/vim-pipe', {
-            \   'autoload': {
-            \       'commands': ['VimPipe'],
-            \       'mappings': [[ 'n', g:vimpipe_invoke_map ]],
-            \   },
-            \   'verbose': 1,
-            \}
 
 " BufExplorer: {{{2
 
