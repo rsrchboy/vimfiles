@@ -1239,9 +1239,6 @@ NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'fil
 " NeoBundleLazy 'osfameron/perl-tags-vim',  { 'autoload': { 'filetypes': 'perl'     } }
 " NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
-" General Syntax And Filetype Plugins: bundles {{{1
-" }}}2
-
 " Trial Bundles: maybe, maybe not! {{{1
 " RIV: reStructured Text {{{2
 
