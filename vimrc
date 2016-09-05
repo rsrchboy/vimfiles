@@ -41,6 +41,17 @@ let g:startify_skiplist = [
 
 Plug 'mhinz/vim-startify'
 
+" BetterWhitespace: {{{2
+
+" NOTE replaces: NeoBundle 'bronson/vim-trailing-whitespace'
+" FIXME ... if it would just work.  grr
+
+let g:better_whitespace_filetypes_blacklist = [ 'git', 'mail', 'help', 'startify' ]
+
+nmap <silent> ,<space> :StripWhitespace<CR>
+
+Plug 'ntpeters/vim-better-whitespace'
+
 " Airline: {{{2
 
 Plug 'bling/vim-airline'
@@ -1352,17 +1363,6 @@ NeoBundleLazy 'kien/tabman.vim', {
             \   },
             \   'verbose': 1,
             \}
-
-" BetterWhitespace: 18 Jul 2015 {{{2
-
-" NOTE replaces: NeoBundle 'bronson/vim-trailing-whitespace'
-" FIXME ... if it would just work.  grr
-
-let g:better_whitespace_filetypes_blacklist = [ 'git', 'mail', 'help', 'startify' ]
-
-nmap <silent> ,<space> :StripWhitespace<CR>
-
-NeoBundle 'ntpeters/vim-better-whitespace'
 
 " GithubIssues: {{{2
 
