@@ -214,6 +214,15 @@ Plug 'mattn/webapi-vim'
 " }}}2
 
 " Appish Or External Interface: bundles {{{1
+" Notes: an alternative to vimwiki?? {{{2
+
+" FIXME need to figure out the significance of other files in the notes dirs
+" first
+let g:notes_directories = [ '~/notes' ]
+let g:notes_suffix = '.notes'
+
+Plug 'xolox/vim-notes'
+
 " DbExt: {{{2
 
 
@@ -1360,32 +1369,6 @@ let g:better_whitespace_filetypes_blacklist = [ 'git', 'mail', 'help', 'startify
 nmap <silent> ,<space> :StripWhitespace<CR>
 
 NeoBundle 'ntpeters/vim-better-whitespace'
-
-" Notes: an alternative to vimwiki?? {{{2
-
-" FIXME need to figure out the significance of other files in the notes dirs
-" first
-let g:notes_directories = [ '~/notes' ]
-let g:notes_suffix = '.notes'
-
-NeoBundleLazy 'xolox/vim-notes', {
-            \   'autoload': {
-            \       'commands': [
-            \           {
-            \               'name': ['Note', 'RecentNotes'],
-            \               'complete': 'customlist,xolox#notes#cmd_complete',
-            \           },
-            \           {
-            \               'name': ['SearchNotes'],
-            \               'complete': 'customlist,xolox#notes#keyword_complete',
-            \           },
-            \           'RecentNotes', 'MostRecentNote',
-            \       ],
-            \       'filetypes': 'notes',
-            \       'functions': 'xolox#notes#',
-            \   },
-            \   'verbose': 1,
-            \}
 
 " GithubIssues: {{{2
 
