@@ -393,6 +393,46 @@ Plug 'diepm/vim-rest-console'
 
 
 " GIT And Version Controlish: bundles {{{1
+" Extradite: {{{2
+
+Plug 'int3/vim-extradite', { 'on': 'Extradite' }
+
+" Settings: {{{3
+
+let g:extradite_showhash = 1
+
+" Mappings: {{{3
+
+nnoremap <silent> <Leader>gE :Extradite<CR>
+
+" AutoCmds: {{{3
+
+augroup vimrc#extradite
+    au!
+
+    au FileType extradite nnoremap <buffer> <silent> <F1> :h extradite-mappings<CR>
+augroup END
+
+" PostSource Hook: {{{3
+
+au! User vim-extradite call s:PluginLoadedExtradite()
+
+" Do Things when the bundle is vivified
+function! s:PluginLoadedExtradite()
+
+    " create the buffer-local :Extradite command
+    silent! execute 'doautocmd User Fugitive'
+
+    augroup vimrc#extradite#post_source_hook
+        au!
+
+        " ...and in buffers created before we loaded extradite, too
+        au CmdUndefined Extradite :doautocmd User Fugitive
+    augroup END
+endfunction
+
+" }}}3
+
 " Git WIP: {{{2
 
 let g:git_wip_disable_signing = 1
@@ -536,7 +576,6 @@ augroup END
 
 " }}}2
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
-Plug 'int3/vim-extradite', { 'on': 'Extradite' }
 
 " TODO do we want to use this instead? https://github.com/rhysd/conflict-marker.vim
 " Plug 'vim-scripts/ConflictMotions'
@@ -1270,43 +1309,6 @@ endfunction
 
 " }}}3
 
-" Settings: {{{3
-
-let g:extradite_showhash = 1
-
-" Mappings: {{{3
-
-nnoremap <silent> <Leader>gE :Extradite<CR>
-
-" AutoCmds: {{{3
-
-augroup vimrc#extradite
-    au!
-
-    au FileType extradite nnoremap <buffer> <silent> <F1> :h extradite-mappings<CR>
-augroup END
-
-" PostSource Hook: {{{3
-
-if neobundle#tap('vim-extradite')
-
-    function! neobundle#hooks.on_post_source(bundle)
-
-        " create the buffer-local :Extradite command
-        silent! execute 'doautocmd User Fugitive'
-
-        augroup vimrc#extradite#post_source_hook
-            au!
-
-            " ...and in buffers created before we loaded extradite, too
-            au CmdUndefined Extradite :doautocmd User Fugitive
-        augroup END
-    endfunction
-
-    call neobundle#untap()
-endif
-
-" }}}3
 
 " VimSignature: show marks in sign column {{{2
 
