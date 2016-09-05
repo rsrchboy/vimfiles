@@ -246,6 +246,8 @@ endif
 
 " GitHub Integration: {{{2
 
+" github-complete {{{3
+
 Plug 'rhysd/github-complete.vim'
 
 " GitHub Dashboard: {{{3
@@ -257,6 +259,8 @@ let g:github_dashboard['RrschBoy'] = 1
 if has('ruby')
     Plug 'junegunn/vim-github-dashboard', { 'on': ['GHA', 'GHD', 'GHDashboard', 'GHActivity'] }
 endif
+
+" }}}3
 
 " TweetVim: {{{2
 
