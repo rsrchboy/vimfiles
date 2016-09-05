@@ -262,6 +262,14 @@ endif
 
 " }}}3
 
+" Gerrit Integration: ...maybe we can make life easier {{{2
+
+Plug 'stargrave/gerrvim', { 'on': [] }
+
+if has('python')
+    Plug 'itissid/gv', { 'on': ['GvShowChanges','GvShowStatus'] }
+endif
+
 " TweetVim: {{{2
 
 Plug 'basyura/twibill.vim'
@@ -1322,19 +1330,6 @@ NeoBundleLazy 'NLKNguyen/pipe.vim',{
             \}
 NeoBundleLazy 'NLKNguyen/pipe-mysql.vim', {
             \   'depends': 'pipe-mysql.vim',
-            \   'verbose': 1,
-            \}
-
-" Gerrit Code Review: ...maybe we can make life easier {{{2
-
-NeoBundleLazy 'stargrave/gerrvim'
-
-NeoBundleLazy 'itissid/gv', {
-            \   'disable': !has('python'),
-            \   'autoload': {
-            \       'commands': ['GvShowChanges','GvShowStatus'],
-            \       'functions': 'gv#',
-            \   },
             \   'verbose': 1,
             \}
 
