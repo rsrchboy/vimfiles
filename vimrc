@@ -223,6 +223,7 @@ Plug 'vim-scripts/Align'
 Plug 'vim-scripts/AutoAlign'
 Plug 'tpope/vim-dispatch'
 Plug 'Shougo/unite.vim'
+Plug 'Shougo/neomru.vim'
 Plug 'Shougo/junkfile.vim'
 Plug 'rafi/vim-unite-issue'
 Plug 'joker1007/unite-pull-request'
@@ -830,6 +831,7 @@ let g:lazylist_maps = [
 Plug 'KabbAmine/lazyList.vim', { 'on': 'LazyList' }
 
 " }}}2
+Plug 'mattn/googletasks-vim', { 'on': 'GoogleTasks' }
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-syntax' " , { 'depends': 'vim-textobj-user' }
 " filetype
@@ -1368,10 +1370,8 @@ let g:windowswap_map_keys = 0
 NeoBundleLazy 'wesQ3/vim-windowswap'
 
 " }}}2
-NeoBundleLazy 'mattn/googletasks-vim', { 'verbose': 1, 'autoload': { 'commands': 'GoogleTasks' } }
 NeoBundle 'dhruvasagar/vim-table-mode'
-NeoBundle 'mhinz/vim-tmuxify'
-NeoBundle 'Shougo/neomru.vim'
+" NeoBundle 'mhinz/vim-tmuxify'
 NeoBundle 'chrisbra/NrrwRgn'
 
 " Probation: {{{1
