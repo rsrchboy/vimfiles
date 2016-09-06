@@ -198,8 +198,10 @@ let g:neocomplete#enable_smart_case = 1
 
 let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
 
-" Plug 'MarcWeber/vim-addon-mw-utils'
-" Plug 'garbas/vim-snipmate'
+" snippets bundles
+Plug 'andrewstuart/vim-kubernetes'
+
+" aaaaaaand the actuator itself!
 Plug 'SirVer/ultisnips'
 
 " Vim Indent Guides: no more counting up for matching! {{{2
