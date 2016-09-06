@@ -168,6 +168,32 @@ endfunction
 
 " }}}3
 
+" NeoComplete: ...and associated bundles {{{2
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+let g:neocomplete#enable_smart_case = 1
+"g:neocomplete#enable_auto_close_preview
+
+" NeoBundleLazy 'Shougo/neco-syntax'
+" NeoBundleLazy 'Shougo/neoinclude.vim'
+" NeoBundleLazy 'c9s/perlomni.vim', { 'name': 'perlomni' }
+" NeoBundleLazy 'Shougo/neocomplete.vim', {
+"             \   'autoload': {
+"             \       'commands': [ 'NeoCompleteEnable' ],
+"             \   },
+"             \   'depends': [ 'vimproc', 'perlomni', 'neoinclude.vim', 'neco-syntax' ],
+"             \   'disabled': !has('lua'),
+"             \   'verbose': 0,
+"             \}
+
 " Snippets: {{{2
 
 let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
@@ -1074,32 +1100,6 @@ augroup vimrc-nerdtree
 augroup end
 
 NeoBundle 'scrooloose/nerdtree', { 'augroup': 'NERDTreeHijackNetrw' }
-
-" NeoComplete: ...and associated bundles {{{2
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-
-let g:neocomplete#enable_smart_case = 1
-"g:neocomplete#enable_auto_close_preview
-
-" NeoBundleLazy 'Shougo/neco-syntax'
-" NeoBundleLazy 'Shougo/neoinclude.vim'
-" NeoBundleLazy 'c9s/perlomni.vim', { 'name': 'perlomni' }
-" NeoBundleLazy 'Shougo/neocomplete.vim', {
-"             \   'autoload': {
-"             \       'commands': [ 'NeoCompleteEnable' ],
-"             \   },
-"             \   'depends': [ 'vimproc', 'perlomni', 'neoinclude.vim', 'neco-syntax' ],
-"             \   'disabled': !has('lua'),
-"             \   'verbose': 0,
-"             \}
 
 " SuperTab: {{{2
 
