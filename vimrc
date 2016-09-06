@@ -180,6 +180,22 @@ let g:indent_guides_guide_size  = 1
 
 Plug 'nathanaelkane/vim-indent-guides', { 'on': [ 'IndentGuidesEnable', 'IndentGuidesToggle' ] }
 
+" TabMan: {{{2
+
+" Settings: {{{3
+
+let g:tabman_toggle = '<leader>mt'
+let g:tabman_focus  = '<leader>mf'
+
+" AutoLoad: {{{3
+" load, then run.  this mapping will be overwritten on plugin load
+execute "nnoremap <silent> " . g:tabman_toggle . " :call plug#load('tabman.vim') <bar> TMToggle<CR>"
+execute "nnoremap <silent> " . g:tabman_focus  . " :call plug#load('tabman.vim') <bar> TMFocus<CR>"
+
+" }}}3" }}}3
+
+Plug 'kien/tabman.vim', { 'on': [ 'TMToggle', 'TMFocus' ] }
+
 " CtrlP: {{{2
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
@@ -1293,16 +1309,6 @@ NeoBundleLazy 'NLKNguyen/pipe-mysql.vim', {
             \}
 
 
-
-" TabMan: {{{2
-
-NeoBundleLazy 'kien/tabman.vim', {
-            \   'autoload': {
-            \       'commands': [ 'TMToggle', 'TMFocus' ],
-            \       'mappings': [ '<leader>mt', '<leader>mf' ],
-            \   },
-            \   'verbose': 1,
-            \}
 
 " GithubIssues: {{{2
 
