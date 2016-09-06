@@ -1195,19 +1195,6 @@ NeoBundleLazy 'vim-scripts/vimwiki', {
 
 " }}}2
 
-" OS Specific Bundles: OSX {{{1
-" Vitality: iTerm2/tmux {{{2
-
-" this looks worth examining...  if we're ever in the situation of needing to
-" use a mac :\
-
-NeoBundleLazy 'sjl/vitality.vim', {
-            \   'external_commands': 'tmux',
-            \   'disabled': !neobundle#util#is_mac(),
-            \}
-
-" }}}2
-
 " Perl Bundles: {{{1
 " perl-in-vim bundles {{{2
 
@@ -1306,13 +1293,6 @@ NeoBundleLazy 'NLKNguyen/pipe-mysql.vim', {
             \}
 
 
-
-" TSkeletons: {{{2
-
-NeoBundleLazy 'tomtom/tskeleton_vim'
-NeoBundleLazy 'tomtom/tskeletons', { 'depends': [ 'tskeleton_vim' ] }
-
-let g:tskelMapGoToNextTag = 0
 
 " TabMan: {{{2
 
