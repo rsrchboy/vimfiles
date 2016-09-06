@@ -168,10 +168,13 @@ endfunction
 
 " }}}3
 
-" Snipmate: {{{2
+" Snippets: {{{2
 
-Plug 'MarcWeber/vim-addon-mw-utils'
-Plug 'garbas/vim-snipmate'
+let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
+
+" Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'garbas/vim-snipmate'
+Plug 'SirVer/ultisnips'
 
 " Vim Indent Guides: no more counting up for matching! {{{2
 
@@ -1505,8 +1508,6 @@ augroup vimrc-filetype
 augroup end
 
 " }}}2
-
-let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
 
 " APPEARANCE: colors, themes, etc {{{1
 " Syntax AutoCommands: {{{2
