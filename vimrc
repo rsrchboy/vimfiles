@@ -1307,11 +1307,11 @@ NeoBundleLazy 'kshenoy/vim-signature', {
 
 " TODO check this one out, too: NLKNguyen/pipe-mysql.vim
 NeoBundleLazy 'NLKNguyen/pipe.vim',{
+            \   'depends': 'pipe-mysql.vim',
             \   'autoload': { 'commands': 'Pipe' },
             \   'verbose': 1,
             \}
 NeoBundleLazy 'NLKNguyen/pipe-mysql.vim', {
-            \   'depends': 'pipe-mysql.vim',
             \   'verbose': 1,
             \}
 
