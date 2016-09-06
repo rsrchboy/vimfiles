@@ -1153,9 +1153,6 @@ NeoBundleLazy 'majutsushi/tagbar', {
 
 " }}}2
 
-" GIT And Version Controlish: bundles {{{1
-" }}}2
-
 " Appish Or External Interface: bundles {{{1
 " Terraform: {{{2
 
