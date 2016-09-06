@@ -435,6 +435,47 @@ Plug 'diepm/vim-rest-console'
 
 
 " GIT And Version Controlish: bundles {{{1
+" Gitv: {{{2
+
+" Settings: {{{3
+
+let g:Gitv_TruncateCommitSubjects = 1
+let g:Gitv_CommitStep             = 150
+let g:Gitv_TellMeAboutIt          = 0
+
+" AutoCommands: {{{3
+
+augroup vimrc-gitv
+    au!
+
+    " autoload gitv
+    au FuncUndefined Gitv_OpenGitCommand :call plug#load('gitv')
+
+    " prettify gerrit refs
+    au User GitvSetupBuffer silent %s/refs\/changes\/\d\d\//change:/ge
+
+    " update commit list on :Dispatch finish
+    " NOTE this does not update the commit in the preview pane
+    "au QuickFixCmdPost <buffer> :normal u
+    "
+    " For whatever reason the buffer-local au above isn't being created when
+    " in the gitv ftplugin...?!  So we'll do this here.  *le sigh*
+    au QuickFixCmdPost gitv-* :normal u
+
+    "au BufNewFile gitv-* au QuickFixCmdPost <buffer=abuf> normal u
+    au FileType gitv au QuickFixCmdPost <buffer=abuf> normal u
+
+augroup END
+
+" }}}3
+
+" FIXME use our upstream, for the moment
+"
+" ...as there are a number of PR's I have outstanding with upstream.
+"
+" Plug 'gregsexton/gitv', {
+Plug 'RsrchBoy/gitv', { 'on': 'Gitv' }
+
 " Extradite: {{{2
 
 Plug 'int3/vim-extradite', { 'on': 'Extradite' }
@@ -1113,55 +1154,6 @@ NeoBundleLazy 'majutsushi/tagbar', {
 " }}}2
 
 " GIT And Version Controlish: bundles {{{1
-" Gitv: {{{2
-
-" Settings: {{{3
-
-let g:Gitv_TruncateCommitSubjects = 1
-let g:Gitv_CommitStep             = 150
-let g:Gitv_TellMeAboutIt          = 0
-
-" AutoCommands: {{{3
-
-augroup vimrc-gitv
-    au!
-
-    " prettify gerrit refs
-    au User GitvSetupBuffer silent %s/refs\/changes\/\d\d\//change:/ge
-
-    " update commit list on :Dispatch finish
-    " NOTE this does not update the commit in the preview pane
-    "au QuickFixCmdPost <buffer> :normal u
-    "
-    " For whatever reason the buffer-local au above isn't being created when
-    " in the gitv ftplugin...?!  So we'll do this here.  *le sigh*
-    au QuickFixCmdPost gitv-* :normal u
-
-    "au BufNewFile gitv-* au QuickFixCmdPost <buffer=abuf> normal u
-    au FileType gitv au QuickFixCmdPost <buffer=abuf> normal u
-
-augroup END
-
-" }}}3
-
-" FIXME use our upstream, for the moment
-"
-" ...as there are a number of PR's I have outstanding with upstream.
-"
-" NeoBundleLazy 'gregsexton/gitv', {
-NeoBundleLazy 'RsrchBoy/gitv', {
-            \ 'autoload': {
-            \   'commands': [
-            \       {
-            \           'name': 'Gitv',
-            \           'complete': 'customlist,gitv#util#completion',
-            \       },
-            \   ],
-            \   'functions': 'Gitv_OpenGitCommand',
-            \ },
-            \ 'verbose': 1,
-            \}
-
 " }}}2
 
 " Appish Or External Interface: bundles {{{1
