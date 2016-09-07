@@ -170,29 +170,33 @@ endfunction
 
 " NeoComplete: ...and associated bundles {{{2
 
+" settings: {{{3
+
+let g:neocomplete#enable_at_startup                 = 1
+let g:neocomplete#enable_smart_case                 = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
   let g:neocomplete#sources#omni#input_patterns = {}
 endif
 
+"g:neocomplete#enable_auto_close_preview
+
+"             \   'disabled': !has('lua'),
+
+" perlomni settings: {{{3
+
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-let g:neocomplete#enable_smart_case = 1
-"g:neocomplete#enable_auto_close_preview
+" }}}3
 
-" NeoBundleLazy 'Shougo/neco-syntax'
-" NeoBundleLazy 'Shougo/neoinclude.vim'
-" NeoBundleLazy 'c9s/perlomni.vim', { 'name': 'perlomni' }
-" NeoBundleLazy 'Shougo/neocomplete.vim', {
-"             \   'autoload': {
-"             \       'commands': [ 'NeoCompleteEnable' ],
-"             \   },
-"             \   'depends': [ 'vimproc', 'perlomni', 'neoinclude.vim', 'neco-syntax' ],
-"             \   'disabled': !has('lua'),
-"             \   'verbose': 0,
-"             \}
+Plug 'Shougo/neco-syntax'
+Plug 'Shougo/neoinclude.vim'
+Plug 'c9s/perlomni.vim' " , { 'for': 'perl' }
+Plug 'Shougo/neocomplete.vim'
 
 " Snippets: {{{2
 
