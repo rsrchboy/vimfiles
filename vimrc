@@ -194,6 +194,7 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " }}}3
 
 Plug 'Shougo/neco-syntax'
+Plug 'Shougo/neco-vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'c9s/perlomni.vim' " , { 'for': 'perl' }
 Plug 'Shougo/neocomplete.vim'
