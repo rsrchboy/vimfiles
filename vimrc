@@ -292,6 +292,7 @@ Plug 'vim-scripts/CountJump'
 Plug 'mattn/webapi-vim'
 
 " }}}2
+Plug 'junegunn/vim-emoji'
 
 " Appish Or External Interface: bundles {{{1
 " VimPipe: {{{2
