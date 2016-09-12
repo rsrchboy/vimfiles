@@ -34,6 +34,7 @@ nmap <buffer> <silent> F   :execute 'Gcommit --fixup  ' . gitv#util#line#sha('.'
 nmap <buffer> <silent> S   :execute 'Gcommit --squash ' . gitv#util#line#sha('.')<bar>normal u<CR>
 nmap <buffer> <silent> C   :Gcommit<CR>
 nmap <buffer> <silent> ria :call dispatch#compile_command(0, fugitive#repo().git_command('ria'), 1)<CR>
+nmap <buffer> <silent> rv  :call dispatch#compile_command(0, fugitive#repo().git_command('revert', '--no-edit', gitv#util#line#sha('.')), 1)<CR>
 nmap <buffer> <silent> ca  :call dispatch#compile_command(0, fugitive#repo().git_command('ca'), 1)<CR>
 nmap <buffer> <silent> gf  :execute 'Dispatch ' . fugitive#repo().git_command('fetch')<CR>
 
