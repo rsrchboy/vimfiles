@@ -102,15 +102,3 @@ if exists("perl_include_pod") && perl_include_pod == 1
     syn   match   podCommand   "^=type"     nextgroup=podCmdText   contains=@Spell
     syn   match   podCommand   "^=test"     nextgroup=podCmdText   contains=@Spell
 endif
-
-" highlight markers for Data::Section::Simple in __DATA__
-"
-" NOTE: the master Perl syntax file does not distinguish between __DATA__ and
-" __END__ at the moment, so we'll get highlighting for this under __END__ as
-" well...  where Data::Section::Simple will be unable to read from.  *le sigh*
-"
-"   @@ template/name
-syn region perlDATASectionDecl matchgroup=perlDATASectionStatementMarker start=/^@@ / end=/$/ oneline contained containedin=perlDATA
-
-hi def link perlDATASectionDecl            perlTodo
-hi def link perlDATASectionStatementMarker Keyword
