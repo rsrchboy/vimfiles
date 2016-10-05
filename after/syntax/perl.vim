@@ -11,9 +11,9 @@
 "
 " ...kinda.
 
-source ~/.vim/bundle/vim-perl/contrib/carp.vim
-source ~/.vim/bundle/vim-perl/contrib/moose.vim
-source ~/.vim/bundle/vim-perl/contrib/try-tiny.vim
+exe 'source ' . g:plug_home . '/vim-perl/contrib/carp.vim'
+exe 'source ' . g:plug_home . '/vim-perl/contrib/moose.vim'
+exe 'source ' . g:plug_home . '/vim-perl/contrib/try-tiny.vim'
 
 " I like to do shift->this->that->[1]->{...} sometimes.
 "

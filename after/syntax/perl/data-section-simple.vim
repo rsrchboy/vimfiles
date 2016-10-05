@@ -10,7 +10,5 @@ syn region perlDATASimpleSectionDecl matchgroup=perlDATASimpleSectionStatementMa
 hi def link perlDATASimpleSectionDecl            perlTodo
 hi def link perlDATASimpleSectionStatementMarker Keyword
 
-" WIP / TODO: embedded syntax regions
-" syn include @TT2 ~/.vim/plugged/vim-perl/syntax/tt2.vim
 syn include @TT2 syntax/tt2.vim
 syn region perlDATASectionSimpleTT2Section start=/^@@ .\{1,}\.tt2\?$/ end=/^@@ /me=e-3 keepend contains=@TT2,perlDATASimpleSectionDecl containedin=perlDATA fold
