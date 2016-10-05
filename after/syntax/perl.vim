@@ -5,9 +5,7 @@
 "
 " This extends the vim-perl syntax package to handle:
 "
-"   * Moose
-"   * MooseX::Role::Parameterized
-"   * Try::Tiny
+"   * Moose * MooseX::Role::Parameterized * Try::Tiny
 "
 " ...kinda.
 
@@ -38,9 +36,6 @@ syn match perlFatComma           +=>+          contained
 hi def link perlMooseAttribute perlFunction
 hi def link perlMooseAttributeName perlSubName
 
-" dzil
-syn keyword perlTodo PODNAME: ABSTRACT: contained
-
 " "normal"
 syn match   perlTodo /\<\(NOTE\|TBD\|FIXME\|XXX\|PLAN\)[:]\?/ contained contains=NONE,@NoSpell
 
@@ -67,27 +62,21 @@ endif
 " add-on to the perl/pod syntax to include our custom podweaver pod
 " commands as bonafide pod.
 
-"syn include @Pod <sfile>:p:h/pod.vim
-"syn region myPOD start="^=pod" start="^=head" start="^=func" end="^=cut" keepend contained contains=@Pod
-"syn sync match perlSyncPOD	grouphere perlPOD "^=func"
+"syn include @Pod <sfile>:p:h/pod.vim syn region myPOD start="^=pod"
+"start="^=head" start="^=func" end="^=cut" keepend contained contains=@Pod syn
+"sync match perlSyncPOD	grouphere perlPOD "^=func"
 
-" dzil-specific highlights
+" dzil-specific highlights dzil
+syn keyword perlTodo PODNAME: ABSTRACT: contained
 syn keyword perlPodWeaverSpecialCommentKeywords ABSTRACT: PACKAGE: nextgroup=perlPodWeaverSpecialCommentRemainder contained
-"syn match perlPodWeaverSpecialComment "^ *#+ *" contains=perlPodWeaverSpecialCommentKeywords,@Spell nextgroup=perlPodWeaverSpecialCommentKeywords
 syn match perlPodWeaverSpecialCommentRemainder ".*" contained
 syn match perlPodWeaverSpecialComment "^# .*:" contains=perlPodWeaverSpecialCommentKeywords,@Spell
 
 " Should probably be something a little nicer :)
 hi def link perlPodWeaverSpecialCommentKeywords Todo
 
-"syn region perlPodWeaverSpecialComment matchgroup=perlPodWeaverSpecialComment contains=perlPodWeaverSpecialCommentKeys,@Spell start="^ *# " end="$"
-
-" @110
-" ABSTRACT and PACKAGE being dzil things
-"syn keyword perlTodo	ABSTRACT: PACKAGE: TODO TODO: TBD TBD: FIXME FIXME: XXX XXX: NOTE NOTE: contained
-
 " TODO highlight smart comments differently!
-syn match  perlComment		"#.*" contains=perlTodo,@Spell extend
+syn match  perlComment "#.*" contains=perlTodo,@Spell extend
 
 " sure spell-checking is turned on
 syn region perlPOD start="^=[a-z]" end="^=cut" contains=@Spell fold
