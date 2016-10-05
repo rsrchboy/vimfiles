@@ -69,8 +69,8 @@ endif
 " dzil-specific highlights dzil
 syn keyword perlTodo PODNAME: ABSTRACT: contained
 syn keyword perlPodWeaverSpecialCommentKeywords ABSTRACT: PACKAGE: nextgroup=perlPodWeaverSpecialCommentRemainder contained
-syn match perlPodWeaverSpecialCommentRemainder ".*" contained
-syn match perlPodWeaverSpecialComment "^# .*:" contains=perlPodWeaverSpecialCommentKeywords,@Spell
+syn match perlPodWeaverSpecialCommentRemainder ".*" contained contains=@Spell
+syn match perlPodWeaverSpecialComment "^# .*:" contains=perlPodWeaverSpecialCommentKeywords
 
 " Should probably be something a little nicer :)
 hi def link perlPodWeaverSpecialCommentKeywords Todo
