@@ -264,6 +264,7 @@ Plug 'Shougo/neomru.vim'
 Plug 'Shougo/junkfile.vim'
 Plug 'rafi/vim-unite-issue'
 Plug 'joker1007/unite-pull-request'
+Plug 'tpope/vim-speeddating'
 
 " Libraries: library plugins/bundles {{{1
 " TLib: {{{2
