@@ -9,6 +9,7 @@
 "
 " ...kinda.
 
+exe 'source ' . g:plug_home . '/vim-perl/contrib/highlight-all-pragmas.vim'
 exe 'source ' . g:plug_home . '/vim-perl/contrib/carp.vim'
 exe 'source ' . g:plug_home . '/vim-perl/contrib/moose.vim'
 exe 'source ' . g:plug_home . '/vim-perl/contrib/try-tiny.vim'
