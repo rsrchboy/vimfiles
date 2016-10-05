@@ -197,6 +197,7 @@ Plug 'Shougo/neco-syntax'
 Plug 'Shougo/neco-vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'c9s/perlomni.vim' " , { 'for': 'perl' }
+Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/neocomplete.vim'
 
 " Snippets: {{{2
