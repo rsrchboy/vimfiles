@@ -53,7 +53,7 @@ function! airline#extensions#head#status()
     endif
 
     if !exists('b:airline_head_subject')
-        let b:airline_head_subject = '{' . fugitive#repo().git_chomp('log', '-1', '--pretty=%s') . '}'
+        let b:airline_head_subject = '{' . fugitive#repo().git_chomp('log', '-1', '--pretty=%s', '--no-show-signature') . '}'
     endif
 
     return b:airline_head_subject
