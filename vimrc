@@ -727,6 +727,21 @@ Plug 'LStinson/perlhelp-vim', { 'on': ['PerlHelp', 'PerlMod'] }
 Plug 'vim-scripts/log4perl.vim'
 
 " General Syntax And Filetype Plugins: bundles {{{1
+" go: {{{2
+
+" Settings: {{{3
+
+let g:go_highlight_functions         = 1
+let g:go_highlight_methods           = 1
+let g:go_highlight_fields            = 1
+let g:go_highlight_types             = 1
+let g:go_highlight_operators         = 1
+let g:go_highlight_build_constraints = 1
+
+" }}}3
+
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+
 " mkd {{{2
 
 Plug 'plasticboy/vim-markdown', { 'for': [ 'mkd', 'markdown', 'mkd.markdown' ] }
@@ -781,7 +796,6 @@ Plug 'fmoralesc/vim-pinpoint'
 Plug 'vim-scripts/deb.vim'
 Plug 'vim-scripts/gtk-vim-syntax'
 Plug 'chikamichi/mediawiki.vim'
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'puppetlabs/puppet-syntax-vim', { 'for': 'puppet' }
 Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
@@ -818,13 +832,23 @@ Plug 'vitalk/vim-simple-todo'
 
 nnoremap <silent> <Leader>td :split ~/todo.txt<CR>
 
-" Autocmds:
+" Autocmds: {{{4
+
 augroup vimrc-todo.txt
     au!
 
-    " self-removes on execution
-    au BufNewFile,BufRead *todo.txt call plug#load('todo.txt-vim') | execute 'set ft=todo | au! vimrc-todo.txt'
+    " self-removes on execution -- note it is important to do the removal
+    " *first*, otherwise Very Bad Things happen.  (or at least Things That
+    " Look Like Very Bad Things)
+    au BufNewFile,BufRead *[Tt]odo.txt execute 'au! vimrc-todo.txt' | call plug#load('todo.txt-vim') | execute 'set ft=todo'
 augroup END
+
+" PostSource Hook: {{{4
+
+" ensure our autoload hook is dropped, however we get loaded
+au User todo.txt execute 'au! vimrc-todo.txt'
+
+" }}}4
 
 " note this syntax prevents autoloading
 Plug 'freitass/todo.txt-vim', { 'on': [] }
