@@ -297,6 +297,10 @@ Plug 'mattn/webapi-vim'
 Plug 'junegunn/vim-emoji'
 
 " Appish Or External Interface: bundles {{{1
+" VimOrganizer: {{{2
+
+Plug 'hsitz/VimOrganizer', { 'for': ['org', 'vimorg-agenda-mappings', 'vimorg-main-mappings'] }
+
 " VimPipe: {{{2
 
 " Settings: {{{3
@@ -1218,15 +1222,6 @@ NeoBundleLazy 'hashivim/vim-terraform', {
             \       'filename_patterns': [ '\.tf$', '\.tfvars$', '\.tfstate$' ],
             \       'verbose': 1,
             \   },
-            \}
-
-" VimOrganizer: {{{2
-
-NeoBundleLazy 'hsitz/VimOrganizer', {
-            \   'autoload': {
-            \       'filetypes': ['org', 'vimorg-agenda-mappings', 'vimorg-main-mappings'],
-            \   },
-            \   'verbose': 1,
             \}
 
 " VimWiki: {{{2
