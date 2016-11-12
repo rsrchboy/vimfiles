@@ -801,6 +801,7 @@ Plug 'klen/python-mode', { 'for': 'python' }
 Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 Plug 'vadv/vim-chef', { 'for': 'chef' }
 Plug 'kchmck/vim-coffee-script'
+Plug 'easymotion/vim-easymotion'
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
