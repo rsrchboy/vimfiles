@@ -297,6 +297,16 @@ Plug 'mattn/webapi-vim'
 Plug 'junegunn/vim-emoji'
 
 " Appish Or External Interface: bundles {{{1
+" GithubIssues: {{{2
+
+" NOTE: don't autoload on gitcommit f/t at the moment, as this plugin either
+" does not support authenticated requests (or we don't have it configured) and
+" it's WICKED SLOW when the number of allowed requests is exceeded.
+
+if has('python')
+    Plug 'jaxbot/github-issues.vim', { 'on': ['Gissues', 'Gmiles', 'Giadd'] }
+endif
+
 " VimOrganizer: {{{2
 
 Plug 'hsitz/VimOrganizer', { 'for': ['org', 'vimorg-agenda-mappings', 'vimorg-main-mappings'] }
@@ -1345,21 +1355,6 @@ NeoBundleLazy 'NLKNguyen/pipe-mysql.vim', {
             \}
 
 
-
-" GithubIssues: {{{2
-
-" NOTE: don't autoload on gitcommit f/t at the moment, as this plugin either
-" does not support authenticated requests (or we don't have it configured) and
-" it's WICKED SLOW when the number of allowed requests is exceeded.
-
-NeoBundleLazy 'jaxbot/github-issues.vim', {
-            \   'disable': !has('python'),
-            \   'autoload': {
-            \       'commands': ['Gissues', 'Gmiles', 'Giadd'],
-            \       'filetypes_DISABLED': 'gitcommit',
-            \   },
-            \   'verbose': 1,
-            \}
 
 " ToggleLists: toggle the quickfix / locationlist windows easily {{{2
 
