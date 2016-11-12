@@ -33,7 +33,7 @@ commit-spellings: respell
 # ...
 
 bootstrap:
-	git subtree pull --prefix=bootstrap/vim-plug --squash https://github.com/junegunn/vim-plug.git master
+	git -c log.showSignature=false subtree pull --prefix=bootstrap/vim-plug --squash https://github.com/junegunn/vim-plug.git master
 
 fonts:
 	@ echo '# ensuring fonts...'
