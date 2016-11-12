@@ -959,6 +959,27 @@ Execute (Vim command with : prefix):
   AssertEqual '12345', getline(2)
   q
 
+Execute (Vim command with : prefix closing the window):
+  call plug#begin()
+  Plug 'junegunn/vim-pseudocl', { 'do': ':close' }
+  call plug#end()
+
+  redir => out
+  PlugInstall!
+  redir END
+  Assert out =~ 'vim-plug was terminated'
+  Assert out =~ 'of vim-pseudocl'
+
+Execute (Invalid vim command in post-update hook):
+  call plug#begin()
+  Plug 'junegunn/vim-pseudocl', { 'do': ':nosuchcommand' }
+  call plug#end()
+
+  PlugInstall!
+  Log getline(1, '$')
+  AssertExpect! 'x Post-update hook for vim-pseudocl ... Vim:E492: Not an editor command: nosuchcommand', 1
+  q
+
 **********************************************************************
 ~ Overriding `dir`
 **********************************************************************
@@ -1472,3 +1493,57 @@ Execute (#427 - Tag option with wildcard (requires git 1.9.2 or above)):
     q
     AssertEqual '2.9.7', GitTag('vim-easy-align')
   endif
+
+Execute (#530 - Comparison of compatible git URIs):
+  " .git suffix
+  Assert CompareURI('https://github.com/junegunn/vim-plug.git', 'https://github.com/junegunn/vim-plug')
+
+  " user@
+  Assert CompareURI('https://github.com/junegunn/vim-plug.git', 'https://user@github.com/junegunn/vim-plug.git')
+
+  " git::@
+  Assert CompareURI('https://github.com/junegunn/vim-plug.git', 'https://git::@github.com/junegunn/vim-plug.git')
+
+  " https and ssh
+  Assert CompareURI('https://github.com/junegunn/vim-plug.git', 'git@github.com:junegunn/vim-plug.git')
+
+  " file://
+  Assert CompareURI('file:///tmp/vim-plug', '/tmp/vim-plug')
+  Assert CompareURI('file:///tmp/vim-plug', '/tmp/vim-plug/')
+
+Execute (#530 - Comparison of incompatible git URIs):
+  " Different hostname
+  Assert !CompareURI('https://github.com/junegunn/vim-plug.git', 'https://bitbucket.com/junegunn/vim-plug.git')
+
+  " Different repository
+  Assert !CompareURI('https://github.com/junegunn/vim-plug.git', 'https://github.com/junegunn/emacs-plug.git')
+
+  " Different port
+  Assert !CompareURI('https://github.com/junegunn/vim-plug.git', 'https://github.com:12345/junegunn/vim-plug.git')
+
+Execute (#532 - Reuse plug window):
+  call plug#begin()
+  Plug 'junegunn/goyo.vim'
+  call plug#end()
+  PlugInstall
+  call system(printf('cd "%s" && git commit --allow-empty -m "dummy"', g:plugs['goyo.vim'].dir))
+
+  PlugDiff
+  AssertEqual 1, winnr()
+  AssertEqual 2, winnr('$')
+
+  " Open preview window
+  execute "normal ]]jo"
+  AssertEqual 2, winnr()
+  AssertEqual 3, winnr('$')
+
+  " Move plug window to the right
+  wincmd L
+  AssertEqual 3, winnr()
+  AssertEqual 3, winnr('$')
+
+  " Reuse plug window. Preview window is closed.
+  PlugStatus
+  AssertEqual 2, winnr()
+  AssertEqual 2, winnr('$')
+  q
