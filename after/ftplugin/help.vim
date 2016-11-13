@@ -6,7 +6,7 @@ if exists("b:did_local_help_ftplugin")
 endif
 let b:did_local_help_ftplugin = 1
 
-setlocal nonumber
+" setlocal nonumber
 setlocal foldcolumn=0
 
 nnoremap <buffer> <silent> q :q<CR>
