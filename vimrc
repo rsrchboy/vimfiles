@@ -773,6 +773,9 @@ Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'rhysd/conflict-marker.vim'
 
 " Perl Bundles: {{{1
+" TODO sort these two
+" NeoBundleLazy 'osfameron/perl-tags-vim',  { 'autoload': { 'filetypes': 'perl'     } }
+" NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 Plug 'vim-perl/vim-perl'
 Plug 'LStinson/perlhelp-vim', { 'on': ['PerlHelp', 'PerlMod'] }
 Plug 'vim-scripts/log4perl.vim'
@@ -1236,25 +1239,6 @@ NeoBundleLazy 'majutsushi/tagbar', {
 " }}}2
 
 " Appish Or External Interface: bundles {{{1
-
-" Perl Bundles: {{{1
-" perl-in-vim bundles {{{2
-
-augroup vimrc-perl-in-vim
-    au!
-
-    " self-removes on execution
-    au FileType vim.perl call neobundle#source('update_perl_line_directives') | call neobundle#source('syntax_check_embedded_perl') | execute('au! vimrc-perl-in-vim')
-augroup END
-
-"neobundle#source('update_perl_line_directives')
-"neobundle#source('syntax_check_embedded_perl')
-
-NeoBundleLazy 'vim-scripts/update_perl_line_directives',    { 'autoload': { 'filetypes': 'vim.perl' }, 'verbose': 1, 'disabled': !has('perl') }
-NeoBundleLazy 'vim-scripts/syntax_check_embedded_perl.vim', { 'autoload': { 'filetypes': 'vim.perl' }, 'verbose': 1, 'disabled': !has('perl') }
-" }}}2
-" NeoBundleLazy 'osfameron/perl-tags-vim',  { 'autoload': { 'filetypes': 'perl'     } }
-" NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 
 " Trial Bundles: maybe, maybe not! {{{1
 " RIV: reStructured Text {{{2
