@@ -1083,22 +1083,6 @@ endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Process Execution Bundles: {{{1
-" VimProc: {{{2
-
-" NOTE: leave this one in while we're still using neobundle
-
-NeoBundle 'Shougo/vimproc', {
-    \ 'build' : {
-    \ 'windows' : 'make -f make_mingw32.mak',
-    \ 'cygwin'  : 'make -f make_cygwin.mak',
-    \ 'mac'     : 'make -f make_mac.mak',
-    \ 'unix'    : 'make -f make_unix.mak',
-    \ },
-\ }
-
-" }}}2
-
 " General Bundles: {{{1
 " VimGnuPG: transparently work with encrypted files {{{2
 
