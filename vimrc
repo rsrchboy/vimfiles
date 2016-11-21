@@ -41,6 +41,13 @@ let g:startify_skiplist = [
 
 Plug 'mhinz/vim-startify'
 
+" BufExplorer: {{{2
+
+let g:bufExplorerShowRelativePath = 1
+" let g:bufExplorerShowTabBuffer    = 1
+
+Plug 'jlanzarotta/bufexplorer'
+
 " BetterWhitespace: {{{2
 
 " NOTE replaces: NeoBundle 'bronson/vim-trailing-whitespace'
@@ -1127,16 +1134,6 @@ if neobundle#tap('vim-gnupg')
     call neobundle#untap()
 endif
 
-" BufExplorer: {{{2
-
-let g:bufExplorerShowRelativePath = 1
-" let g:bufExplorerShowTabBuffer    = 1
-
-NeoBundleLazy 'RsrchBoy/bufexplorer.zip', {
-\'augroup':  'BufExplorer',
-\'autoload': { 'commands': ['BufExplorer'], 'mappings': ['<LocalLeader>be'] },
-\'verbose': 1,
-\}
 " NERD Tree: {{{2
 
 map <leader>l :NERDTreeToggle<CR>
