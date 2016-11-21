@@ -507,6 +507,36 @@ inoremap <silent> <C-K> <ESC>:TmuxNavigateUp<cr>
 inoremap <silent> <C-L> <ESC>:TmuxNavigateRight<cr>
 inoremap <silent> <C-\> <ESC>:TmuxNavigatePrevious<cr>
 
+" Terraform: {{{2
+
+" load this plugin on filename matches
+augroup vimrc-terraform
+    au!
+
+    au BufRead,BufNewFile *.tf{,state,vars} execute 'au! vimrc-terraform' | call plug#load('vim-terraform')
+augroup END
+
+Plug 'hashivim/vim-terraform', { 'for': [ 'terraform' ] }
+
+" VimWiki: {{{2
+
+let g:vimwiki_use_calendar = 1
+let g:calendar_action      = 'vimwiki#diary#calendar_action'
+let g:calendar_sign        = 'vimwiki#diary#calendar_sign'
+
+            " \     '<leader>ww',
+            " \     '<leader>wt',
+            " \     '<leader>ws',
+            " \     '<leader>w<leader>t',
+
+Plug 'vim-scripts/vimwiki', {
+            \ 'on': [
+            \     'Vimwiki',
+            \     'VimwikiIndex',
+            \     '<Plug>Vimwiki',
+            \ ],
+            \}
+
 " }}}2
 Plug 'diepm/vim-rest-console'
 
@@ -1206,37 +1236,6 @@ NeoBundleLazy 'majutsushi/tagbar', {
 " }}}2
 
 " Appish Or External Interface: bundles {{{1
-" Terraform: {{{2
-
-NeoBundleLazy 'hashivim/vim-terraform', {
-            \   'autoload': {
-            \       'filename_patterns': [ '\.tf$', '\.tfvars$', '\.tfstate$' ],
-            \       'verbose': 1,
-            \   },
-            \}
-
-" VimWiki: {{{2
-
-let g:vimwiki_use_calendar = 1
-let g:calendar_action      = 'vimwiki#diary#calendar_action'
-let g:calendar_sign        = 'vimwiki#diary#calendar_sign'
-
-NeoBundleLazy 'vim-scripts/vimwiki', {
-            \   'autoload': {
-            \       'commands': ['Vimwiki', 'VimwikiIndex'],
-            \       'mappings': [
-            \           '<Plug>Vimwiki',
-            \           '<leader>ww',
-            \           '<leader>wt',
-            \           '<leader>ws',
-            \           '<leader>w<leader>t',
-            \       ],
-            \       'functions': 'vimwiki#',
-            \   },
-            \   'verbose': 1,
-            \}
-
-" }}}2
 
 " Perl Bundles: {{{1
 " perl-in-vim bundles {{{2
