@@ -1133,265 +1133,64 @@ endfunc
 
 "}}}2
 
-" NeoBundle: NeoBundle for bundle/plugin management {{{1
-" notes {{{2
+" General Bundles: old neobundle definitions to do... something... with {{{1
+" " VimGnuPG: transparently work with encrypted files {{{2
 
-" A pretty bog-simple list of plugins; few fancy things so far, though I
-" really ought to enable lazy-loading, etc on some.
-"
-" Note that no real attention is paid to making sure everything works on
-" Windows systems.  If the information is there, I'll put it in, but
-" otherwise...  Heck, it's been quite some time, and likely to be even longer.
-"
-" see also: https://github.com/Shougo/neobundle.vim
+" NeoBundleLazy 'jamessan/vim-gnupg', {
+"             \   'autoload': { 'filename_patterns': ['\.gpg$','\.asc$','\.pgp$'] },
+"             \   'augroup':  'GnuPG',
+"             \   'verbose': 1,
+"             \}
 
-" Config: neobundle defaults, etc {{{2
+" " Settings: {{{3
 
-let g:neobundle#default_options = {
-            \   '_': {
-            \       'lazy': 0,
-            \   },
-            \}
+" let g:GPGPreferArmor       = 1
+" let g:GPGDefaultRecipients = ["cweyl@alumni.drew.edu"]
 
-" Setup: setup NB proper; bootstrap from embedded if needs be {{{2
+" "   g:GPGFilePattern
+" "
+" "     If set, overrides the default set of file patterns that determine
+" "     whether this plugin will be activated.  Defaults to
+" "     '*.\(gpg\|asc\|pgp\)'.
 
-" I've subtree-embedded a copy of neobundle here for bootstrap purpose
+" " ok, this is more complex than it needs to be, but works :)
+" let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
 
-if has('vim_starting')
+" " PostSource Hook: {{{3
 
-    if isdirectory(expand("~/.vim/bundle/neobundle.vim"))
-        " normal; we've been run before
-        set runtimepath+=~/.vim/bundle/neobundle.vim/
-    else
-        " ...otherwise use our embedded copy for bootstrapping
-        set runtimepath+=~/.vim/bootstrap/bundles/neobundle.vim/
-    endif
-endif
+" if neobundle#tap('vim-gnupg')
 
-" }}}2
+"     function! neobundle#hooks.on_post_source(bundle)
+"         silent! execute 'doautocmd GnuPG BufReadCmd'
+"         silent! execute 'doautocmd GnuPG FileReadCmd'
+"     endfunction
 
-" BUNDLES BEGIN: Initialization {{{1
-call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
+"     call neobundle#untap()
+" endif
 
-" General Bundles: {{{1
-" VimGnuPG: transparently work with encrypted files {{{2
+" " NERD Tree: {{{2
 
-NeoBundleLazy 'jamessan/vim-gnupg', {
-            \   'autoload': { 'filename_patterns': ['\.gpg$','\.asc$','\.pgp$'] },
-            \   'augroup':  'GnuPG',
-            \   'verbose': 1,
-            \}
+" map <leader>l :NERDTreeToggle<CR>
 
-" Settings: {{{3
+" augroup vimrc-nerdtree
+"     au!
 
-let g:GPGPreferArmor       = 1
-let g:GPGDefaultRecipients = ["cweyl@alumni.drew.edu"]
+"     " close if we're the only window left
+"     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-"   g:GPGFilePattern
-"
-"     If set, overrides the default set of file patterns that determine
-"     whether this plugin will be activated.  Defaults to
-"     '*.\(gpg\|asc\|pgp\)'.
+" augroup end
 
-" ok, this is more complex than it needs to be, but works :)
-let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
+" NeoBundle 'scrooloose/nerdtree', { 'augroup': 'NERDTreeHijackNetrw' }
 
-" PostSource Hook: {{{3
+" " SuperTab: {{{2
 
-if neobundle#tap('vim-gnupg')
+" " FIXME appears to conflict with snipmate :(
 
-    function! neobundle#hooks.on_post_source(bundle)
-        silent! execute 'doautocmd GnuPG BufReadCmd'
-        silent! execute 'doautocmd GnuPG FileReadCmd'
-    endfunction
+" let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
 
-    call neobundle#untap()
-endif
+" " NeoBundleLazy 'ervandew/supertab', { 'autoload': { 'insert': 1 } }
 
-" NERD Tree: {{{2
-
-map <leader>l :NERDTreeToggle<CR>
-
-augroup vimrc-nerdtree
-    au!
-
-    " close if we're the only window left
-    autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-augroup end
-
-NeoBundle 'scrooloose/nerdtree', { 'augroup': 'NERDTreeHijackNetrw' }
-
-" SuperTab: {{{2
-
-" FIXME appears to conflict with snipmate :(
-
-let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
-
-" NeoBundleLazy 'ervandew/supertab', { 'autoload': { 'insert': 1 } }
-
-" }}}2
-
-" Trial Bundles: maybe, maybe not! {{{1
-" RIV: reStructured Text {{{2
-
-NeoBundleLazy 'Rykka/riv.vim'
-
-" Packer: {{{2
-
-NeoBundleLazy 'markcornick/vim-packer', {
-            \   'augroup': 'packer',
-            \   'autoload': {
-            \       'commands': 'Packer'
-            \   },
-            \   'verbose': 1,
-            \}
-+
-" Afterimage: because... too cool. {{{2
-
-" I'm not sure I'll ever use this... but dang.
-
-NeoBundleLazy 'tpope/vim-afterimage', {
-            \   'autoload': {
-            \       'filename_patterns': ['\.ico$','\.png$','\.gif$','\.pdf$','\.plist$'],
-            \   },
-            \   'verbose': 1,
-            \}
-
-" MultipleCursors: {{{2
-
-NeoBundleLazy 'terryma/vim-multiple-cursors', {
-            \   'autoload': {
-            \       'commands': 'MultipleCursors',
-            \       'mappings': [['n', '<C-n>']],
-            \   },
-            \   'verbose': 1,
-            \}
-
-" Play Nice: with neocomplete {{{3
-
-" Called once right before you start selecting multiple cursors
-function! Multiple_cursors_before()
-  if exists(':NeoCompleteLock')==2
-    exe 'NeoCompleteLock'
-  endif
-endfunction
-
-" Called once only when the multiple selection is canceled (default <Esc>)
-function! Multiple_cursors_after()
-  if exists(':NeoCompleteUnlock')==2
-    exe 'NeoCompleteUnlock'
-  endif
-endfunction
-
-" }}}3
-
-
-" VimSignature: show marks in sign column {{{2
-
-" commands: Signature*
-
-" FIXME this currently appears to overwrite signify signs -- well, all other
-" signs, really.
-
-NeoBundleLazy 'kshenoy/vim-signature', {
-            \   'disable': !has('signs'),
-            \}
-
-" PipeMySQL: {{{2
-
-" TODO check this one out, too: NLKNguyen/pipe-mysql.vim
-NeoBundleLazy 'NLKNguyen/pipe.vim',{
-            \   'depends': 'pipe-mysql.vim',
-            \   'autoload': { 'commands': 'Pipe' },
-            \   'verbose': 1,
-            \}
-NeoBundleLazy 'NLKNguyen/pipe-mysql.vim', {
-            \   'verbose': 1,
-            \}
-
-
-
-" ToggleLists: toggle the quickfix / locationlist windows easily {{{2
-
-let g:toggle_list_no_mappings = 1
-
-nmap <silent> <Leader>tqf :call ToggleQuickfixList()<cr>
-nmap <silent> <Leader>tll :call ToggleLocationList()<cr>
-
-NeoBundleLazy 'milkypostman/vim-togglelist', {
-            \   'autoload': {
-            \       'functions': [ 'ToggleLocationList', 'ToggleQuickfixList' ],
-            \   },
-            \   'verbose': 0,
-            \}
-
-" IndentObject: because indentation is ... {{{2
-
-NeoBundleLazy 'austintaylor/vim-indentobject', {
-            \   'autoload': {
-            \       'mappings': [
-            \           ['ov', 'ai'],
-            \           ['ov', 'ii'],
-            \       ],
-            \   },
-            \   'verbose': 1,
-            \}
-
-" Obsession: by tpope {{{2
-
-NeoBundleLazy 'tpope/vim-obsession', {
-            \   'autoload': {
-            \       'commands': 'Obsession',
-            \   },
-            \   'verbose': 1,
-            \}
-
-" WindowSwap: {{{2
-
-" FIXME needs config, etc
-
-let g:windowswap_map_keys = 0
-NeoBundleLazy 'wesQ3/vim-windowswap'
-
-" }}}2
-NeoBundle 'dhruvasagar/vim-table-mode'
-" NeoBundle 'mhinz/vim-tmuxify'
-NeoBundle 'chrisbra/NrrwRgn'
-
-" Probation: {{{1
-NeoBundleLazy 'lukaszkorecki/vim-GitHubDashBoard'
-" github issues query
-NeoBundleLazy 'mklabs/vim-issues'
-
-" Source Local Bundles: if any... {{{1
-if filereadable(expand("~/.vimrc.bundles.local"))
-    source ~/.vimrc.bundles.local
-endif
-
-" BUNDLES END: Initialization: {{{1
-" end(): {{{2
-call neobundle#end()
-
-" Finalize: Actually check/install {{{2
-
-filetype plugin indent on " Required!
-
-" Brief help
-" :NeoBundleList          - list configured bundles
-" :NeoBundleInstall(!)    - install(update) bundles
-" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-
-" Installation check.
-NeoBundleCheck
-
-if !has('vim_starting')
-    " Call on_source hook when reloading .vimrc.
-    call neobundle#call_hook('on_source')
-endif
-
-" }}}2
+" " }}}2
 
 " Mappings: {{{1
 " Text Formatting: {{{2
