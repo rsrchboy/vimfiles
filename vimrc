@@ -240,6 +240,12 @@ execute "nnoremap <silent> " . g:tabman_focus  . " :call plug#load('tabman.vim')
 
 Plug 'kien/tabman.vim', { 'on': [ 'TMToggle', 'TMFocus' ] }
 
+" IncSearch: {{{2
+
+map /  <Plug>(incsearch-forward)
+
+Plug 'haya14busa/incsearch.vim'
+
 " CtrlP: {{{2
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
