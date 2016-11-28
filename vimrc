@@ -874,6 +874,7 @@ Plug 'vadv/vim-chef', { 'for': 'chef' }
 Plug 'kchmck/vim-coffee-script'
 Plug 'easymotion/vim-easymotion'
 Plug 'FredDeschenes/httplog'
+Plug 'rust-lang/rust.vim'
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
