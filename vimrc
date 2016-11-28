@@ -246,6 +246,16 @@ map /  <Plug>(incsearch-forward)
 
 Plug 'haya14busa/incsearch.vim'
 
+" EasyAlign: {{{2
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+Plug 'junegunn/vim-easy-align', { 'on': '<Plug>(EasyAlign)' }
+
 " CtrlP: {{{2
 
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
