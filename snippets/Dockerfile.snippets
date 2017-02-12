@@ -1,0 +1,8 @@
+snippet alpine
+	FROM alpine:${1:3.5}
+snippet me
+	MAINTAINER Chris Weyl <cweyl@alumni.drew.edu>
+snippet apk
+	RUN apk update && \
+	    apk add ${1:package names} && \
+	    rm -r /var/cache/
