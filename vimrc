@@ -872,6 +872,7 @@ Plug 'chrisbra/csv.vim', { 'for': 'csv' }
 Plug 'vadv/vim-chef', { 'for': 'chef' }
 Plug 'kchmck/vim-coffee-script'
 Plug 'easymotion/vim-easymotion'
+Plug 'FredDeschenes/httplog'
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
@@ -1284,6 +1285,7 @@ augroup vimrc-filetype-set
     au BufNewFile,BufRead gitconfig.local     set filetype=gitconfig
     au BufNewFile,BufRead .vagrantuser        set filetype=yaml
     au BufNewFile,BufRead .aws/credentials    set filetype=dosini
+    au BufNewFile,BufRead *access.log*        set filetype=httplog
 
     " e.g. /etc/NetworkManager/dnsmasq.d/...
     au BufNewFile,BufRead **/dnsmasq.d/*         set filetype=dnsmasq
