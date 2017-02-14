@@ -288,6 +288,7 @@ Plug 'Shougo/junkfile.vim'
 Plug 'rafi/vim-unite-issue'
 Plug 'joker1007/unite-pull-request'
 Plug 'tpope/vim-speeddating'
+Plug 'christoomey/vim-system-copy'
 
 " Libraries: library plugins/bundles {{{1
 " TLib: {{{2
