@@ -11,6 +11,15 @@ set nocompatible
 call plug#begin()
 
 " General Bundles: {{{1
+" Follow My Lead: {{{2
+
+" load, then run.  this mapping will be overwritten on plugin load
+nnoremap <silent> <leader>fml :call plug#load('vim-follow-my-lead') <bar> execute ':call FMLShow()'<CR>
+
+let g:fml_all_sources = 1
+
+Plug 'ktonga/vim-follow-my-lead', { 'on': [ '<Plug>(FollowMyLead)', 'FMLShow' ] }
+
 " Startify: nifty start screen {{{2
 
 "let g:startify_bookmarks = [ '~/.vimrc' ]
