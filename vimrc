@@ -760,7 +760,7 @@ Plug 'mattn/gist-vim', { 'on': 'Gist' }
 
 " Signify: {{{2
 
-Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify', { 'tag': 'v1.9' }
 
 " Mappings: {{{3
 
