@@ -2,17 +2,6 @@
 " Language:      Perl 5 syntax extensions (Moose, Try::Tiny, etc)
 " Maintainer:    Chris Weyl <cweyl@alumni.drew.edu>
 " Last Change:   ...check GitHub :)
-"
-" This extends the vim-perl syntax package to handle:
-"
-"   * Moose * MooseX::Role::Parameterized * Try::Tiny
-"
-" ...kinda.
-
-exe 'source ' . g:plug_home . '/vim-perl/contrib/highlight-all-pragmas.vim'
-exe 'source ' . g:plug_home . '/vim-perl/contrib/carp.vim'
-exe 'source ' . g:plug_home . '/vim-perl/contrib/moose.vim'
-exe 'source ' . g:plug_home . '/vim-perl/contrib/try-tiny.vim'
 
 " I like to do shift->this->that->[1]->{...} sometimes.
 "
