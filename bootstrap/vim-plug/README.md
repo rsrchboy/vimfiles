@@ -20,7 +20,7 @@ A minimalist Vim plugin manager.
 
 [40/4]: https://raw.githubusercontent.com/junegunn/i/master/vim-plug/40-in-4.gif
 [nv]: http://neovim.org/
-[startup-time]: http://junegunn.kr/images/vim-startup-time.png
+[startup-time]: https://github.com/junegunn/vim-startuptime-benchmark#result
 
 ### Installation
 
@@ -37,7 +37,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 ###### Neovim
 
 ```sh
-curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
@@ -65,10 +65,13 @@ Add a vim-plug section to your `~/.vimrc` (or `~/.config/nvim/init.vim` for Neov
 1. Begin the section with `call plug#begin()`
 1. List the plugins with `Plug` commands
 1. `call plug#end()` to update `&runtimepath` and initialize plugin system
+    - Automatically executes `filetype plugin indent on` and `syntax enable`.
+      You can revert the settings after the call. e.g. `filetype indent off`, `syntax off`, etc.
 
 #### Example
 
 ```vim
+" Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
@@ -79,7 +82,7 @@ Plug 'junegunn/vim-easy-align'
 " Any valid git URL is allowed
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
-" Group dependencies, vim-snippets depends on ultisnips
+" Multiple Plug commands can be written in a single line using | separators
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
@@ -101,7 +104,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 " Unmanaged plugin (manually installed and updated)
 Plug '~/my-prototype-plugin'
 
-" Add plugins to &runtimepath
+" Initialize plugin system
 call plug#end()
 ```
 
