@@ -834,6 +834,8 @@ let g:vim_markdown_frontmatter       = 1
 
 " vim: {{{2
 
+" scriptease: {{{3
+
 " Not a complete autovivification, but enough. 90% of the time we'll have at
 " least one buffer open with a vim ft and that'll trigger the load anyways.
 
@@ -844,6 +846,18 @@ Plug 'tpope/vim-scriptease', {
             \   'on': '<Plug>ScripteaseSynname',
             \   'for': 'vim',
             \}
+
+" embedded perl: {{{3
+
+if has('perl')
+    Plug 'vim-scripts/update_perl_line_directives', { 'for': 'vim' }
+    " The next looks quite promising, but needs to be updated to handle being
+    " in a plugin directory vs ~/.vim.
+    "Plug 'vim-scripts/syntax_check_embedded_perl.vim', { 'for': 'vim' }
+    Plug 'RsrchBoy/syntax_check_embedded_perl.vim', { 'on': [] }
+endif
+
+" }}}3
 
 " Lua: {{{2
 
