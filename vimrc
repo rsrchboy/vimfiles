@@ -1063,6 +1063,22 @@ else
     Plug 'RsrchBoy/vim-grrrit', { 'on': 'GrrritChanges' }
 endif
 
+" Linode: access to Linode's api {{{2
+
+if has('perl')
+
+    " the Perl API -- we just want it, no vim bits
+    Plug 'mikegrb/WebService-Linode', { 'on': [] }
+
+    " g:plug_home is set by plug#begin(), tho not documented (AFAICT)
+    perl push @INC, VIM::Eval('g:plug_home') . '/WebService-Linode/lib'
+
+    if filereadable(expand("~/work/vim/vim-linode/README.md"))
+        Plug '~/work/vim/vim-linode'
+    else
+        Plug 'RsrchBoy/vim-linode'
+    endif
+endif
 " }}}2
 
 " VimPlug END: "strategic" plugin manager ;) {{{1
