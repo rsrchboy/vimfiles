@@ -10,7 +10,7 @@ set cpo&vim
 
 if has('perl')
 
-perl << EOP
+perl <<EOP
 # line 15 "~/.vim/plugin/00-perl-inc-correct.vim"
 
 use v5.10;
