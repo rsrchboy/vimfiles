@@ -815,6 +815,28 @@ Plug 'LStinson/perlhelp-vim', { 'on': ['PerlHelp', 'PerlMod'] }
 Plug 'vim-scripts/log4perl.vim'
 
 " General Syntax And Filetype Plugins: bundles {{{1
+" GnuPG: transparently work with encrypted files {{{2
+
+Plug 'jamessan/vim-gnupg', { 'on': [] }
+
+" Hooks And Loaders: {{{3
+
+" force the autocmds to run after we've loaded the plugin
+au! User vim-gnupg nested edit
+
+augroup vimrc-gnupg
+    au!
+    au BufRead,BufNewFile *.{gpg,asc,pgp,pause} execute 'au! vimrc-gnupg' | call plug#load('vim-gnupg')
+augroup END
+
+" Settings: {{{3
+
+let g:GPGPreferArmor       = 1
+let g:GPGDefaultRecipients = ["cweyl@alumni.drew.edu"]
+let g:GPGFilePattern       = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
+
+" }}}3
+
 " go: {{{2
 
 " Settings: {{{3
