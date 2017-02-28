@@ -304,6 +304,7 @@ Plug 'rafi/vim-unite-issue'
 Plug 'joker1007/unite-pull-request'
 Plug 'tpope/vim-speeddating'
 Plug 'christoomey/vim-system-copy'
+Plug 'junegunn/vader.vim'
 
 " Libraries: library plugins/bundles {{{1
 " TLib: {{{2
@@ -715,6 +716,7 @@ function! BufReadIndex()
   nnoremap <buffer> <silent> k :call search('^#\t.*','Wbe')<Bar>.<CR>
 endfunction
 
+" FIXME: resolve the overlap between this and after/ftplugin/gitcommit.vim
 function! BufEnterCommit()
   setlocal filetype=gitcommit
   setlocal nonumber
@@ -754,12 +756,9 @@ augroup vimrc-fugitive
 augroup END
 " }}}3
 
-" "plugins"
-
+" plugins!
 Plug 'tpope/vim-rhubarb'
 
-" Origin: is really 'tpope/vim-fugitive', but there's some git-workdirs fixes
-" I'm pulling into my own fork that I'm needing at the moment.
 Plug 'tpope/vim-fugitive'
 
 " Gist: {{{2
