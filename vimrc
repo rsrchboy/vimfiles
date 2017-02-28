@@ -145,7 +145,9 @@ augroup END
 
 " PostSource Hook: {{{3
 
-au! User airline call s:PluginLoadedAirline()
+" FIXME: This was named incorrectly for some time; revalidate before
+" reenabling
+"au! User vim-airline call s:PluginLoadedAirline()
 
 " Do Things when the bundle is vivified
 function! s:PluginLoadedAirline()
