@@ -94,13 +94,17 @@ function! CustomBranchName(name)
     if a:name == ''
         return a:name
     endif
-    "return fugitive#repo().git_chomp('describe', '--all', '--long')
 
-    let l:info   = a:name
-
-    let l:ahead  = fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD')
-    let l:behind = fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}')
-    let l:info  .= ' [+' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n')) . ']'
+    " This isn't perfect, but it does keep things from blowing up rather
+    " loudly when we're editing a file that's actually a symlink to a file in
+    " a git work tree.  (This appears to confuse vim-fugitive.)
+    try
+        let l:ahead  = fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD')
+        let l:behind = fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}')
+        let l:info  .= ' [+' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n')) . ']'
+    catch
+        return a:name
+    endtry
 
     return l:info
 endfunction
