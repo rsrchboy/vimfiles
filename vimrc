@@ -432,7 +432,12 @@ Plug 'basyura/twibill.vim'
 Plug 'basyura/bitly.vim'
 Plug 'tyru/open-browser.vim'
 Plug 'mattn/favstar-vim'
-Plug 'basyura/TweetVim', { 'on': [ 'TweetVimHomeTimeline', 'TweetVimSay', 'TweetVimCommandSay' ] }
+Plug 'basyura/TweetVim', { 'on': [
+            \   'TweetVimAddAccount',
+            \   'TweetVimCommandSay',
+            \   'TweetVimHomeTimeline',
+            \   'TweetVimSay',
+            \ ] }
 
 " AutoCommands: {{{3
 
