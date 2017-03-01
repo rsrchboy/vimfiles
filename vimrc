@@ -694,7 +694,7 @@ nmap <silent> <Leader>gS :Gcommit --squash HEAD
 " trial -- intent to add
 nmap <silent> <Leader>gI :Git add --intent-to-add %<bar>call sy#start()<CR>
 
-nmap <silent> <Leader>gA :Git add -pi %<bar>call sy#start()<CR>
+nmap <silent> <Leader>gA :execute ':!git -C ' . b:git_worktree . ' add -pi ' . resolve(expand('%')) <bar> call sy#start()<CR>
 nmap <silent> <Leader>gl :Git lol<Enter>
 nmap <silent> <Leader>gD :Git! diff --word-diff %<Enter>
 nmap <silent> <Leader>gp :Git push<Enter>
