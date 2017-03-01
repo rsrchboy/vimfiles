@@ -281,7 +281,6 @@ Plug 'kien/ctrlp.vim'
 " }}}2
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-capslock'
