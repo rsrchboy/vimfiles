@@ -716,19 +716,6 @@ function! BufReadIndex()
   nnoremap <buffer> <silent> k :call search('^#\t.*','Wbe')<Bar>.<CR>
 endfunction
 
-" FIXME: resolve the overlap between this and after/ftplugin/gitcommit.vim
-function! BufEnterCommit()
-  setlocal filetype=gitcommit
-  setlocal nonumber
-  setlocal spell spelllang=en_us spellcapcheck=0
-  setlocal foldcolumn=0
-  setlocal textwidth=72
-  normal gg0
-  if getline('.') == ''
-    start
-  end
-endfunction
-
 " autocmds (e.g. for pull req, tag edits, etc...) {{{3
 
 augroup vimrc-fugitive
@@ -739,10 +726,6 @@ augroup vimrc-fugitive
     autocmd BufReadCmd *.git/worktrees/*/index exe BufReadIndex()
     autocmd BufEnter   *.git/index             silent normal j
     autocmd BufEnter   *.git/worktrees/*/index silent normal j
-
-    " the 'hub' tool creates a number of comment files formatted in the same way
-    " as a git commit message.
-    autocmd BufEnter *.git/**/*_EDITMSG exe BufEnterCommit()
 
     " Automatically remove fugitive buffers
     autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -1374,6 +1357,9 @@ augroup vimrc-filetype-set
     au BufNewFile,BufRead recipes/*.rb      set filetype=ruby.chef
     au BufNewFile,BufRead templates/*/*.erb set filetype=eruby.chef
 
+    " the 'hub' tool creates a number of comment files formatted in the same way
+    " as a git commit message.
+    autocmd BufEnter *.git/**/*_EDITMSG set filetype=gitcommit
 augroup end
 
 " filetype-specific autocommands {{{2
