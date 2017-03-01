@@ -694,13 +694,11 @@ nmap <silent> <Leader>gS :Gcommit --squash HEAD
 nmap <silent> <Leader>gI :Git add --intent-to-add %<bar>call sy#start()<CR>
 
 nmap <silent> <Leader>gA :execute ':!git -C ' . b:git_worktree . ' add -pi ' . resolve(expand('%')) <bar> call sy#start()<CR>
-nmap <silent> <Leader>gl :Git lol<Enter>
-nmap <silent> <Leader>gD :Git! diff --word-diff %<Enter>
 nmap <silent> <Leader>gp :Git push<Enter>
 nmap <silent> <Leader>gb :Gblame -w<Enter>
 
-nmap <silent> <leader>gv :Gitv<cr>
-nmap <silent> <leader>gV :Gitv!<cr>
+nmap <silent> <leader>gv :GV<cr>
+nmap <silent> <leader>gV :GV!<cr>
 
 " make handling indexes a little easier {{{3
 
