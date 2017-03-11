@@ -1,5 +1,0 @@
-[subtree.bundles/vimwiki]
-origin = git://github.com/vim-scripts/vimwiki.git
-last   = 08c058e58e92059c858f71f46fb5db79d61ad8e1
-squash = true
-ref    = master

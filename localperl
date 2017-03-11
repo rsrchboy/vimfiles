@@ -1,6 +1,0 @@
-#!/usr/bin/perl
-
-BEGIN { @INC = grep { ! /perlbrew/ } @INC }
-
-use local::lib "$ENV{HOME}/.vim/perl5";
-exec '/usr/bin/perl', "-Mlocal::lib=$ENV{HOME}/.vim/perl5", @ARGV;
