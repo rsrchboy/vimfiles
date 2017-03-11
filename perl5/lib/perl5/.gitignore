@@ -2,3 +2,4 @@
 .packlist
 perllocal.pod
 .meta/
+*.pod
