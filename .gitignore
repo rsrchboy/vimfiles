@@ -7,3 +7,4 @@ node_modules/
 perl5/
 Session.vim
 plugged
+*.add.spl
