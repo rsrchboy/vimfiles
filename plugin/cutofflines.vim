@@ -18,14 +18,10 @@ function! <SID>Snip() range
 		let i = i + 1
 	endwhile
 	let maxlen = (maxlen > &tw && &tw != 0 ? &tw : maxlen)
-	let half = maxlen/2
-	exe a:lastline
-	" put a string below
-	exe "norm! o\<esc>".(half - 1)."a-\<esc>A%<\<esc>".(half - 1)."a-"
-	" and above. its necessary to put the string below the block of lines
-	" first because that way the first line number doesnt change...
-	exe a:firstline
-	exe "norm! O\<esc>".(half - 1)."a-\<esc>A%<\<esc>".(half - 1)."a-"
+	let half = repeat('-', maxlen/2-1)
+    let line = printf(&cms, half.'%<'.half)
+	call append(a:lastline, line)
+	call append(a:firstline, line)
 endfunction
 
 com! -nargs=0 -range Snip :<line1>,<line2>call <SID>Snip()
