@@ -1382,7 +1382,11 @@ augroup end
 
 augroup vimrc-filetype
     au!
+
     " these have been moved to ftplugin/ files.
+    "
+    " ...mostly
+    autocmd FileType crontab setlocal commentstring=#\ %s
 augroup end
 
 " }}}2
