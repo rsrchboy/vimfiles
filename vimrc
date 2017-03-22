@@ -814,7 +814,8 @@ Plug 'rhysd/conflict-marker.vim'
 " TODO sort these two
 " NeoBundleLazy 'osfameron/perl-tags-vim',  { 'autoload': { 'filetypes': 'perl'     } }
 " NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
-Plug 'vim-perl/vim-perl'
+" use my fork until several PR's are merged (orig: vim-perl/...)
+Plug 'RsrchBoy/vim-perl', { 'branch': 'active' }
 Plug 'LStinson/perlhelp-vim', { 'on': ['PerlHelp', 'PerlMod'] }
 Plug 'vim-scripts/log4perl.vim'
 
