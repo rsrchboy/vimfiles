@@ -27,6 +27,9 @@ set tw=72
 setlocal backup
 set swapfile
 
+" "flowed" text is going to make this go crazy, so...
+let b:airline_whitespace_disabled = 1
+
 " TODO: append to b:undo_ftplugin
 
 if @% !~# '^/tmp/pico'
