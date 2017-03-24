@@ -278,6 +278,12 @@ let g:ctrlp_reuse_window = 'netrw\|help\|quickfix\|startify'
 
 Plug 'kien/ctrlp.vim'
 
+" DimInactive: {{{2
+
+let g:diminactive_enable_focus = 1
+
+Plug 'blueyed/vim-diminactive'
+
 " }}}2
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-abolish'
@@ -532,6 +538,10 @@ let g:tmuxline_preset = {
     \}
 
 Plug 'edkolev/tmuxline.vim', { 'on': ['Tmuxline', 'TmuxlineSnapshot'] }
+
+" TmuxFocusEvents: {{{2
+
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Tmux Navigator: {{{2
 
