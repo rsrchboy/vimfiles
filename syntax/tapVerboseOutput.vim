@@ -14,14 +14,22 @@ syn match tapTestTime /^\[\d\d:\d\d:\d\d\].*/ contains=tapTestFile
 syn match tapTestFile /\w\+\/[^. ]*/ contained
 syn match tapTestFileWithDot /\w\+\/[^ ]*/ contained
 
-syn match tapTestPlan /^\(    \)*\d\+\.\.\d\+$/
+syn keyword tapTestKeyword SKIP TODO contained
+
+syn match tapTestPlan /^\(    \)*\d\+\.\.\d\+/
+syn match tapTestComment / # .*$/ contains=tapTestKeyword
+" syn region tapTestPlanComment matchgroup=Comment start=/#/ end=/$/ contained contains=tapTestSkip
+" syn match tapTestPlanLine /^\(    \)*\d\+\.\.\d\+\( # .*\|\)$/ contains=tapTestSkip
+" syn match tapTestPlan /^\d\+\.\.\d\+/
+" syn match tapTestPlan /^\d+\.\.\d+/
 
 " tapTest is a line like 'ok 1', 'not ok 2', 'ok 3 - xxxx'
 syn match tapTest /^\(    \)*\(not \)\?ok \d*.*/ contains=tapTestStatusOK,tapTestStatusNotOK,tapTestLine
 
 " tapTestLine is the line without the ok/not ok status - i.e. number and
 " optional message
-syn match tapTestLine /\d\+\( .*\|$\)/ contains=tapTestNumber,tapTestLoadMessage contained
+" syn match tapTestLine /\d\+\( .*\|$\)/ contains=tapTestNumber,tapTestLoadMessage,tapTestComment contained
+syn match tapTestLine /\d\+\( - [^#]*\|$\)/ contains=tapTestNumber,tapTestLoadMessage,tapTestComment contained
 
 " turn ok/not ok messages green/red respectively
 syn match tapTestStatusOK /ok/ contained
@@ -64,6 +72,9 @@ hi link tapTestNumber      Number
 hi link tapTestDiag        Comment
 hi link tapIgnore          Ignore
 hi link tapTestPlan        String
+" hi link tapTestPlanComment Delimiter
+hi link tapTestComment     tapTestDiag
+hi link tapTestKeyword     Error
 
 hi tapTestRegion ctermbg=green
 hi tapTestResultsRegion ctermbg=red
