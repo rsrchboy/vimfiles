@@ -1407,6 +1407,7 @@ augroup vimrc-filetype
     "
     " ...mostly
     autocmd FileType crontab setlocal commentstring=#\ %s
+    autocmd FileType GV      setlocal nolist
 augroup end
 
 " }}}2
