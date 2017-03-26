@@ -17,3 +17,12 @@ au InsertLeave <buffer> setlocal nospell
 setlocal spelllang=en_us
 setlocal spellcapcheck=0
 setlocal spellfile+=~/.vim/spell/perl.utf-8.add
+
+" vim-surround mappings
+
+" q -> q{.}, Q -> qq{.}
+let b:surround_113 = "q{\r}"
+let b:surround_81  = "qq{\r}"
+" w -> qw{ . }, W -> [ qw{ . } ]
+let b:surround_119 = "qw{ \r }"
+let b:surround_87  = "[ qw{ \r } ]"
