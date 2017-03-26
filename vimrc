@@ -1187,6 +1187,10 @@ set noswapfile
 set ttyfast
 set spellfile+=~/.vim/spell/en.utf-8.add
 
+" the better to see your tabs with, my dear
+" set listchars+=tab:\|.
+set list
+
 " terminal bits: {{{2
 
 " initial hackery to let us set terminal titles!
