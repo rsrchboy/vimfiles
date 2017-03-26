@@ -3,6 +3,10 @@
 " Date:      Nov 25, 2013
 " Version:   15
 " ---------------------------------------------------------------------
+
+if exists('b:loaded_autoalign_perl')
+    finish
+endif
 let b:loaded_autoalign_perl= "v0"
 
 "  overloading '=' to keep things lined up {{{1
