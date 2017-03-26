@@ -4,6 +4,11 @@
 set path<
 let &l:path=".,,lib/,".perlpath
 
+if exists('b:ckw_perl_buf_setup')
+    " no need to repeat ourselves
+    finish
+endif
+
 au InsertEnter <buffer> setlocal spell
 au InsertLeave <buffer> setlocal nospell
 
