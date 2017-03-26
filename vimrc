@@ -76,14 +76,19 @@ Plug 'bling/vim-airline'
 
 let g:airline_theme = 'dark'
 
-" Extensions Config: {{{3
-
 let g:airline#extensions#bufferline#enabled           = 0
-let g:airline#extensions#syntastic#enabled            = 1
-let g:airline#extensions#tabline#enabled              = 1
+let g:airline#extensions#syntastic#enabled            = 0
+let g:airline#extensions#tabline#enabled              = 0
+let g:airline#extensions#tabline#show_close_button    = 0
+let g:airline#extensions#tabline#tab_min_count        = 2
+let g:airline#extensions#tabline#buffer_nr_show       = 1
 let g:airline#extensions#tagbar#enabled               = 1
 let g:airline#extensions#tmuxline#enabled             = 0
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
+" let g:airline#extensions#wordcount#enabled            = 0
+
+let airline#extensions#tabline#ignore_bufadd_pat =
+        \ '\c\vgundo|undotree|vimfiler|tagbar|nerd_tree|previewwindow|help|nofile'
 
 " Branchname Config: {{{3
 " if a string is provided, it should be the name of a function that
