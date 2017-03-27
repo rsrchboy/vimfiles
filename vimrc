@@ -949,6 +949,10 @@ Plug 'easymotion/vim-easymotion'
 Plug 'FredDeschenes/httplog'
 Plug 'rust-lang/rust.vim'
 
+" Text Objects: {{{1
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-syntax' " , { 'depends': 'vim-textobj-user' }
+
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
 
@@ -1101,8 +1105,6 @@ Plug 'KabbAmine/lazyList.vim', { 'on': 'LazyList' }
 
 " }}}2
 Plug 'mattn/googletasks-vim', { 'on': 'GoogleTasks' }
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-syntax' " , { 'depends': 'vim-textobj-user' }
 " filetype
 Plug 'jtratner/vim-flavored-markdown'
 " Plug 'kien/rainbow_parentheses.vim'
