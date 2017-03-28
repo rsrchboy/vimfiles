@@ -1142,6 +1142,17 @@ if has('perl')
         Plug 'RsrchBoy/vim-linode'
     endif
 endif
+
+" Perl: {{{2
+
+if has('perl')
+
+    if filereadable(expand("~/work/vim/vim-embedded-perl/plugin/perl.vim"))
+        Plug '~/work/vim/vim-embedded-perl'
+    else
+        " Plug 'RsrchBoy/vim-linode'
+    endif
+endif
 " }}}2
 
 " VimPlug END: "strategic" plugin manager ;) {{{1
