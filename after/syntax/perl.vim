@@ -32,13 +32,14 @@ hi def link perlMooseAttributeName perlSubName
 syn match   perlTodo /\<\(NOTE\|TBD\|FIXME\|XXX\|PLAN\)[:]\?/ contained contains=NONE,@NoSpell
 
 " dzil-specific highlights dzil
-syn keyword perlTodo PODNAME: ABSTRACT: contained
-syn keyword perlPodWeaverSpecialCommentKeywords ABSTRACT: PACKAGE: nextgroup=perlPodWeaverSpecialCommentRemainder contained
-syn match perlPodWeaverSpecialCommentRemainder ".*" contained contains=@Spell
-syn match perlPodWeaverSpecialComment "^# .*:" contains=perlPodWeaverSpecialCommentKeywords
+syn match perlPodWeaverSpecialComment "^# [A-Z0-9]\+:" contained containedin=perlComment
 
-" Should probably be something a little nicer :)
 hi def link perlPodWeaverSpecialCommentKeywords Todo
 
 " TODO highlight smart comments differently!
-syn match  perlComment "###* " contains=perlTodo,@Spell extend
+" We don't really do much with this right now, but it'd be nice to have smart
+" syntax matching to tell me where I've messed up...
+syn region perlSmartComment start="###\+ " end="$" transparent contains=perlTodo,@Spell contained containedin=perlComment
+
+" set transparent, above.
+" hi def link perlSmartComment perlComment
