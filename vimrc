@@ -890,7 +890,7 @@ let g:vim_markdown_frontmatter       = 1
 nmap zS <Plug>ScripteaseSynnames
 
 Plug 'tpope/vim-scriptease', {
-            \   'on': [ '<Plug>ScripteaseSynname', 'Scriptnames', 'Runtime' ],
+            \   'on': [ '<Plug>ScripteaseSynname', 'Scriptnames', 'Runtime', 'PP', 'PPmsg' ],
             \   'for': 'vim',
             \}
 
