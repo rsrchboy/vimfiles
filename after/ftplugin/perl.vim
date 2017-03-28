@@ -20,9 +20,15 @@ setlocal spellfile+=~/.vim/spell/perl.utf-8.add
 
 " vim-surround mappings
 
-" q -> q{.}, Q -> qq{.}
+" q -> q{.}
+" Q -> qq{.}
 let b:surround_113 = "q{\r}"
 let b:surround_81  = "qq{\r}"
-" w -> qw{ . }, W -> [ qw{ . } ]
+" w -> qw{ . }
+" W -> [ qw{ . } ]
 let b:surround_119 = "qw{ \r }"
 let b:surround_87  = "[ qw{ \r } ]"
+" c -> '...',
+" C -> "...",
+let b:surround_99 = "'%s',"
+let b:surround_67 = '"%s",'
