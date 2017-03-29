@@ -950,8 +950,18 @@ Plug 'FredDeschenes/httplog'
 Plug 'rust-lang/rust.vim'
 
 " Text Objects: {{{1
+" See also https://github.com/kana/vim-textobj-user/wiki
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-syntax' " , { 'depends': 'vim-textobj-user' }
+Plug 'kana/vim-textobj-diff'
+Plug 'kana/vim-textobj-indent'
+Plug 'Julian/vim-textobj-brace'
+Plug 'Julian/vim-textobj-variable-segment'
+Plug 'kana/vim-textobj-function'
+" note: php/python/ruby/etc helpers exist, if we start dabbling there
+Plug 'thinca/vim-textobj-function-perl', { 'for': 'perl' }
+Plug 'vimtaku/vim-textobj-sigil',        { 'for': 'perl' }
+Plug 'spacewander/vim-textobj-lua',      { 'for': 'lua'  }
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
