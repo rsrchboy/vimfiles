@@ -1,9 +1,8 @@
-" " note -- the git aliases are based off my personal gitconfig -- proably ought
+" " note -- the git aliases are based off my personal gitconfig -- probably ought
 " " to expand them here
-" nmap <buffer> <silent> F   :execute 'Gcommit --fixup  ' . gitv#util#line#sha('.')<bar>normal u<CR>
-" nmap <buffer> <silent> F   :execute 'Gcommit --fixup  ' . gv#sha()<bar>normal u<CR>
+" FIXME a way to update after the F mapping?
 nmap <buffer> <silent> F   :execute 'Gcommit --fixup  ' . gv#sha()<CR>
-" nmap <buffer> <silent> S   :execute 'Gcommit --squash ' . gitv#util#line#sha('.')<bar>normal u<CR>
+nmap <buffer> <silent> S   :execute 'Gcommit --squash ' . gv#sha()<CR>
 nmap <buffer> <silent> C   :Gcommit<CR>
 " nmap <buffer> <silent> ria :call dispatch#compile_command(0, fugitive#repo().git_command('ria'), 1)<CR>
 " nmap <buffer> <silent> rv  :call dispatch#compile_command(0, fugitive#repo().git_command('revert', '--no-edit', gitv#util#line#sha('.')), 1)<CR>
