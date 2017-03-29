@@ -957,6 +957,7 @@ Plug 'kana/vim-textobj-diff'
 Plug 'kana/vim-textobj-indent'
 Plug 'Julian/vim-textobj-brace'
 Plug 'Julian/vim-textobj-variable-segment'
+Plug 'lucapette/vim-textobj-underscore'
 Plug 'kana/vim-textobj-function'
 " note: php/python/ruby/etc helpers exist, if we start dabbling there
 Plug 'thinca/vim-textobj-function-perl', { 'for': 'perl' }
