@@ -1275,40 +1275,6 @@ endfunc
 "}}}2
 
 " General Bundles: old neobundle definitions to do... something... with {{{1
-" " VimGnuPG: transparently work with encrypted files {{{2
-
-" NeoBundleLazy 'jamessan/vim-gnupg', {
-"             \   'autoload': { 'filename_patterns': ['\.gpg$','\.asc$','\.pgp$'] },
-"             \   'augroup':  'GnuPG',
-"             \   'verbose': 1,
-"             \}
-
-" " Settings: {{{3
-
-" let g:GPGPreferArmor       = 1
-" let g:GPGDefaultRecipients = ["cweyl@alumni.drew.edu"]
-
-" "   g:GPGFilePattern
-" "
-" "     If set, overrides the default set of file patterns that determine
-" "     whether this plugin will be activated.  Defaults to
-" "     '*.\(gpg\|asc\|pgp\)'.
-
-" " ok, this is more complex than it needs to be, but works :)
-" let g:GPGFilePattern = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
-
-" " PostSource Hook: {{{3
-
-" if neobundle#tap('vim-gnupg')
-
-"     function! neobundle#hooks.on_post_source(bundle)
-"         silent! execute 'doautocmd GnuPG BufReadCmd'
-"         silent! execute 'doautocmd GnuPG FileReadCmd'
-"     endfunction
-
-"     call neobundle#untap()
-" endif
-
 " " NERD Tree: {{{2
 
 " map <leader>l :NERDTreeToggle<CR>
