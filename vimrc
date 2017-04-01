@@ -225,7 +225,7 @@ Plug 'Shougo/neco-vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'c9s/perlomni.vim' " , { 'for': 'perl' }
 Plug 'Shougo/context_filetype.vim'
-Plug 'Shougo/neocomplete.vim'
+" Plug 'Shougo/neocomplete.vim'
 
 " Snippets: {{{2
 
@@ -1126,8 +1126,8 @@ Plug 'jtratner/vim-flavored-markdown'
 " Plug 'kien/rainbow_parentheses.vim'
 
 " Jira Integration: {{{2
-Plug 'mnpk/vim-jira-complete'
-Plug 'RsrchBoy/vim-jira-open'
+Plug 'mnpk/vim-jira-complete', {'on': []}
+Plug 'RsrchBoy/vim-jira-open', {'on': []}
 " }}}2
 
 
