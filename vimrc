@@ -346,6 +346,12 @@ Plug 'mattn/webapi-vim'
 Plug 'junegunn/vim-emoji'
 
 " Appish Or External Interface: bundles {{{1
+" Travis: status {{{2
+
+if has('python')
+    Plug 'keith/travis.vim', { 'on': 'Travis' }
+endif
+
 " GithubIssues: {{{2
 
 " NOTE: don't autoload on gitcommit f/t at the moment, as this plugin either
