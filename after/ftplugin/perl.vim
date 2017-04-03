@@ -30,5 +30,5 @@ let b:surround_119 = "qw{ \r }"
 let b:surround_87  = "[ qw{ \r } ]"
 " c -> '...',
 " C -> "...",
-let b:surround_99 = "'%s',"
-let b:surround_67 = '"%s",'
+let b:surround_99 = "'\r',"
+let b:surround_67 = '"\r",'
