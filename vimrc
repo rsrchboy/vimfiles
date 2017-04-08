@@ -720,23 +720,6 @@ nmap <silent> <Leader>gb :Gblame -w<Enter>
 nmap <silent> <leader>gv :GV<cr>
 nmap <silent> <leader>gV :GV!<cr>
 
-" interactive rebase helper mappings {{{3
-
-" Largely stolen^Wliberated from:
-" https://github.com/TheLocehiliosan/vim-fugitive/commit/e52664ae92c96e770f78d5e5a6dd4d9350c914e9
-
-let g:fugitive_rebase_commands="^(pick|reword|edit|squash|fixup|exec|drop)"
-
-function SetupInteractiveRebaseMaps()
-  nnoremap <buffer> <silent> P :s/\v<c-r>=g:fugitive_rebase_commands<cr>/pick/<cr>:nohlsearch<cr>
-  nnoremap <buffer> <silent> R :s/\v<c-r>=g:fugitive_rebase_commands<cr>/reword/<cr>:nohlsearch<cr>
-  nnoremap <buffer> <silent> E :s/\v<c-r>=g:fugitive_rebase_commands<cr>/edit/<cr>:nohlsearch<cr>
-  nnoremap <buffer> <silent> S :s/\v<c-r>=g:fugitive_rebase_commands<cr>/squash/<cr>:nohlsearch<cr>
-  nnoremap <buffer> <silent> F :s/\v<c-r>=g:fugitive_rebase_commands<cr>/fixup/<cr>:nohlsearch<cr>
-  nnoremap <buffer> <silent> X :s/\v<c-r>=g:fugitive_rebase_commands<cr>/exec/<cr>:nohlsearch<cr>
-  nnoremap <buffer> <silent> D :s/\v<c-r>=g:fugitive_rebase_commands<cr>/drop/<cr>:nohlsearch<cr>
-endfunction
-
 " make handling indexes a little easier {{{3
 
 " This section very happily stolen from / based on:
@@ -770,8 +753,6 @@ augroup vimrc-fugitive
     " on buffer initialization, set our work and common dirs
     au User Fugitive     let b:git_worktree  = fugitive#buffer().repo().tree()
     au User FugitiveBoot let b:git_commondir = fugitive#buffer().repo().git_chomp('rev-parse','--git-common-dir')
-
-    au FileType gitrebase call SetupInteractiveRebaseMaps()
 augroup END
 " }}}3
 
