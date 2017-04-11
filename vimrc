@@ -442,11 +442,13 @@ endif
 
 " Gerrit Integration: ...maybe we can make life easier {{{2
 
-Plug 'stargrave/gerrvim', { 'on': [] }
+" Author appears to have removed; we can resurrect if necessary
+" Plug 'stargrave/gerrvim', { 'on': [] }
 
-if has('python')
-    Plug 'itissid/gv', { 'on': ['GvShowChanges','GvShowStatus'] }
-endif
+" As to here, may as well comment it out as we're not using it anymore
+" if has('python')
+"     Plug 'itissid/gv', { 'on': ['GvShowChanges','GvShowStatus'] }
+" endif
 
 " TweetVim: {{{2
 
