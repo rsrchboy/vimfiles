@@ -934,6 +934,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'easymotion/vim-easymotion'
 Plug 'FredDeschenes/httplog'
 Plug 'rust-lang/rust.vim'
+Plug 'pearofducks/ansible-vim'
 
 " Text Objects: {{{1
 " See also https://github.com/kana/vim-textobj-user/wiki
