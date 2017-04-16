@@ -1,5 +1,6 @@
 " These are our custom dzil/pw POD commands.
 
+syn match podCommand "^=\(before\|after\|around\)" nextgroup=podCmdText
 syn match podCommand "^=func"      nextgroup=podCmdText
 syn match podCommand "^=method"    nextgroup=podCmdText
 syn match podCommand "^=attr"      nextgroup=podCmdText
