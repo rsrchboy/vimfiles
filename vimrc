@@ -937,6 +937,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'FredDeschenes/httplog'
 Plug 'rust-lang/rust.vim'
 Plug 'pearofducks/ansible-vim'
+Plug 'vim-scripts/openvpn', { 'for': 'openvpn' }
 
 " Text Objects: {{{1
 " See also https://github.com/kana/vim-textobj-user/wiki
@@ -1372,6 +1373,9 @@ augroup vimrc-filetype-set
     " the 'hub' tool creates a number of comment files formatted in the same way
     " as a git commit message.
     autocmd BufEnter *.git/**/*_EDITMSG set filetype=gitcommit
+
+    " openvpn bundle config files
+    autocmd BufNewFile,BufRead *.ovpn set filetype=openvpn
 augroup end
 
 " filetype-specific autocommands {{{2
