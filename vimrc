@@ -818,7 +818,14 @@ Plug 'rhysd/conflict-marker.vim'
 " NeoBundleLazy 'osfameron/perl-tags-vim',  { 'autoload': { 'filetypes': 'perl'     } }
 " NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
 " use my fork until several PR's are merged (orig: vim-perl/...)
+" Perl: main vim-perl plugin {{{2
+
+" support highlighting for the new syntax
+let perl_sub_signatures=1
+
 Plug 'RsrchBoy/vim-perl', { 'branch': 'active' }
+
+" }}}2
 Plug 'LStinson/perlhelp-vim', { 'on': ['PerlHelp', 'PerlMod'] }
 Plug 'vim-scripts/log4perl.vim'
 
