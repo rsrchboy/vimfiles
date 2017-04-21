@@ -283,6 +283,14 @@ let g:ctrlp_reuse_window = 'netrw\|help\|quickfix\|startify'
 
 Plug 'kien/ctrlp.vim'
 
+" SuperTab: {{{2
+
+" " FIXME appears to conflict with snipmate...?
+
+let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
+
+Plug 'ervandew/supertab'
+
 " DimInactive: {{{2
 
 let g:diminactive_enable_focus = 1
@@ -1280,14 +1288,6 @@ endfunc
 " augroup end
 
 " NeoBundle 'scrooloose/nerdtree', { 'augroup': 'NERDTreeHijackNetrw' }
-
-" " SuperTab: {{{2
-
-" " FIXME appears to conflict with snipmate :(
-
-" let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
-
-" " NeoBundleLazy 'ervandew/supertab', { 'autoload': { 'insert': 1 } }
 
 " " }}}2
 
