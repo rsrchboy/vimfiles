@@ -966,7 +966,10 @@ Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-syntax' " , { 'depends': 'vim-textobj-user' }
 Plug 'kana/vim-textobj-diff'
 Plug 'kana/vim-textobj-indent'
-Plug 'Julian/vim-textobj-brace'
+Plug 'glts/vim-textobj-comment'
+Plug 'reedes/vim-textobj-quote'
+Plug 'kana/vim-textobj-line'
+" Plug 'Julian/vim-textobj-brace'
 Plug 'Julian/vim-textobj-variable-segment'
 Plug 'lucapette/vim-textobj-underscore'
 Plug 'kana/vim-textobj-function'
@@ -974,6 +977,7 @@ Plug 'kana/vim-textobj-function'
 Plug 'thinca/vim-textobj-function-perl', { 'for': 'perl' }
 Plug 'vimtaku/vim-textobj-sigil',        { 'for': 'perl' }
 Plug 'spacewander/vim-textobj-lua',      { 'for': 'lua'  }
+Plug 'akiyan/vim-textobj-php',           { 'for': 'php'  }
 
 " ColorSchemes: {{{1
 " ZenBurn: {{{2
