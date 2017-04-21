@@ -950,9 +950,9 @@ Plug 'vim-scripts/deb.vim'
 Plug 'vim-scripts/gtk-vim-syntax'
 Plug 'chikamichi/mediawiki.vim'
 Plug 'puppetlabs/puppet-syntax-vim', { 'for': 'puppet' }
-Plug 'klen/python-mode', { 'for': 'python' }
-Plug 'chrisbra/csv.vim', { 'for': 'csv' }
-Plug 'vadv/vim-chef', { 'for': 'chef' }
+Plug 'klen/python-mode',             { 'for': 'python' }
+Plug 'chrisbra/csv.vim',             { 'for': 'csv'    }
+Plug 'vadv/vim-chef',                { 'for': 'chef'   }
 Plug 'kchmck/vim-coffee-script'
 Plug 'easymotion/vim-easymotion'
 Plug 'FredDeschenes/httplog'
