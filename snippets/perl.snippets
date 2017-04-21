@@ -136,3 +136,6 @@ snippet list
 	* ${1}
 
 	=end :list
+snippet counters
+	my $tap = counters(${1:0});
+	my ($_ok, $_nok) = @$tap{qw{ ok nok }};
