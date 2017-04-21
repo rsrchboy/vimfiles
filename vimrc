@@ -811,7 +811,13 @@ augroup vimrc-Signify
     autocmd WinEnter             * call sy#start()
     autocmd FileChangedShellPost * call sy#start()
     autocmd ShellCmdPost         * call sy#start()
+
+    " note with the right tweaks to tmux and the use of vim-tmux-focus-events
+    " this works with console vim as well!
+    autocmd FocusGained * call sy#start()
 augroup END
+
+" }}}3
 
 " }}}2
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
