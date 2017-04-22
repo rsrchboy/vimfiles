@@ -1375,6 +1375,7 @@ augroup vimrc-filetype-set
     au BufNewFile,BufRead .vagrantuser        set filetype=yaml
     au BufNewFile,BufRead .aws/credentials    set filetype=dosini
     au BufNewFile,BufRead *access.log*        set filetype=httplog
+    au BufRead,BufNewFile */.ssh/config.d/*   set filetype=sshconfig
 
     " e.g. /etc/NetworkManager/dnsmasq.d/...
     au BufNewFile,BufRead **/dnsmasq.d/*         set filetype=dnsmasq
