@@ -1199,7 +1199,7 @@ set modelines=2
 set number
 set sm
 set scs
-set title
+" set title
 set incsearch
 set hidden
 set laststatus=2
