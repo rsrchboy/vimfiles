@@ -355,6 +355,10 @@ Plug 'mattn/webapi-vim'
 Plug 'junegunn/vim-emoji'
 
 " Appish Or External Interface: bundles {{{1
+" ALE: async linting {{{2
+
+Plug 'w0rp/ale'
+
 " Travis: status {{{2
 
 if has('python')
