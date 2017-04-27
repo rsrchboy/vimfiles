@@ -709,7 +709,7 @@ Plug 'bartman/git-wip', {
 " Fugitive: {{{2
 
 " FIXME Gfixup is a work in progress
-command! -nargs=? Gfixup :Gcommit --fixup=HEAD <q-args>
+command! -nargs=? Gfixup :Gcommit --no-verify --fixup=HEAD <q-args>
 
 " {,re}mappings {{{3
 " this is a cross between the old git-vim commands I'm used to, but invoking
