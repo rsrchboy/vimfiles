@@ -18,6 +18,10 @@ setlocal spelllang=en_us
 setlocal spellcapcheck=0
 setlocal spellfile+=~/.vim/spell/perl.utf-8.add
 
+" vim-pipe config
+let b:vimpipe_filetype = "tapVerboseOutput"
+let b:vimpipe_command  = "source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -"
+
 " vim-surround mappings
 
 " q -> q{.}

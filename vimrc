@@ -392,10 +392,7 @@ let g:vimpipe_close_map  = ',p'
 augroup vimrc-vimpipe
     au!
 
-    " tapVerboseOutput appears to be significantly better than perl.tap
-    autocmd FileType perl let b:vimpipe_filetype = "tapVerboseOutput"
-    autocmd FileType perl let b:vimpipe_command  = "source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -"
-
+    " perl settings handled in after/ftplugin/perl.vim
     autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-lint $T; rm $T"
 
 augroup end
