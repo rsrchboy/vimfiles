@@ -179,6 +179,7 @@ nnoremap <silent> ,- :Tabularize first_equals<CR>
 nnoremap <silent> ,{  :Tabularize first_squiggly<CR>
 nnoremap <silent> ,}  :Tabularize /}/l1c0<CR>
 nnoremap <silent> ,]  :Tabularize /]/l1c0<CR>
+nnoremap <silent> ,)  :Tabularize /)/l1c0<CR>
 
 " PostSource Hook: {{{3
 
