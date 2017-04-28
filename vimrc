@@ -312,8 +312,6 @@ Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
-" Plug 'vim-scripts/Align'
-" Plug 'vim-scripts/AutoAlign'
 Plug 'tpope/vim-dispatch'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
@@ -822,10 +820,6 @@ augroup END
 
 " }}}2
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
-
-" TODO do we want to use this instead? https://github.com/rhysd/conflict-marker.vim
-" Plug 'vim-scripts/ConflictMotions'
-" Plug 'vim-scripts/ConflictDetection'
 Plug 'rhysd/conflict-marker.vim'
 
 " Perl Bundles: {{{1
@@ -965,7 +959,7 @@ Plug 'Firef0x/PKGBUILD.vim'
 " Text Objects: {{{1
 " See also https://github.com/kana/vim-textobj-user/wiki
 Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-syntax' " , { 'depends': 'vim-textobj-user' }
+Plug 'kana/vim-textobj-syntax'
 Plug 'kana/vim-textobj-diff'
 Plug 'kana/vim-textobj-indent'
 Plug 'glts/vim-textobj-comment'
