@@ -356,7 +356,12 @@ Plug 'junegunn/vim-emoji'
 " Appish Or External Interface: bundles {{{1
 " ALE: async linting {{{2
 
-Plug 'w0rp/ale'
+" NOTE this basically requires either vim8 or neovim; vim 7.4 etc aren't
+" *that* old, so we'll include some checks...
+
+if has('job') && has('timers') && has('channel')
+    Plug 'w0rp/ale'
+endif
 
 " Travis: status {{{2
 
