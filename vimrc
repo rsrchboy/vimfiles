@@ -696,12 +696,10 @@ endfunction
 
 let g:git_wip_disable_signing = 1
 
-" FIXME make git-wip build step *WORK*
-            " \   'build': { 'unix': 'mkdir -p ~/bin ; ln -s `pwd`/git-wip ~/bin/ ||:' },
-Plug 'bartman/git-wip', {
-            \   'rtp': 'vim',
-            \   'do': 'cp vim/plugin/git-wip ~/bin/git-wip',
-            \}
+Plug 'RsrchBoy/git-wip', { 'rtp': 'vim' }
+            " we handle this with our dotfiles now
+            " \   'do': 'cp vim/plugin/git-wip ~/bin/git-wip',
+            " \}
 
 " Fugitive: {{{2
 
