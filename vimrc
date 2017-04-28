@@ -959,6 +959,7 @@ Plug 'FredDeschenes/httplog'
 Plug 'rust-lang/rust.vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'vim-scripts/openvpn', { 'for': 'openvpn' }
+Plug 'Firef0x/PKGBUILD.vim'
 
 " Text Objects: {{{1
 " See also https://github.com/kana/vim-textobj-user/wiki
