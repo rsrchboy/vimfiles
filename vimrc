@@ -299,6 +299,7 @@ let g:diminactive_enable_focus = 1
 Plug 'blueyed/vim-diminactive'
 
 " }}}2
+Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-vinegar'
