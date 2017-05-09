@@ -174,3 +174,10 @@ cronjob
 FIXME
 Zilla
 prereq
+Conditionalize
+smooshed
+ansible
+X11Forwarding
+X11
+perlcritic
+Bool
