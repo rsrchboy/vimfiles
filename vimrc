@@ -616,6 +616,11 @@ Plug 'diepm/vim-rest-console'
 
 
 " GIT And Version Controlish: bundles {{{1
+" Hub: ...and pandoc, for better PR formatting {{{2
+
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'jez/vim-github-hub'
+
 " Gitv: {{{2
 
 " Settings: {{{3
@@ -1390,9 +1395,10 @@ augroup vimrc-filetype-set
     au BufNewFile,BufRead recipes/*.rb      set filetype=ruby.chef
     au BufNewFile,BufRead templates/*/*.erb set filetype=eruby.chef
 
-    " the 'hub' tool creates a number of comment files formatted in the same way
-    " as a git commit message.
-    autocmd BufEnter *.git/**/*_EDITMSG set filetype=gitcommit
+    " FIXME commenting this out, as vim-github-hub should set this for us
+    " " the 'hub' tool creates a number of comment files formatted in the same way
+    " " as a git commit message.
+    " autocmd BufEnter *.git/**/*_EDITMSG set filetype=gitcommit
 
     " openvpn bundle config files
     autocmd BufNewFile,BufRead *.ovpn set filetype=openvpn
