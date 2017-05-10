@@ -7,3 +7,7 @@ let b:did_sh_ckw_ftplugin = 1
 
 " local mappings
 nnoremap <buffer> <silent> ,;; :Tabularize /;;<CR>
+
+" vim-surround mappings
+" D -> [[ ... ]]
+let b:surround_68 = "[[ \r ]]"

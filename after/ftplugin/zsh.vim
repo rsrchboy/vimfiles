@@ -1,4 +1,5 @@
 " vim-surround mappings
 
-" d -> [[ ... ]]
-let b:surround_100 = "[[ \r ]]"
+" vim-surround mappings
+" D -> [[ ... ]]
+let b:surround_68 = "[[ \r ]]"
