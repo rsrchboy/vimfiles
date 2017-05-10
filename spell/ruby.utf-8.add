@@ -9,3 +9,4 @@ coreos
 hyperkube
 env
 openstack
+ansible
