@@ -1402,6 +1402,9 @@ augroup vimrc-filetype-set
 
     " openvpn bundle config files
     autocmd BufNewFile,BufRead *.ovpn set filetype=openvpn
+
+    " dosini-style files
+    autocmd BufNewFile,BufRead .tidyallrc set filetype=dosini
 augroup end
 
 " filetype-specific autocommands {{{2
