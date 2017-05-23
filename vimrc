@@ -1474,6 +1474,14 @@ command! -range -nargs=* MXRCize <line1>,<line2>perldo perldo return unless /$NS
 " }}}2
 
 " Source Local Configs: ...if present {{{1
+" ~/.vimrc.d {{{2
+
+" This will allow the use of "drop-in" configs
+
+for f in split(glob('~/.vimrc.d/*.vim'), '\n')
+    exe 'source ' f
+endfor
+
 " ~/.vimrc.local {{{2
 
 if filereadable(expand("~/.vimrc.local"))
