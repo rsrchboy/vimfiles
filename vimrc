@@ -355,6 +355,11 @@ Plug 'mattn/webapi-vim'
 Plug 'junegunn/vim-emoji'
 
 " Appish Or External Interface: bundles {{{1
+" CodeRevew: pachreview, github, etc {{{2
+
+Plug 'junkblocker/patchreview-vim'
+Plug 'codegram/vim-codereview' ", { 'on': 'CodeReview' }
+
 " ALE: async linting {{{2
 
 " NOTE this basically requires either vim8 or neovim; vim 7.4 etc aren't
