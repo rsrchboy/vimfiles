@@ -184,3 +184,9 @@ worktree
 www
 zsh
 zshrc
+submodules
+swappiness
+swapfile
+perldoc
+dotfile
+makefiles
