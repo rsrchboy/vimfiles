@@ -83,6 +83,7 @@ SIDF
 SIMONW
 SMUELLER
 SNOWHARE
+STDERR
 SWEETKID
 SharedFork
 Smoosh
@@ -129,6 +130,7 @@ config
 cronjob
 diff
 dists
+dotfile
 dreamhost
 dreampress
 dzil
@@ -147,12 +149,14 @@ init
 k8s
 lazify
 majorly
+makefiles
 metarole
 metaroles
 modeline
 neobundle
 perlbrew
 perlcritic
+perldoc
 pfft
 prereq
 provisioner
@@ -168,8 +172,11 @@ scriptlet
 scriptlets
 smooshed
 stdlib
+submodules
 subtest
 subtree
+swapfile
+swappiness
 symlink
 symlinks
 terraform
@@ -184,9 +191,3 @@ worktree
 www
 zsh
 zshrc
-submodules
-swappiness
-swapfile
-perldoc
-dotfile
-makefiles
