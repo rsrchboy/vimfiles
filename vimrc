@@ -1420,8 +1420,9 @@ augroup vimrc-filetype
     " these have been moved to ftplugin/ files.
     "
     " ...mostly
-    autocmd FileType crontab setlocal commentstring=#\ %s
-    autocmd FileType GV      setlocal nolist
+    autocmd FileType crontab    setlocal commentstring=#\ %s
+    autocmd FileType debcontrol setlocal commentstring=#\ %s
+    autocmd FileType GV         setlocal nolist
 augroup end
 
 " }}}2
