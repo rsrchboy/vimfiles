@@ -1423,6 +1423,7 @@ augroup vimrc-filetype
     autocmd FileType crontab    setlocal commentstring=#\ %s
     autocmd FileType debcontrol setlocal commentstring=#\ %s
     autocmd FileType GV         setlocal nolist
+    autocmd FileType tmux       set tw=0
 augroup end
 
 " }}}2
