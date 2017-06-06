@@ -2,7 +2,7 @@
 
 " when working inside a CPAN-style dist, for instance.
 set path<
-let &l:path=".,,lib/,".perlpath
+let &l:path=".,,lib/,t/lib/,".perlpath
 
 if exists('b:ckw_perl_buf_setup')
     " no need to repeat ourselves
