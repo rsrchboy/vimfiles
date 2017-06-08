@@ -420,7 +420,7 @@ Plug 'krisajenkins/vim-pipe', { 'on': [] }
 
 " FIXME need to figure out the significance of other files in the notes dirs
 " first
-let g:notes_directories = [ '~/notes' ]
+let g:notes_directories = [ '~/Shared/notes' ]
 let g:notes_suffix = '.notes'
 
 Plug 'xolox/vim-notes'
