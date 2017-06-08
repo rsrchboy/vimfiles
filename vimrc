@@ -731,9 +731,9 @@ nmap <silent> <Leader>gD :Gdiff<CR>
 nmap <silent> <Leader>gh :call Gitv_OpenGitCommand("show --no-color", 'new')<CR>
 nmap <silent> <Leader>ga :Gwrite<bar>call sy#start()<CR>
 nmap <silent> <Leader>gc :Gcommit<Enter>
-nmap <silent> <Leader>gf :Gcommit --fixup HEAD<CR>
-nmap <silent> <Leader>gF :Gcommit --fixup 'HEAD~'<CR>
-nmap <silent> <Leader>gS :Gcommit --squash HEAD
+nmap <silent> <Leader>gf :Gcommit --no-verify --fixup HEAD --no-verify<CR>
+nmap <silent> <Leader>gF :Gcommit --no-verify --fixup 'HEAD~'<CR>
+nmap <silent> <Leader>gS :Gcommit --no-verify --squash HEAD
 
 " trial -- intent to add
 nmap <silent> <Leader>gI :Git add --intent-to-add %<bar>call sy#start()<CR>
