@@ -24,20 +24,19 @@ let b:vimpipe_command  = "source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -"
 
 " vim-surround mappings
 
-" q -> q{.}
-" Q -> qq{.}
+" q ->     q{...}
+" Q ->    qq{...}
+" w ->   qw{ ... }
+" W -> [ qw{ ... } ]
+" , ->      '...',
+" l ->     L<...>
+" c ->     C<...>
+" b ->     B<...>
 let b:surround_113 = "q{\r}"
 let b:surround_81  = "qq{\r}"
-" w -> qw{ . }
-" W -> [ qw{ . } ]
 let b:surround_119 = "qw{ \r }"
 let b:surround_87  = "[ qw{ \r } ]"
-" c -> '...',
-" C -> "...",
-let b:surround_99 = "'\r',"
-let b:surround_67 = '"\r",'
-" L -> L<...>
-" etc
-let b:surround_76 = 'L<\r>'
-let b:surround_66 = 'B<\r>'
-let b:surround_67 = 'C<\r>'
+let b:surround_44  = "'\r',"
+let b:surround_108 = "L<\r>"
+let b:surround_98  = "B<\r>"
+let b:surround_99  = "C<\r>"
