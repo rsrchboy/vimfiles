@@ -22,8 +22,8 @@ setlocal spellfile+=~/.vim/spell/perl.utf-8.add
 let b:vimpipe_filetype = "tapVerboseOutput"
 let b:vimpipe_command  = "source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -"
 
-" vim-surround mappings
-
+" Surround Mappings:
+"
 " q ->     q{...}
 " Q ->    qq{...}
 " w ->   qw{ ... }
