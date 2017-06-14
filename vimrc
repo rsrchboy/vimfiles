@@ -367,6 +367,16 @@ Plug 'codegram/vim-codereview' ", { 'on': 'CodeReview' }
 
 if has('job') && has('timers') && has('channel')
     Plug 'w0rp/ale'
+
+    augroup vimrc#ale
+        au!
+
+        " if our f/t is perl, set some additional options
+        " FIXME this might be good for other plugins too...
+        au User Fugitive if &ft == 'perl' | let b:ale_perl_perl_options = '-I ' . fugitive#repo().tree() . '/lib'
+                \       . ' -I ' . fugitive#repo().tree() . '/t/lib'
+                \   | endif
+    augroup END
 endif
 
 " Travis: status {{{2
