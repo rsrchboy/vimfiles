@@ -373,8 +373,10 @@ if has('job') && has('timers') && has('channel')
 
         " if our f/t is perl, set some additional options
         " FIXME this might be good for other plugins too...
-        au User Fugitive if &ft == 'perl' | let b:ale_perl_perl_options = '-I ' . fugitive#repo().tree() . '/lib'
-                \       . ' -I ' . fugitive#repo().tree() . '/t/lib'
+        au User Fugitive let b:git_worktree = fugitive#repo().tree()
+        au User Fugitive if &ft == 'perl'
+                \   | let b:ale_perl_perl_options = '-I ' . b:git_worktree . '/lib'
+                \       . ' -I ' . b:git_worktree . '/t/lib'
                 \   | endif
     augroup END
 endif
