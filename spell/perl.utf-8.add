@@ -1,4 +1,3 @@
-/usr/bin/env
 AFAICT
 ARGV
 ActionBuilders
@@ -137,3 +136,8 @@ worktree
 yay
 CodeRef
 arrayref
+metaclass
+metarole
+MooseX::MarkAsMethods
+namespace::autoclean
+MarkAsMethods
