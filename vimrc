@@ -1521,4 +1521,4 @@ set exrc
 
 " }}}2
 
-" vim: set foldmethod=marker foldlevel=1 foldcolumn=5 :
+" vim: set foldmethod=marker foldcolumn=5 :
