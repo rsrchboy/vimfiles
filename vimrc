@@ -295,6 +295,7 @@ Plug 'ervandew/supertab'
 " DimInactive: {{{2
 
 let g:diminactive_enable_focus = 1
+let g:diminactive_filetype_blacklist = ['startify', 'fugitiveblame']
 
 Plug 'blueyed/vim-diminactive'
 
