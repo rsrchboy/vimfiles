@@ -1422,7 +1422,8 @@ augroup vimrc-filetype-set
     autocmd BufNewFile,BufRead *.ovpn set filetype=openvpn
 
     " dosini-style files
-    autocmd BufNewFile,BufRead .tidyallrc set filetype=dosini
+    autocmd BufNewFile,BufRead .tidyallrc    set filetype=dosini
+    autocmd BufNewFile,BufRead .perlcriticrc set filetype=dosini
 augroup end
 
 " filetype-specific autocommands {{{2
