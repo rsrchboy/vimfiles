@@ -1277,8 +1277,11 @@ endif
 
 " folding {{{2
 
-"set foldmethod=marker
-set foldlevel=1
+" Start our folding at level 1, but after that enforce at a high enough level
+" that we shouldn't discover our current position has been folded away after
+" switching windows
+set foldlevelstart=1
+set foldlevel=10
 set foldcolumn=3
 
 " fold functions {{{2
