@@ -43,3 +43,13 @@ syn region perlSmartComment start="###\+ " end="$" transparent contains=perlTodo
 
 " set transparent, above.
 " hi def link perlSmartComment perlComment
+
+
+" PerlCritic And PerlTidy:
+syn match perlCritic /##\(no\|use\) critic.*$/ containedin=perlComment contained
+syn match perlTidy   /#\(<<<\|>>>\)$/ containedin=perlComment contained
+
+" Delimiter, Special, and Ignore all seem appropriate, depending on what one
+" wants.  I just want them to go away, so...
+hi link perlCritic Ignore
+hi link perlTidy   Ignore
