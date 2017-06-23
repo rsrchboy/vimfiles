@@ -1,7 +1,7 @@
 " " note -- the git aliases are based off my personal gitconfig -- probably ought
 " " to expand them here
 nmap <buffer> <silent> F   :execute 'Gcommit --no-verify --fixup='  . gv#sha()<CR>:close<CR>:GV<CR>
-nmap <buffer> <silent> S   :execute 'Gcommit --no-verify --squash=' . gv#sha()<CR>
+nmap <buffer> <silent> S   :execute 'Gcommit --no-verify --squash=' . gv#sha()<CR>:close<CR>:GV<CR>
 nmap <buffer> <silent> C   :Gcommit<CR>
 " nmap <buffer> <silent> ria :call dispatch#compile_command(0, fugitive#repo().git_command('ria'), 1)<CR>
 " nmap <buffer> <silent> rv  :call dispatch#compile_command(0, fugitive#repo().git_command('revert', '--no-edit', gitv#util#line#sha('.')), 1)<CR>
