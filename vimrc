@@ -1260,6 +1260,8 @@ set spellfile+=~/.vim/spell/en.utf-8.add
 " set listchars+=tab:\|.
 set list
 
+let maplocalleader = ','
+
 " terminal bits: {{{2
 
 " initial hackery to let us set terminal titles!
@@ -1341,10 +1343,10 @@ nmap Q gqap
 set pastetoggle=<F2>
 
 " Normal Mode Mappings: {{{2
-nmap <LocalLeader>fc :call ToggleFoldColumn()<CR>
+nmap <Leader>fc :call ToggleFoldColumn()<CR>
 
 " this is somewhat irksome
-nmap <silent> <LocalLeader>ft :filetype detect<CR>
+nmap <silent> <Leader>ft :filetype detect<CR>
 
 nmap <silent> <F1> :h rsrchboy-normal-mappings<CR>
 nmap <silent> <F3> :setlocal nonumber!<CR>
