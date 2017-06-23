@@ -279,7 +279,7 @@ Plug 'junegunn/vim-easy-align', { 'on': [ '<Plug>(EasyAlign)', 'EasyAlign' ] }
 
 " CtrlP: {{{2
 
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files']
+let g:ctrlp_user_command = ['.git', "cd %s && git ls-files | grep -Pv '(^go/vendor|\.tar(|\.gz|\.bz2)$)'"]
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix\|startify'
 
 Plug 'kien/ctrlp.vim'
