@@ -46,7 +46,7 @@ syn region perlSmartComment start="###\+ " end="$" transparent contains=perlTodo
 
 
 " PerlCritic And PerlTidy:
-syn match perlCritic /##\(no\|use\) critic.*$/ containedin=perlComment contained
+syn match perlCritic /## \?\(no\|use\) critic.*$/ containedin=perlComment contained
 syn match perlTidy   /#\(<<<\|>>>\)$/ containedin=perlComment contained
 
 " Delimiter, Special, and Ignore all seem appropriate, depending on what one
