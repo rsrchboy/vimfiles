@@ -46,10 +46,10 @@ syn region perlSmartComment start="###\+ " end="$" transparent contains=perlTodo
 
 
 " PerlCritic And PerlTidy:
-syn match perlCritic /## \?\(no\|use\) critic.*$/ containedin=perlComment contained
-syn match perlTidy   /#\(<<<\|>>>\)$/ containedin=perlComment contained
+syn match perlCriticOverride /## \?\(no\|use\) critic.*$/ containedin=perlComment contained
+syn match perlTidyOverride   /#\(<<<\|>>>\)$/ containedin=perlComment contained
 
 " Delimiter, Special, and Ignore all seem appropriate, depending on what one
 " wants.  I just want them to go away, so...
-hi link perlCritic Ignore
-hi link perlTidy   Ignore
+hi link perlCriticOverride Ignore
+hi link perlTidyOverride   Ignore
