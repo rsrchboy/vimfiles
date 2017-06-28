@@ -1,10 +1,12 @@
 ABEND
+ADHD
 AFAICT
 API
 AUFS
 Bad
 BufEnter
 CPAN
+ChildWorks
 CoreOS
 Crosse
 Daleks
@@ -99,6 +101,7 @@ middleware
 namespace
 namespaces
 namespacing
+no
 norovirus
 passphrase
 plugin
@@ -112,7 +115,11 @@ ssh-dss
 stacktrace
 stacktraces
 stopwords
+submodule
+submodules
 subtests
+subtree
+subtrees
 sudo
 tarball
 tarballs
@@ -121,9 +128,3 @@ undef
 virtualization
 wiki
 wlan0
-metaclass
-submodules
-subtree
-subtrees
-submodule
-no
