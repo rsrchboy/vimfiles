@@ -9,11 +9,8 @@ if exists('b:ckw_perl_buf_setup')
     finish
 endif
 
-au InsertEnter <buffer> setlocal spell
-au InsertLeave <buffer> setlocal nospell
-
 " turn on spell-check for POD / comments
-" setlocal spell
+setlocal spell
 setlocal spelllang=en_us
 setlocal spellcapcheck=0
 setlocal spellfile+=~/.vim/spell/perl.utf-8.add
