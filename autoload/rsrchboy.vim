@@ -1,3 +1,13 @@
+" returns the value of the buffer variable, if set, or global if not
+function! rsrchboy#var(name) abort
+    let l:local_name = substitute(a:name, '#', '_', '')
+    if exists('b:'.l:local_name)
+        return get(b:, l:local_name)
+    else
+        return get(g:, a:name)
+    endif
+endfunction
+
 function! rsrchboy#termtitle()
 
     " cheat, just rely on fugitive here

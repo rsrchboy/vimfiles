@@ -1,0 +1,16 @@
+" tests for autoload/rsrchboy.vim
+
+Before:
+  source autoload/rsrchboy.vim
+
+After:
+  Restore
+
+Execute('rsrchboy#var'):
+  Save g:rsrchboy#blabla
+
+  let g:rsrchboy#blabla = 'global'
+  AssertEqual rsrchboy#var('rsrchboy#blabla'), 'global'
+
+  let b:rsrchboy_blabla = 'local'
+  AssertEqual rsrchboy#var('rsrchboy#blabla'), 'local'
