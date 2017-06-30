@@ -811,7 +811,7 @@ Plug 'mattn/gist-vim', { 'on': 'Gist' }
 
 " Signify: {{{2
 
-Plug 'mhinz/vim-signify', { 'tag': 'v1.9' }
+Plug 'mhinz/vim-signify'
 
 " Mappings: {{{3
 
