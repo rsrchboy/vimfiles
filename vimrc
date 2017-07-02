@@ -369,6 +369,9 @@ Plug 'codegram/vim-codereview' ", { 'on': 'CodeReview' }
 if has('job') && has('timers') && has('channel')
     Plug 'w0rp/ale'
 
+    let g:ale_allow_docker                   = 1
+    let g:ale_dockerfile_hadolint_use_docker = 'yes'
+
     augroup vimrc#ale
         au!
 
