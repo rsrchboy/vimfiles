@@ -371,6 +371,8 @@ if has('job') && has('timers') && has('channel')
 
     let g:ale_allow_docker                   = 1
     let g:ale_dockerfile_hadolint_use_docker = 'yes'
+    let g:ale_sql_sqlint_use_docker          = 'yes'
+    let g:ale_vim_vint_use_docker            = 'yes'
 
     augroup vimrc#ale
         au!
