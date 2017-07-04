@@ -1265,11 +1265,11 @@ let g:maplocalleader = ','
 
 " initial hackery to let us set terminal titles!
 
-if &term =~ "screen.*"
+if &term =~ 'screen.*'
     set t_ts=k
     set t_fs=\
 endif
-" if &term =~ "screen.*" || &term == "xterm"
+" if &term =~ 'screen.*' || &term == 'xterm'
 " if exists("$TMUX")
 if exists('$TMUX') && empty($TMUX)
     " set title
