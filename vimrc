@@ -87,7 +87,7 @@ let g:airline#extensions#tmuxline#enabled             = 0
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
 " let g:airline#extensions#wordcount#enabled            = 0
 
-let airline#extensions#tabline#ignore_bufadd_pat =
+let g:airline#extensions#tabline#ignore_bufadd_pat =
         \ '\c\vgundo|undotree|vimfiler|tagbar|nerd_tree|previewwindow|help|nofile'
 
 " Branchname Config: {{{3
@@ -419,7 +419,7 @@ augroup end
 " AutoLoad: {{{3
 
 " load, then run.  this mapping will be overwritten on plugin load
-execute "nnoremap <silent> " . g:vimpipe_invoke_map . " :call plug#load('vim-pipe') <bar> %call VimPipe()<CR>"
+execute 'nnoremap <silent> ' . g:vimpipe_invoke_map . " :call plug#load('vim-pipe') <bar> %call VimPipe()<CR>"
 
 " }}}3
 
@@ -538,7 +538,11 @@ Plug 'itchyny/calendar.vim', { 'on': 'Calendar' }
 let g:tracTicketClause = 'owner=cweyl&status!=closed'
 let g:tracServerList   = {}
 
-au! User vitra call s:PluginLoadedVitra()
+augroup vimrc#vitra
+    au!
+
+    au User vitra call s:PluginLoadedVitra()
+augroup END
 
 " Do Things when the bundle is vivified
 function! s:PluginLoadedVitra()
@@ -694,11 +698,10 @@ augroup vimrc#extradite
     au!
 
     au FileType extradite nnoremap <buffer> <silent> <F1> :h extradite-mappings<CR>
+    au User vim-extradite call s:PluginLoadedExtradite()
 augroup END
 
 " PostSource Hook: {{{3
-
-au! User vim-extradite call s:PluginLoadedExtradite()
 
 " Do Things when the bundle is vivified
 function! s:PluginLoadedExtradite()
@@ -855,7 +858,7 @@ Plug 'rhysd/conflict-marker.vim'
 " Perl: main vim-perl plugin {{{2
 
 " support highlighting for the new syntax
-let perl_sub_signatures=1
+let g:perl_sub_signatures=1
 
 Plug 'RsrchBoy/vim-perl', { 'branch': 'active' }
 
@@ -870,18 +873,18 @@ Plug 'jamessan/vim-gnupg', { 'on': [] }
 
 " Hooks And Loaders: {{{3
 
-" force the autocmds to run after we've loaded the plugin
-au! User vim-gnupg nested edit
-
-augroup vimrc-gnupg
+augroup vimrc#gnupg
     au!
-    au BufRead,BufNewFile *.{gpg,asc,pgp,pause} execute 'au! vimrc-gnupg' | call plug#load('vim-gnupg')
+
+    " force the autocmds to run after we've loaded the plugin
+    au User vim-gnupg nested edit
+    au BufRead,BufNewFile *.{gpg,asc,pgp,pause} call plug#load('vim-gnupg') | execute 'au! vimrc#gnupg BufRead,BufNewFile'
 augroup END
 
 " Settings: {{{3
 
 let g:GPGPreferArmor       = 1
-let g:GPGDefaultRecipients = ["cweyl@alumni.drew.edu"]
+let g:GPGDefaultRecipients = ['0x84CC74D079416376', '0x1535F82E8083A84A']
 let g:GPGFilePattern       = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
 
 " }}}3
@@ -1219,8 +1222,8 @@ call plug#end()
 set modeline
 set modelines=2
 set number
-set sm
-set scs
+set showmatch
+set smartcase
 " set title
 set incsearch
 set hidden
@@ -1257,7 +1260,7 @@ set spellfile+=~/.vim/spell/en.utf-8.add
 " set listchars+=tab:\|.
 set list
 
-let maplocalleader = ','
+let g:maplocalleader = ','
 
 " terminal bits: {{{2
 
@@ -1269,7 +1272,7 @@ if &term =~ "screen.*"
 endif
 " if &term =~ "screen.*" || &term == "xterm"
 " if exists("$TMUX")
-if exists("$TMUX") && empty($TMUX)
+if exists('$TMUX') && empty($TMUX)
     " set title
     " set titlestring=%{rsrchboy#termtitle()}
 endif
@@ -1298,11 +1301,11 @@ func! ToggleFoldColumn()
 endfunc
 
 func! FoldOnLeadingPounds(lnum)
-    let l0 = getline(a:lnum)
+    let l:l0 = getline(a:lnum)
 
-    if l0 =~ '^##'
+    if l:l0 =~ '^##'
         return '>'.(matchend(getline(v:lnum),'^#\+')-1)
-    elseif l0 =~ '^#='
+    elseif l:l0 =~ '^#='
         return '>0'
     endif
 
@@ -1507,7 +1510,7 @@ endfor
 
 " ~/.vimrc.local {{{2
 
-if filereadable(expand("~/.vimrc.local"))
+if filereadable(expand('~/.vimrc.local'))
     source ~/.vimrc.local
 endif
 
