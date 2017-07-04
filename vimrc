@@ -1336,6 +1336,10 @@ nmap <silent> <F5> :setlocal spell! spelllang=en_us<CR>
 nmap <silent> <F7> :tabp<CR>
 nmap <silent> <F8> :tabn<CR>
 
+" Stop suspending, more shelling.  This should be less frustrating than often
+" being in an unexpected directory
+nnoremap <C-Z> :shell<CR>
+
 " make C-PgUp and C-PgDn work, even under screen
 " see https://bugs.launchpad.net/ubuntu/+source/screen/+bug/82708/comments/1
 nmap <ESC>[5;5~ <C-PageUp>
