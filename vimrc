@@ -1313,23 +1313,6 @@ endfunc
 
 "}}}2
 
-" General Bundles: old neobundle definitions to do... something... with {{{1
-" " NERD Tree: {{{2
-
-" map <leader>l :NERDTreeToggle<CR>
-
-" augroup vimrc-nerdtree
-"     au!
-
-"     " close if we're the only window left
-"     autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-" augroup end
-
-" NeoBundle 'scrooloose/nerdtree', { 'augroup': 'NERDTreeHijackNetrw' }
-
-" " }}}2
-
 " Mappings: {{{1
 " Text Formatting: {{{2
 
