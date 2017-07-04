@@ -7,6 +7,9 @@
 " This must be first, because it changes other options as side effect
 set nocompatible
 
+set encoding=utf-8
+scriptencoding utf-8
+
 " VimPlug BEGIN: "strategic" plugin manager ;) {{{1
 call plug#begin()
 
@@ -1219,46 +1222,42 @@ call plug#end()
 
 " settings {{{2
 
+" set title
+set autoindent                 " Preserve current indent on new lines
+set autoread                   " reload when changed -- e.g. 'git co ...'
+set background=dark
+" set backspace=eol,start,indent
+set backspace=indent,eol,start " Make backspaces delete sensibly
+set expandtab                  " Convert all tabs typed to spaces
+set hidden
+set ignorecase
+set incsearch
+set laststatus=2
+" set lazyredraw
+set list
+" set listchars+=tab:\|.
+set matchpairs+=<:>            " Allow % to bounce between angles too
 set modeline
 set modelines=2
+set nostartofline              " try to preserve column on motion commands
 set number
+set shiftround                 " Indent/outdent to nearest tabstop
+set shiftwidth=4               " Indent/outdent by four columns
 set showmatch
 set smartcase
-" set title
-set incsearch
-set hidden
-set laststatus=2
-set nostartofline              " try to preserve column on motion commands
-set autoread                   " reload when changed -- e.g. 'git co ...'
-set encoding=utf-8             " Necessary to show Unicode glyphs
-set t_Co=256                   " Explicitly tell Vim we can handle 256 colors
-set autoindent                 " Preserve current indent on new lines
-set textwidth=78               " Wrap at this column
-set backspace=indent,eol,start " Make backspaces delete sensibly
-set tabstop=4                  " Indentation levels every four columns
 set smarttab
-set expandtab                  " Convert all tabs typed to spaces
-set shiftwidth=4               " Indent/outdent by four columns
-set shiftround                 " Indent/outdent to nearest tabstop
-set matchpairs+=<:>            " Allow % to bounce between angles too
+set spellfile+=~/.vim/spell/en.utf-8.add
 set splitright                 " open new vsplit to the right
-set ignorecase
-set smartcase
-set backspace=eol,start,indent
+set t_Co=256                   " Explicitly tell Vim we can handle 256 colors
+set tabstop=4                  " Indentation levels every four columns
+set textwidth=78               " Wrap at this column
+set ttyfast
 set whichwrap+=<,>,h,l
-set background=dark
 " XXX reexamine 'nobackup'
 set nobackup                   " we're stashing everything in git, anyways
 " XXX reexamine 'noswapfile'
 set noswapfile
-" XXX reexamine 'lazyredraw' vs 'ttyfast'
-"set lazyredraw
-set ttyfast
-set spellfile+=~/.vim/spell/en.utf-8.add
 
-" the better to see your tabs with, my dear
-" set listchars+=tab:\|.
-set list
 
 let g:maplocalleader = ','
 
