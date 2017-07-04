@@ -360,6 +360,11 @@ if has('job') && has('timers') && has('channel')
     let g:ale_sql_sqlint_use_docker          = 'yes'
     let g:ale_vim_vint_use_docker            = 'yes'
 
+    " additional aliases
+    let g:ale_linter_aliases = {
+                \   'vader': 'vim',
+                \}
+
     augroup vimrc#ale
         au!
 
