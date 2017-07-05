@@ -29,7 +29,7 @@ hi def link perlMooseAttribute perlFunction
 hi def link perlMooseAttributeName perlSubName
 
 " "normal"
-syn match   perlTodo /\<\(NOTE\|TBD\|FIXME\|XXX\|PLAN\)[:]\?/ contained contains=NONE,@NoSpell
+syn match   perlTodo /\<\(NOTES\?\|TBD\|FIXME\|XXX\|PLAN\)[:]\?/ contained contains=NONE,@NoSpell
 
 " dzil-specific highlights dzil
 syn match perlPodWeaverSpecialComment "^# [A-Z0-9]\+: " contained containedin=perlComment
