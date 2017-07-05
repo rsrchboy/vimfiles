@@ -371,6 +371,11 @@ if has('job') && has('timers') && has('channel')
     " tweak linters lists
     let g:ale_linters = {
                 \   'perl': [ 'perlcritic', 'proselint' ],
+                \   'help': [ 'proselint'               ],
+                \}
+    " configure fixers
+    let g:ale_fixers = {
+                \   'help': [ 'remove_trailing_lines', 'align_help_tags' ],
                 \}
 
     augroup vimrc#ale
