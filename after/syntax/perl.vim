@@ -32,7 +32,7 @@ hi def link perlMooseAttributeName perlSubName
 syn match   perlTodo /\<\(NOTE\|TBD\|FIXME\|XXX\|PLAN\)[:]\?/ contained contains=NONE,@NoSpell
 
 " dzil-specific highlights dzil
-syn match perlPodWeaverSpecialComment "^# [A-Z0-9]\+:" contained containedin=perlComment
+syn match perlPodWeaverSpecialComment "^# [A-Z0-9]\+: " contained containedin=perlComment
 
 hi def link perlPodWeaverSpecialCommentKeywords Todo
 
