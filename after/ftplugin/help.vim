@@ -9,7 +9,10 @@ let b:did_local_help_ftplugin = 1
 " setlocal nonumber
 setlocal foldcolumn=0
 
-nnoremap <buffer> <silent> q :q<CR>
+" don't set this mapping if we're actually *editing* a help file
+if &readonly
+    nnoremap <buffer> <silent> q :q<CR>
+endif
 
 " add '|' and '*' to our autoclose pairs
 " FIXME adding '*' throws weird errors!
