@@ -367,6 +367,10 @@ if has('job') && has('timers') && has('channel')
     let g:ale_linter_aliases = {
                 \   'vader': 'vim',
                 \}
+    " tweak linters lists
+    let g:ale_linters = {
+                \   'perl': [ 'perlcritic', 'proselint' ],
+                \}
 
     augroup vimrc#ale
         au!
