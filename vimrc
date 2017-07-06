@@ -361,6 +361,7 @@ if has('job') && has('timers') && has('channel')
     let g:ale_docker_allow                   = 1
     let g:ale_dockerfile_hadolint_use_docker = 'yes'
     let g:ale_help_proselint_use_docker      = 'yes'
+    let g:ale_mail_proselint_use_docker      = 1
     let g:ale_perl_perlcritic_showrules      = 1
     let g:ale_sh_shellcheck_use_docker       = 'yes'
     let g:ale_sql_sqlint_use_docker          = 'yes'
