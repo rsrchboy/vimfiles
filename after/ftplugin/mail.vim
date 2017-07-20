@@ -1,6 +1,6 @@
 " Additional setup for mail files
 
-if exists("b:did_mail_ckw_ftplugin")
+if exists('b:did_mail_ckw_ftplugin')
     finish
 endif
 let b:did_mail_ckw_ftplugin = 1
@@ -16,13 +16,13 @@ setlocal foldcolumn=0
 
 " auto-wrap paragraphs!
 " set fo=a2tcqlnjr
-set fo+=awq
+set formatoptions+=awq
 
 " just > for comments for now
 " set comments=nb:>
 
 " local to the buffer
-set tw=72
+set textwidth=72
 
 setlocal backup
 set swapfile
@@ -53,7 +53,7 @@ setlocal spell
 " JUST KEEP SAVING IT OK??
 " autocmd CursorHold <buffer> update
 " autocmd TextChanged,TextChangedI <buffer> update
-autocmd TextChanged <buffer> update
+" autocmd TextChanged <buffer> update
 
 normal gg0
 startinsert
