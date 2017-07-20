@@ -5,6 +5,11 @@ if exists('b:did_vim_ckw_ftplugin')
 endif
 let b:did_vim_ckw_ftplugin = 1
 
+setlocal spell
+setlocal spelllang=en_us
+setlocal spellcapcheck=0
+setlocal spellfile+=~/.vim/spell/vim.utf-8.add
+
 " oddly, this doesn't seem to be set...
 set commentstring=\"%s
 
