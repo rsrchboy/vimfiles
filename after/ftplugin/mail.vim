@@ -34,16 +34,12 @@ let b:airline_whitespace_disabled = 1
 
 if @% !~# '^/tmp/pico'
 
-    " We're not editing mail to send via pine, but that doesn't mean we're not
-    " sending mail from somewhere.  Don't turn spell on unconditonally, just
-    " if we enter insert mode.
-    autocmd InsertEnter <buffer> setlocal spell
-    autocmd InsertLeave <buffer> setlocal nospell
+    " setlocal spell
+    " autocmd InsertEnter <buffer> setlocal spell
+    " autocmd InsertLeave <buffer> setlocal nospell
 
     finish
 endif
-
-" echom
 
 " These commands are only executed if we're in a message edit buffer.
 
