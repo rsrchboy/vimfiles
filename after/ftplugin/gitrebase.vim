@@ -4,7 +4,7 @@ endif
 let b:did_gitrebase_after_ftplugin = 1
 
 " FIXME probably a better way to do this
-let b:fugitive_rebase_commands="^(pick|reword|edit|squash|fixup|exec|drop)"
+let b:fugitive_rebase_commands='^(pick|reword|edit|squash|fixup|exec|drop)'
 
 function! s:Swizzle(key, verb)
   silent! call repeat#set(a:key,-1)
