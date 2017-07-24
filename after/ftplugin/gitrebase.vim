@@ -11,11 +11,10 @@ function! s:Swizzle(key, verb)
   execute "normal :s/\\v\<c-r>=b:fugitive_rebase_commands\<cr>/".a:verb."/\<cr>:nohlsearch\<cr>"
 endfunction
 
-nnoremap <buffer> D :call <SID>Swizzle('D',"drop")<cr>
-nnoremap <buffer> P :call <SID>Swizzle('P',"pick")<cr>
-nnoremap <buffer> R :call <SID>Swizzle('R',"reword")<cr>
-nnoremap <buffer> E :call <SID>Swizzle('E',"edit")<cr>
-nnoremap <buffer> S :call <SID>Swizzle('S',"squash")<cr>
-nnoremap <buffer> F :call <SID>Swizzle('F',"fixup")<cr>
-nnoremap <buffer> X :call <SID>Swizzle('X',"exec")<cr>
-
+nnoremap <buffer> <localleader>d :call <SID>Swizzle('D',"drop")<cr>
+nnoremap <buffer> <localleader>p :call <SID>Swizzle('P',"pick")<cr>
+nnoremap <buffer> <localleader>r :call <SID>Swizzle('R',"reword")<cr>
+nnoremap <buffer> <localleader>e :call <SID>Swizzle('E',"edit")<cr>
+nnoremap <buffer> <localleader>s :call <SID>Swizzle('S',"squash")<cr>
+nnoremap <buffer> <localleader>f :call <SID>Swizzle('F',"fixup")<cr>
+nnoremap <buffer> <localleader>x :call <SID>Swizzle('X',"exec")<cr>
