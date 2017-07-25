@@ -40,6 +40,7 @@ let b:vimpipe_command  = 'source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -'
 " , ->      '...',
 " l ->     L<...>
 " c ->     C<...>
+" C ->   C<< ... >>
 " b ->     B<...>
 " # ->   #<<<...#>>>       <-- perltidy skip notation
 let b:surround_113 = "q{\r}"
@@ -50,4 +51,5 @@ let b:surround_44  = "'\r',"
 let b:surround_108 = "L<\r>"
 let b:surround_98  = "B<\r>"
 let b:surround_99  = "C<\r>"
+let b:surround_67  = "C<< \r >>"
 let b:surround_35  = "#<<<\r#>>>"
