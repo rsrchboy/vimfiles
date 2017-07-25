@@ -27,6 +27,9 @@ if exists('b:git_dir')
         \   . ' -I ' . fugitive#repo().tree() . '/t/lib'
 endif
 
+" select current word to EOL (but not the newline), surround w/C
+nmap <buffer> <localleader>sc :normal viW$hSC<CR>
+
 " vim-pipe config
 let b:vimpipe_filetype = 'tapVerboseOutput'
 let b:vimpipe_command  = 'source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -'
