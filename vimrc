@@ -177,7 +177,11 @@ nnoremap <silent> ,)  :Tabularize /)/l1c0<CR>
 
 " PostSource Hook: {{{3
 
-au! User tabular call s:PluginLoadedTabular()
+augroup vimrc#tabular
+    au!
+
+    au! User tabular call s:PluginLoadedTabular()
+augroup END
 
 " Do Things when the bundle is vivified
 function! s:PluginLoadedTabular()
