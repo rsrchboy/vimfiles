@@ -35,7 +35,10 @@ let b:vimpipe_filetype = 'tapVerboseOutput'
 let b:vimpipe_command  = 'source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -'
 
 " Surround Mappings:
-"
+
+" not really surround, but related
+nnoremap <buffer> <localleader>, :s/\s*$/,/<cr>
+
 " q ->     q{...}
 " Q ->    qq{...}
 " w ->   qw{ ... }
