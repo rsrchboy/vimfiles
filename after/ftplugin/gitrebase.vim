@@ -7,14 +7,14 @@ let b:did_gitrebase_after_ftplugin = 1
 let b:fugitive_rebase_commands='^(pick|reword|edit|squash|fixup|exec|drop)'
 
 function! s:Swizzle(key, verb)
-  silent! call repeat#set(a:key,-1)
+  silent! call repeat#set(','.a:key,-1)
   execute "normal :s/\\v\<c-r>=b:fugitive_rebase_commands\<cr>/".a:verb."/\<cr>:nohlsearch\<cr>"
 endfunction
 
-nnoremap <buffer> <localleader>d :call <SID>Swizzle('D',"drop")<cr>
-nnoremap <buffer> <localleader>p :call <SID>Swizzle('P',"pick")<cr>
-nnoremap <buffer> <localleader>r :call <SID>Swizzle('R',"reword")<cr>
-nnoremap <buffer> <localleader>e :call <SID>Swizzle('E',"edit")<cr>
-nnoremap <buffer> <localleader>s :call <SID>Swizzle('S',"squash")<cr>
-nnoremap <buffer> <localleader>f :call <SID>Swizzle('F',"fixup")<cr>
-nnoremap <buffer> <localleader>x :call <SID>Swizzle('X',"exec")<cr>
+nnoremap <buffer> <localleader>d :call <SID>Swizzle('d',"drop")<cr>
+nnoremap <buffer> <localleader>p :call <SID>Swizzle('p',"pick")<cr>
+nnoremap <buffer> <localleader>r :call <SID>Swizzle('r',"reword")<cr>
+nnoremap <buffer> <localleader>e :call <SID>Swizzle('e',"edit")<cr>
+nnoremap <buffer> <localleader>s :call <SID>Swizzle('s',"squash")<cr>
+nnoremap <buffer> <localleader>f :call <SID>Swizzle('f',"fixup")<cr>
+nnoremap <buffer> <localleader>x :call <SID>Swizzle('x',"exec")<cr>
