@@ -52,6 +52,7 @@ nnoremap <buffer> <localleader>a; :s/\s*$/;/<cr>
 " C ->   C<< ... >>
 " b ->     B<...>
 " # ->   #<<<...#>>>       <-- perltidy skip notation
+" Y -> sub { ... };
 let b:surround_113 = "q{\r}"
 let b:surround_81  = "qq{\r}"
 let b:surround_119 = "qw{ \r }"
@@ -62,3 +63,4 @@ let b:surround_98  = "B<\r>"
 let b:surround_99  = "C<\r>"
 let b:surround_67  = "C<< \r >>"
 let b:surround_35  = "#<<<\r#>>>"
+let b:surround_89  = "sub { \r };"
