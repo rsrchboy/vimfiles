@@ -102,9 +102,11 @@ let g:airline#extensions#tabline#ignore_bufadd_pat =
 let g:airline#extensions#branch#format = 'CustomBranchName'
 function! CustomBranchName(name)
     "return '[' . a:name . ']'
-    if a:name == ''
+    if a:name ==# ''
         return a:name
     endif
+
+    let l:info = a:name
 
     " This isn't perfect, but it does keep things from blowing up rather
     " loudly when we're editing a file that's actually a symlink to a file in
