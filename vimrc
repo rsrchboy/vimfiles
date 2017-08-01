@@ -268,10 +268,10 @@ Plug 'haya14busa/incsearch.vim'
 " EasyAlign: {{{2
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
+xmap gA <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
+nmap gA <Plug>(EasyAlign)
 
 Plug 'junegunn/vim-easy-align', { 'on': [ '<Plug>(EasyAlign)', 'EasyAlign' ] }
 
