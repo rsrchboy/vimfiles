@@ -367,7 +367,8 @@ Plug 'codegram/vim-codereview' ", { 'on': 'CodeReview' }
 " *that* old, so we'll include some checks...
 
 if has('job') && has('timers') && has('channel')
-    Plug 'w0rp/ale'
+
+    Plug 'rsrchboy/ale'
 
     let g:ale_docker_allow                   = 1
     let g:ale_dockerfile_hadolint_use_docker = 'yes'
