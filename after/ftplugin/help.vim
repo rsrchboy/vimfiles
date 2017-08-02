@@ -16,4 +16,4 @@ endif
 
 " add '|' and '*' to our autoclose pairs
 " FIXME adding '*' throws weird errors!
-let b:AutoClosePairs = AutoClose#DefaultPairsModified('|', '')
+" let b:AutoClosePairs = AutoClose#DefaultPairsModified('|', '')
