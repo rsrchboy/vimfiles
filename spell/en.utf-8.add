@@ -101,9 +101,11 @@ middleware
 namespace
 namespaces
 namespacing
+neovim
 no
 norovirus
 passphrase
+perltidy
 plugin
 plugins
 realtime
@@ -121,6 +123,7 @@ subtests
 subtree
 subtrees
 sudo
+symlinks
 tarball
 tarballs
 the
@@ -128,4 +131,3 @@ undef
 virtualization
 wiki
 wlan0
-perltidy
