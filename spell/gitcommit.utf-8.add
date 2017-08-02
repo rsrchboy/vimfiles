@@ -205,3 +205,6 @@ AttributeShortcuts
 MX
 rebase
 localleader
+pandoc
+proselint
+Schwartzian
