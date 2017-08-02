@@ -324,6 +324,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'christoomey/vim-system-copy'
 Plug 'junegunn/vader.vim'
 Plug 'jeetsukumaran/vim-buffergator', { 'on': 'BuffergatorOpen' }
+Plug 'skywind3000/asyncrun.vim'
 
 " Libraries: library plugins/bundles {{{1
 " TLib: {{{2
