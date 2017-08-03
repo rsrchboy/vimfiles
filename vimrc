@@ -59,7 +59,7 @@ Plug 'mhinz/vim-startify'
 " BufExplorer: {{{2
 
 let g:bufExplorerShowRelativePath = 1
-" let g:bufExplorerShowTabBuffer    = 1
+let g:bufExplorerShowTabBuffer    = 1
 
 Plug 'jlanzarotta/bufexplorer'
 
