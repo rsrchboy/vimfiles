@@ -308,6 +308,7 @@ Plug 'tpope/vim-characterize'
 Plug 'DataWraith/auto_mkdir'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-obsession'
 Plug 'thinca/vim-ref'
 " all those irksome ... irks
 " Plug 'Townk/vim-autoclose'
