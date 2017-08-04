@@ -140,6 +140,8 @@ augroup vimrc#airline
     au User FugitiveCommit                    if exists('b:airline_head') | unlet b:airline_head | fi
     au FileChangedShellPost * AirlineRefresh
     au ShellCmdPost         * AirlineRefresh
+
+    au User Fugitive silent! Glcd
 augroup END
 
 " PostSource Hook: {{{3
