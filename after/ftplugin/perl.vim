@@ -9,6 +9,8 @@ if exists('b:ckw_perl_buf_setup')
     finish
 endif
 
+setlocal foldmethod=marker
+
 " turn on spell-check for POD / comments
 setlocal spell
 setlocal spelllang=en_us
