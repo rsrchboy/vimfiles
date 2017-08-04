@@ -13,7 +13,7 @@ let $IN_VIM = exists('$IN_VIM') ? $IN_VIM + 1 : 1
 set encoding=utf-8
 scriptencoding utf-8
 
-" VimPlug BEGIN: "strategic" plugin manager ;) {{{1
+" Vim Plug BEGIN: "strategic" plugin manager ;) {{{1
 call plug#begin()
 
 " General Bundles: {{{1
@@ -1492,7 +1492,7 @@ syntax on
 
 command! -range -nargs=* Uniq <line1>,<line2>! uniq
 
-" json {{{2
+" JsonTidy: {{{2
 command! -range -nargs=* JsonTidy <line1>,<line2>! /usr/bin/json_xs -f json -t json-pretty
 
 " columns {{{2
