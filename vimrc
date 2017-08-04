@@ -375,6 +375,9 @@ if has('job') && has('timers') && has('channel')
     let g:ale_docker_allow                   = 1
     let g:ale_perl_perlcritic_showrules      = 1
 
+    " calm things down a bit
+    let g:ale_type_map = { 'phpcs': { 'ES': 'WS', 'E': 'W' } }
+
     " additional aliases
     let g:ale_linter_aliases = {
                 \   'vader': 'vim',
