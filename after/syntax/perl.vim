@@ -10,6 +10,13 @@
 " OK, FINE, CONSTANTLY I LIKE TO DO IT CONSTANTLY ALRIGHT?!
 syn match  perlVarPlain "shift" nextgroup=perlVarMember,perlVarSimpleMember,perlMethod,perlPostDeref extend
 
+" $+ isn't picked up by perlVarPlain otherwise -- '+' is (correctly) not in
+" isident or iskeyword
+syn match  perlVarPlain "\$+" contains=perlPackageRef nextgroup=perlVarMember,perlVarSimpleMember,perlMethod,perlPostDeref
+
+" some more map-like things I'd like highlighted that way...
+syn match perlStatementList "\<\%(apply\)\>"
+
 " Moose: {{{1
 syn match perlOperator           "\<\%(blessed\)\>"
 
