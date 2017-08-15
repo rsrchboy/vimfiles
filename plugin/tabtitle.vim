@@ -66,11 +66,33 @@ function! TabPageTitle(git_dir)
 
 endfunction
 
+function! MyPickTabPageTitleGit()
+    if exists('t:git_dir')
+        return
+    endif
+
+    let t:git_dir = b:git_dir
+    let t:git_workdir = fugitive#repo().tree()
+    let t:tab_page_title = '± ' . fnamemodify(b:git_dir, ':h:t')
+
+    " echom "t:git_workdir == '" . t:git_workdir . "'"
+    " echom "tweaked ==       '" . fnamemodify(t:git_dir, ':h') . "'"
+    if t:git_workdir !=# fnamemodify(t:git_dir, ':h')
+        let t:tab_page_title .= '('.fnamemodify(t:git_workdir, ':t').')'
+    endif
+
+endfunction
+
+" transition
 augroup hmmm
     au!
-
-   " au TabEnter :echom 'hi'<cr>
-   " au User Fugitive let t:tab_page_title = TabPageTitle(b:git_dir)
-   au User Fugitive let t:tab_page_title = '± ' . fnamemodify(b:git_dir, ':h:t')
 augroup END
 
+augroup tabtitle
+   au User Fugitive call MyPickTabPageTitleGit()
+   au TabEnter * if !exists('t:tab_page_title') | let t:tab_page_title = 'No repository!' | endif
+   au TabNew * if !exists('t:tab_page_title') | let t:tab_page_title = 'No repository!' | endif
+   " au BufAdd *
+augroup END
+
+command! TabTitleReset silent! unlet t:git_dir | call MyPickTabPageTitleGit()
