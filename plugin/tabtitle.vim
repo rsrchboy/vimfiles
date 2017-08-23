@@ -1,3 +1,4 @@
+scriptencoding utf-8
 
 " function! MyTabLine()
 "     let l:s = ''
