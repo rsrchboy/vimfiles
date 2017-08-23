@@ -3,6 +3,7 @@ ADHD
 AFAICT
 API
 AUFS
+AttributeShortcuts
 Bad
 BufEnter
 CPAN
@@ -32,7 +33,9 @@ LXC
 MSS
 MTU
 MaxMind
+MaxMind's
 Mesos
+MooseX
 Multnomah
 MySQL
 NFS
@@ -94,6 +97,7 @@ information
 keypair
 kidlets
 localhost
+maxmind
 metaclass
 metaclasses
 metapackage
@@ -131,5 +135,3 @@ undef
 virtualization
 wiki
 wlan0
-Weyl
-maxmind
