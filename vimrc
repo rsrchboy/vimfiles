@@ -82,6 +82,7 @@ Plug 'bling/vim-airline'
 
 let g:airline_theme = 'dark'
 
+let g:airline#extensions#ale#enabled                  = 1
 let g:airline#extensions#bufferline#enabled           = 0
 let g:airline#extensions#syntastic#enabled            = 0
 let g:airline#extensions#tabline#enabled              = 0
