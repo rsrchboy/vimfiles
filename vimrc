@@ -39,7 +39,6 @@ let g:startify_restore_position    = 1
 
 let g:startify_custom_header       =
     \ map(split(system('echo $USER@$HOST | figlet -t ; echo .; echo .; uname -a'), '\n'), '"   ". v:val') + ['','']
-"let g:startify_custom_footer = ''
 
 augroup vimrc-startify
     au!
