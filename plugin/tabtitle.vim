@@ -91,7 +91,7 @@ augroup hmmm
 augroup END
 
 augroup tabtitle
-   au User Fugitive call MyPickTabPageTitleGit()
+   au User Fugitive silent! call MyPickTabPageTitleGit()
    au TabEnter * if !exists('t:tab_page_title') | let t:tab_page_title = 'No repository!' | endif
    au TabNew * if !exists('t:tab_page_title') | let t:tab_page_title = 'No repository!' | endif
    " au BufAdd *
