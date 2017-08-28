@@ -10,6 +10,22 @@
 " OK, FINE, CONSTANTLY I LIKE TO DO IT CONSTANTLY ALRIGHT?!
 syn match  perlVarPlain "shift" nextgroup=perlVarMember,perlVarSimpleMember,perlMethod,perlPostDeref extend
 
+" Method Chains: you know you like them
+
+" original:
+" syn match  perlMethod   "->\$*\I\i*" contained nextgroup=perlVarSimpleMember,perlVarMember,perlMethod,perlPostDeref
+"
+" Crude, also matches parameters
+" syn match  perlMethod   "->\$*\I\i*(.*)" contained nextgroup=perlVarSimpleMember,perlVarMember,perlMethod,perlPostDeref
+" syn match  perlMethod   ")->\$*\I\i*" contained nextgroup=perlVarSimpleMember,perlVarMember,perlMethod,perlPostDeref
+
+syn match  perlMethod   "->\$*\I\i*"        contained nextgroup=perlVarSimpleMember,perlVarMember,perlMethod,perlPostDeref,perlMethodArgs
+" syn match  perlMethod   ")->\$*\I\i*"ms=s+1           nextgroup=perlVarSimpleMember,perlVarMember,perlMethod,perlPostDeref,perlMethodArgs
+syn match  perlMethod   "^\s*->\$*\I\i*"              nextgroup=perlVarSimpleMember,perlVarMember,perlMethod,perlPostDeref,perlMethodArgs
+" FIXME the oneline is a kludge to keep this from never terminating
+syn region perlMethodArgs matchgroup=perlMethod start="(" end=")" contained contains=@perlExpr nextgroup=perlVarSimpleMember,perlVarMember,perlMethod,perlPostDeref oneline
+
+
 " $+ isn't picked up by perlVarPlain otherwise -- '+' is (correctly) not in
 " isident or iskeyword
 syn match  perlVarPlain "\$+" contains=perlPackageRef nextgroup=perlVarMember,perlVarSimpleMember,perlMethod,perlPostDeref
