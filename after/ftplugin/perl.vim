@@ -39,9 +39,9 @@ let b:vimpipe_command  = 'source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -'
 " Surround Mappings:
 
 " not really surround, but related...ish
-nnoremap <buffer> <localleader>a. :s/\s*[.,;]*\s*$/./<cr>
-nnoremap <buffer> <localleader>a, :s/\s*[.,;]*\s*$/,/<cr>
-nnoremap <buffer> <localleader>a; :s/\s*[.,;]*\s*$/;/<cr>
+nnoremap <buffer> <silent> <localleader>a. :s/\s*[.,;]*\s*$/./<cr>
+nnoremap <buffer> <silent> <localleader>a, :s/\s*[.,;]*\s*$/,/<cr>
+nnoremap <buffer> <silent> <localleader>a; :s/\s*[.,;]*\s*$/;/<cr>
 
 " q ->     q{...}
 " Q ->    qq{...}
