@@ -31,3 +31,9 @@ function! rsrchboy#termtitle() abort
 
     return 'vim: ' . l:pretty_dir
 endfunction
+
+function! rsrchboy#sourcedir(dir) abort
+    for l:f in split(glob(a:dir.'/*.vim'), '\n')
+        exe 'source ' l:f
+    endfor
+endfunction
