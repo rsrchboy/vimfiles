@@ -1517,9 +1517,7 @@ command! -range -nargs=* MXRCize <line1>,<line2>perldo perldo return unless /$NS
 
 " This will allow the use of "drop-in" configs
 
-for f in split(glob('~/.vimrc.d/*.vim'), '\n')
-    exe 'source ' f
-endfor
+call rsrchboy#sourcedir('~/.vimrc.d')
 
 " ~/.vimrc.local {{{2
 
