@@ -1236,6 +1236,9 @@ if has('perl')
 endif
 " }}}2
 
+" Source any plugin-related 'dropins'
+call rsrchboy#sourcecfgdir('plugins')
+
 " VimPlug END: "strategic" plugin manager ;) {{{1
 call plug#end()
 
