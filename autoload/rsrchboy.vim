@@ -37,3 +37,7 @@ function! rsrchboy#sourcedir(dir) abort
         exe 'source ' l:f
     endfor
 endfunction
+
+function! rsrchboy#sourcecfgdir(dir) abort
+    call rsrchboy#sourcedir('~/.config/vim/' . a:dir . '.d')
+endfunction
