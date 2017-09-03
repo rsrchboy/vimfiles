@@ -10,6 +10,8 @@ setlocal spelllang=en_us
 setlocal spellcapcheck=0
 setlocal spellfile+=~/.vim/spell/vim.utf-8.add
 
+setlocal foldmethod=marker
+
 " oddly, this doesn't seem to be set...
 set commentstring=\"%s
 
