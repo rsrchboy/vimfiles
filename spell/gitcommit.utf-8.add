@@ -75,6 +75,7 @@ PEVANS
 PadWalker
 Plack
 REHSACK
+RFC3339
 RIBASUSHI
 RJBS
 RKITOVER
@@ -136,6 +137,7 @@ autossh
 bzr
 ci
 codebase
+conditionalize
 config
 cpanm
 cronjob
@@ -148,9 +150,11 @@ dreampress
 dzil
 eth0
 explodey
+filesystem
 foldcolumn
 formattable
 ftplugin
+g
 gitignore
 gpg
 gpgSign
@@ -162,6 +166,7 @@ iff
 init
 k8s
 lazify
+linted
 linter
 linters
 linting
@@ -170,6 +175,7 @@ majorly
 makefiles
 metarole
 metaroles
+minfraud
 modeline
 namespace
 neobundle
@@ -205,6 +211,7 @@ symlink
 symlinked
 symlinks
 terraform
+timestamps
 travis
 tun0
 userdata
@@ -218,8 +225,3 @@ worktree
 www
 zsh
 zshrc
-iff
-g
-filesystem
-linted
-conditionalize
