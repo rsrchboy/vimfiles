@@ -1,4 +1,4 @@
-" Additional setup for perl files
+" Additional setup for Perl files
 
 " when working inside a CPAN-style dist, for instance.
 set path<
