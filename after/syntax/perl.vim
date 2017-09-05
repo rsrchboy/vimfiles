@@ -42,7 +42,7 @@ syn match perlStatementProc '\<\%(isa_instance_of\|constraint\)\>'
 " MooseX::Role::Parameterized -- for now {{{2
 syn match perlFunction      "\<\%(role\)\>"
 syn match perlMooseAttribute +\<parameter\>\_s*+ nextgroup=perlMooseAttributeName
-syn match perlMooseAttribute +\<\%(before\|method\|around\|after\)\>\_s*+ nextgroup=perlMooseAttributeName
+syn match perlMooseAttribute /\<\%(before\|method\|around\|after\)\>\_s*/ nextgroup=perlMooseAttributeName
 
 syn match perlMooseAttribute     +\<has\>\_s*+ nextgroup=perlMooseAttributeName
 syn match perlMooseAttributeName +\<(\i*\>+    nextgroup=perlFatComma contained
