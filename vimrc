@@ -669,6 +669,7 @@ Plug 'vim-scripts/vimwiki', {
 
 " }}}2
 Plug 'diepm/vim-rest-console'
+Plug 'cryptomilk/git-modeline.vim'
 
 
 " GIT And Version Controlish: bundles {{{1
