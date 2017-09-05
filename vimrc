@@ -365,17 +365,26 @@ Plug 'junegunn/vim-emoji'
 Plug 'junkblocker/patchreview-vim'
 Plug 'codegram/vim-codereview' ", { 'on': 'CodeReview' }
 
-" ALE: async linting {{{2
+" ALE Or CALE: async linting {{{2
 
 " NOTE this basically requires either vim8 or neovim; vim 7.4 etc aren't
 " *that* old, so we'll include some checks...
 
 if has('job') && has('timers') && has('channel')
 
+    " FIXME we should probably skip loading ale if we have kale
+    if filereadable(expand('~/work/vim/vim-cale/.git/config'))
+        Plug '~/work/vim/vim-cale'
+    else
+        " Plug 'rsrchboy/ale'
+    endif
+
     Plug 'rsrchboy/ale'
 
-    let g:ale_docker_allow                   = 1
-    let g:ale_perl_perlcritic_showrules      = 1
+    let g:ale_docker_allow                = 1
+    let g:ale_perl_perl_use_docker        = 'always'
+    let g:ale_perl_perlcritic_showrules   = 1
+    let g:ale_perl_perlcritic_as_warnings = 1
 
     " calm things down a bit
     let g:ale_type_map = { 'phpcs': { 'ES': 'WS', 'E': 'W' } }
