@@ -1,27 +1,36 @@
 " Additional setup for Perl files
 
+" FIXME ...
 " when working inside a CPAN-style dist, for instance.
 set path<
 let &l:path='.,,lib/,t/lib/,'.g:perlpath
 
-if exists('b:ckw_perl_buf_setup')
-    " no need to repeat ourselves
+if exists('b:did_ftplugin_rsrchboy')
     finish
 endif
+let b:did_ftplugin_rsrchboy = 1
+let b:undo_ftplugin .= ' | unlet b:did_ftplugin_rsrchboy'
 
+
+" Settings: {{{1
+
+let b:undo_ftplugin .= ' | setlocal foldmethod< spell< spellcapcheck< spellfile<'
 setlocal foldmethod=marker
-
-" turn on spell-check for POD / comments
 setlocal spell
 setlocal spelllang=en_us
 setlocal spellcapcheck=0
 setlocal spellfile+=~/.vim/spell/perl.utf-8.add
 
-" Ale Config:
 
-" au User Fugitive if exists('b:git_dir') && &ft == 'perl' | let b:ale_perl_perl_options = '-I ' . fugitive#repo().tree() . '/lib'
-"         \       . ' -I ' . fugitive#repo().tree() . '/t/lib'
-"         \   | endif
+" Plugins: Ale {{{1
+
+augroup ftplugin#perl
+    au!
+
+    " au User Fugitive if &ft == 'perl' | let b:ale_perl_perl_options = '-I ' . fugitive#repo().tree() . '/lib'
+    "         \       . ' -I ' . fugitive#repo().tree() . '/t/lib'
+    "         \   | endif
+augroup END
 
 if exists('b:git_dir')
     let b:ale_perl_perl_options =
@@ -29,14 +38,16 @@ if exists('b:git_dir')
         \   . ' -I ' . fugitive#repo().tree() . '/t/lib'
 endif
 
-" select current word to EOL (but not the newline), surround w/C
-nmap <buffer> <localleader>sc :normal viW$hSC<CR>
-
 " vim-pipe config
+let b:undo_ftplugin .= ' | unlet b:vimpipe_filetype b:vimpipe_command'
 let b:vimpipe_filetype = 'tapVerboseOutput'
 let b:vimpipe_command  = 'source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -'
 
-" Surround Mappings:
+
+" Plugins: Surround Mappings {{{1
+
+" select current word to EOL (but not the newline), surround w/C
+nmap <buffer> <localleader>sc :normal viW$hSC<CR>
 
 " not really surround, but related...ish
 nnoremap <buffer> <silent> <localleader>a. :s/\s*[.,;]*\s*$/./<cr>
