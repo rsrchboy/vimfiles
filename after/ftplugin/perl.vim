@@ -11,15 +11,14 @@ endif
 let b:did_ftplugin_rsrchboy = 1
 let b:undo_ftplugin .= ' | unlet b:did_ftplugin_rsrchboy'
 
+let s:tools = g:rsrchboy#buffer#tools
 
 " Settings: {{{1
 
-let b:undo_ftplugin .= ' | setlocal foldmethod< spell< spellcapcheck< spellfile<'
+call rsrchboy#buffer#SetSpellOpts('perl')
+
+let b:undo_ftplugin .= ' | setlocal foldmethod<'
 setlocal foldmethod=marker
-setlocal spell
-setlocal spelllang=en_us
-setlocal spellcapcheck=0
-setlocal spellfile+=~/.vim/spell/perl.utf-8.add
 
 
 " Plugins: Ale {{{1
@@ -46,13 +45,25 @@ let b:vimpipe_command  = 'source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -'
 
 " Plugins: Surround Mappings {{{1
 
+
+" Note below that the ':silent' postfix is necessary rather than a ':normal '
+" prefix... because.
+"
 " select current word to EOL (but not the newline), surround w/C
-nmap <buffer> <localleader>sc :normal viW$hSC<CR>
+" nmap <buffer> <localleader>sc :normal viW$hSC<CR>
+call g:rsrchboy#buffer#tools.llnmap('sc', 'viW$hSC:silent ')
 
 " not really surround, but related...ish
-nnoremap <buffer> <silent> <localleader>a. :s/\s*[.,;]*\s*$/./<cr>
-nnoremap <buffer> <silent> <localleader>a, :s/\s*[.,;]*\s*$/,/<cr>
-nnoremap <buffer> <silent> <localleader>a; :s/\s*[.,;]*\s*$/;/<cr>
+" call g:rsrchboy#buffer#tools.llnnoremap('a.', ':s/\s*[.,;]*\s*$/./')
+call s:tools.llnnoremap('a.', ':s/\s*[.,;]*\s*$/./')
+call s:tools.llnnoremap('a,', ':s/\s*[.,;]*\s*$/,/')
+call s:tools.llnnoremap('a;', ':s/\s*[.,;]*\s*$/;/')
+call s:tools.llnnoremap('ax', ':s/\s*[.,;]*\s*$//')
+
+" append a ` ();`, a la 'NO IMPORTS PLZ'
+call s:tools.llnnoremap('aX', ':s/\s*[.,;]*\s*$/ ();/')
+
+call rsrchboy#buffer#CommonMappings()
 
 " q ->     q{...}
 " Q ->    qq{...}
