@@ -225,3 +225,5 @@ worktree
 www
 zsh
 zshrc
+autocmd
+tabtitle
