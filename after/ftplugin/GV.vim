@@ -1,14 +1,16 @@
-" " note -- the git aliases are based off my personal gitconfig -- probably ought
-" " to expand them here
-nmap <buffer> <silent> F  :execute 'Gcommit --no-verify --fixup='  . gv#sha()<CR>:close<CR>:GV<CR>
-nmap <buffer> <silent> S  :execute 'Gcommit --no-verify --squash=' . gv#sha()<CR>:close<CR>:GV<CR>
-nmap <buffer> <silent> C  :Gcommit<CR>
+if exists('b:did_ftplugin_rsrchboy')
+    finish
+endif
+" if !exists('b:undo_ftplugin')
+"     let b:undo_ftplugin = 'unlet b:undo_ftplugin'
+" endif
+let b:did_ftplugin_rsrchboy = 1
+let b:undo_ftplugin = ( exists('b:undo_ftplugin') ? b:undo_ftplugin . ' | ' : '' ) . 'unlet b:did_ftplugin_rsrchboy'
 
-nmap <buffer> <silent> <LocalLeader>gria :call dispatch#compile_command(0, fugitive#repo().git_command('ria'), 1)<CR>:close<CR>:GV<CR>
-" nmap <buffer> <silent> ,ria :call dispatch#compile_command(0, fugitive#repo().git_command('ria'), 1)<CR>
-" nmap <buffer> <silent> rv  :call dispatch#compile_command(0, fugitive#repo().git_command('revert', '--no-edit', gitv#util#line#sha('.')), 1)<CR>
-" nmap <buffer> <silent> ca  :call dispatch#compile_command(0, fugitive#repo().git_command('ca'), 1)<CR>
+nmap <buffer> <silent> <localleader>F  :execute 'Gcommit --no-verify --fixup=' .gv#sha()<CR>:close<CR>:GV<CR>
+nmap <buffer> <silent> <localleader>R  :execute 'Git revert --no-edit '        .gv#sha()<CR>:close<CR>:GV<CR>
+nmap <buffer> <silent> <localleader>S  :execute 'Gcommit --no-verify --squash='.gv#sha()<CR>:close<CR>:GV<CR>
+nmap <buffer> <silent> <localleader>C  :Gcommit<CR>
 
-" " j, k skip between commit lines
-" nmap <buffer> <silent> j :call search('^\(\W\s\)*\*','W')<Bar>.<CR>
-" nmap <buffer> <silent> k :call search('^\(\W\s\)*\*','Wbe')<Bar>.<CR>
+" let s:tools = g:rsrchboy#buffer#tools
+" call s:tools.llnnoremap('a.', ':s/\s*[.,;]*\s*$/./')
