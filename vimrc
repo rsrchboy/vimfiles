@@ -136,10 +136,10 @@ augroup vimrc#airline
     au!
 
     " wipe on, say, :Dispatch or similar
-    au QuickFixCmdPost dispatch-make-complete if exists('b:airline_head') | unlet b:airline_head | fi
-    au User FugitiveCommit                    if exists('b:airline_head') | unlet b:airline_head | fi
-    au FileChangedShellPost * AirlineRefresh
-    au ShellCmdPost         * AirlineRefresh
+    au QuickFixCmdPost dispatch-make-complete silent! unlet b:airline_head | AirlineRefresh
+    au User FugitiveCommit                    silent! unlet b:airline_head | AirlineRefresh
+    au FileChangedShellPost * silent! unlet b:airline_head | :AirlineRefresh
+    au ShellCmdPost         * silent! unlet b:airline_head | :AirlineRefresh
 
     au User Fugitive silent! Glcd
 augroup END
