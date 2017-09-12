@@ -1354,12 +1354,16 @@ endfunc
 "}}}2
 
 " Mappings: {{{1
+" Section: memory aids ;)  {{{2
+
+nnoremap <leader>SS :call rsrchboy#ShowSurroundMappings()<CR>
+
 " Text Formatting: {{{2
 
-vmap Q gq
+" vmap Q gq
 
-" FIXME: should this be "gqip"?
-nmap Q gqap
+" " FIXME: should this be "gqip"?
+" nmap Q gqap
 
 " Configy: {{{2
 set pastetoggle=<F2>

@@ -41,3 +41,30 @@ endfunction
 function! rsrchboy#sourcecfgdir(dir) abort
     call rsrchboy#sourcedir('~/.config/vim/' . a:dir . '.d')
 endfunction
+
+function! rsrchboy#ShowSurroundMappings() abort
+    let l:surrounds = filter(copy(b:), { k -> k =~# '^surround_\d\+'})
+    for l:key in keys(l:surrounds)
+        let l:char = nr2char(substitute(l:key, 'surround_', '', ''))
+        let l:surrounds[l:char] = remove(l:surrounds, l:key)
+    endfor
+    call map(l:surrounds, { k, v -> substitute(v, "\r", '...', '') })
+
+    " sanity.  this shouldn't ever produce anything, but when it does we can
+    " tidy this all up
+    let l:global_surrounds = filter(copy(g:), { k -> k =~# '^surround_\d\+'})
+    call map(l:global_surrounds, { k, v -> substitute(v, "\r", '...', '') })
+    call extend(l:surrounds, l:global_surrounds, 'keep')
+
+    if !len(keys(l:surrounds))
+        echo 'No special surround mappings defined for this filetype.'
+        return
+    endif
+
+    echo 'Buffer surround mappings!'
+    for l:char in sort(keys(l:surrounds))
+        echo l:char . ' -> ' . l:surrounds[l:char]
+    endfor
+
+    return
+endfunction
