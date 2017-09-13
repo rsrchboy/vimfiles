@@ -1,15 +1,13 @@
 " Additional setup for notes files
 
-if exists("b:did_notes_ckw_ftplugin")
+if exists('b:did_ftplugin_rsrchboy')
     finish
 endif
-let b:did_notes_ckw_ftplugin = 1
+let b:did_ftplugin_rsrchboy = 1
+let b:undo_ftplugin .= ' | unlet b:did_ftplugin_rsrchboy'
 
-" turn on spell-check for POD
-setlocal spell
-setlocal spelllang=en_us
-setlocal spellcapcheck=0
-setlocal spellfile+=~/.vim/spell/notes.utf-8.add
+call rsrchboy#buffer#SetSpellOpts('notes')
 
 " write them, even when jumping to another buffer
+let b:undo_ftplugin .= ' | setl autowriteall<'
 setlocal autowriteall
