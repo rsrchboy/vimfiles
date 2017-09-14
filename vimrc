@@ -83,6 +83,7 @@ let g:airline_theme = 'dark'
 
 let g:airline#extensions#ale#enabled                  = 1
 let g:airline#extensions#bufferline#enabled           = 0
+let g:airline#extensions#obsession#enabled            = 1
 let g:airline#extensions#syntastic#enabled            = 0
 let g:airline#extensions#tabline#enabled              = 0
 let g:airline#extensions#tabline#show_close_button    = 0
@@ -112,9 +113,15 @@ function! CustomBranchName(name)
     " loudly when we're editing a file that's actually a symlink to a file in
     " a git work tree.  (This appears to confuse vim-fugitive.)
     try
-        let l:ahead  = fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD')
-        let l:behind = fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}')
-        let l:info  .= ' [+' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n')) . ']'
+        " let l:ahead  = fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD')
+        " let l:behind = fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}')
+        " let l:info  .= ' [+' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n')) . ']'
+        let l:ahead  = len(split(fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD'), '\n'))
+        let l:behind = len(split(fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}'), '\n'))
+        let l:ahead  = l:ahead  ? 'ahead '  . l:ahead  : ''
+        let l:behind = l:behind ? 'behind ' . l:behind : ''
+        let l:commit_info = join(filter([l:ahead, l:behind], { idx, val -> val !=# '' }), ' ')
+        let l:info .= len(l:commit_info) ? ' [' . l:commit_info . ']' : ''
     catch
         return a:name
     endtry
