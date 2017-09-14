@@ -1,5 +1,23 @@
 scriptencoding utf-8
 
+if exists('g:loaded_tabtitle')
+    finish
+endif
+let g:loaded_tabtitle = 1
+
+
+" Section: todo! {{{1
+"
+" * handle tab titles for 'notes' and 'vimwiki'
+" * correct title for a new tab opened into a directory buffer
+" * 
+"
+"
+
+
+" }}}1
+
+
 " function! MyTabLine()
 "     let l:s = ''
 "     let l:s .= '%#TabLine#'
