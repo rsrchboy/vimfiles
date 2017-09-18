@@ -40,11 +40,11 @@ endfunction
 
 " Rather than making life difficult, we'll just curry the heck out of s:map()
 
-" let s:tools.llnnoremap = function('s:map', ['noremap', '<localleader>', 'n'])
-let s:tools.map        = function('s:map',         ['map'])
-let s:tools.noremap    = function('s:map',         ['noremap'])
-let s:tools.llnmap     = function(s:tools.map,     ['<localleader>', 'n'])
-let s:tools.llnnoremap = function(s:tools.noremap, ['<localleader>', 'n'])
+let s:tools.map        = function('s:map',  [ 'map',     '' ])
+let s:tools.noremap    = function('s:map',  [ 'noremap', '' ])
+let s:tools.nnoremap   = function('s:map',  [ 'noremap', '', 'n' ])
+let s:tools.llnmap     = function('s:map',  [ 'map',     '<localleader>', 'n' ])
+let s:tools.llnnoremap = function('s:map',  [ 'noremap', '<localleader>', 'n' ])
 
 " }}}2
 

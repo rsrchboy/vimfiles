@@ -1,3 +1,4 @@
+#!/usr/bin/env make
 # a couple targets to assist in maintaining my vim setup
 #
 # Chris Weyl <cweyl@alumni.drew.edu> 2017
