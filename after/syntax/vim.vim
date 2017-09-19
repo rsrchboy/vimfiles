@@ -30,4 +30,23 @@ syn match vimVar        "\<[bwglstav]:\h[a-zA-Z0-9#_]*\>" contained containedin=
 hi link vimFunction Function
 hi link vimUserFunc Function
 
+
+" Section: dictionaries {{{1
+"
+" Allow things like this to look as one would expect:
+"
+"   let s:tools.map = function('s:map', [ 'map', '' ])
+
+syn match vimDictKey  "\<\h\w\+\>" contained
+syn match vimDictOper "\." contained nextgroup=vimDictKey
+syn match vimVar        "\<\h[a-zA-Z0-9#_]*\>" contained nextgroup=vimDictOper
+syn match vimVar        "\<[bwglstav]:\h[a-zA-Z0-9#_]*\>" nextgroup=vimDictOper
+
+hi link vimDictOper Operator
+hi link vimDictKey  Identifier
+
+
+" }}}1
+
+
 " __END__
