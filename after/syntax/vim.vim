@@ -25,8 +25,6 @@ syn keyword vimCommand Plug
 "
 " Properly highlight functions and methods.
 
-syn match vimVar        "\<[bwglstav]:\h[a-zA-Z0-9#_]*\>" contained containedin=vimUserFunc,vimFunc
-
 hi link vimFunction Function
 hi link vimUserFunc Function
 
@@ -49,7 +47,7 @@ syn match vimDictKey  "\<\h\w\+\>" contained nextgroup=vimDictOper
 syn match vimDictMethod  "\<\h\w[\w#]*\w\>([^)]*)" contained nextgroup=vimDictOper contains=vimOperParen,vimOperGroup
 syn match vimDictOper "\." contained nextgroup=vimDictMethod,vimDictKey
 syn match vimVar        "\<\h[a-zA-Z0-9#_]*\>" contained nextgroup=vimDictOper
-syn match vimVar        "\<[bwglstav]:\h[a-zA-Z0-9#_]*\>" nextgroup=vimDictOper
+syn match vimVar        "\<[bwglstav]:\h[a-zA-Z0-9#_]*\>" contained containedin=vimUserFunc,vimFunc nextgroup=vimDictOper
 
 hi link vimDictOper   Operator
 hi link vimDictKey    Identifier
