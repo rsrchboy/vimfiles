@@ -7,6 +7,7 @@ BufReadPost
 BufWinLeave
 CmdWinEnter
 Config
+EOF
 EOL
 FileType
 GetLatestVimScripts
@@ -14,6 +15,7 @@ MooseX
 PostSource
 SIGKILL
 VimEnter
+Voose
 abuf
 amatch
 autocmd
@@ -36,6 +38,7 @@ getwinvar
 ish
 isident
 iskeyword
+junegunn
 l
 linters
 matchstr
@@ -47,9 +50,10 @@ prooooooobably
 proselint
 qq
 qw
+rsrchboy
 s
 scriptnames
 sfile
 vint
-endfunction
-Voose
+nmap
+localleader

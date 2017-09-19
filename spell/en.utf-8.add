@@ -18,6 +18,7 @@ DreamHost's
 EC2
 Etheridge
 Facebook
+FileType
 Florian
 GAL's
 Gallifrey
@@ -71,6 +72,8 @@ Winona
 X11
 accessor
 accretes
+async
+autocommands
 backend
 backends
 backports
@@ -108,11 +111,13 @@ namespacing
 neovim
 no
 norovirus
+offline
 passphrase
 perltidy
 plugin
 plugins
 realtime
+rebase
 refactor
 scriptlets
 shortcode
@@ -120,6 +125,8 @@ should
 ssh-dss
 stacktrace
 stacktraces
+standup
+standups
 stopwords
 submodule
 submodules
@@ -135,9 +142,3 @@ undef
 virtualization
 wiki
 wlan0
-MaxMind
-async
-standups
-standup
-rebase
-offline
