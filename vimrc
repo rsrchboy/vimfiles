@@ -1364,6 +1364,8 @@ endfunc
 " Section: memory aids ;)  {{{2
 
 nnoremap <leader>SS :call rsrchboy#ShowSurroundMappings()<CR>
+nnoremap <leader>SM :call rsrchboy#ShowBufferMappings()<CR>
+
 
 " Text Formatting: {{{2
 
