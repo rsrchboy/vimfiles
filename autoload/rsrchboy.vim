@@ -68,3 +68,12 @@ function! rsrchboy#ShowSurroundMappings() abort
 
     return
 endfunction
+
+function! rsrchboy#ShowBufferMappings() abort
+    let l:text = exists('b:rsrchboy_local_mappings') ? b:rsrchboy_local_mappings : []
+    echo 'Our buffer local mappings:'
+    for l:line in l:text
+        echo l:line
+    endfor
+    return
+endfunction

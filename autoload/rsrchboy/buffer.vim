@@ -22,27 +22,38 @@ endfunction
 " Functions to help with mapping, repeating, and unmapping.
 
 " Function: s:map(...) {{{2
-
-""
 "
 " Create a mapping in the given mode; enable repeat, and ensure it's undone if
 " the f/t changes
+
+let s:full = { 'n': 'normal', 'v': 'visual' }
+
 function! s:map(cmd, lhs_prefix, style, lhs, rhs) abort
     let l:lhs = a:lhs_prefix . a:lhs
     execute a:style . a:cmd . ' <buffer> <silent> ' . l:lhs . ' ' . a:rhs
                 \ . '<bar> call repeat#set("'.l:lhs.'", -1)<cr>'
                 " \ . '<bar> call repeat#set("'.a:lhs.'", v:count)<cr>'
     let b:undo_ftplugin .= '| ' . a:style . 'unmap <buffer> ' . l:lhs
+
+    " now, stash it so we can easily list it
+    if !exists('b:rsrchboy_local_mappings')
+        let b:rsrchboy_local_mappings = []
+    endif
+    let b:rsrchboy_local_mappings += [
+                \   get(s:full, a:style, a:style) . ' ' . l:lhs
+                \   . ' -> ' . a:rhs
+                \]
+    return
 endfunction
 
 
-" Functions: s:tools.map(), .nomap(), .llmap(), .llnoremap() {{{2
+" Functions: s:tools.map(), .nomap(), .llmap(), .llnoremap(), etc {{{2
 
 " Rather than making life difficult, we'll just curry the heck out of s:map()
 
 let s:tools.map        = function('s:map',  [ 'map',     '' ])
 let s:tools.noremap    = function('s:map',  [ 'noremap', '' ])
-let s:tools.nnoremap   = function('s:map',  [ 'noremap', '', 'n' ])
+let s:tools.nnoremap   = function('s:map',  [ 'noremap', '',              'n' ])
 let s:tools.llnmap     = function('s:map',  [ 'map',     '<localleader>', 'n' ])
 let s:tools.llnnoremap = function('s:map',  [ 'noremap', '<localleader>', 'n' ])
 
