@@ -1,5 +1,10 @@
 scriptencoding utf-8
 
+
+" Section: Functions {{{1
+
+" Function: ...#var() {{{2
+
 " returns the value of the buffer variable, if set, or global if not
 function! rsrchboy#var(name) abort
     let l:local_name = substitute(a:name, '#', '_', '')
@@ -32,15 +37,22 @@ function! rsrchboy#termtitle() abort
     return 'vim: ' . l:pretty_dir
 endfunction
 
+" Function: rsrchboy#sourcedir() {{{2
+
 function! rsrchboy#sourcedir(dir) abort
     for l:f in split(glob(a:dir.'/*.vim'), '\n')
         exe 'source ' l:f
     endfor
 endfunction
 
+
+" Function: ...#sourcecfgdir() {{{2
+
 function! rsrchboy#sourcecfgdir(dir) abort
     call rsrchboy#sourcedir('~/.config/vim/' . a:dir . '.d')
 endfunction
+
+" Function: ...#ShowSurroundMappings() {{{2
 
 function! rsrchboy#ShowSurroundMappings() abort
     let l:surrounds = filter(copy(b:), { k -> k =~# '^surround_\d\+'})
@@ -69,6 +81,8 @@ function! rsrchboy#ShowSurroundMappings() abort
     return
 endfunction
 
+" Function: ...#ShowBufferMappings() {{{2
+
 function! rsrchboy#ShowBufferMappings() abort
     let l:text = exists('b:rsrchboy_local_mappings') ? b:rsrchboy_local_mappings : []
     echo 'Our buffer local mappings:'
@@ -77,3 +91,9 @@ function! rsrchboy#ShowBufferMappings() abort
     endfor
     return
 endfunction
+
+
+" }}}1
+
+
+" __END__
