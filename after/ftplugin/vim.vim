@@ -34,8 +34,8 @@ call s:tools.llnnoremap('fo0', ':s/\s*\({{{\d*\)*\s*$//')
 call s:tools.llnnoremap('fc1', ':s/\s*\(}}}\d*\)*\s*$/ }}}1/')
 call s:tools.llnnoremap('fc2', ':s/\s*\(}}}\d*\)*\s*$/ }}}2/')
 call s:tools.llnnoremap('fc3', ':s/\s*\(}}}\d*\)*\s*$/ }}}3/')
+call s:tools.llnnoremap('fc0', ':s/\s*\(}}}\d*\)*\s*$//')
 
 call s:tools.llnnoremap('ax', ':s/\s*[.,;]*\s*$//')
 
-
-" __END__
+" vim : set foldlevel=10 :
