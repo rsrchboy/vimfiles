@@ -1,5 +1,10 @@
 " a couple additional settings for git type buffers
 
+if &filetype ==# 'gitrebase'
+    " ftplugin/git.vim is sourced by ftplugin/gitrebase.vim, so we bail here
+    finish
+endif
+
 if exists('b:did_ftplugin_rsrchboy')
     finish
 endif
