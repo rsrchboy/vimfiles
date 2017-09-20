@@ -16,12 +16,16 @@ let s:tools = {}
 
 let s:full = { 'n': 'normal', 'v': 'visual' }
 
-function! s:map(cmd, lhs_prefix, style, lhs, rhs) dict abort
+function! s:map(no_repeat, cmd, lhs_prefix, style, lhs, rhs) dict abort
     " Force eval in a double-quote context.  This seems a bit magical, but is
     " also necessary to get things like ,a\ working properly.
     let l:lhs = eval('"'.  a:lhs .'"')
-    execute a:style . a:cmd . ' <buffer> <silent> ' . a:lhs_prefix . l:lhs . ' ' . a:rhs
-                \ . "<bar> call repeat#set('".a:lhs_prefix.l:lhs."', -1)<cr>"
+
+    let l:cmd = a:style . a:cmd . ' <buffer> <silent> ' . a:lhs_prefix . l:lhs . ' ' . a:rhs
+        \ . (a:no_repeat ? '' : "<bar> call repeat#set('".a:lhs_prefix.l:lhs."', -1)")
+        \ . '<cr>'
+
+    execute l:cmd
 
     " undo the mapping -- later
     let l:lhs = substitute(a:lhs_prefix.l:lhs, '\c<localleader>', g:maplocalleader, 'g')
@@ -40,16 +44,22 @@ function! s:map(cmd, lhs_prefix, style, lhs, rhs) dict abort
 endfunction
 
 
-" Functions: s:tools.map(), .nomap(), .llmap(), .llnoremap(), etc {{{2
+" Methods: s:tools.map(), .nomap(), .llmap(), .llnoremap(), etc {{{2
+"
+" These methods provide handy shortcuts to the different forms of map we may
+" wish to invoke, while also providing for their removal via `undo_ftplugin`,
+" repeating via vim-repeat, cheat-sheet documentation, and default lhs prefix.
+" This is not an exhaustive listing, rather one that will be populated
+" on-demand.
 
 " Rather than making life difficult, we'll just curry the heck out of s:map()
 
-let s:tools.map        = function('s:map',  [ 'map',     '' ])
-let s:tools.noremap    = function('s:map',  [ 'noremap', '' ])
-let s:tools.nnoremap   = function('s:map',  [ 'noremap', '',              'n' ])
-let s:tools.llnmap     = function('s:map',  [ 'map',     '<localleader>', 'n' ])
-let s:tools.llnnoremap = function('s:map',  [ 'noremap', '<localleader>', 'n' ])
-
+let s:tools.map        = function('s:map',  [ 0, 'map',     ''                   ])
+let s:tools.noremap    = function('s:map',  [ 0, 'noremap', ''                   ])
+let s:tools.nnoremap   = function('s:map',  [ 0, 'noremap', '',              'n' ])
+let s:tools.llnmap     = function('s:map',  [ 0, 'map',     '<localleader>', 'n' ])
+let s:tools.llnnoremap = function('s:map',  [ 0, 'noremap', '<localleader>', 'n' ])
+let s:tools.nnoremapnr = function('s:map',  [ 1, 'noremap', '',              'n' ])
 
 " Function: s:set() {{{2
 
