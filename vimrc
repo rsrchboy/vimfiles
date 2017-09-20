@@ -1004,7 +1004,9 @@ Plug 'RsrchBoy/vim-sshauthkeys'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'rhysd/vim-json', { 'branch': 'reasonable-bool-number' }
 Plug 'tmatilai/gitolite.vim'
-Plug 'evanmiller/nginx-vim-syntax'
+" Plug 'chr4/sslsecure.vim'
+Plug 'lepture/vim-jinja'
+Plug 'chr4/nginx.vim'
 Plug 'vim-scripts/iptables'
 Plug 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
 Plug 'smancill/conky-syntax.vim'
