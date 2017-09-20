@@ -17,6 +17,12 @@ syn keyword vimCommand Plug
 
 " Core:  syntax/vim.vim overrides and extensions {{{1
 
+" Subject: TODO/FIXME etc {{{2
+
+" FIXME this needs to be contained
+syn match vimTodo /\<\(NOTES\?\|TBD\|FIXME\|XXX\|PLAN\)[:]\?/
+
+
 " Subject: g: / s: highlighting {{{2
 "
 " The fact that in something like
