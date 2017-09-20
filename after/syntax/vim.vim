@@ -1,10 +1,24 @@
-" Vim syntax file
+" Vim syntax overrides + additions file
 " Language:      Additional VIM syntax highlighting
 " Maintainer:    Chris Weyl <cweyl@alumni.drew.edu>
 
+" Plugins: syntax changes related to plugins {{{1
 
-" Section: variables {{{1
+" Plugin: junegunn/vim-plug {{{2
 
+syn keyword vimCommand Plug
+
+
+" Plugin: vimdoc (well not *quite* a plugin) {{{2
+
+
+
+" }}}2
+
+" Core:  syntax/vim.vim overrides and extensions {{{1
+
+" Subject: g: / s: highlighting {{{2
+"
 " The fact that in something like
 "
 "   call foo(s:bar, g:baz)
@@ -12,16 +26,43 @@
 " Neither s:bar nor g:baz where being highlighted as variables was kinda
 " bugging me.  I'm not sure this is intentional, and I haven't hunted down
 " where to submit a PR.
+
 syn cluster vimOperGroup add=vimFBVar
 
 
-" Section: stuff for plugins! {{{1
+" Subject: 'finish' {{{2
 
-" junegunn/vim-plug
-syn keyword vimCommand Plug
+syn keyword vimCommandFinish finish contained containedin=vimIsCommand
+hi link vimCommandFinish Error
 
 
-" Section: functions and methods {{{1
+" Subject: highlight linked groups as that group {{{2
+
+" groups listing snagged from syntax/vim.vim
+" syn keyword vimGroup contained	Comment Constant String Character Number Boolean Float Identifier Function Statement Conditional Repeat Label Operator Keyword Exception PreProc Include Define Macro PreCondit Type StorageClass Structure Typedef Special SpecialChar Tag Delimiter SpecialComment Debug Underlined Ignore Error Todo 
+
+" FIXME TODO buffer-vs-global
+if exists('b:syntax_highlight_as_group') && b:syntax_highlight_as_group
+
+    " This will cause our vimGroup* groups to be used rather than vimGroup.  I'm
+    " reasonably sure this won't cause issues, but...
+    syn keyword vimGroupError Error contained containedin=vimHiLink
+    hi link vimGroupError Error
+    syn keyword vimGroupTodo Todo contained containedin=vimHiLink
+    hi link vimGroupTodo Todo
+    syn keyword vimGroupSpecial Special contained containedin=vimHiLink
+    hi link vimGroupSpecial Special
+    syn keyword vimGroupIgnore Ignore contained containedin=vimHiLink
+    hi link vimGroupIgnore Ignore
+
+endif
+
+" }}}2
+
+
+" Section: General overrieds {{{1
+
+" Section: functions and methods {{{2
 "
 " Properly highlight functions and methods.
 
@@ -36,7 +77,8 @@ syn match vimUserFunc contained "\<\w\+#\w\+\>"  contains=vimNotation
 
 syn cluster vimAugroupList add=vimUserFunc
 
-" Section: dictionaries {{{1
+
+" Section: dictionaries {{{2
 "
 " Allow things like this to look as one would expect:
 "
