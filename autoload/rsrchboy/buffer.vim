@@ -19,16 +19,16 @@ let s:full = { 'n': 'normal', 'v': 'visual' }
 function! s:map(no_repeat, cmd, lhs_prefix, style, lhs, rhs) dict abort
     " Force eval in a double-quote context.  This seems a bit magical, but is
     " also necessary to get things like ,a\ working properly.
-    let l:lhs = eval('"'.  a:lhs .'"')
+    let l:lhs = a:lhs_prefix . eval('"'.  a:lhs .'"')
 
-    let l:cmd = a:style . a:cmd . ' <buffer> <silent> ' . a:lhs_prefix . l:lhs . ' ' . a:rhs
-        \ . (a:no_repeat ? '' : "<bar> call repeat#set('".a:lhs_prefix.l:lhs."', -1)")
+    let l:cmd = a:style . a:cmd . ' <buffer> <silent> ' . l:lhs . ' ' . a:rhs
+        \ . (a:no_repeat ? '' : "<bar> call repeat#set('" . l:lhs . "', -1)")
         \ . '<cr>'
 
     execute l:cmd
 
     " undo the mapping -- later
-    let l:lhs = substitute(a:lhs_prefix.l:lhs, '\c<localleader>', g:maplocalleader, 'g')
+    let l:lhs = substitute(l:lhs, '\c<localleader>', g:maplocalleader, '')
     let b:undo_ftplugin .= '| ' . a:style . 'unmap <buffer> ' . l:lhs
 
     " now, stash it so we can easily list it
