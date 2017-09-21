@@ -59,7 +59,7 @@ let s:tools.noremap    = function('s:map',  [ 0, 'noremap', ''                  
 let s:tools.nnoremap   = function('s:map',  [ 0, 'noremap', '',              'n' ])
 let s:tools.llnmap     = function('s:map',  [ 0, 'map',     '<localleader>', 'n' ])
 let s:tools.llnnoremap = function('s:map',  [ 0, 'noremap', '<localleader>', 'n' ])
-let s:tools.nnoremapnr = function('s:map',  [ 1, 'noremap', '',              'n' ])
+let s:tools.nnore2map  = function('s:map',  [ 1, 'noremap', '',              'n' ])
 
 " Function: s:set() {{{2
 
