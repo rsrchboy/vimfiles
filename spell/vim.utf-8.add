@@ -30,7 +30,9 @@ fdl
 fdm
 filesystem
 foldcolumn
+foldlevelstart
 foldmethod
+ftplugin
 g
 getbufvar
 getcwd
@@ -41,11 +43,15 @@ isident
 iskeyword
 junegunn
 l
+lhs
 linters
+llmap
+llnoremap
 localleader
 matchstr
 netrw
 nmap
+nomap
 p
 pandoc
 perlVarPlain
@@ -61,4 +67,3 @@ s
 scriptnames
 sfile
 vint
-dict
