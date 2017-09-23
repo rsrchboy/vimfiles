@@ -1,6 +1,6 @@
 " Additional setup for tweetvim_say files
 
-if exists("b:did_tweetvim_say_ckw_ftplugin")
+if exists('b:did_tweetvim_say_ckw_ftplugin')
     finish
 endif
 let b:did_tweetvim_say_ckw_ftplugin = 1
