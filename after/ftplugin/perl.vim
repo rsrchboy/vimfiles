@@ -17,8 +17,15 @@ let s:tools = g:rsrchboy#buffer#tools
 
 call rsrchboy#buffer#SetSpellOpts('perl')
 
-let b:undo_ftplugin .= ' | setlocal foldmethod<'
+" Scratchpad for perhaps better settings(?)
+"
+" setl define='\\v\\<sub\\>\
+" setl define=^\\s*\\\(sub\\\|has\\\)\\>
+" setlocal include='\\v\\<(use|require|with|extends)\\>'
+
+
 setlocal foldmethod=marker
+let b:undo_ftplugin .= ' | setlocal foldmethod<'
 
 
 " Plugins: Ale {{{1
