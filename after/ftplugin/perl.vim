@@ -2,7 +2,7 @@
 
 " FIXME ...
 " when working inside a CPAN-style dist, for instance.
-set path<
+setl path<
 let &l:path='.,,lib/,t/lib/,'.g:perlpath
 
 if exists('b:did_ftplugin_rsrchboy')
