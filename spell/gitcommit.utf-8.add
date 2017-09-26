@@ -164,6 +164,7 @@ hostname
 https
 iff
 init
+inline
 k8s
 lazify
 linted
@@ -226,4 +227,3 @@ worktree
 www
 zsh
 zshrc
-ftplugin

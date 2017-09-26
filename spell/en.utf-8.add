@@ -41,13 +41,16 @@ Multnomah
 MySQL
 NFS
 NOTE
+Netflix
 OpenVPN
 Outtie
+PHP
 PMTU
 PPA
 PPA's
 README
 Ragwitz
+Refactored
 Return
 RsrchBoy
 SELinux
@@ -67,6 +70,7 @@ VM's
 VPN
 Vagrantfile
 VirtualBox
+Voltron
 Weyl
 Winona
 X11
@@ -86,6 +90,7 @@ donatee
 dotfiles
 edu
 enter
+etc
 fallback
 filetype
 ftw
@@ -142,4 +147,3 @@ undef
 virtualization
 wiki
 wlan0
-MaxMind
