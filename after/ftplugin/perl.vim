@@ -45,7 +45,7 @@ if exists('b:git_dir')
 endif
 
 " vim-pipe config
-let b:undo_ftplugin .= ' | unlet b:vimpipe_filetype b:vimpipe_command'
+let b:undo_ftplugin .= '| silent! unlet b:vimpipe_filetype b:vimpipe_command'
 let b:vimpipe_filetype = 'tapVerboseOutput'
 let b:vimpipe_command  = 'source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -'
 
@@ -72,6 +72,7 @@ call s:tools.llnnoremap('aX', ':s/\s*[.,;]*\s*$/ ();/')
 
 call rsrchboy#buffer#CommonMappings()
 
+" r ->    qr/.../
 " q ->     q{...}
 " Q ->    qq{...}
 " w ->   qw{ ... }
@@ -84,6 +85,7 @@ call rsrchboy#buffer#CommonMappings()
 " # ->   #<<<...#>>>       <-- perltidy skip notation
 " Y -> sub { ... };
 " U ->   use ...;
+let b:surround_114 = "qr/\r/"
 let b:surround_113 = "q{\r}"
 let b:surround_81  = "qq{\r}"
 let b:surround_119 = "qw{ \r }"
