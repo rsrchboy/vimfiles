@@ -81,6 +81,20 @@ endfunction
 
 let s:tools.set = function('s:set')
 
+
+" Function: s:surround() {{{2
+
+function! s:surround(key, surround) abort dict
+    let l:var = 'surround_' . char2nr(a:key)
+    call l:self.set(l:var, a:surround)
+endfunction
+
+
+" Method: s:tools.surround()
+
+let s:tools.surround = function('s:surround')
+
+
 " }}}2
 
 
