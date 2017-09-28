@@ -66,7 +66,11 @@ let s:tools.nnore2map  = function('s:map',  [ 1, 'noremap', '',              'n'
 function! s:set(k, v) abort
     if !has_key(b:, a:k)
         " set this once (or try to anyways)
-        let b:undo_ftplugin .= '| unlet b:' . a:k
+        if has_key(b:, 'undo_ftplugin')
+            let b:undo_ftplugin .= '| unlet b:' . a:k
+        else
+            let b:undo_ftplugin = 'unlet b:' . a:k
+        endif
     endif
     let b:[a:k] = a:v
     return
