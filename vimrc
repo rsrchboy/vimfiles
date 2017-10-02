@@ -4,9 +4,6 @@
 " Canonical Source: https://github.com/RsrchBoy/vimfiles
 " License:          CC BY-NC-SA 4.0 (aka Attribution-NonCommercial-ShareAlike)
 
-" This must be first, because it changes other options as side effect
-set nocompatible
-
 " give any spawned shells a clue
 let $IN_VIM = exists('$IN_VIM') ? $IN_VIM + 1 : 1
 
