@@ -44,6 +44,7 @@ getbufvar
 getcwd
 getwinvar
 https
+includeexpr
 isa
 ish
 isident
@@ -76,6 +77,7 @@ scriptnames
 setl
 setlocal
 sfile
+tmux
 vim
 vimfiles
 vimrc
