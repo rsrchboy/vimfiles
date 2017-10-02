@@ -73,6 +73,8 @@ ro
 rsrchboy
 s
 scriptnames
+setl
+setlocal
 sfile
 vim
 vimfiles
