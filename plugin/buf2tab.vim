@@ -1,11 +1,7 @@
 " Write bufexplorer's t:bufexp_buf_list to the sessionfile!  (or try to)
 
 
-" ooooorrrr.... use fugitive??
-
-
 function! s:SaveTabInfo() abort
-
 
     " no point if we're not in a session
     if !len(v:this_session) || exists('SessionLoad') | return | endif
@@ -13,43 +9,67 @@ function! s:SaveTabInfo() abort
     let l:lines = []
 
     for l:page in gettabinfo()
-        " PP gettabvar(s:page, 'bufexp_buf_list', [])
-        " let l:x = s:pageinfo
-        " PP l:x
-        " PP s:pageinfo
 
         if has_key(l:page.variables, 'bufexp_buf_list')
 
+            let l:buf_names = copy(l:page.variables.bufexp_buf_list)
+            call filter(l:buf_names, { k, v -> getbufvar(v, '&buftype') !=# 'nofile' })
+            call filter(l:buf_names, { k, v -> buflisted(v)                          })
+            call    map(l:buf_names, { k, v -> bufname(v)                            })
+            call filter(l:buf_names, { k, v -> v !=# '[BufExplorer]'                 })
+
             let l:bufs = '[' . join(l:page.variables.bufexp_buf_list, ',') . ']'
 
-            let l:lines += [ 'call settabvar('. l:page.tabnr . ', ' . "'bufexp_buf_list', " . l:bufs . ')' ]
+                " \   'call settabvar('. l:page.tabnr . ', ' . "'bufexp_buf_list', " . l:bufs . ')',
+                " \   'call settabvar('. l:page.tabnr . ', ' . "'RESTORED_bufexp_buf_list', " . l:bufs . ')',
+                " \   'call settabvar('. l:page.tabnr . ', ' . "'RESTORED_bufexp_buf_names', ['" . join(l:buf_names, "', '") . "'])",
+            let l:lines += [
+                \   'call settabvar('. l:page.tabnr . ', ' . "'buf2tab_buf_names', ['" . join(l:buf_names, "', '") . "'])",
+                \]
+
         endif
     endfor
 
     " bail if there's nothing to write
     if !len(l:lines) | return | endif
 
-    " let l:body = readfile(g:this_obsession)
-    " call insert(body, 'let g:this_session = v:this_session', -3)
-    " call insert(body, 'let g:this_obsession = v:this_session', -3)
-    " call insert(body, 'let g:this_obsession_status = 2', -3)
-    " call writefile(body, g:this_obsession)
-
+    " Store these away in a `Sessionx.vim` file
     let l:file = substitute(v:this_session, '\.vim$', 'x.vim', '')
     call writefile(l:lines, l:file)
 
     return
 endfunction
 
-function! Buf2Tab() abort
-    let g:workdir2tab = {}
-    " tabdo silent! g:workdir2tab{t:git_workdir} = tabpagenr() <bar> if !has_key(t:, 'bufexp_buf_list') <bar> let t:bufexp_buf_list = [] <bar> endif
-    tabdo silent! g:workdir2tab{t:git_workdir} = tabpagenr() <bar> let t:bufexp_buf_list = []
-    bufdo silent! let gettabinfo(g:workdir2tab[b:git_workdir]).variables.bufexp_buf_list += [ bufnr('') ]
+function! MyRestoreTabBuffers() abort
+
+    " we only want to do this once
+    if has_key(g:, 'buf2tab_buffers_restored')
+        return
+    endif
+
+    for l:page in gettabinfo()
+
+        if !has_key(l:page.variables, 'buf2tab_buf_names') | continue | endif
+
+        let l:names = copy(l:page.variables.buf2tab_buf_names)
+        let l:bufs = []
+        for l:name in l:names
+            let l:bufs += [ bufnr(l:name) ]
+        endfor
+
+        let l:page.variables.bufexp_buf_list = l:bufs
+    endfor
+
+    let g:buf2tab_buffers_restored = 1
+    return
 endfunction
 
 augroup buf2tab
   autocmd!
 
-  " autocmd BufEnter,VimLeavePre * exe s:SaveTabInfo()
+  autocmd BufEnter,VimLeavePre * exe s:SaveTabInfo()
+
+  " this will be called against every loaded buffer -- but the function is a
+  " no-op after the first call
+  autocmd SessionLoadPost * call MyRestoreTabBuffers()
 augroup END
