@@ -1,0 +1,33 @@
+Execute (pre-load):
+  " make sure it's loaded -- bails later on otherwise (?!)
+  call keys(g:rsrchboy#buffer#tools)
+
+Given (vim-surround + vader sanity check):
+  hello
+
+Do (vim-surround + vader sanity check):
+  viwS"
+
+Expect (vim-surround + vader sanity check):
+  "hello"
+
+" We have to break the following out -- Execute and Expect blocks appear to
+" reset the buffer the tests are running in, so we can't quite do this as we
+" expect
+
+Execute (check tools.surround() - buffer vars):
+  call g:rsrchboy#buffer#tools.surround('k', "OK\rOK")
+
+Then (check tools.surround() - buffer vars):
+  Assert exists('b:surround_107')
+  AssertEqual b:surround_107, "OK\rOK"
+
+Given (check tools.surround()):
+  hi
+
+Do (check tools.surround()):
+  :call g:rsrchboy#buffer#tools.surround('k', "OK\rOK")\<CR>
+  viwSk
+
+Expect (check tools.surround()):
+  OKhiOK
