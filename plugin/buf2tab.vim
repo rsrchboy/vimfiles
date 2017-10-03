@@ -67,7 +67,7 @@ endfunction
 augroup buf2tab
   autocmd!
 
-  autocmd BufEnter,VimLeavePre * exe s:SaveTabInfo()
+  autocmd BufEnter,VimLeavePre * call s:SaveTabInfo()
 
   " this will be called against every loaded buffer -- but the function is a
   " no-op after the first call
