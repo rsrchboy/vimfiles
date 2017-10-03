@@ -129,8 +129,6 @@ function! rsrchboy#buffer#CommonMappings() abort
 endfunction
 
 
-" }}}2
-
 " Function: rsrchboy#buffer#shellSurrounds {{{2
 
 ""
