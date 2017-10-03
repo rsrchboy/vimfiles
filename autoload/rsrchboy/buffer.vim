@@ -143,6 +143,7 @@ function! rsrchboy#buffer#shellSurrounds() abort
 
     " let b:surround_68 = "[[ \r ]]"
     call s:set('surround_68', "[[ \r ]]")
+    call s:set('surround_100', "(( \r ))")
 endfunction
 
 
