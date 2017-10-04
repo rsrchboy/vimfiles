@@ -16,7 +16,7 @@ let s:tools = g:rsrchboy#buffer#tools
 let b:undo_ftplugin .= ' | setl foldcolumn<'
 setlocal foldcolumn=0
 
-if @% !~# '\.git/index\$'
+if @% =~# '\.git/index\$'
 
     " When here, we're typically working with a fugitive status buffer.  We
     " conditionalize this, as we don't want these mappings when, say, writing
