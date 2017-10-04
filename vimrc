@@ -893,6 +893,8 @@ augroup END
 " }}}2
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'rhysd/conflict-marker.vim'
+Plug 'gisphm/vim-gitignore'
+
 
 " Perl Bundles: {{{1
 " TODO sort these two
