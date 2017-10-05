@@ -84,3 +84,6 @@ vim
 vimfiles
 vimrc
 vint
+ftplugins
+ftplugins
+EOF
