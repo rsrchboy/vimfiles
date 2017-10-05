@@ -375,14 +375,24 @@ Plug 'codegram/vim-codereview' ", { 'on': 'CodeReview' }
 " NOTE this basically requires either vim8 or neovim; vim 7.4 etc aren't
 " *that* old, so we'll include some checks...
 
+" Function: s:MaybeLocalPlugin {{{3
+
+function! s:MaybeLocalPlugin(name) abort
+
+    if filereadable(expand('~/work/vim/' . a:name . '/.git/config'))
+        Plug '~/work/vim/' . a:name
+    else
+        Plug 'rsrchboy/' . a:name
+    endif
+
+endfunction
+
+" }}}3
+
 if has('job') && has('timers') && has('channel')
 
-    " FIXME we should probably skip loading ale if we have kale
-    if filereadable(expand('~/work/vim/vim-cale/.git/config'))
-        Plug '~/work/vim/vim-cale'
-    else
-        " Plug 'rsrchboy/ale'
-    endif
+    call s:MaybeLocalPlugin('vim-voose')
+    call s:MaybeLocalPlugin('vim-kale')
 
     Plug 'rsrchboy/ale'
 
