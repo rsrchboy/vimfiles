@@ -1,8 +1,8 @@
-"
+" A utility thing to help with buffer settings (e.g. via ftplugins)
+
 " Somewhere to keep all our tool/utility functions; this becomes
 " g#rsrchboy#buffer#tools at EOF
 let s:tools = {}
-
 
 
 " Tools: mapping {{{1
@@ -94,6 +94,75 @@ endfunction
 
 let s:tools.surround = function('s:surround')
 
+
+" Function: s:undo {{{2
+
+function! s:undo(prefix, suffix, thing) abort dict
+    if has_key(b:, 'undo_ftplugin')
+        let b:undo_ftplugin .= '| ' . a:prefix . a:thing . a:suffix
+    else
+        let b:undo_ftplugin = a:prefix . a:thing . a:suffix
+    endif
+    return
+endfunction
+
+
+" Methods: s:tools.undo(), etc {{{2
+
+let s:tools.undo     = function('s:undo', ['',         '' ])
+let s:tools.undo_var = function('s:undo', ['unlet b:', '' ])
+let s:tools.undo_set = function('s:undo', ['setl ',    '<'])
+
+
+" }}}2
+
+
+" Section: helpers for the humans {{{1
+
+" Function: ShowBufferMappings {{{2
+
+function! s:ShowBufferMappings() abort dict
+    let l:text = exists('b:rsrchboy_local_mappings') ? b:rsrchboy_local_mappings : []
+    echo 'Our buffer local mappings:'
+    for l:line in l:text
+        echo l:line
+    endfor
+    return
+endfunction
+
+let s:tools.show_buffer_mappings = function('s:ShowBufferMappings')
+
+
+" Function: ...#ShowSurroundMappinks() {{{2
+
+function! s:ShowSurroundMappings() abort dict
+    let l:surrounds = filter(copy(b:), { k -> k =~# '^surround_\d\+'})
+    for l:key in keys(l:surrounds)
+        let l:char = nr2char(substitute(l:key, 'surround_', '', ''))
+        let l:surrounds[l:char] = remove(l:surrounds, l:key)
+    endfor
+    call map(l:surrounds, { k, v -> substitute(v, "\r", '...', '') })
+
+    " sanity.  this shouldn't ever produce anything, but when it does we can
+    " tidy this all up
+    let l:global_surrounds = filter(copy(g:), { k -> k =~# '^surround_\d\+'})
+    call map(l:global_surrounds, { k, v -> substitute(v, "\r", '...', '') })
+    call extend(l:surrounds, l:global_surrounds, 'keep')
+
+    if !len(keys(l:surrounds))
+        echo 'No special surround mappings defined for this filetype.'
+        return
+    endif
+
+    echo 'Buffer surround mappings!'
+    for l:char in sort(keys(l:surrounds))
+        echo l:char . ' -> ' . l:surrounds[l:char]
+    endfor
+
+    return
+endfunction
+
+let s:tools.ShowSurroundMappings = function('s:ShowSurroundMappings')
 
 " }}}2
 
