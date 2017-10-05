@@ -659,6 +659,8 @@ let g:vimwiki_use_calendar = 1
 let g:calendar_action      = 'vimwiki#diary#calendar_action'
 let g:calendar_sign        = 'vimwiki#diary#calendar_sign'
 
+let g:vimwiki_list = [{'path': '~/Shared/vimwiki/', 'path_html': '~/public_html/'}]
+
             " \     '<leader>ww',
             " \     '<leader>wt',
             " \     '<leader>ws',
