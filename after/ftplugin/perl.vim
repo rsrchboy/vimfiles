@@ -34,6 +34,10 @@ setlocal foldmethod=marker
 let b:undo_ftplugin .= ' | setlocal foldmethod<'
 
 
+" Formatting:
+
+setl formatprg=perltidy
+
 " Plugins: Ale {{{1
 
 augroup ftplugin#perl
