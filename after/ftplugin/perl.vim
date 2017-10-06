@@ -19,9 +19,15 @@ call rsrchboy#buffer#SetSpellOpts('perl')
 
 " Scratchpad for perhaps better settings(?)
 "
-" setl define='\\v\\<sub\\>\
-" setl define=^\\s*\\\(sub\\\|has\\\)\\>
-" setlocal include='\\v\\<(use|require|with|extends)\\>'
+" Search for defined 'macros' as functions or attributes; also look in roles.
+"
+setl define=^\\s*\\\(sub\\\|has\\\)\\>
+setlocal include=^\\<\\\(use\\\|require\\\|with\\\|extends\\\)\\>
+
+" setlocal includeexpr=substitute(substitute(substitute(v:fname,'::','/','g'),'->\*','',''),'$','.pm','')
+" setlocal includeexpr=substitute(substitute(substitute(v:fname,'::','/','g'),'->\*','',''),'$','.pm','')
+" setlocal includeexpr=substitute(substitute(substitute(substitute(v:fname,'::','/','g'),'->\*','',''),'$','.pm',''), "'", '', 'g')
+" setlocal includeexpr=substitute(substitute(substitute(substitute(v:fname,'::','/','g'),'->\*','',''),'$','.pm',''), "'", '', 'g')
 
 
 setlocal foldmethod=marker
