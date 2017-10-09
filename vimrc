@@ -687,6 +687,8 @@ Plug 'vim-scripts/vimwiki', {
 " }}}2
 Plug 'diepm/vim-rest-console'
 Plug 'cryptomilk/git-modeline.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 
 " GIT And Version Controlish: bundles {{{1
