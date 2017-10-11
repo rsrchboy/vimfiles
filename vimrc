@@ -833,6 +833,8 @@ augroup vimrc-fugitive
 augroup END
 " }}}3
 
+Plug 'tpope/vim-fugitive'
+
 " Plugins: for :Gbrowse {{{3
 
 Plug 'tpope/vim-rhubarb'
@@ -840,8 +842,6 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'tommcdo/vim-fubitive'
 
 " }}}3
-
-Plug 'tpope/vim-fugitive'
 
 " Gist: {{{2
 
