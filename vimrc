@@ -808,36 +808,18 @@ nmap <silent> <Leader>gS :Gcommit --no-verify --squash HEAD
 " trial -- intent to add
 nmap <silent> <Leader>gI :Git add --intent-to-add %<bar>call sy#start()<CR>
 
-nmap <silent> <Leader>gA :execute ':!git -C ' . b:git_worktree . ' add -pi ' . resolve(expand('%')) <bar> call sy#start()<CR>
-nmap <silent> <Leader>gp :Git push<Enter>
-nmap <silent> <Leader>gb :Gblame -w<Enter>
+" nmap <silent> <Leader>gA :execute ':!git -C ' . b:git_worktree . ' add -pi ' . resolve(expand('%')) <bar> call sy#start()<CR>
+nmap <silent> <Leader>gA :execute ':!git -C ' . b:git_worktree . ' add -pi ' . fugitive#buffer().path() <bar> call sy#start()<CR>
+nmap <silent> <Leader>gp :Git push<CR>
+nmap <silent> <Leader>gb :DimInactiveBufferOff<CR>:Gblame -w<CR>
 
 nmap <silent> <leader>gv :GV<cr>
 nmap <silent> <leader>gV :GV!<cr>
-
-" make handling indexes a little easier {{{3
-
-" This section very happily stolen from / based on:
-" https://github.com/aaronjensen/vimfiles/blob/master/vimrc
-
-function! BufReadIndex()
-  setlocal cursorline
-  setlocal nohlsearch
-
-  nnoremap <buffer> <silent> j :call search('^#\t.*','W')<Bar>.<CR>
-  nnoremap <buffer> <silent> k :call search('^#\t.*','Wbe')<Bar>.<CR>
-endfunction
 
 " autocmds (e.g. for pull req, tag edits, etc...) {{{3
 
 augroup vimrc-fugitive
     au!
-
-    " Use j/k in status
-    autocmd BufReadCmd *.git/index             exe BufReadIndex()
-    autocmd BufReadCmd *.git/worktrees/*/index exe BufReadIndex()
-    autocmd BufEnter   *.git/index             silent normal j
-    autocmd BufEnter   *.git/worktrees/*/index silent normal j
 
     " Automatically remove fugitive buffers
     autocmd BufReadPost fugitive://* set bufhidden=delete
