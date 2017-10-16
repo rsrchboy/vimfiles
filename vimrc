@@ -14,6 +14,13 @@ scriptencoding utf-8
 call plug#begin()
 
 " General Bundles: {{{1
+" FuzzyFinder: {{{2
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+nnoremap <C-P> :Files<CR>
+
 " Follow My Lead: {{{2
 
 " load, then run.  this mapping will be overwritten on plugin load
@@ -280,13 +287,6 @@ xmap gA <Plug>(EasyAlign)
 nmap gA <Plug>(EasyAlign)
 
 Plug 'junegunn/vim-easy-align', { 'on': [ '<Plug>(EasyAlign)', 'EasyAlign' ] }
-
-" CtrlP: {{{2
-
-let g:ctrlp_user_command = ['.git', "cd %s && git ls-files | grep -Pv '(^go/vendor|\.tar(|\.gz|\.bz2)$)'"]
-let g:ctrlp_reuse_window = 'netrw\|help\|quickfix\|startify'
-
-Plug 'kien/ctrlp.vim'
 
 " SuperTab: {{{2
 
@@ -687,8 +687,6 @@ Plug 'vim-scripts/vimwiki', {
 " }}}2
 Plug 'diepm/vim-rest-console'
 Plug 'cryptomilk/git-modeline.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 
 
 " GIT And Version Controlish: bundles {{{1
