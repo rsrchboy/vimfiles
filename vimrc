@@ -1133,13 +1133,7 @@ let g:tagbar_type_puppet = {
 
 Plug 'majutsushi/tagbar', { 'on': 'Tagbar' }
 
-" ToDo Style Plugins: ...because there's more than one?! {{{2
-
-" 'vitalk/vim-simple-todo' {{{3
-
-Plug 'vitalk/vim-simple-todo'
-
-" 'freitass/todo.txt-vim' {{{3
+" 'freitass/todo.txt-vim' {{{2
 
 " settings unchanged
 
