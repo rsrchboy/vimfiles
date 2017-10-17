@@ -997,6 +997,7 @@ Plug 'WolfgangMehner/lua-support', { 'for': 'lua' }
 " html(ish) {{{2
 
 Plug 'othree/html5-syntax.vim'
+Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-haml'
 Plug 'nono/jquery.vim'
 " CSS
