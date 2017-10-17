@@ -1000,41 +1000,57 @@ Plug 'WolfgangMehner/lua-support', { 'for': 'lua' }
 Plug 'othree/html5-syntax.vim'
 Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-haml'
+Plug 'kchmck/vim-coffee-script'
 Plug 'nono/jquery.vim'
 " CSS
 Plug 'groenewege/vim-less'
 
-" }}}2
-Plug 'vim-ruby/vim-ruby'
-Plug 'cespare/vim-toml'
+" System Or App Configuration: {{{2
+
 Plug 'RsrchBoy/vim-sshauthkeys'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'rhysd/vim-json', { 'branch': 'reasonable-bool-number' }
 Plug 'tmatilai/gitolite.vim'
-" Plug 'chr4/sslsecure.vim'
-Plug 'lepture/vim-jinja'
-Plug 'chr4/nginx.vim'
 Plug 'vim-scripts/iptables'
 Plug 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
+Plug 'chr4/nginx.vim'
 Plug 'smancill/conky-syntax.vim'
 Plug 'apeschel/vim-syntax-syslog-ng'
-Plug 'ekalinin/Dockerfile.vim'
 Plug 'wgwoods/vim-systemd-syntax'
-Plug 'fmoralesc/vim-pinpoint'
+Plug 'FredDeschenes/httplog'
+Plug 'vim-scripts/openvpn', { 'for': 'openvpn' }
+" Plug 'chr4/sslsecure.vim'
+Plug 'tmux-plugins/vim-tmux'
+
+" Configuration Management: e.g. puppet, chef, etc {{{2
+
+Plug 'puppetlabs/puppet-syntax-vim', { 'for': 'puppet' }
+Plug 'vadv/vim-chef',                { 'for': 'chef'   }
+Plug 'pearofducks/ansible-vim'
+" for ansible templates
+Plug 'lepture/vim-jinja'
+
+" Packaging: deb, arch, etc {{{2
+
 Plug 'vim-scripts/deb.vim'
+Plug 'Firef0x/PKGBUILD.vim'
+
+" Programming Languages: ...that aren't Perl {{{2
+
+Plug 'vim-ruby/vim-ruby'
+Pug 'klen/python-mode',             { 'for': 'python' }
+Plug 'rust-lang/rust.vim'
+
+" File Formats: csv, json, et al {{{2
+
+Plug 'rhysd/vim-json',   { 'branch': 'reasonable-bool-number' }
+Plug 'chrisbra/csv.vim', { 'for':    'csv'                    }
+
+" }}}2
+Plug 'cespare/vim-toml'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'fmoralesc/vim-pinpoint'
 Plug 'vim-scripts/gtk-vim-syntax'
 Plug 'chikamichi/mediawiki.vim'
-Plug 'puppetlabs/puppet-syntax-vim', { 'for': 'puppet' }
-Plug 'klen/python-mode',             { 'for': 'python' }
-Plug 'chrisbra/csv.vim',             { 'for': 'csv'    }
-Plug 'vadv/vim-chef',                { 'for': 'chef'   }
-Plug 'kchmck/vim-coffee-script'
 Plug 'easymotion/vim-easymotion'
-Plug 'FredDeschenes/httplog'
-Plug 'rust-lang/rust.vim'
-Plug 'pearofducks/ansible-vim'
-Plug 'vim-scripts/openvpn', { 'for': 'openvpn' }
-Plug 'Firef0x/PKGBUILD.vim'
 Plug 'rsrchboy/mojo.vim'
 
 " Text Objects: {{{1
