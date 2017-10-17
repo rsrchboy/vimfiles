@@ -1036,7 +1036,7 @@ Plug 'Firef0x/PKGBUILD.vim'
 " Programming Languages: ...that aren't Perl {{{2
 
 Plug 'vim-ruby/vim-ruby'
-Pug 'klen/python-mode',             { 'for': 'python' }
+Plug 'klen/python-mode',             { 'for': 'python' }
 Plug 'rust-lang/rust.vim'
 
 " File Formats: csv, json, et al {{{2
