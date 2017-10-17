@@ -994,9 +994,16 @@ Plug 'xolox/vim-lua-ftplugin', { 'for': 'lua' }
 Plug 'xolox/vim-lua-inspect', { 'for': 'lua' }
 Plug 'WolfgangMehner/lua-support', { 'for': 'lua' }
 
+" html(ish) {{{2
+
+Plug 'othree/html5-syntax.vim'
+Plug 'tpope/vim-haml'
+Plug 'nono/jquery.vim'
+" CSS
+Plug 'groenewege/vim-less'
+
 " }}}2
 Plug 'tpope/vim-git'
-Plug 'othree/html5-syntax.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'cespare/vim-toml'
 Plug 'RsrchBoy/vim-sshauthkeys'
@@ -1011,10 +1018,7 @@ Plug 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
 Plug 'smancill/conky-syntax.vim'
 Plug 'apeschel/vim-syntax-syslog-ng'
 Plug 'ekalinin/Dockerfile.vim'
-Plug 'groenewege/vim-less'
 Plug 'wgwoods/vim-systemd-syntax'
-Plug 'tpope/vim-haml'
-Plug 'nono/jquery.vim'
 Plug 'fmoralesc/vim-pinpoint'
 Plug 'vim-scripts/deb.vim'
 Plug 'vim-scripts/gtk-vim-syntax'
