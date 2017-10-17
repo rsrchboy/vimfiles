@@ -890,6 +890,7 @@ augroup END
 " }}}3
 
 " }}}2
+Plug 'tpope/vim-git'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'rhysd/conflict-marker.vim'
 Plug 'gisphm/vim-gitignore'
@@ -1004,7 +1005,6 @@ Plug 'nono/jquery.vim'
 Plug 'groenewege/vim-less'
 
 " }}}2
-Plug 'tpope/vim-git'
 Plug 'vim-ruby/vim-ruby'
 Plug 'cespare/vim-toml'
 Plug 'RsrchBoy/vim-sshauthkeys'
