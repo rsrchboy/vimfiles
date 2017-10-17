@@ -77,97 +77,6 @@ nmap <silent> ,<space> :StripWhitespace<CR>
 
 Plug 'ntpeters/vim-better-whitespace'
 
-" Airline: {{{2
-
-Plug 'bling/vim-airline'
-
-" Settings: {{{3
-
-let g:airline_theme = 'dark'
-
-let g:airline#extensions#ale#enabled                  = 1
-let g:airline#extensions#bufferline#enabled           = 0
-let g:airline#extensions#obsession#enabled            = 1
-let g:airline#extensions#syntastic#enabled            = 0
-let g:airline#extensions#tabline#enabled              = 0
-let g:airline#extensions#tabline#show_close_button    = 0
-let g:airline#extensions#tabline#tab_min_count        = 2
-let g:airline#extensions#tabline#buffer_nr_show       = 1
-let g:airline#extensions#tagbar#enabled               = 1
-let g:airline#extensions#tmuxline#enabled             = 0
-let g:airline#extensions#whitespace#mixed_indent_algo = 1
-" let g:airline#extensions#wordcount#enabled            = 0
-
-let g:airline#extensions#tabline#ignore_bufadd_pat =
-        \ '\c\vgundo|undotree|vimfiler|tagbar|nerd_tree|previewwindow|help|nofile'
-
-" Branchname Config: {{{3
-" if a string is provided, it should be the name of a function that
-" takes a string and returns the desired value
-let g:airline#extensions#branch#format = 'CustomBranchName'
-function! CustomBranchName(name)
-    "return '[' . a:name . ']'
-    if a:name ==# ''
-        return a:name
-    endif
-
-    let l:info = a:name
-
-    " This isn't perfect, but it does keep things from blowing up rather
-    " loudly when we're editing a file that's actually a symlink to a file in
-    " a git work tree.  (This appears to confuse vim-fugitive.)
-    try
-        " let l:ahead  = fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD')
-        " let l:behind = fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}')
-        " let l:info  .= ' [+' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n')) . ']'
-        let l:ahead  = len(split(fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD'), '\n'))
-        let l:behind = len(split(fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}'), '\n'))
-        let l:ahead  = l:ahead  ? 'ahead '  . l:ahead  : ''
-        let l:behind = l:behind ? 'behind ' . l:behind : ''
-        let l:commit_info = join(filter([l:ahead, l:behind], { idx, val -> val !=# '' }), ' ')
-        let l:info .= len(l:commit_info) ? ' [' . l:commit_info . ']' : ''
-    catch
-        return a:name
-    endtry
-
-    return l:info
-endfunction
-
-" symbols {{{3
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.branch = '⎇ '
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-
-" AutoCommands: {{{3
-
-augroup vimrc#airline
-    au!
-
-    " wipe on, say, :Dispatch or similar
-    au QuickFixCmdPost dispatch-make-complete silent! unlet b:airline_head | AirlineRefresh
-    au User FugitiveCommit                    silent! unlet b:airline_head | AirlineRefresh
-    au FileChangedShellPost * silent! unlet b:airline_head | :AirlineRefresh
-    au ShellCmdPost         * silent! unlet b:airline_head | :AirlineRefresh
-
-    au User Fugitive silent! Glcd
-augroup END
-
-" PostSource Hook: {{{3
-
-" FIXME: This was named incorrectly for some time; revalidate before
-" reenabling
-"au! User vim-airline call s:PluginLoadedAirline()
-
-" Do Things when the bundle is vivified
-function! s:PluginLoadedAirline()
-    let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'capslock', 'tablemode', 'iminsert'])
-endfunction
-
-" }}}3
-
 " Tabular: {{{2
 
 Plug 'godlygeek/tabular', {
@@ -296,12 +205,110 @@ let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
 
 Plug 'ervandew/supertab'
 
-" DimInactive: {{{2
+" Vim Look And Feel: {{{2
+
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'jszakmeister/vim-togglecursor'
+
+" Airline: {{{3
+
+Plug 'bling/vim-airline'
+
+" Settings: {{{4
+
+let g:airline_theme = 'dark'
+
+let g:airline#extensions#ale#enabled                  = 1
+let g:airline#extensions#bufferline#enabled           = 0
+let g:airline#extensions#obsession#enabled            = 1
+let g:airline#extensions#syntastic#enabled            = 0
+let g:airline#extensions#tabline#enabled              = 0
+let g:airline#extensions#tabline#show_close_button    = 0
+let g:airline#extensions#tabline#tab_min_count        = 2
+let g:airline#extensions#tabline#buffer_nr_show       = 1
+let g:airline#extensions#tagbar#enabled               = 1
+let g:airline#extensions#tmuxline#enabled             = 0
+let g:airline#extensions#whitespace#mixed_indent_algo = 1
+" let g:airline#extensions#wordcount#enabled            = 0
+
+let g:airline#extensions#tabline#ignore_bufadd_pat =
+        \ '\c\vgundo|undotree|vimfiler|tagbar|nerd_tree|previewwindow|help|nofile'
+
+" Branchname Config: {{{4
+" if a string is provided, it should be the name of a function that
+" takes a string and returns the desired value
+let g:airline#extensions#branch#format = 'CustomBranchName'
+function! CustomBranchName(name)
+    "return '[' . a:name . ']'
+    if a:name ==# ''
+        return a:name
+    endif
+
+    let l:info = a:name
+
+    " This isn't perfect, but it does keep things from blowing up rather
+    " loudly when we're editing a file that's actually a symlink to a file in
+    " a git work tree.  (This appears to confuse vim-fugitive.)
+    try
+        " let l:ahead  = fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD')
+        " let l:behind = fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}')
+        " let l:info  .= ' [+' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n')) . ']'
+        let l:ahead  = len(split(fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD'), '\n'))
+        let l:behind = len(split(fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}'), '\n'))
+        let l:ahead  = l:ahead  ? 'ahead '  . l:ahead  : ''
+        let l:behind = l:behind ? 'behind ' . l:behind : ''
+        let l:commit_info = join(filter([l:ahead, l:behind], { idx, val -> val !=# '' }), ' ')
+        let l:info .= len(l:commit_info) ? ' [' . l:commit_info . ']' : ''
+    catch
+        return a:name
+    endtry
+
+    return l:info
+endfunction
+
+" symbols {{{4
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = '⎇ '
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+
+" AutoCommands: {{{4
+
+augroup vimrc#airline
+    au!
+
+    " wipe on, say, :Dispatch or similar
+    au QuickFixCmdPost dispatch-make-complete silent! unlet b:airline_head | AirlineRefresh
+    au User FugitiveCommit                    silent! unlet b:airline_head | AirlineRefresh
+    au FileChangedShellPost * silent! unlet b:airline_head | :AirlineRefresh
+    au ShellCmdPost         * silent! unlet b:airline_head | :AirlineRefresh
+
+    au User Fugitive silent! Glcd
+augroup END
+
+" PostSource Hook: {{{4
+
+" FIXME: This was named incorrectly for some time; revalidate before
+" reenabling
+"au! User vim-airline call s:PluginLoadedAirline()
+
+" Do Things when the bundle is vivified
+function! s:PluginLoadedAirline()
+    let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'capslock', 'tablemode', 'iminsert'])
+endfunction
+
+" }}}4
+
+" DimInactive: {{{3
 
 let g:diminactive_enable_focus = 1
 let g:diminactive_filetype_blacklist = ['startify', 'fugitiveblame']
 
 Plug 'blueyed/vim-diminactive'
+
+" }}}3
 
 " }}}2
 Plug 'tpope/vim-unimpaired'
@@ -320,7 +327,6 @@ Plug 'thinca/vim-ref'
 " Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'tpope/vim-dispatch'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/neomru.vim'
@@ -332,7 +338,6 @@ Plug 'christoomey/vim-system-copy'
 Plug 'junegunn/vader.vim'
 Plug 'jeetsukumaran/vim-buffergator', { 'on': 'BuffergatorOpen' }
 Plug 'skywind3000/asyncrun.vim'
-Plug 'jszakmeister/vim-togglecursor'
 
 " Libraries: library plugins/bundles {{{1
 " TLib: {{{2
