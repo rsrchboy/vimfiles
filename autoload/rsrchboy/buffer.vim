@@ -54,16 +54,17 @@ endfunction
 
 " Rather than making life difficult, we'll just curry the heck out of s:map()
 
-let s:tools.map        = function('s:map',  [ 0, 'map',     ''                   ])
-let s:tools.noremap    = function('s:map',  [ 0, 'noremap', ''                   ])
-let s:tools.nnoremap   = function('s:map',  [ 0, 'noremap', '',              'n' ])
-let s:tools.llnmap     = function('s:map',  [ 0, 'map',     '<localleader>', 'n' ])
-let s:tools.llnnoremap = function('s:map',  [ 0, 'noremap', '<localleader>', 'n' ])
-let s:tools.nnore2map  = function('s:map',  [ 1, 'noremap', '',              'n' ])
+let s:tools.map         = function('s:map',  [ 0, 'map',     ''                   ])
+let s:tools.noremap     = function('s:map',  [ 0, 'noremap', ''                   ])
+let s:tools.nnoremap    = function('s:map',  [ 0, 'noremap', '',              'n' ])
+let s:tools.llnmap      = function('s:map',  [ 0, 'map',     '<localleader>', 'n' ])
+let s:tools.llnnoremap  = function('s:map',  [ 0, 'noremap', '<localleader>', 'n' ])
+let s:tools.nnore2map   = function('s:map',  [ 1, 'noremap', '',              'n' ])
+let s:tools.llnnore2map = function('s:map',  [ 1, 'noremap', '<localleader>', 'n' ])
 
-" Function: s:set() {{{2
+" Function: s:let() {{{2
 
-function! s:set(k, v) abort
+function! s:let(k, v) abort
     if !has_key(b:, a:k)
         " set this once (or try to anyways)
         if has_key(b:, 'undo_ftplugin')
@@ -77,9 +78,12 @@ function! s:set(k, v) abort
 endfunction
 
 
-" Function: s:tools.set() {{{2
+" Function: s:tools.let() {{{2
 
-let s:tools.set = function('s:set')
+let s:tools.let = function('s:let')
+
+" FIXME legacy for now
+let s:tools.set = function('s:let')
 
 
 " Function: s:surround() {{{2
@@ -211,8 +215,8 @@ function! rsrchboy#buffer#shellSurrounds() abort
     " let l
 
     " let b:surround_68 = "[[ \r ]]"
-    call s:set('surround_68', "[[ \r ]]")
-    call s:set('surround_100', "(( \r ))")
+    call s:let('surround_68', "[[ \r ]]")
+    call s:let('surround_100', "(( \r ))")
 endfunction
 
 
