@@ -67,6 +67,13 @@ endfunction
 augroup buf2tab
   autocmd!
 
+  " TODO should we have a User/Fugitive autocommand here to catch when buffers
+  " are opened in tabs to which their git repos do not belong?  We'd probably
+  " want to ignore anything not in a repo, which would not be an issue, and
+  " to shift those buffers to a (new?) window inside the tab owning their
+  " repo/worktree or creating a new tab.
+
+
   autocmd User Obsession call s:SaveTabInfo()
 
   " this will be called against every loaded buffer -- but the function is a
