@@ -29,7 +29,7 @@ function! s:map(no_repeat, cmd, lhs_prefix, style, lhs, rhs) dict abort
 
     " undo the mapping -- later
     let l:lhs = substitute(l:lhs, '\c<localleader>', g:maplocalleader, '')
-    let b:undo_ftplugin .= '| ' . a:style . 'unmap <buffer> ' . l:lhs
+    call l:self.undo(a:style . 'unmap <buffer> ' . l:lhs)
 
     " now, stash it so we can easily list it
 
