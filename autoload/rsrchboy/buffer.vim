@@ -38,7 +38,7 @@ function! s:map(no_repeat, cmd, lhs_prefix, style, lhs, rhs) dict abort
     endif
 
     let b:rsrchboy_local_mappings += [
-        \   get(s:full, a:style, a:style) . ' ' . l:lhs . ' -> ' . a:rhs
+        \   printf('%6s %5s -> %s', get(s:full, a:style, a:style), l:lhs, a:rhs)
         \]
     return
 endfunction
