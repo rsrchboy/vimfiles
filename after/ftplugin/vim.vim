@@ -26,16 +26,13 @@ let b:undo_ftplugin .= '| setlocal foldmethod< commentstring<'
 " local mappings
 nnoremap <buffer> <silent> ,l :Tabularize /let<CR>
 
-" TODO FIXME use count vs appended numbers
-call s:tools.llnnoremap('fo1', ':s/\s*\({{{\d*\)*\s*$/ {{{1/')
-call s:tools.llnnoremap('fo2', ':s/\s*\({{{\d*\)*\s*$/ {{{2/')
-call s:tools.llnnoremap('fo3', ':s/\s*\({{{\d*\)*\s*$/ {{{3/')
-call s:tools.llnnoremap('fo0', ':s/\s*\({{{\d*\)*\s*$//')
-call s:tools.llnnoremap('fc1', ':s/\s*\(}}}\d*\)*\s*$/ }}}1/')
-call s:tools.llnnoremap('fc2', ':s/\s*\(}}}\d*\)*\s*$/ }}}2/')
-call s:tools.llnnoremap('fc3', ':s/\s*\(}}}\d*\)*\s*$/ }}}3/')
-call s:tools.llnnoremap('fc0', ':s/\s*\(}}}\d*\)*\s*$//')
+
+call s:tools.llnnoremap('fo', ':<C-U>execute ''s/\s*\({{{\d*\)*\s*$/ {{{''.v:count.''/''')
+call s:tools.llnnoremap('fc', ':<C-U>execute ''s/\s*\(}}}\d*\)*\s*$/ }}}''.v:count.''/''')
 
 call s:tools.llnnoremap('ax', ':s/\s*[.,;]*\s*$//')
+call s:tools.llnnoremap('a)', ':s/\s*[.,;]*\s*$/)/')
+
+call s:tools.surround('q', "''\r''")
 
 " vim : set foldlevel=10 :
