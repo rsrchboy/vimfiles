@@ -22,7 +22,7 @@ function! s:map(no_repeat, cmd, lhs_prefix, style, lhs, rhs) dict abort
     let l:lhs = a:lhs_prefix . eval('"'.  a:lhs .'"')
 
     let l:cmd = a:style . a:cmd . ' <buffer> <silent> ' . l:lhs . ' ' . a:rhs
-        \ . (a:no_repeat ? '' : "<bar> call repeat#set('" . l:lhs . "', -1)")
+        \ . (a:no_repeat ? '' : "<bar> call repeat#set('" . l:lhs . "')")
         \ . '<cr>'
 
     execute l:cmd
