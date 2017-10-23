@@ -4,14 +4,17 @@
 " Last Change:   ...check GitHub :)
 
 
-let s:syn = b:current_syntax
-unlet b:current_syntax
-syntax include @SQL syntax/sql.vim
-let b:current_syntax = s:syn
-unlet s:syn
-syntax region perlHereDocSQL start=+<<['"]SQL['"].*;\s*$+ matchgroup=perlStringStartEnd end=+^SQL$+ contains=@SQL
-" indented!  req v5.26
-syntax region perlHereDocSQL start=/<<\~['"]SQL['"].*;\s*$/ matchgroup=perlStringStartEnd end=/^\s*SQL$/ contains=@SQL
+" no reason to repeat ourselves
+if !has_key(g:, 'mm_loaded')
+    let s:syn = b:current_syntax
+    unlet b:current_syntax
+    syntax include @SQL syntax/sql.vim
+    let b:current_syntax = s:syn
+    unlet s:syn
+    syntax region perlHereDocSQL start=+<<['"]SQL['"].*;\s*$+ matchgroup=perlStringStartEnd end=+^SQL$+ contains=@SQL
+    " indented!  req v5.26
+    syntax region perlHereDocSQL start=/<<\~['"]SQL['"].*;\s*$/ matchgroup=perlStringStartEnd end=/^\s*SQL$/ contains=@SQL
+endif
 
 " I like to do shift->this->that->[1]->{...} sometimes.
 "
