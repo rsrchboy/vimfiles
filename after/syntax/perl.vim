@@ -8,12 +8,10 @@ let s:syn = b:current_syntax
 unlet b:current_syntax
 syntax include @SQL syntax/sql.vim
 let b:current_syntax = s:syn
+unlet s:syn
 syntax region perlHereDocSQL start=+<<['"]SQL['"].*;\s*$+ matchgroup=perlStringStartEnd end=+^SQL$+ contains=@SQL
-
-" with whitespace, I think
-" https://gist.github.com/rwstauner/1040278
-" syntax region perlHereDocSQL matchgroup=Statement start=+<<\(['"]\?\)\z(\s*SQL\s*\)\1+ end=+^\z1$+ contains=@SQL
-
+" indented!  req v5.26
+syntax region perlHereDocSQL start=/<<\~['"]SQL['"].*;\s*$/ matchgroup=perlStringStartEnd end=/^\s*SQL$/ contains=@SQL
 
 " I like to do shift->this->that->[1]->{...} sometimes.
 "
