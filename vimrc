@@ -1321,6 +1321,7 @@ set splitright                 " open new vsplit to the right
 set t_Co=256                   " Explicitly tell Vim we can handle 256 colors
 set tabstop=4                  " Indentation levels every four columns
 set textwidth=78               " Wrap at this column
+set ttimeoutlen=10
 set ttyfast
 set whichwrap+=<,>,h,l
 " XXX reexamine 'nobackup'
