@@ -1057,6 +1057,7 @@ Plug 'vim-scripts/gtk-vim-syntax'
 Plug 'chikamichi/mediawiki.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'rsrchboy/mojo.vim'
+Plug 'exu/pgsql.vim'
 
 " Text Objects: {{{1
 " See also https://github.com/kana/vim-textobj-user/wiki
