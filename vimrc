@@ -118,9 +118,13 @@ endfunction
 
 " NeoComplete: ...and associated bundles {{{2
 
+" FIXME finalize settings
+
 " settings: {{{3
 
-let g:neocomplete#enable_at_startup                 = 1
+let g:deoplete#enable_at_startup = 1
+
+" let g:neocomplete#enable_at_startup                 = 1
 let g:neocomplete#enable_smart_case                 = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 
@@ -141,12 +145,23 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " }}}3
 
-Plug 'Shougo/neco-syntax'
-Plug 'Shougo/neco-vim'
 Plug 'Shougo/neoinclude.vim'
-Plug 'c9s/perlomni.vim' " , { 'for': 'perl' }
-Plug 'Shougo/context_filetype.vim'
-" Plug 'Shougo/neocomplete.vim'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+" filetype complete sources for deoplete
+" Plug 'deoplete-go'      " go
+Plug 'Shougo/neco-vim'  " viml
+Plug 'c9s/perlomni.vim' " Perl
+
+" other complete sources
+Plug 'Shougo/neco-syntax'
 
 " Snippets: {{{2
 
@@ -369,6 +384,7 @@ Plug 'mattn/webapi-vim'
 
 " }}}2
 Plug 'junegunn/vim-emoji'
+Plug 'Shougo/context_filetype.vim'
 
 " Appish Or External Interface: bundles {{{1
 " CodeRevew: pachreview, github, etc {{{2
