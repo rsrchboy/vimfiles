@@ -853,7 +853,12 @@ augroup vimrc-fugitive
 augroup END
 " }}}3
 
-Plug 'tpope/vim-fugitive'
+" fugitive has a number of bugs/PR's outstanding related to symlinks (files in
+" buffers, directories, repository locations, worktrees, etc) and worktrees.
+"
+" Unfortunately, these are things I use rather heavily, so it looks like I get
+" to maintain my own fork for a while... le sigh
+Plug 'rsrchboy/vim-fugitive'
 
 " Plugins: for :Gbrowse {{{3
 
