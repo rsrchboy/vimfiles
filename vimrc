@@ -1236,26 +1236,20 @@ Plug 'RsrchBoy/vim-jira-open', {'on': []}
 
 
 " Unmanaged Plugins: {{{1
-" Linode: access to Linode's api {{{2
+" Perl: {{{2
 
 if has('perl')
 
     " the Perl API -- we just want it, no vim bits
     Plug 'mikegrb/WebService-Linode', { 'on': [] }
-
     " g:plug_home is set by plug#begin(), tho not documented (AFAICT)
     perl push @INC, VIM::Eval('g:plug_home') . '/WebService-Linode/lib'
-
     call s:MaybeLocalPlugin('vim-linode')
-endif
 
-" Perl: {{{2
-
-call s:MaybeLocalPlugin('vim-ducttape')
-
-if has('perl')
     call s:MaybeLocalPlugin('vim-embedded-perl')
 endif
+
+call s:MaybeLocalPlugin('vim-ducttape')
 
 " }}}2
 
