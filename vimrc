@@ -1246,23 +1246,17 @@ if has('perl')
     " g:plug_home is set by plug#begin(), tho not documented (AFAICT)
     perl push @INC, VIM::Eval('g:plug_home') . '/WebService-Linode/lib'
 
-    if filereadable(expand("~/work/vim/vim-linode/README.md"))
-        Plug '~/work/vim/vim-linode'
-    else
-        Plug 'RsrchBoy/vim-linode'
-    endif
+    call s:MaybeLocalPlugin('vim-linode')
 endif
 
 " Perl: {{{2
 
-if has('perl')
+call s:MaybeLocalPlugin('vim-ducttape')
 
-    if filereadable(expand("~/work/vim/vim-embedded-perl/plugin/perl.vim"))
-        Plug '~/work/vim/vim-embedded-perl'
-    else
-        " Plug 'RsrchBoy/vim-linode'
-    endif
+if has('perl')
+    call s:MaybeLocalPlugin('vim-embedded-perl')
 endif
+
 " }}}2
 
 " Source any plugin-related 'dropins'
