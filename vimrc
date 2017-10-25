@@ -14,70 +14,59 @@ scriptencoding utf-8
 call plug#begin()
 
 " General Bundles: {{{1
-" FuzzyFinder: {{{2
+" Buffers And Tabs And Files Oh My: {{{2
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'jeetsukumaran/vim-buffergator', { 'on': 'BuffergatorOpen' }
 
-nnoremap <C-P> :Files<CR>
+" TabMan: {{{3
 
-" Follow My Lead: {{{2
+" Settings: {{{4
 
+let g:tabman_toggle = '<leader>mt'
+let g:tabman_focus  = '<leader>mf'
+
+" AutoLoad: {{{4
 " load, then run.  this mapping will be overwritten on plugin load
-nnoremap <silent> <leader>fml :call plug#load('vim-follow-my-lead') <bar> execute ':call FMLShow()'<CR>
+execute "nnoremap <silent> " . g:tabman_toggle . " :call plug#load('tabman.vim') <bar> TMToggle<CR>"
+execute "nnoremap <silent> " . g:tabman_focus  . " :call plug#load('tabman.vim') <bar> TMFocus<CR>"
 
-let g:fml_all_sources = 1
+" }}}4
 
-Plug 'rsrchboy/vim-follow-my-lead', { 'on': [ '<Plug>(FollowMyLead)', 'FMLShow' ] }
+Plug 'kien/tabman.vim', { 'on': [ 'TMToggle', 'TMFocus' ] }
 
-" Startify: nifty start screen {{{2
-
-"let g:startify_bookmarks = [ '~/.vimrc' ]
-" autouse sessions with startify.  (aka be useful!)
-let g:startify_session_detection   = 1
-let g:startify_session_autoload    = 1
-let g:startify_session_persistence = 1
-let g:startify_change_to_vcs_root  = 1
-let g:startify_empty_buffer_key    = 'o'
-let g:startify_restore_position    = 1
-
-let g:startify_custom_header       =
-    \ map(split(system('echo $USER@$HOST | figlet -t ; echo .; echo .; uname -a'), '\n'), '"   ". v:val') + ['','']
-
-augroup vimrc-startify
-    au!
-    autocmd BufWinEnter startify* setlocal nonumber foldcolumn=0
-augroup end
-
-
-" files to skip including in the list
-let g:startify_skiplist = [
-           \ 'COMMIT_EDITMSG',
-           \ $VIMRUNTIME .'/doc',
-           \ 'bundle/.*/doc',
-           \ ]
-
-Plug 'mhinz/vim-startify'
-
-" BufExplorer: {{{2
+" BufExplorer: {{{3
 
 let g:bufExplorerShowRelativePath = 1
 let g:bufExplorerShowTabBuffer    = 1
 
 Plug 'jlanzarotta/bufexplorer'
 
-" BetterWhitespace: {{{2
+" FuzzyFinder: {{{3
 
-" NOTE replaces: NeoBundle 'bronson/vim-trailing-whitespace'
-" FIXME ... if it would just work.  grr
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-let g:better_whitespace_filetypes_blacklist = [ 'git', 'mail', 'help', 'startify' ]
+nnoremap <C-P> :Files<CR>
 
-nmap <silent> ,<space> :StripWhitespace<CR>
+" }}}3
 
-Plug 'ntpeters/vim-better-whitespace'
+" Alignment: {{{2
 
-" Tabular: {{{2
+" EasyAlign: {{{3
+
+xmap gA <Plug>(EasyAlign)
+nmap gA <Plug>(EasyAlign)
+
+Plug 'junegunn/vim-easy-align', { 'on': [ '<Plug>(EasyAlign)', 'EasyAlign' ] }
+
+" Vim Indent Guides: no more counting up for matching! {{{3
+
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size  = 1
+
+Plug 'nathanaelkane/vim-indent-guides', { 'on': [ 'IndentGuidesEnable', 'IndentGuidesToggle' ] }
+
+" Tabular: {{{3
 
 Plug 'godlygeek/tabular', {
             \   'on': [
@@ -87,7 +76,7 @@ Plug 'godlygeek/tabular', {
             \   ],
             \}
 
-" Mappings: {{{3
+" Mappings: {{{4
 
 nnoremap <silent> ,= :Tabularize first_fat_comma<CR>
 nnoremap <silent> ,- :Tabularize first_equals<CR>
@@ -97,7 +86,7 @@ nnoremap <silent> ,}  :Tabularize /}/l1c0<CR>
 nnoremap <silent> ,]  :Tabularize /]/l1c0<CR>
 nnoremap <silent> ,)  :Tabularize /)/l1c0<CR>
 
-" PostSource Hook: {{{3
+" PostSource Hook: {{{4
 
 augroup vimrc#tabular
     au!
@@ -114,13 +103,60 @@ function! s:PluginLoadedTabular()
     AddTabularPattern first_squiggly  /^[^{]*\zs{/l1
 endfunction
 
+" }}}4
+
 " }}}3
 
-" NeoComplete: ...and associated bundles {{{2
+" Follow My Lead: {{{2
+
+" load, then run.  this mapping will be overwritten on plugin load
+nnoremap <silent> <leader>fml :call plug#load('vim-follow-my-lead') <bar> execute ':call FMLShow()'<CR>
+
+let g:fml_all_sources = 1
+
+Plug 'rsrchboy/vim-follow-my-lead', { 'on': [ '<Plug>(FollowMyLead)', 'FMLShow' ] }
+
+" Snippets: {{{2
+
+let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
+
+Plug 'SirVer/ultisnips'
+
+" SuperTab: {{{2
+
+" " FIXME appears to conflict with snipmate...?
+
+let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
+
+Plug 'ervandew/supertab'
+
+" Denite: unused?? {{{2
+
+Plug 'Shougo/denite.nvim'
+Plug 'rafi/vim-unite-issue'
+Plug 'joker1007/unite-pull-request'
+
+" Vim Look And Feel: {{{2
+
+map /  <Plug>(incsearch-forward)
+
+Plug 'haya14busa/incsearch.vim'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'jszakmeister/vim-togglecursor'
+
+" BetterWhitespace: {{{3
+
+let g:better_whitespace_filetypes_blacklist = [ 'git', 'mail', 'help', 'startify' ]
+
+nmap <silent> ,<space> :StripWhitespace<CR>
+
+Plug 'ntpeters/vim-better-whitespace'
+
+" NeoComplete: ...and associated bundles {{{3
 
 " FIXME finalize settings
 
-" settings: {{{3
+" settings: {{{4
 
 let g:deoplete#enable_at_startup = 1
 
@@ -137,13 +173,13 @@ endif
 
 "             \   'disabled': !has('lua'),
 
-" perlomni settings: {{{3
+" perlomni settings: {{{4
 
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
-" }}}3
+" }}}4
 
 Plug 'Shougo/neoinclude.vim'
 
@@ -163,73 +199,33 @@ Plug 'c9s/perlomni.vim' " Perl
 " other complete sources
 Plug 'Shougo/neco-syntax'
 
-" Snippets: {{{2
+" Startify: nifty start screen {{{3
 
-let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
+"let g:startify_bookmarks = [ '~/.vimrc' ]
+" autouse sessions with startify.  (aka be useful!)
+let g:startify_session_detection   = 1
+let g:startify_session_autoload    = 1
+let g:startify_session_persistence = 1
+let g:startify_change_to_vcs_root  = 1
+let g:startify_empty_buffer_key    = 'o'
+let g:startify_restore_position    = 1
 
-" snippets bundles
-Plug 'andrewstuart/vim-kubernetes'
+let g:startify_custom_header       =
+    \ map(split(system('echo $USER@$HOST | figlet -t ; echo .; echo .; uname -a'), '\n'), '"   ". v:val') + ['','']
 
-" aaaaaaand the actuator itself!
-Plug 'SirVer/ultisnips'
+augroup vimrc-startify
+    au!
+    autocmd BufWinEnter startify* setlocal nonumber foldcolumn=0
+augroup end
 
-" Vim Indent Guides: no more counting up for matching! {{{2
+" files to skip including in the list
+let g:startify_skiplist = [
+           \ 'COMMIT_EDITMSG',
+           \ $VIMRUNTIME .'/doc',
+           \ 'bundle/.*/doc',
+           \ ]
 
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size  = 1
-
-Plug 'nathanaelkane/vim-indent-guides', { 'on': [ 'IndentGuidesEnable', 'IndentGuidesToggle' ] }
-
-" TabMan: {{{2
-
-" Settings: {{{3
-
-let g:tabman_toggle = '<leader>mt'
-let g:tabman_focus  = '<leader>mf'
-
-" AutoLoad: {{{3
-" load, then run.  this mapping will be overwritten on plugin load
-execute "nnoremap <silent> " . g:tabman_toggle . " :call plug#load('tabman.vim') <bar> TMToggle<CR>"
-execute "nnoremap <silent> " . g:tabman_focus  . " :call plug#load('tabman.vim') <bar> TMFocus<CR>"
-
-" }}}3" }}}3
-
-Plug 'kien/tabman.vim', { 'on': [ 'TMToggle', 'TMFocus' ] }
-
-" IncSearch: {{{2
-
-map /  <Plug>(incsearch-forward)
-
-Plug 'haya14busa/incsearch.vim'
-
-" EasyAlign: {{{2
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap gA <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap gA <Plug>(EasyAlign)
-
-Plug 'junegunn/vim-easy-align', { 'on': [ '<Plug>(EasyAlign)', 'EasyAlign' ] }
-
-" SuperTab: {{{2
-
-" " FIXME appears to conflict with snipmate...?
-
-let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
-
-Plug 'ervandew/supertab'
-
-" Denite: unused?? {{{2
-
-Plug 'Shougo/denite.nvim'
-Plug 'rafi/vim-unite-issue'
-Plug 'joker1007/unite-pull-request'
-
-" Vim Look And Feel: {{{2
-
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'jszakmeister/vim-togglecursor'
+Plug 'mhinz/vim-startify'
 
 " Airline: {{{3
 
@@ -353,7 +349,6 @@ Plug 'Shougo/junkfile.vim'
 Plug 'tpope/vim-speeddating'
 Plug 'christoomey/vim-system-copy'
 Plug 'junegunn/vader.vim'
-Plug 'jeetsukumaran/vim-buffergator', { 'on': 'BuffergatorOpen' }
 Plug 'skywind3000/asyncrun.vim'
 Plug 'AndrewRadev/splitjoin.vim'
 
@@ -926,15 +921,12 @@ Plug 'gisphm/vim-gitignore'
 
 
 " Perl Bundles: {{{1
-" TODO sort these two
-" NeoBundleLazy 'osfameron/perl-tags-vim',  { 'autoload': { 'filetypes': 'perl'     } }
-" NeoBundleLazy 'c9s/cpan.vim', { 'autoload': { 'filetypes': 'perl' } }
-" use my fork until several PR's are merged (orig: vim-perl/...)
 " Perl: main vim-perl plugin {{{2
 
 " support highlighting for the new syntax
 let g:perl_sub_signatures=1
 
+" use my fork until several PR's are merged (orig: vim-perl/...)
 Plug 'RsrchBoy/vim-perl', { 'branch': 'active' }
 
 " }}}2
@@ -1082,6 +1074,7 @@ Plug 'chikamichi/mediawiki.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'rsrchboy/mojo.vim'
 Plug 'exu/pgsql.vim'
+Plug 'andrewstuart/vim-kubernetes'
 
 " Text Objects: {{{1
 " See also https://github.com/kana/vim-textobj-user/wiki
