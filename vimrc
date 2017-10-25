@@ -608,8 +608,8 @@ function! s:PluginLoadedVitra()
     augroup end
 endfunction
 
-Plug 'vim-scripts/tracwiki'
-Plug 'nsmgr8/vitra', { 'on': 'TTOpen' }
+" Plug 'vim-scripts/tracwiki'
+" Plug 'nsmgr8/vitra', { 'on': 'TTOpen' }
 
 " VimRepress: {{{2
 
