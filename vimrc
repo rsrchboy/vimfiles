@@ -220,6 +220,12 @@ let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
 
 Plug 'ervandew/supertab'
 
+" Denite: unused?? {{{2
+
+Plug 'Shougo/denite.nvim'
+Plug 'rafi/vim-unite-issue'
+Plug 'joker1007/unite-pull-request'
+
 " Vim Look And Feel: {{{2
 
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
@@ -343,11 +349,7 @@ Plug 'thinca/vim-ref'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-dispatch'
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/neomru.vim'
 Plug 'Shougo/junkfile.vim'
-Plug 'rafi/vim-unite-issue'
-Plug 'joker1007/unite-pull-request'
 Plug 'tpope/vim-speeddating'
 Plug 'christoomey/vim-system-copy'
 Plug 'junegunn/vader.vim'
