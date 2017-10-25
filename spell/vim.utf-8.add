@@ -91,3 +91,5 @@ vimrc
 pullreq
 nnoremap
 worktree
+deoplete
+PR's
