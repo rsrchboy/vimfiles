@@ -541,16 +541,6 @@ endif
 
 " }}}3
 
-" Gerrit Integration: ...maybe we can make life easier {{{2
-
-" Author appears to have removed; we can resurrect if necessary
-" Plug 'stargrave/gerrvim', { 'on': [] }
-
-" As to here, may as well comment it out as we're not using it anymore
-" if has('python')
-"     Plug 'itissid/gv', { 'on': ['GvShowChanges','GvShowStatus'] }
-" endif
-
 " TweetVim: {{{2
 
 Plug 'basyura/twibill.vim'
