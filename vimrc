@@ -59,13 +59,6 @@ nmap gA <Plug>(EasyAlign)
 
 Plug 'junegunn/vim-easy-align', { 'on': [ '<Plug>(EasyAlign)', 'EasyAlign' ] }
 
-" Vim Indent Guides: no more counting up for matching! {{{3
-
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size  = 1
-
-Plug 'nathanaelkane/vim-indent-guides', { 'on': [ 'IndentGuidesEnable', 'IndentGuidesToggle' ] }
-
 " Tabular: {{{3
 
 Plug 'godlygeek/tabular', {
