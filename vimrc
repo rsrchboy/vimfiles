@@ -1236,16 +1236,6 @@ Plug 'RsrchBoy/vim-jira-open', {'on': []}
 
 
 " Unmanaged Plugins: {{{1
-" Grrrit: gerrit interface... ish {{{2
-
-" still in development
-
-if filereadable(expand("~/work/vim/vim-grrrit/README.md"))
-    Plug '~/work/vim/vim-grrrit', { 'on': 'GrrritChanges' }
-else
-    Plug 'RsrchBoy/vim-grrrit', { 'on': 'GrrritChanges' }
-endif
-
 " Linode: access to Linode's api {{{2
 
 if has('perl')
