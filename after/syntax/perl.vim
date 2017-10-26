@@ -14,6 +14,9 @@ if !has_key(g:, 'mm_loaded')
     syntax region perlHereDocSQL start=+<<['"]SQL['"].*;\s*$+ matchgroup=perlStringStartEnd end=+^SQL$+ contains=@SQL
     " indented!  req v5.26
     syntax region perlHereDocSQL start=/<<\~['"]SQL['"].*;\s*$/ matchgroup=perlStringStartEnd end=/^\s*SQL$/ contains=@SQL
+
+    " Helps the heredoc be recognized regardless of where it's initiated
+    syn cluster perlExpr add=perlHereDocSQL
 endif
 
 " I like to do shift->this->that->[1]->{...} sometimes.
