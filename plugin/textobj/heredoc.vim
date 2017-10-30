@@ -18,7 +18,7 @@ let g:loaded_textobj_heredocs = 1
             " \   },
             " \})
 
-let s:sql_start = '<<\~\?\([''"]\?\)SQL[''"]\?'
+let s:sql_start = '<<\~\?\([''"]\?\)SQL\1\?'
 let s:sql_end   = '^\s*SQL$'
 
 function! CurrentLineA()
