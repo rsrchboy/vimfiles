@@ -18,8 +18,8 @@ let g:loaded_textobj_heredocs = 1
             " \   },
             " \})
 
-let s:sql_start = '<<\~\?\([''"]\?\)SQL\1\?'
-let s:sql_end   = '^\s*SQL$'
+" second submatch is the token; e.g. 'EOF' or 'SQL'
+let s:heredoc_start = '<<\~\?\([''"]\?\)\(\u\+\)\1\?'
 
 function! CurrentLineA()
     return s:FindBlock(0)
@@ -34,10 +34,18 @@ function! s:FindBlock(offset) abort
 
     " TODO handle failure modes...?
 
+    let l:start_line = search(s:heredoc_start, 'bcn', 1)
+    if !l:start_line
+        return 0
+    endif
+
+    let l:token = substitute(getline(l:start_line), '^.*'.s:heredoc_start.'.*$', '\=submatch(2)', '')
+    echom 'token is: ' . l:token
+
     " Never select the first line, as it's liable to have a bunch of other
     " gunk on it
-    let l:start_line = search(s:sql_start, 'bcn', 1) + 1
-    let l:end_line   = search(s:sql_end, 'cnW') - a:offset
+    let l:start_line += 1
+    let l:end_line    = search('^\s*'.l:token.'$', 'cnW') - a:offset
 
     return [ 'V', [0, l:start_line, 0], [0, l:end_line, 0] ]
 endfunction
