@@ -28,6 +28,7 @@ HP's
 IPv4
 Innie
 JSON
+Kean
 Knop
 Kubernetes
 LXC
@@ -71,9 +72,12 @@ VPN
 Vagrantfile
 VirtualBox
 Voltron
+Voose
 Weyl
 Winona
+Workflow
 X11
+XFS
 ZOMG
 accessor
 accretes
@@ -95,6 +99,7 @@ etc
 fallback
 filetype
 ftw
+gists
 github
 grep
 hardcoded
@@ -148,7 +153,3 @@ undef
 virtualization
 wiki
 wlan0
-Voose
-XFS
-Kean
-gists
