@@ -1067,6 +1067,7 @@ Plug 'kana/vim-textobj-diff'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-entire'
 Plug 'glts/vim-textobj-comment'
+call s:MaybeLocalPlugin('vim-textobj-heredocs')
 Plug 'reedes/vim-textobj-quote'
 Plug 'kana/vim-textobj-line'
 " Plug 'Julian/vim-textobj-brace'
