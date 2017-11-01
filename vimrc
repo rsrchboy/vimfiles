@@ -1058,6 +1058,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'rsrchboy/mojo.vim'
 Plug 'exu/pgsql.vim'
 Plug 'andrewstuart/vim-kubernetes'
+Plug 'tpope/vim-afterimage'
 
 " Text Objects: {{{1
 " See also https://github.com/kana/vim-textobj-user/wiki
