@@ -6,6 +6,7 @@ cache/
 node_modules/
 perl5/
 Session.vim
+Sessionx.vim
 plugged
 *.add.spl
 *~
