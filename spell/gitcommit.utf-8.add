@@ -96,6 +96,7 @@ STDERR
 STDIN
 SWEETKID
 Schwartzian
+Sessionx
 SharedFork
 Smoosh
 TOBYINK
@@ -123,6 +124,7 @@ Zilla
 anacron
 ansible
 athena
+attribute's
 augroup
 auth
 authordeps
@@ -160,6 +162,8 @@ gpg
 gpgSign
 gz
 hadolint
+heredoc
+heredocs
 hostname
 https
 iff
@@ -203,6 +207,7 @@ scriptlet
 scriptlets
 smooshed
 stdlib
+subclassed
 submodules
 subtest
 subtree
@@ -227,5 +232,3 @@ worktree
 www
 zsh
 zshrc
-Sessionx
-attribute's

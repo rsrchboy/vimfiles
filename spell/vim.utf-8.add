@@ -93,3 +93,6 @@ nnoremap
 worktree
 deoplete
 PR's
+eep
+quickfix
+MOPquery
