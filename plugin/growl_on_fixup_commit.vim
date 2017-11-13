@@ -60,4 +60,4 @@ endif
 " something arcane happens here.
 let &cpo = s:save_cpo
 
-" /* vim: set foldmethod=marker foldlevel=1 : */
+" vim: set foldmethod=marker foldlevel=1
