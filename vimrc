@@ -1371,6 +1371,7 @@ endfunc
 nnoremap <leader>SS :call rsrchboy#ShowSurroundMappings()<CR>
 nnoremap <leader>SM :call rsrchboy#ShowBufferMappings()<CR>
 
+nnoremap <leader>GM :call rsrchboy#cheats#mappings()<CR>
 
 " Text Formatting: {{{2
 
