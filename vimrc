@@ -410,6 +410,9 @@ if has('job') && has('timers') && has('channel')
 
     Plug 'rsrchboy/ale'
 
+    " this clobbers :Glgrep
+    let g:ale_set_loclist = 0
+
     let g:ale_docker_allow                = 1
     let g:ale_perl_perl_use_docker        = 'always'
     let g:ale_perl_perlcritic_showrules   = 1
