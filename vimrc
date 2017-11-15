@@ -661,13 +661,6 @@ inoremap <silent> <C-\> <ESC>:TmuxNavigatePrevious<cr>
 
 " Terraform: {{{2
 
-" load this plugin on filename matches
-augroup vimrc-terraform
-    au!
-
-    au BufRead,BufNewFile *.tf{,state,vars} execute 'au! vimrc-terraform' | call plug#load('vim-terraform')
-augroup END
-
 Plug 'hashivim/vim-terraform', { 'for': [ 'terraform' ] }
 
 " VimWiki: {{{2
