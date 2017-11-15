@@ -393,8 +393,11 @@ Plug 'codegram/vim-codereview' ", { 'on': 'CodeReview' }
 
 function! s:MaybeLocalPlugin(name) abort
 
+    " this is getting a touch unwieldly
     if filereadable(expand('~/work/vim/' . a:name . '/.git/config'))
         Plug '~/work/vim/' . a:name
+    elseif filereadable(expand('/shared/git/vim/' . a:name . '/.git/config'))
+        Plug '/shared/git/vim/' . a:name
     else
         Plug 'rsrchboy/' . a:name
     endif
