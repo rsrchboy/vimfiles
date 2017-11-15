@@ -1054,7 +1054,7 @@ Plug 'cespare/vim-toml'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fmoralesc/vim-pinpoint'
 Plug 'vim-scripts/gtk-vim-syntax'
-Plug 'chikamichi/mediawiki.vim'
+Plug 'chikamichi/mediawiki.vim', { 'for': 'mediawiki' }
 Plug 'easymotion/vim-easymotion'
 Plug 'rsrchboy/mojo.vim'
 Plug 'exu/pgsql.vim'
