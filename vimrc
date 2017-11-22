@@ -1317,6 +1317,13 @@ set noswapfile
 
 let g:maplocalleader = ','
 
+
+if has('persistent_undo')
+    set undofile
+    set undodir=~/.config/vim/tmp/undo//
+endif
+
+
 " terminal bits: {{{2
 
 " initial hackery to let us set terminal titles!
