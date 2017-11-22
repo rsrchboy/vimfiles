@@ -1102,6 +1102,24 @@ let g:solarized_termtrans = 1
 
 Plug 'altercation/vim-colors-solarized'
 
+" Molokai: {{{2
+
+Plug 'tomasr/molokai'
+
+augroup vimrc#molokai
+    au!
+
+    " force background to black
+    au ColorScheme molokai
+                \ hi Normal                            ctermbg=none             |
+                \ hi SignColumn                        ctermbg=none             |
+                \ hi LineNr                            ctermbg=none             |
+                \ highlight DiffAdd         cterm=bold ctermbg=none ctermfg=119 |
+                \ highlight DiffDelete      cterm=bold ctermbg=none ctermfg=167 |
+                \ highlight DiffChange      cterm=bold ctermbg=none ctermfg=227
+augroup END
+
+
 " }}}2
 
 " Trial Bundles: maybe, maybe not! {{{1
