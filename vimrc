@@ -52,6 +52,12 @@ nnoremap <C-P> :Files<CR>
 
 " Alignment: {{{2
 
+" SplitJoin: {{{3
+
+let g:splitjoin_trailing_comma = 1
+
+Plug 'AndrewRadev/splitjoin.vim'
+
 " EasyAlign: {{{3
 
 xmap gA <Plug>(EasyAlign)
@@ -344,7 +350,6 @@ Plug 'tpope/vim-speeddating'
 Plug 'christoomey/vim-system-copy'
 Plug 'junegunn/vader.vim'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'AndrewRadev/splitjoin.vim'
 
 " Libraries: library plugins/bundles {{{1
 " TLib: {{{2
