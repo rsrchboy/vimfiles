@@ -1526,21 +1526,13 @@ augroup end
 " }}}2
 
 " APPEARANCE: colors, themes, etc {{{1
-" Syntax AutoCommands: {{{2
+" Syntax And ColorScheme AutoCommands: {{{2
 
-augroup vimrc-syntax
-    au!
-    au Syntax * :hi SpecialKey ctermfg=darkgrey
-augroup end
-
-" colorscheme autocmds {{{2
-
-augroup vimrc-colorscheme
+augroup vimrc#syntax
     au!
 
-    au ColorScheme zenburn   source ~/.vim/local/colors/zenburn.vim
-    au ColorScheme solarized source ~/.vim/local/colors/solarized.vim
-
+    au Syntax      * :hi SpecialKey ctermfg=darkgrey
+    au ColorScheme * execute ':runtime! after/colors/'.expand('<amatch>').".vim"
 augroup end
 
 " }}}2

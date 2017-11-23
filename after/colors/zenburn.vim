@@ -7,6 +7,8 @@
 
 " TODO: submit as a PR/patch to Zenburn
 
+echom 'sourced zenburn after colors'
+
 hi SignColumn        ctermbg=233
 hi SignifySignAdd    ctermbg=233   cterm=bold ctermfg=119
 hi SignifySignDelete ctermbg=233   cterm=bold ctermfg=167
