@@ -1088,6 +1088,10 @@ Plug 'spacewander/vim-textobj-lua',      { 'for': 'lua'  }
 Plug 'akiyan/vim-textobj-php',           { 'for': 'php'  }
 
 " ColorSchemes: {{{1
+
+Plug 'flazz/vim-colorschemes'
+Plug 'Reewr/vim-monokai-phoenix'
+
 " ZenBurn: {{{2
 
 let g:zenburn_high_Contrast = 1
