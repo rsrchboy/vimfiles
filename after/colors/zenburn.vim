@@ -5,9 +5,13 @@
 " zenburn: https://github.com/jnurmine/Zenburn
 " signify: https://github.com/mhinz/vim-signify
 
+" vim-signify
 hi SignifySignAdd    term=NONE cterm=NONE ctermfg=119 gui=NONE guibg=Black guifg=LightGreen
 hi SignifySignDelete term=NONE cterm=NONE ctermfg=167 gui=NONE guibg=Black guifg=LightRed
 hi SignifySignChange term=NONE cterm=NONE ctermfg=227 gui=NONE guibg=Black guifg=Orange
+
+" vim-diminactive
+hi ColorColumn guibg=#555555
 
 hi Normal               guibg=Black ctermbg=none
 hi SignColumn           guibg=Black ctermbg=none
