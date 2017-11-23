@@ -5,27 +5,18 @@
 " zenburn: https://github.com/jnurmine/Zenburn
 " signify: https://github.com/mhinz/vim-signify
 
-" TODO: submit as a PR/patch to Zenburn
+hi SignifySignAdd    term=NONE cterm=NONE ctermfg=119 gui=NONE guibg=Black guifg=LightGreen
+hi SignifySignDelete term=NONE cterm=NONE ctermfg=167 gui=NONE guibg=Black guifg=LightRed
+hi SignifySignChange term=NONE cterm=NONE ctermfg=227 gui=NONE guibg=Black guifg=Orange
 
-echom 'sourced zenburn after colors'
+hi Normal               guibg=Black ctermbg=none
+hi SignColumn           guibg=Black ctermbg=none
+hi LineNr               guibg=Black ctermbg=none
+hi CursorLineNr         guibg=Black ctermbg=none
+hi FoldColumn           guibg=Black ctermbg=none
+hi Folded               guibg=Black ctermbg=none
+hi TabLineFill          guibg=Black ctermbg=none gitfg=Black
+hi TabLine              guibg=Black ctermbg=none
+hi TabLineSel           guibg=Black ctermbg=none
 
-hi SignColumn        ctermbg=233
-hi SignifySignAdd    ctermbg=233   cterm=bold ctermfg=119
-hi SignifySignDelete ctermbg=233   cterm=bold ctermfg=167
-hi SignifySignChange ctermbg=233   cterm=bold ctermfg=227
-
-if exists("g:zenburn_transparent") && g:zenburn_transparent
-
-    " our tweaks, plus transparent overrides
-    hi SignColumn        ctermbg=NONE
-    hi SignifySignAdd    ctermbg=NONE
-    hi SignifySignDelete ctermbg=NONE
-    hi SignifySignChange ctermbg=NONE
-
-    hi Normal     ctermbg=NONE
-    hi FoldColumn ctermbg=NONE
-    hi Folded     ctermbg=NONE
-end
-
-hi diffAdded   cterm=bold ctermfg=106
-hi diffRemoved cterm=bold ctermfg=160
+" __END__
