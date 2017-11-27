@@ -1361,6 +1361,22 @@ if exists('$TMUX') && empty($TMUX)
     " set titlestring=%{rsrchboy#termtitle()}
 endif
 
+" Appearance: colors, themes, etc {{{2
+
+augroup vimrc#syntax
+    au!
+
+    au Syntax      * :hi SpecialKey ctermfg=darkgrey
+    au ColorScheme * execute ':runtime! after/colors/'.expand('<amatch>').".vim"
+augroup end
+
+if has('termguicolors')
+    set termguicolors
+endif
+
+colorscheme zenburn
+syntax on
+
 " folding {{{2
 
 " Start our folding at level 1, but after that enforce at a high enough level
@@ -1524,20 +1540,6 @@ augroup vimrc-filetype
 augroup end
 
 " }}}2
-
-" APPEARANCE: colors, themes, etc {{{1
-" Syntax And ColorScheme AutoCommands: {{{2
-
-augroup vimrc#syntax
-    au!
-
-    au Syntax      * :hi SpecialKey ctermfg=darkgrey
-    au ColorScheme * execute ':runtime! after/colors/'.expand('<amatch>').".vim"
-augroup end
-
-" }}}2
-colorscheme zenburn
-syntax on
 
 " Perl: Perl testing helpers {{{1
 " TODO where did I go?! {{{2
