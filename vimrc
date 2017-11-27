@@ -1290,20 +1290,12 @@ call rsrchboy#sourcecfgdir('plugins')
 call plug#end()
 
 " CONFIGURATION: global or general {{{1
-" notes {{{2
-"
-" Configuration options that impact vim itself, rather than plugin or syntax
-" settings.  (generally)
-"
-" "global" vars for use here and elsewhere {{{2
-
 " settings {{{2
 
 " set title
 set autoindent                 " Preserve current indent on new lines
 set autoread                   " reload when changed -- e.g. 'git co ...'
 set background=dark
-" set backspace=eol,start,indent
 set backspace=indent,eol,start " Make backspaces delete sensibly
 set expandtab                  " Convert all tabs typed to spaces
 set hidden
@@ -1336,9 +1328,7 @@ set nobackup                   " we're stashing everything in git, anyways
 " XXX reexamine 'noswapfile'
 set noswapfile
 
-
 let g:maplocalleader = ','
-
 
 if has('persistent_undo')
     set undofile
@@ -1386,32 +1376,6 @@ set foldlevelstart=1
 set foldlevel=10
 set foldcolumn=3
 
-" fold functions {{{2
-
-" toggle fold columns on/off, issuing a VimResized event afterwards (so things
-" can sensibly redraw themselves)
-func! ToggleFoldColumn()
-    if &foldcolumn > 0
-        setlocal foldcolumn=0
-    else
-        setlocal foldcolumn=3
-    endif
-
-    doau VimResized
-endfunc
-
-func! FoldOnLeadingPounds(lnum)
-    let l:l0 = getline(a:lnum)
-
-    if l:l0 =~ '^##'
-        return '>'.(matchend(getline(v:lnum),'^#\+')-1)
-    elseif l:l0 =~ '^#='
-        return '>0'
-    endif
-
-    return '='
-endfunc
-
 "}}}2
 
 " Mappings: {{{1
@@ -1433,7 +1397,6 @@ nnoremap <leader>GM :call rsrchboy#cheats#mappings()<CR>
 set pastetoggle=<F2>
 
 " Normal Mode Mappings: {{{2
-nmap <Leader>fc :call ToggleFoldColumn()<CR>
 
 " this is somewhat irksome
 nmap <silent> <Leader>ft :filetype detect<CR>
