@@ -19,7 +19,7 @@ hi LineNr               guibg=Black ctermbg=none
 hi CursorLineNr         guibg=Black ctermbg=none
 hi FoldColumn           guibg=Black ctermbg=none
 hi Folded               guibg=Black ctermbg=none
-hi TabLineFill          guibg=Black ctermbg=none gitfg=Black
+hi TabLineFill          guibg=Black ctermbg=none guifg=Black
 hi TabLine              guibg=Black ctermbg=none
 hi TabLineSel           guibg=Black ctermbg=none
 
