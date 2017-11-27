@@ -1297,7 +1297,6 @@ call plug#end()
 " CONFIGURATION: global or general {{{1
 " settings {{{2
 
-" set title
 set autoindent                 " Preserve current indent on new lines
 set autoread                   " reload when changed -- e.g. 'git co ...'
 set background=dark
@@ -1332,6 +1331,13 @@ set whichwrap+=<,>,h,l
 set nobackup                   " we're stashing everything in git, anyways
 " XXX reexamine 'noswapfile'
 set noswapfile
+" Start our folding at level 1, but after that enforce at a high enough level
+" that we shouldn't discover our current position has been folded away after
+" switching windows
+set foldlevelstart=1
+set foldlevel=10
+set foldcolumn=3
+
 
 let g:maplocalleader = ','
 
@@ -1371,15 +1377,6 @@ endif
 
 colorscheme zenburn
 syntax on
-
-" folding {{{2
-
-" Start our folding at level 1, but after that enforce at a high enough level
-" that we shouldn't discover our current position has been folded away after
-" switching windows
-set foldlevelstart=1
-set foldlevel=10
-set foldcolumn=3
 
 "}}}2
 
