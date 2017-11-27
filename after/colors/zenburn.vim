@@ -5,6 +5,11 @@
 " zenburn: https://github.com/jnurmine/Zenburn
 " signify: https://github.com/mhinz/vim-signify
 
+" base changes
+hi DiffAdd         cterm=bold ctermbg=none ctermfg=119
+hi DiffDelete      cterm=bold ctermbg=none ctermfg=167
+hi DiffChange      cterm=bold ctermbg=none ctermfg=227
+
 " vim-signify
 hi SignifySignAdd    term=NONE cterm=NONE ctermfg=119 gui=NONE guibg=Black guifg=LightGreen
 hi SignifySignDelete term=NONE cterm=NONE ctermfg=167 gui=NONE guibg=Black guifg=LightRed
