@@ -183,6 +183,7 @@ function! rsrchboy#buffer#SetSpellOpts(filetype) abort
     setlocal spelllang=en_us
     setlocal spellcapcheck=0
     execute 'setlocal spellfile+=~/.vim/spell/' . a:filetype . '.utf-8.add'
+    execute 'setlocal spellfile+=~/.vim/spell/USERIDS.utf-8.add'
 endfunction
 
 
