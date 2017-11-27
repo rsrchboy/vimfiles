@@ -48,6 +48,11 @@ Plug 'junegunn/fzf.vim'
 
 nnoremap <C-P> :Files<CR>
 
+augroup vimrc#fzf
+    au!
+    au User Fugitive nnoremap <buffer> <C-P> :GFiles<CR>
+augroup END
+
 " }}}3
 
 " Alignment: {{{2
