@@ -6,9 +6,13 @@
 " signify: https://github.com/mhinz/vim-signify
 
 " base changes
-hi DiffAdd         cterm=bold ctermbg=none ctermfg=119
-hi DiffDelete      cterm=bold ctermbg=none ctermfg=167
-hi DiffChange      cterm=bold ctermbg=none ctermfg=227
+hi DiffAdd         cterm=bold ctermbg=none ctermfg=119 gui=NONE guibg=Black guifg=LightGreen
+hi DiffDelete      cterm=bold ctermbg=none ctermfg=167 gui=NONE guibg=Black guifg=LightRed
+hi DiffChange      cterm=bold ctermbg=none ctermfg=227 gui=NONE guibg=Black guifg=Orange
+" hi NonText          term=bold ctermfg=238 gui=bold guifg=#404040
+" hi NonText          guibg=Black
+" au Syntax      * :hi SpecialKey ctermfg=darkgrey
+hi SpecialKey        guibg=Black guifg=DarkGrey
 
 " vim-signify
 hi SignifySignAdd    term=NONE cterm=NONE ctermfg=119 gui=NONE guibg=Black guifg=LightGreen
