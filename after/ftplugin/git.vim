@@ -13,8 +13,9 @@ let b:undo_ftplugin .= ' | unlet b:did_ftplugin_rsrchboy'
 
 let s:tools = g:rsrchboy#buffer#tools
 
-let b:undo_ftplugin .= ' | setl foldcolumn<'
+let b:undo_ftplugin .= '| setl foldcolumn< includeexpr<'
 setlocal foldcolumn=0
+setlocal includeexpr=fugitive#repo().translate(v:fname)
 
 " match both 'normal' and worktree indices
 if @% =~# '\.git/index$' || @% =~# '\.git/worktrees/.*/index$'
