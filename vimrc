@@ -1082,6 +1082,7 @@ Plug 'glts/vim-textobj-comment'
 call s:MaybeLocalPlugin('vim-textobj-heredocs')
 Plug 'reedes/vim-textobj-quote'
 Plug 'kana/vim-textobj-line'
+Plug 'rhysd/vim-textobj-conflict'
 " Plug 'Julian/vim-textobj-brace'
 Plug 'Julian/vim-textobj-variable-segment'
 Plug 'lucapette/vim-textobj-underscore'
