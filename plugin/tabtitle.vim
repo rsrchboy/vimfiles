@@ -6,22 +6,9 @@ endif
 let g:loaded_tabtitle = 1
 
 
-" Section: todo! {{{1
-"
-" * handle tab titles for 'notes' and 'vimwiki'
-" * correct title for a new tab opened into a directory buffer
-" * 
-"
-"
-
-
-" }}}1
-
-
 " function! MyTabLine()
 "     let l:s = ''
 "     let l:s .= '%#TabLine#'
-
 "     let l:s .= '%<'
 "     let l:s .= '%(%{fnamemodify(getcwd(), ":~")} %)'
 "     if (exists('*fugitive#buffer'))
@@ -29,13 +16,12 @@ let g:loaded_tabtitle = 1
 "     endif
 "     let l:s .= '%='
 "     let l:s .= '%([%{tabpagenr("$") > 1 ? tabpagenr()."/".tabpagenr("$") : ""}]%)'
-
 "     return l:s
 " endfunction
 
 
 
-function! MyTabLabel(n)
+fun! MyTabLabel(n) abort
 
     let l:buflist = tabpagebuflist(a:n)
     let l:winnr = tabpagewinnr(a:n)
@@ -45,9 +31,9 @@ function! MyTabLabel(n)
     " let l:winnr = tabpagewinnr(a:n)
     " return bufname(l:buflist[l:winnr - 1])
 
-endfunction
+endfun
 
-function! MyTabLine()
+fun! MyTabLine() abort
     let l:s = ''
     for l:i in range(tabpagenr('$'))
         " select the highlighting
@@ -75,18 +61,18 @@ function! MyTabLine()
     endif
 
     return l:s
-endfunction
+endfun
 
 set tabline=%!MyTabLine()
 
-function! TabPageTitle(git_dir)
+fun! TabPageTitle(git_dir) abort
 
     " let l:title = fnamemodify('
 
-endfunction
+endfun
 
-function! MyPickTabPageTitleGit()
-    if exists('t:git_dir')
+fun! MyPickTabPageTitleGit() abort
+    if exists('t:tab_page_title')
         return
     endif
 
@@ -101,12 +87,14 @@ function! MyPickTabPageTitleGit()
         let t:tab_page_title .= '('.fnamemodify(t:git_workdir, ':t').')'
     endif
 
-endfunction
+    return
+endfun
 
-" transition
-augroup hmmm
-    au!
-augroup END
+fun! MyResetTabTitle() abort
+    silent! unlet t:tab_page_title t:git_dir t:git_commondir t:git_workdir
+    call MyPickTabPageTitleGit()
+    return
+endfun
 
 augroup tabtitle
     au!
@@ -114,7 +102,9 @@ augroup tabtitle
     au User Fugitive silent! call MyPickTabPageTitleGit()
     au TabEnter * if !exists('t:tab_page_title') | let t:tab_page_title = 'No repository!' | endif
     au TabNew * if !exists('t:tab_page_title') | let t:tab_page_title = 'No repository!' | endif
-    " au BufAdd *
+    " au BufAdd * something magic that moves buffer to tab based on git workdir
 augroup END
 
-command! TabTitleReset silent! unlet t:git_dir | call MyPickTabPageTitleGit()
+command! TabTitleReset silent! call MyResetTabTitle()
+
+" __END__
