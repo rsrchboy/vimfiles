@@ -6,9 +6,12 @@
 " signify: https://github.com/mhinz/vim-signify
 
 " base changes
-hi DiffAdd         cterm=bold ctermbg=none ctermfg=119 gui=NONE guibg=Black guifg=LightGreen
-hi DiffDelete      cterm=bold ctermbg=none ctermfg=167 gui=NONE guibg=Black guifg=LightRed
-hi DiffChange      cterm=bold ctermbg=none ctermfg=227 gui=NONE guibg=Black guifg=Orange
+hi DiffAdd         cterm=bold ctermbg=none ctermfg=119 term=NONE guibg=Black guifg=LightGreen
+hi DiffDelete      cterm=bold ctermbg=none ctermfg=167 term=NONE guibg=Black guifg=LightRed
+hi DiffChange      cterm=bold ctermbg=none ctermfg=227 term=NONE guibg=Black guifg=Orange
+hi diffAdded       cterm=none ctermbg=none ctermfg=119 term=NONE guibg=Black guifg=LightGreen
+hi diffRemoved     cterm=none ctermbg=none ctermfg=167 term=NONE guibg=Black guifg=LightRed
+" hi DiffChange      cterm=bold ctermbg=none ctermfg=227 gui=NONE guibg=Black guifg=Orange
 hi Ignore                                                                   guifg=#303030
 " hi NonText          term=bold ctermfg=238 gui=bold guifg=#404040
 " hi NonText          guibg=Black
