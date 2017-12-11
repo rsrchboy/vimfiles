@@ -48,14 +48,14 @@ endfun
 
 set tabline=%!MyTabLine()
 
-fun! TabPageTitle(git_dir) abort
+fun! TabPageTitle(git_dir)
 
     " let l:title = fnamemodify('
 
 endfun
 
-fun! MyPickTabPageTitleGit() abort
-    if exists('t:tab_page_title')
+fun! MyPickTabPageTitleGit()
+    if exists('t:git_dir')
         return
     endif
 
