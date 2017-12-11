@@ -5,24 +5,7 @@ if exists('g:loaded_tabtitle')
 endif
 let g:loaded_tabtitle = 1
 
-
-" function! MyTabLine()
-"     let l:s = ''
-"     let l:s .= '%#TabLine#'
-"     let l:s .= '%<'
-"     let l:s .= '%(%{fnamemodify(getcwd(), ":~")} %)'
-"     if (exists('*fugitive#buffer'))
-"         let l:s .= '%(⌥ %{exists("b:git_dir")?fugitive#head(7):""} %)'
-"     endif
-"     let l:s .= '%='
-"     let l:s .= '%([%{tabpagenr("$") > 1 ? tabpagenr()."/".tabpagenr("$") : ""}]%)'
-"     return l:s
-" endfunction
-
-
-
 fun! MyTabLabel(n) abort
-
     let l:buflist = tabpagebuflist(a:n)
     let l:winnr = tabpagewinnr(a:n)
     return fnamemodify(bufname(l:buflist[l:winnr - 1]), ':~')
