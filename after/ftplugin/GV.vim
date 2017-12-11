@@ -4,6 +4,8 @@ endif
 let b:did_ftplugin_rsrchboy = 1
 let b:undo_ftplugin = ( exists('b:undo_ftplugin') ? b:undo_ftplugin . '| ' : '' ) . 'unlet b:did_ftplugin_rsrchboy'
 
+let t:tab_page_title = 'GV: ' . t:tab_page_title
+
 let s:tools = g:rsrchboy#buffer#tools
 
 " Section: mappings {{{1
