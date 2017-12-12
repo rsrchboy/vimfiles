@@ -926,6 +926,8 @@ Plug 'RsrchBoy/vim-perl', { 'branch': 'active' }
 " }}}2
 Plug 'LStinson/perlhelp-vim', { 'on': ['PerlHelp', 'PerlMod'] }
 Plug 'vim-scripts/log4perl.vim'
+call s:MaybeLocalPlugin('vim-ducttape')
+call s:MaybeLocalPlugin('vim-embedded-perl')
 
 " General Syntax And Filetype Plugins: bundles {{{1
 " GnuPG: transparently work with encrypted files {{{2
@@ -1270,10 +1272,7 @@ if has('perl')
     perl push @INC, VIM::Eval('g:plug_home') . '/WebService-Linode/lib'
     call s:MaybeLocalPlugin('vim-linode')
 
-    call s:MaybeLocalPlugin('vim-embedded-perl')
 endif
-
-call s:MaybeLocalPlugin('vim-ducttape')
 
 " }}}2
 
