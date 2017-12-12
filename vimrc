@@ -1067,7 +1067,7 @@ Plug 'vim-scripts/gtk-vim-syntax'
 Plug 'chikamichi/mediawiki.vim', { 'for': 'mediawiki' }
 Plug 'easymotion/vim-easymotion'
 Plug 'rsrchboy/mojo.vim'
-Plug 'exu/pgsql.vim'
+Plug 'lifepillar/pgsql.vim'
 Plug 'andrewstuart/vim-kubernetes'
 Plug 'tpope/vim-afterimage'
 
