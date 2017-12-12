@@ -1102,6 +1102,7 @@ Plug 'akiyan/vim-textobj-php',           { 'for': 'php'  }
 
 Plug 'flazz/vim-colorschemes'
 Plug 'Reewr/vim-monokai-phoenix'
+Plug 'tomasr/molokai'
 
 " ZenBurn: {{{2
 
@@ -1116,24 +1117,6 @@ let g:solarized_termtrans = 1
 "let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
 
 Plug 'altercation/vim-colors-solarized'
-
-" Molokai: {{{2
-
-Plug 'tomasr/molokai'
-
-augroup vimrc#molokai
-    au!
-
-    " force background to black
-    au ColorScheme molokai
-                \ hi Normal                            ctermbg=none             |
-                \ hi SignColumn                        ctermbg=none             |
-                \ hi LineNr                            ctermbg=none             |
-                \ highlight DiffAdd         cterm=bold ctermbg=none ctermfg=119 |
-                \ highlight DiffDelete      cterm=bold ctermbg=none ctermfg=167 |
-                \ highlight DiffChange      cterm=bold ctermbg=none ctermfg=227
-augroup END
-
 
 " }}}2
 
