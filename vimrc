@@ -1087,11 +1087,16 @@ Plug 'rhysd/vim-textobj-conflict'
 Plug 'Julian/vim-textobj-variable-segment'
 Plug 'lucapette/vim-textobj-underscore'
 Plug 'kana/vim-textobj-function'
+Plug 'sgur/vim-textobj-parameter'
 " note: php/python/ruby/etc helpers exist, if we start dabbling there
 Plug 'thinca/vim-textobj-function-perl', { 'for': 'perl' }
 Plug 'vimtaku/vim-textobj-sigil',        { 'for': 'perl' }
 Plug 'spacewander/vim-textobj-lua',      { 'for': 'lua'  }
 Plug 'akiyan/vim-textobj-php',           { 'for': 'php'  }
+" Plug 'kana/vim-textobj-help',          { 'for': 'help' }
+" Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
+
+" }}}2
 
 " ColorSchemes: {{{1
 
