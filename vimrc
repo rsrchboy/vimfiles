@@ -13,6 +13,19 @@ scriptencoding utf-8
 " Plugins: ;) {{{1
 call plug#begin()
 
+function! s:MaybeLocalPlugin(name) abort " {{{2
+
+    " this is getting a touch unwieldly
+    if filereadable(expand('~/work/vim/' . a:name . '/.git/config'))
+        Plug '~/work/vim/' . a:name
+    elseif filereadable(expand('/shared/git/vim/' . a:name . '/.git/config'))
+        Plug '/shared/git/vim/' . a:name
+    else
+        Plug 'rsrchboy/' . a:name
+    endif
+
+endfunction
+
 " General Bundles: {{{2
 " Buffers And Tabs And Files Oh My: {{{3
 
@@ -398,23 +411,6 @@ Plug 'codegram/vim-codereview' ", { 'on': 'CodeReview' }
 
 " NOTE this basically requires either vim8 or neovim; vim 7.4 etc aren't
 " *that* old, so we'll include some checks...
-
-" Function: s:MaybeLocalPlugin {{{3
-
-function! s:MaybeLocalPlugin(name) abort
-
-    " this is getting a touch unwieldly
-    if filereadable(expand('~/work/vim/' . a:name . '/.git/config'))
-        Plug '~/work/vim/' . a:name
-    elseif filereadable(expand('/shared/git/vim/' . a:name . '/.git/config'))
-        Plug '/shared/git/vim/' . a:name
-    else
-        Plug 'rsrchboy/' . a:name
-    endif
-
-endfunction
-
-" }}}3
 
 if has('job') && has('timers') && has('channel')
 
