@@ -34,10 +34,12 @@ SignifySignAdd
 SignifySignChange
 SignifySignDelete
 VimEnter
+VimL
 Voose
 abuf
 amatch
 autocmd
+autoloaded
 b
 baz
 bufwinnr
@@ -95,6 +97,7 @@ prettification
 prooooooobably
 proselint
 pullreq
+qf
 qq
 quickfix
 qw
@@ -115,6 +118,3 @@ vint
 wiki
 worktree
 zenburn
-vimfiles
-autoloaded
-VimL
