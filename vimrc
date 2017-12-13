@@ -907,6 +907,7 @@ Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'rhysd/conflict-marker.vim'
 Plug 'gisphm/vim-gitignore'
 Plug 'rhysd/committia.vim'
+Plug 'hotwatermorning/auto-git-diff'
 
 " Perl Bundles: {{{2
 " Perl: main vim-perl plugin {{{3
