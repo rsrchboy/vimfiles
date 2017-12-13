@@ -906,6 +906,7 @@ Plug 'tpope/vim-git'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'rhysd/conflict-marker.vim'
 Plug 'gisphm/vim-gitignore'
+Plug 'rhysd/committia.vim'
 
 " Perl Bundles: {{{2
 " Perl: main vim-perl plugin {{{3
