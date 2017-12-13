@@ -18,6 +18,8 @@ function! s:MaybeLocalPlugin(name) abort " {{{2
     " this is getting a touch unwieldly
     if filereadable(expand('~/work/vim/' . a:name . '/.git/config'))
         Plug '~/work/vim/' . a:name
+    elseif filereadable(expand('~/work/vim/' . a:name . '/.git')) " worktree
+        Plug '~/work/vim/' . a:name
     elseif filereadable(expand('/shared/git/vim/' . a:name . '/.git/config'))
         Plug '/shared/git/vim/' . a:name
     else
