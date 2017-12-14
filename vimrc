@@ -165,7 +165,7 @@ Plug 'jszakmeister/vim-togglecursor'
 
 " BetterWhitespace: {{{4
 
-let g:better_whitespace_filetypes_blacklist = [ 'git', 'mail', 'help', 'startify' ]
+let g:better_whitespace_filetypes_blacklist = [ 'git', 'mail', 'help', 'startify', 'diff' ]
 
 nmap <silent> ,<space> :StripWhitespace<CR>
 
