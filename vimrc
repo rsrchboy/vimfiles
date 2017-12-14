@@ -28,38 +28,33 @@ function! s:MaybeLocalPlugin(name) abort " {{{2
 
 endfunction
 
-" General Bundles: {{{2
-" Buffers And Tabs And Files Oh My: {{{3
+" Plugins: general bundles: {{{2
+Plug 'jeetsukumaran/vim-buffergator', " {{{3
+            \ { 'on': 'BuffergatorOpen' }
 
-Plug 'jeetsukumaran/vim-buffergator', { 'on': 'BuffergatorOpen' }
+Plug 'kien/tabman.vim', " {{{3
+            \ { 'on': [ 'TMToggle', 'TMFocus' ] }
 
-" TabMan: {{{4
-
-" Settings: {{{5
+" Settings: {{{4
 
 let g:tabman_toggle = '<leader>mt'
 let g:tabman_focus  = '<leader>mf'
 
-" AutoLoad: {{{5
+" AutoLoad: {{{4
 " load, then run.  this mapping will be overwritten on plugin load
 execute "nnoremap <silent> " . g:tabman_toggle . " :call plug#load('tabman.vim') <bar> TMToggle<CR>"
 execute "nnoremap <silent> " . g:tabman_focus  . " :call plug#load('tabman.vim') <bar> TMFocus<CR>"
 
-" }}}5
+" }}}4
 
-Plug 'kien/tabman.vim', { 'on': [ 'TMToggle', 'TMFocus' ] }
-
-" BufExplorer: {{{4
+Plug 'jlanzarotta/bufexplorer' " {{{3
 
 let g:bufExplorerShowRelativePath = 1
 let g:bufExplorerShowTabBuffer    = 1
 
-Plug 'jlanzarotta/bufexplorer'
-
-" FuzzyFinder: {{{4
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', " {{{3
+            \ { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim' " {{{3
 
 nnoremap <C-P> :Files<CR>
 
@@ -68,26 +63,18 @@ augroup vimrc#fzf
     au User Fugitive nnoremap <buffer> <C-P> :GFiles<CR>
 augroup END
 
-" }}}4
-
-" Alignment: {{{3
-
-" SplitJoin: {{{4
+Plug 'AndrewRadev/splitjoin.vim' " {{{3
 
 let g:splitjoin_trailing_comma = 1
 
-Plug 'AndrewRadev/splitjoin.vim'
-
-" EasyAlign: {{{4
+Plug 'junegunn/vim-easy-align', " {{{3
+            \ { 'on': [ '<Plug>(EasyAlign)', 'EasyAlign' ] }
 
 xmap gA <Plug>(EasyAlign)
 nmap gA <Plug>(EasyAlign)
 
-Plug 'junegunn/vim-easy-align', { 'on': [ '<Plug>(EasyAlign)', 'EasyAlign' ] }
-
-" Tabular: {{{4
-
-Plug 'godlygeek/tabular', {
+Plug 'godlygeek/tabular', " {{{3
+            \ {
             \   'on': [
             \       'Tabularize',
             \       'AddTabularPattern',
@@ -95,7 +82,7 @@ Plug 'godlygeek/tabular', {
             \   ],
             \}
 
-" Mappings: {{{5
+" Mappings: {{{4
 
 nnoremap <silent> ,= :Tabularize first_fat_comma<CR>
 nnoremap <silent> ,- :Tabularize first_equals<CR>
@@ -105,7 +92,7 @@ nnoremap <silent> ,}  :Tabularize /}/l1c0<CR>
 nnoremap <silent> ,]  :Tabularize /]/l1c0<CR>
 nnoremap <silent> ,)  :Tabularize /)/l1c0<CR>
 
-" PostSource Hook: {{{5
+" PostSource Hook: {{{4
 
 augroup vimrc#tabular
     au!
@@ -122,33 +109,26 @@ function! s:PluginLoadedTabular()
     AddTabularPattern first_squiggly  /^[^{]*\zs{/l1
 endfunction
 
-" }}}5
-
 " }}}4
 
-" Follow My Lead: {{{3
+Plug 'rsrchboy/vim-follow-my-lead', " {{{3
+            \ { 'on': [ '<Plug>(FollowMyLead)', 'FMLShow' ] }
+
 
 " load, then run.  this mapping will be overwritten on plugin load
 nnoremap <silent> <leader>fml :call plug#load('vim-follow-my-lead') <bar> execute ':call FMLShow()'<CR>
 
 let g:fml_all_sources = 1
 
-Plug 'rsrchboy/vim-follow-my-lead', { 'on': [ '<Plug>(FollowMyLead)', 'FMLShow' ] }
-
-" Snippets: {{{3
+Plug 'SirVer/ultisnips' " {{{3
 
 let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
 
-Plug 'SirVer/ultisnips'
-
-" SuperTab: {{{3
+Plug 'ervandew/supertab' " {{{3
 
 " " FIXME appears to conflict with snipmate...?
 
 let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
-
-Plug 'ervandew/supertab'
-
 
 Plug 'Shougo/denite.nvim' " {{{3
 Plug 'rafi/vim-unite-issue'
@@ -158,23 +138,17 @@ Plug 'kana/vim-arpeggio' " {{{3
 
 Arpeggio inoremap jk  <Esc>
 
-" Vim Look And Feel: {{{3
+Plug 'haya14busa/incsearch.vim' " {{{3
 
 map /  <Plug>(incsearch-forward)
 
-Plug 'haya14busa/incsearch.vim'
-Plug 'jeffkreeftmeijer/vim-numbertoggle'
-Plug 'jszakmeister/vim-togglecursor'
-
-" BetterWhitespace: {{{4
+Plug 'ntpeters/vim-better-whitespace' " {{{3
 
 let g:better_whitespace_filetypes_blacklist = [ 'git', 'mail', 'help', 'startify', 'diff' ]
 
 nmap <silent> ,<space> :StripWhitespace<CR>
 
-Plug 'ntpeters/vim-better-whitespace'
-
-" NeoComplete: ...and associated bundles {{{4
+Plug 'Shougo/neoinclude.vim' " {{{3
 
 " FIXME finalize settings
 
@@ -203,8 +177,6 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 " }}}5
 
-Plug 'Shougo/neoinclude.vim'
-
 if has('python3')
   if has('nvim')
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -223,7 +195,7 @@ Plug 'c9s/perlomni.vim' " Perl
 " other complete sources
 Plug 'Shougo/neco-syntax'
 
-" Startify: nifty start screen {{{4
+Plug 'mhinz/vim-startify' " {{{3
 
 "let g:startify_bookmarks = [ '~/.vimrc' ]
 " autouse sessions with startify.  (aka be useful!)
@@ -249,13 +221,9 @@ let g:startify_skiplist = [
            \ 'bundle/.*/doc',
            \ ]
 
-Plug 'mhinz/vim-startify'
+Plug 'bling/vim-airline' " {{{3
 
-" Airline: {{{4
-
-Plug 'bling/vim-airline'
-
-" Settings: {{{5
+" Settings: {{{4
 
 let g:airline_theme = 'dark'
 
@@ -275,7 +243,7 @@ let g:airline#extensions#whitespace#mixed_indent_algo = 1
 let g:airline#extensions#tabline#ignore_bufadd_pat =
         \ '\c\vgundo|undotree|vimfiler|tagbar|nerd_tree|previewwindow|help|nofile'
 
-" Branchname Config: {{{5
+" Branchname Config: {{{4
 " if a string is provided, it should be the name of a function that
 " takes a string and returns the desired value
 let g:airline#extensions#branch#format = 'CustomBranchName'
@@ -307,7 +275,7 @@ function! CustomBranchName(name)
     return l:info
 endfunction
 
-" symbols {{{5
+" symbols {{{4
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -315,7 +283,7 @@ let g:airline_symbols.branch = '⎇ '
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
-" AutoCommands: {{{5
+" AutoCommands: {{{4
 
 augroup vimrc#airline
     au!
@@ -329,7 +297,7 @@ augroup vimrc#airline
     au User Fugitive silent! Glcd
 augroup END
 
-" PostSource Hook: {{{5
+" PostSource Hook: {{{4
 
 " FIXME: This was named incorrectly for some time; revalidate before
 " reenabling
@@ -340,18 +308,16 @@ function! s:PluginLoadedAirline()
     let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'capslock', 'tablemode', 'iminsert'])
 endfunction
 
-" }}}5
+" }}}4
 
-" DimInactive: {{{4
+Plug 'blueyed/vim-diminactive' " {{{3
 
 let g:diminactive_enable_focus = 1
 let g:diminactive_filetype_blacklist = ['startify', 'fugitiveblame']
 
-Plug 'blueyed/vim-diminactive'
-
-" }}}4
-
 " }}}3
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'jszakmeister/vim-togglecursor'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-abolish'
@@ -374,57 +340,32 @@ Plug 'christoomey/vim-system-copy'
 Plug 'junegunn/vader.vim'
 Plug 'skywind3000/asyncrun.vim'
 
-" Libraries: library plugins/bundles {{{2
-" TLib: {{{3
-
+" Plugins: library plugins/bundles {{{2
 Plug 'tomtom/tlib_vim'
-
-" Vim Misc: ...by xolox {{{3
-
 Plug 'xolox/vim-misc'
-
-" Ingo Library: {{{3"{{{"}}}
-
-" NOTE: no non-autoload viml
-
 Plug 'vim-scripts/ingo-library'
-
-" CountJump: {{{3
-
-" NOTE: no non-autoload viml
-
-" depends: ingo-library
-
 Plug 'vim-scripts/CountJump'
-
-" WebAPI: {{{3
-
 Plug 'mattn/webapi-vim'
-
-" }}}3
 Plug 'junegunn/vim-emoji'
 Plug 'Shougo/context_filetype.vim'
 Plug 'tpope/vim-repeat'
 
-" Appish Or External Interface: bundles {{{2
-" CodeRevew: pachreview, github, etc {{{3
-
+" Plugins: appish or external interface {{{2
 Plug 'junkblocker/patchreview-vim'
 Plug 'codegram/vim-codereview' ", { 'on': 'CodeReview' }
+call s:MaybeLocalPlugin('vim-voose')
+call s:MaybeLocalPlugin('vim-kale') " {{{3
 
-" ALE Or CALE: async linting {{{3
+let g:kale#verbose = 1
+
+Plug 'rsrchboy/ale' " {{{3
 
 " NOTE this basically requires either vim8 or neovim; vim 7.4 etc aren't
 " *that* old, so we'll include some checks...
 
 if has('job') && has('timers') && has('channel')
 
-    call s:MaybeLocalPlugin('vim-voose')
-    call s:MaybeLocalPlugin('vim-kale')
-
-    Plug 'rsrchboy/ale'
-
-    " this clobbers :Glgrep
+    " when enabled, this clobbers :Glgrep
     let g:ale_set_loclist = 0
 
     let g:ale_docker_allow                = 1
@@ -460,29 +401,17 @@ if has('job') && has('timers') && has('channel')
                 \   | endif
     augroup END
 endif
-
-" Travis: status {{{3
-
-if has('python')
-    Plug 'keith/travis.vim', { 'on': 'Travis' }
-endif
-
-" GithubIssues: {{{3
+Plug 'jaxbot/github-issues.vim', " {{{3
+            \ { 'on': ['Gissues', 'Gmiles', 'Giadd'] }
 
 " NOTE: don't autoload on gitcommit f/t at the moment, as this plugin either
 " does not support authenticated requests (or we don't have it configured) and
 " it's WICKED SLOW when the number of allowed requests is exceeded.
 
-if has('python')
-    " Plug 'jaxbot/github-issues.vim', { 'on': ['Gissues', 'Gmiles', 'Giadd'] }
-    Plug 'jaxbot/github-issues.vim' ", { 'on': ['Gissues', 'Gmiles', 'Giadd'] }
-endif
-
-" VimOrganizer: {{{3
-
-Plug 'hsitz/VimOrganizer', { 'for': ['org', 'vimorg-agenda-mappings', 'vimorg-main-mappings'] }
-
-" VimPipe: {{{3
+Plug 'hsitz/VimOrganizer', " {{{3
+            \ { 'for': ['org', 'vimorg-agenda-mappings', 'vimorg-main-mappings'] }
+Plug 'krisajenkins/vim-pipe', " {{{3
+            \ { 'on': [] }
 
 " Settings: {{{4
 
@@ -507,64 +436,44 @@ execute 'nnoremap <silent> ' . g:vimpipe_invoke_map . " :call plug#load('vim-pip
 
 " }}}4
 
-Plug 'krisajenkins/vim-pipe', { 'on': [] }
-
-" Notes: an alternative to vimwiki?? {{{3
+Plug 'xolox/vim-notes' " {{{3
 
 " FIXME need to figure out the significance of other files in the notes dirs
 " first
 let g:notes_directories = [ '~/Shared/notes' ]
 let g:notes_suffix = '.notes'
 
-Plug 'xolox/vim-notes'
+Plug 'vim-scripts/dbext.vim', " {{{3
+            \ { 'on': [
+            \       'DBDescribe',
+            \       'DBExec',
+            \       'DBList',
+            \       'DBPrompt',
+            \       'DBSelect',
+            \   ],
+            \}
+" TODO: disable unless we have DBI, etc, installed.
 
-" DbExt: {{{3
-
-
-if has('perl')
-
-    " TODO: disable unless we have DBI, etc, installed.
-    Plug 'vim-scripts/dbext.vim', {
-                \   'on': [
-                \       'DBDescribe',
-                \       'DBExec',
-                \       'DBList',
-                \       'DBPrompt',
-                \       'DBSelect',
-                \   ],
-                \}
-endif
-
-" GitHub Integration: {{{3
-
-" github-complete {{{4
-
-Plug 'rhysd/github-complete.vim'
-
-" GitHub Dashboard: {{{4
+Plug 'rhysd/github-complete.vim' " {{{3
+Plug 'junegunn/vim-github-dashboard', " {{{3
+            \ { 'on': ['GHA', 'GHD', 'GHDashboard', 'GHActivity'] }
 
 let g:github_dashboard = {}
 let g:github_dashboard['emoji'] = 1
 let g:github_dashboard['RrschBoy'] = 1
 
-if has('ruby')
-    Plug 'junegunn/vim-github-dashboard', { 'on': ['GHA', 'GHD', 'GHDashboard', 'GHActivity'] }
-endif
-
-" }}}4
-
-" TweetVim: {{{3
-
-Plug 'basyura/twibill.vim'
-Plug 'basyura/bitly.vim'
-Plug 'tyru/open-browser.vim'
-Plug 'mattn/favstar-vim'
-Plug 'basyura/TweetVim', { 'on': [
+Plug 'basyura/TweetVim', " {{{3
+            \ { 'on': [
             \   'TweetVimAddAccount',
             \   'TweetVimCommandSay',
             \   'TweetVimHomeTimeline',
             \   'TweetVimSay',
             \ ] }
+
+Plug 'basyura/twibill.vim'
+Plug 'basyura/bitly.vim'
+Plug 'tyru/open-browser.vim'
+Plug 'mattn/favstar-vim'
 
 " AutoCommands: {{{4
 
@@ -589,18 +498,19 @@ let g:tweetvim_open_buffer_cmd  = '$tabnew'
 
 " }}}4
 
-" Slack: hmmmm {{{3
+Plug 'heavenshell/vim-slack', " {{{3
+            \ { 'on': ['Slack','SlackFile'] }
 
-Plug 'heavenshell/vim-slack', { 'on': ['Slack','SlackFile'] }
-
-" Calendar: +config {{{3
+Plug 'itchyny/calendar.vim', " {{{3
+            \ { 'on': 'Calendar' }
 
 let g:calendar_google_calendar = 1
 let g:calendar_google_task     = 1
 
-Plug 'itchyny/calendar.vim', { 'on': 'Calendar' }
+" Plug 'nsmgr8/vitra', " {{{3
+            " \ { 'on': 'TTOpen' }
 
-" Vitra: Trac interface {{{3
+" Plug 'vim-scripts/tracwiki'
 
 " NOTE: we don't actually use this plugin anymore, not having need to access
 " any Trac servers.
@@ -627,25 +537,17 @@ function! s:PluginLoadedVitra()
     augroup end
 endfunction
 
-" Plug 'vim-scripts/tracwiki'
-" Plug 'nsmgr8/vitra', { 'on': 'TTOpen' }
+Plug 'pentie/VimRepress', " {{{3
+            \ { 'on': ['BlogNew', 'BlogOpen', 'BlogList'] }
 
-" VimRepress: {{{3
+Plug 'aquach/vim-mediawiki-editor', " {{{3
+            \ {
+            \   'for': 'mediawiki',
+            \   'on': ['MWRead', 'MWWrite', 'MWBrowse'],
+            \}
 
-if has('python')
-    Plug 'pentie/VimRepress', { 'on': ['BlogNew', 'BlogOpen', 'BlogList'] }
-endif
-
-" MediaWiki Editor: {{{3
-
-if has('python')
-    Plug 'aquach/vim-mediawiki-editor', {
-                \   'for': 'mediawiki',
-                \   'on': ['MWRead', 'MWWrite', 'MWBrowse'],
-                \}
-endif
-
-" TmuxLine: {{{3
+Plug 'edkolev/tmuxline.vim', " {{{3
+            \ { 'on': ['Tmuxline', 'TmuxlineSnapshot'] }
 
 let g:tmuxline_powerline_separators = 0
 
@@ -656,15 +558,8 @@ let g:tmuxline_preset = {
     \'cwin' : ['#I#F', '#W'],
     \}
 
-Plug 'edkolev/tmuxline.vim', { 'on': ['Tmuxline', 'TmuxlineSnapshot'] }
-
-" TmuxFocusEvents: {{{3
-
-Plug 'tmux-plugins/vim-tmux-focus-events'
-
-" Tmux Navigator: {{{3
-
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'tmux-plugins/vim-tmux-focus-events' " {{{3
+Plug 'christoomey/vim-tmux-navigator' " {{{3
 
 " Mappings: move even in insert mode
 inoremap <silent> <C-H> <ESC>:TmuxNavigateLeft<cr>
@@ -673,11 +568,18 @@ inoremap <silent> <C-K> <ESC>:TmuxNavigateUp<cr>
 inoremap <silent> <C-L> <ESC>:TmuxNavigateRight<cr>
 inoremap <silent> <C-\> <ESC>:TmuxNavigatePrevious<cr>
 
-" Terraform: {{{3
+Plug 'hashivim/vim-terraform', " {{{3
+            \ { 'for': [ 'terraform' ] }
 
-Plug 'hashivim/vim-terraform', { 'for': [ 'terraform' ] }
+Plug 'vim-scripts/vimwiki', " {{{3
+            \ {
+            \ 'on': [
+            \     'Vimwiki',
+            \     'VimwikiIndex',
+            \     '<Plug>Vimwiki',
+            \ ],
+            \}
 
-" VimWiki: {{{3
 
 let g:vimwiki_use_calendar = 1
 let g:calendar_action      = 'vimwiki#diary#calendar_action'
@@ -689,14 +591,6 @@ let g:vimwiki_list = [{'path': '~/Shared/vimwiki/', 'path_html': '~/public_html/
             " \     '<leader>wt',
             " \     '<leader>ws',
             " \     '<leader>w<leader>t',
-
-Plug 'vim-scripts/vimwiki', {
-            \ 'on': [
-            \     'Vimwiki',
-            \     'VimwikiIndex',
-            \     '<Plug>Vimwiki',
-            \ ],
-            \}
 
 " }}}3
 Plug 'diepm/vim-rest-console'
@@ -910,14 +804,14 @@ Plug 'gisphm/vim-gitignore'
 Plug 'rhysd/committia.vim'
 Plug 'hotwatermorning/auto-git-diff'
 
-" Perl Bundles: {{{2
-" Perl: main vim-perl plugin {{{3
+" Plugins: Perl {{{2
+Plug 'RsrchBoy/vim-perl', " {{{3
+            \ { 'branch': 'active' }
+
+" use my fork until several PR's are merged (orig: vim-perl/...)
 
 " support highlighting for the new syntax
 let g:perl_sub_signatures=1
-
-" use my fork until several PR's are merged (orig: vim-perl/...)
-Plug 'RsrchBoy/vim-perl', { 'branch': 'active' }
 
 " }}}3
 Plug 'LStinson/perlhelp-vim', { 'on': ['PerlHelp', 'PerlMod'] }
@@ -925,10 +819,9 @@ Plug 'vim-scripts/log4perl.vim'
 call s:MaybeLocalPlugin('vim-ducttape')
 call s:MaybeLocalPlugin('vim-embedded-perl')
 
-" General Syntax And Filetype Plugins: bundles {{{2
-" GnuPG: transparently work with encrypted files {{{3
-
-Plug 'jamessan/vim-gnupg', { 'on': [] }
+" Plugins: syntax / filetype {{{2
+Plug 'jamessan/vim-gnupg', " {{{3
+            \ { 'on': [] }
 
 " Hooks And Loaders: {{{4
 
@@ -948,9 +841,8 @@ let g:GPGFilePattern       = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
 
 " }}}4
 
-" go: {{{3
-
-" Settings: {{{4
+Plug 'fatih/vim-go', " {{{3
+            \ { 'do': ':GoInstallBinaries' }
 
 let g:go_highlight_functions         = 1
 let g:go_highlight_methods           = 1
@@ -959,20 +851,17 @@ let g:go_highlight_types             = 1
 let g:go_highlight_operators         = 1
 let g:go_highlight_build_constraints = 1
 
-" }}}4
-
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-
-" mkd {{{3
-
-Plug 'plasticboy/vim-markdown', { 'for': [ 'mkd', 'markdown', 'mkd.markdown' ] }
+Plug 'plasticboy/vim-markdown', " {{{3
+            \ { 'for': [ 'mkd', 'markdown', 'mkd.markdown' ] }
 
 let g:vim_markdown_initial_foldlevel = 1
 let g:vim_markdown_frontmatter       = 1
 
-" vim: {{{3
-
-" scriptease: {{{4
+Plug 'tpope/vim-scriptease', " {{{3
+            \ {
+            \   'on': [ '<Plug>ScripteaseSynname', 'Scriptnames', 'Runtime', 'PP', 'PPmsg', 'Messages' ],
+            \   'for': 'vim',
+            \ }
 
 " Not a complete autovivification, but enough. 90% of the time we'll have at
 " least one buffer open with a vim ft and that'll trigger the load anyways.
@@ -980,23 +869,10 @@ let g:vim_markdown_frontmatter       = 1
 " we may (will) use this mapping largely outside of vim-ft files
 nmap zS <Plug>ScripteaseSynnames
 
-Plug 'tpope/vim-scriptease', {
-            \   'on': [ '<Plug>ScripteaseSynname', 'Scriptnames', 'Runtime', 'PP', 'PPmsg', 'Messages' ],
-            \   'for': 'vim',
-            \}
-
-" embedded perl: {{{4
-
-if has('perl')
-    Plug 'vim-scripts/update_perl_line_directives', { 'for': 'vim' }
-    " The next looks quite promising, but needs to be updated to handle being
-    " in a plugin directory vs ~/.vim.
-    "Plug 'vim-scripts/syntax_check_embedded_perl.vim', { 'for': 'vim' }
-    Plug 'RsrchBoy/syntax_check_embedded_perl.vim', { 'on': [] }
-endif
-
-" }}}4
-
+Plug 'vim-scripts/update_perl_line_directives', " {{{3
+            \ { 'for': 'vim' }
+Plug 'RsrchBoy/syntax_check_embedded_perl.vim', " {{{3
+            \ { 'on': [] }
 " Lua: {{{3
 
 " TODO these are basically all TRIAL bundles, as I haven't worked with much
@@ -1046,17 +922,13 @@ Plug 'lepture/vim-jinja'
 Plug 'vim-scripts/deb.vim'
 Plug 'Firef0x/PKGBUILD.vim'
 
-" Programming Languages: ...that aren't Perl {{{3
-
-Plug 'vim-ruby/vim-ruby'
-Plug 'klen/python-mode',             { 'for': 'python' }
-Plug 'rust-lang/rust.vim'
-
-" File Formats: csv, json, et al {{{3
-
-Plug 'rhysd/vim-json',   { 'branch': 'reasonable-bool-number' }
-Plug 'chrisbra/csv.vim', { 'for':    'csv'                    }
-
+Plug 'vim-ruby/vim-ruby' " {{{3
+Plug 'klen/python-mode', { 'for': 'python' } " {{{3
+Plug 'rust-lang/rust.vim' " {{{3
+Plug 'rhysd/vim-json', " {{{3
+            \ { 'branch': 'reasonable-bool-number' }
+Plug 'chrisbra/csv.vim', " {{{3
+            \ { 'for': 'csv' }
 " }}}3
 Plug 'cespare/vim-toml'
 Plug 'ekalinin/Dockerfile.vim'
@@ -1097,30 +969,26 @@ Plug 'akiyan/vim-textobj-php',           { 'for': 'php'  }
 " Plugins: operators {{{2
 " Plug 'kana/vim-operator-user'
 
-" ColorSchemes: {{{2
-
+" Plugins: color schemes: {{{2
 Plug 'flazz/vim-colorschemes'
 Plug 'Reewr/vim-monokai-phoenix'
 Plug 'tomasr/molokai'
-
-" ZenBurn: {{{3
+Plug 'jnurmine/Zenburn' " {{{3
 
 let g:zenburn_high_Contrast = 1
 let g:zenburn_transparent   = 1
 
-Plug 'jnurmine/Zenburn'
-
-" Solarized: {{{3
+Plug 'altercation/vim-colors-solarized' " {{{3
 
 let g:solarized_termtrans = 1
 "let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
 
-Plug 'altercation/vim-colors-solarized'
-
 " }}}3
 
-" Trial Bundles: maybe, maybe not! {{{2
+" Plugins: trial {{{2
 " Tagbar: {{{3
+Plug 'majutsushi/tagbar', " {{{3
+            \ { 'on': 'Tagbar' }
 
 nmap <silent> <leader>ttb :TagbarToggle<CR>
 
@@ -1175,8 +1043,6 @@ let g:tagbar_type_puppet = {
 \ }
 
 " }}}4
-
-Plug 'majutsushi/tagbar', { 'on': 'Tagbar' }
 
 " 'freitass/todo.txt-vim' {{{3
 
@@ -1257,7 +1123,7 @@ Plug 'mnpk/vim-jira-complete', {'on': []}
 Plug 'RsrchBoy/vim-jira-open', {'on': []}
 " }}}3
 
-" Unmanaged Plugins: {{{2
+" Plugins: unmanaged {{{2
 " Perl: {{{3
 
 if has('perl')
