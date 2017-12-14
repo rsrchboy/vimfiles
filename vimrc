@@ -149,11 +149,14 @@ let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
 
 Plug 'ervandew/supertab'
 
-" Denite: unused?? {{{3
 
-Plug 'Shougo/denite.nvim'
+Plug 'Shougo/denite.nvim' " {{{3
 Plug 'rafi/vim-unite-issue'
 Plug 'joker1007/unite-pull-request'
+
+Plug 'kana/vim-arpeggio' " {{{3
+
+Arpeggio inoremap jk  <Esc>
 
 " Vim Look And Feel: {{{3
 
