@@ -1091,6 +1091,9 @@ Plug 'akiyan/vim-textobj-php',           { 'for': 'php'  }
 " Plug 'kana/vim-textobj-help',          { 'for': 'help' }
 " Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
+" Plugins: operators {{{2
+" Plug 'kana/vim-operator-user'
+
 " ColorSchemes: {{{2
 
 Plug 'flazz/vim-colorschemes'
