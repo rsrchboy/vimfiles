@@ -855,7 +855,7 @@ Plug 'tommcdo/vim-fubitive'
 
 " }}}4
 
-" Gist: {{{3
+Plug 'mattn/gist-vim', { 'on': 'Gist' } " {{{3
 
 let g:gist_detect_filetype        = 1
 let g:gist_clip_command           = 'xclip -selection clipboard'
@@ -863,11 +863,7 @@ let g:gist_post_private           = 1
 let g:gist_show_privates          = 1
 let g:gist_get_multiplefile       = 1
 
-Plug 'mattn/gist-vim', { 'on': 'Gist' }
-
-" Signify: {{{3
-
-Plug 'mhinz/vim-signify'
+Plug 'mhinz/vim-signify' " {{{3
 
 " Mappings: {{{4
 
@@ -1070,7 +1066,7 @@ Plug 'lifepillar/pgsql.vim'
 Plug 'andrewstuart/vim-kubernetes'
 Plug 'tpope/vim-afterimage'
 
-" Text Objects: {{{2
+" Plugins: text objects: {{{2
 " See also https://github.com/kana/vim-textobj-user/wiki
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-syntax'
