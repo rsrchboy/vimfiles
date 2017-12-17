@@ -136,7 +136,16 @@ Plug 'joker1007/unite-pull-request'
 
 Plug 'kana/vim-arpeggio' " {{{3
 
-Arpeggio inoremap jk  <Esc>
+augroup vimrc#arpeggio " {{{3
+    au!
+
+    au! VimEnter * call s:PluginLoadedArpeggio()
+augroup END
+
+fun! s:PluginLoadedArpeggio() " {{{3
+    echom 'in s:PluginLoadedArpeggio()'
+    Arpeggio inoremap jk  <Esc>
+endfun
 
 Plug 'haya14busa/incsearch.vim' " {{{3
 
