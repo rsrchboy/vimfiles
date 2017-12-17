@@ -140,6 +140,8 @@ Plug 'kana/vim-arpeggio' " {{{3
 augroup vimrc#arpeggio " {{{3
     au!
 
+    " FIXME this doesn't do quite what one would think on session load, I
+    " think
     au! VimEnter * call s:PluginLoadedArpeggio()
 augroup END
 
