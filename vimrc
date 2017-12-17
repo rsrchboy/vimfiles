@@ -887,10 +887,8 @@ Plug 'tpope/vim-scriptease', " {{{3
 " we may (will) use this mapping largely outside of vim-ft files
 nmap zS <Plug>ScripteaseSynnames
 
-Plug 'vim-scripts/update_perl_line_directives', " {{{3
-            \ { 'for': 'vim' }
-Plug 'RsrchBoy/syntax_check_embedded_perl.vim', " {{{3
-            \ { 'on': [] }
+Plug 'vim-scripts/update_perl_line_directives', { 'for': 'vim' } " {{{3
+Plug 'RsrchBoy/syntax_check_embedded_perl.vim', { 'on': [] } " {{{3
 " Lua: {{{3
 
 " TODO these are basically all TRIAL bundles, as I haven't worked with much
