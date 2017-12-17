@@ -72,13 +72,19 @@ Plug 'junegunn/vim-easy-align', " {{{3
 xmap gA <Plug>(EasyAlign)
 nmap gA <Plug>(EasyAlign)
 
-Plug 'godlygeek/tabular', { '{{{3': '',
+" s:tabularPlugOpts " {{{3
+
+let s:tabularPlugOpts = {
             \   'on': [
             \       'Tabularize',
             \       'AddTabularPattern',
             \       'AddTabularPipeline',
             \   ],
             \}
+
+call plug#('godlygeek/tabular', s:tabularPlugOpts)  " {{{3
+
+" TODO probably can drop this entirely in favor of easyalign
 
 " Mappings: {{{4
 
@@ -90,16 +96,13 @@ nnoremap <silent> ,}  :Tabularize /}/l1c0<CR>
 nnoremap <silent> ,]  :Tabularize /]/l1c0<CR>
 nnoremap <silent> ,)  :Tabularize /)/l1c0<CR>
 
-" PostSource Hook: {{{4
-
-augroup vimrc#tabular
+augroup vimrc#tabular " {{{3
     au!
 
     au! User tabular call s:PluginLoadedTabular()
 augroup END
 
-" Do Things when the bundle is vivified
-function! s:PluginLoadedTabular()
+function! s:PluginLoadedTabular() " {{{3
 
     " ...kinda.  assumes that the first '=' found is part of a fat comma
     AddTabularPattern first_fat_comma /^[^=]*\zs=>/l1
