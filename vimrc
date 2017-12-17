@@ -349,6 +349,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'christoomey/vim-system-copy'
 Plug 'junegunn/vader.vim'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'Carpetsmoker/confirm_quit.vim'
 
 " Plugins: library plugins/bundles {{{2
 Plug 'tomtom/tlib_vim'
