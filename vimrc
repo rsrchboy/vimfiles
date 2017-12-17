@@ -349,7 +349,14 @@ Plug 'tpope/vim-speeddating'
 Plug 'christoomey/vim-system-copy'
 Plug 'junegunn/vader.vim'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'Carpetsmoker/confirm_quit.vim'
+Plug 'Carpetsmoker/confirm_quit.vim' " {{{3
+
+let g:confirm_quit_nomap = 1
+
+cnoremap <silent> q<CR>  :call confirm_quit#confirm(0, 'always')<CR>
+cnoremap <silent> wq<CR> :call confirm_quit#confirm(1, 'always')<CR>
+cnoremap <silent> x<CR>  :call confirm_quit#confirm(1, 'always')<CR>
+nnoremap <silent> ZZ     :call confirm_quit#confirm(1, 'always')<CR>
 
 " Plugins: library plugins/bundles {{{2
 Plug 'tomtom/tlib_vim'
