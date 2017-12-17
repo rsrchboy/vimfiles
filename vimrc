@@ -32,8 +32,8 @@ endfunction
 Plug 'jeetsukumaran/vim-buffergator', " {{{3
             \ { 'on': 'BuffergatorOpen' }
 
-Plug 'kien/tabman.vim', " {{{3
-            \ { 'on': [ 'TMToggle', 'TMFocus' ] }
+Plug 'kien/tabman.vim', {  '{{{3': '',
+            \ 'on': [ 'TMToggle', 'TMFocus' ] }
 
 " Settings: {{{4
 
@@ -52,8 +52,7 @@ Plug 'jlanzarotta/bufexplorer' " {{{3
 let g:bufExplorerShowRelativePath = 1
 let g:bufExplorerShowTabBuffer    = 1
 
-Plug 'junegunn/fzf', " {{{3
-            \ { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " {{{3
 Plug 'junegunn/fzf.vim' " {{{3
 
 nnoremap <C-P> :Files<CR>
@@ -73,8 +72,7 @@ Plug 'junegunn/vim-easy-align', " {{{3
 xmap gA <Plug>(EasyAlign)
 nmap gA <Plug>(EasyAlign)
 
-Plug 'godlygeek/tabular', " {{{3
-            \ {
+Plug 'godlygeek/tabular', { '{{{3': '',
             \   'on': [
             \       'Tabularize',
             \       'AddTabularPattern',
