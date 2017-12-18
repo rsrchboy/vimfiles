@@ -373,8 +373,8 @@ Plug 'tpope/vim-repeat'
 " Plugins: appish or external interface {{{2
 Plug 'junkblocker/patchreview-vim'
 Plug 'codegram/vim-codereview' ", { 'on': 'CodeReview' }
-call s:MaybeLocalPlugin('vim-voose')
-call s:MaybeLocalPlugin('vim-kale') " {{{3
+" call s:MaybeLocalPlugin('vim-voose'), { 'on': [] } " {{{3
+" call s:MaybeLocalPlugin('vim-kale'),  { 'on': [] } " {{{3
 
 let g:kale#verbose = 1
 
