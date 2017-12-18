@@ -722,9 +722,9 @@ command! -nargs=? Gfixup :Gcommit --no-verify --fixup=HEAD <q-args>
 " fugitive instead.
 
 nmap <silent> <Leader>gs :Gstatus<Enter>
-nmap <silent> <Leader>gd :call Gitv_OpenGitCommand("diff --no-color -- ".expand('%'), 'new')<CR>
-nmap <silent> <Leader>gD :Gdiff<CR>
-nmap <silent> <Leader>gh :call Gitv_OpenGitCommand("show --no-color", 'new')<CR>
+nmap <silent> <Leader>gD :call Gitv_OpenGitCommand("diff --no-color -- ".expand('%'), 'new')<CR>
+nmap <silent> <Leader>gd :Gdiff<CR>
+nmap <silent> <Leader>gh :Gsplit HEAD^{}<CR>
 nmap <silent> <Leader>ga :Gwrite<bar>call sy#start()<CR>
 nmap <silent> <Leader>gc :Gcommit<Enter>
 nmap <silent> <Leader>gf :Gcommit --no-verify --fixup HEAD --no-verify<CR>
