@@ -136,17 +136,18 @@ Plug 'rafi/vim-unite-issue'
 Plug 'joker1007/unite-pull-request'
 
 Plug 'kana/vim-arpeggio' " {{{3
-
 augroup vimrc#arpeggio " {{{3
     au!
 
     " FIXME this doesn't do quite what one would think on session load, I
     " think
-    au! VimEnter * call s:PluginLoadedArpeggio()
+    au! VimEnter,SessionLoadPost * call s:PluginLoadedArpeggio()
 augroup END
 
 fun! s:PluginLoadedArpeggio() " {{{3
-    echom 'in s:PluginLoadedArpeggio()'
+    if get(g:, 'SesionLoad', 0)
+        return
+    endif
     Arpeggio inoremap jk  <Esc>
 endfun
 
