@@ -156,6 +156,7 @@ fun! s:PluginLoadedArpeggio() " {{{3
         return
     endif
     Arpeggio inoremap jk  <Esc>
+    Arpeggio nnoremap OW  :only<CR>
 endfun
 
 Plug 'haya14busa/incsearch.vim' " {{{3
