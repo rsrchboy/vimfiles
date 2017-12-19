@@ -1266,8 +1266,6 @@ nnoremap <C-Z> :shell<CR>
 nmap <ESC>[5;5~ <C-PageUp>
 nmap <ESC>[6;5~ <C-PageDown>
 
-nmap <silent> OO :only<CR>
-
 " Visual Mode Mappings: {{{2
 vmap <F3> :setlocal nonumber!<CR>
 vmap <F5> :setlocal spell! spelllang=en_us<CR>
@@ -1275,8 +1273,6 @@ vmap <F7> :tabp<CR>
 vmap <F8> :tabn<CR>
 
 " Insert Mode Mappings: {{{2
-
-imap <silent> jj <ESC>
 
 " Command: {{{2
 
