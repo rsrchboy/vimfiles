@@ -37,17 +37,13 @@ endfunction
 Plug 'jeetsukumaran/vim-buffergator', { 'on': 'BuffergatorOpen' } " {{{3
 Plug 'kien/tabman.vim', { 'on': [ 'TMToggle', 'TMFocus' ] } " {{{3
 
-" Settings: {{{4
-
 let g:tabman_toggle = '<leader>mt'
 let g:tabman_focus  = '<leader>mf'
 
-" AutoLoad: {{{4
 " load, then run.  this mapping will be overwritten on plugin load
+" ...and might be overkill given the vim-plug autoloading config above
 execute "nnoremap <silent> " . g:tabman_toggle . " :call plug#load('tabman.vim') <bar> TMToggle<CR>"
 execute "nnoremap <silent> " . g:tabman_focus  . " :call plug#load('tabman.vim') <bar> TMFocus<CR>"
-
-" }}}4
 
 Plug 'jlanzarotta/bufexplorer' " {{{3
 
@@ -145,9 +141,6 @@ Plug 'joker1007/unite-pull-request'
 Plug 'kana/vim-arpeggio' " {{{3
 augroup vimrc#arpeggio " {{{3
     au!
-
-    " FIXME this doesn't do quite what one would think on session load, I
-    " think
     au! VimEnter,SessionLoadPost * call s:PluginLoadedArpeggio()
 augroup END
 
@@ -474,19 +467,17 @@ let g:pluginOpts.dbext =
 " TODO: disable unless we have DBI, etc, installed.
 
 Plug 'vim-scripts/dbext.vim', g:pluginOpts.dbext " {{{3
-
 Plug 'rhysd/github-complete.vim' " {{{3
-
 Plug 'junegunn/vim-github-dashboard', { 'on': ['GHA', 'GHD', 'GHDashboard', 'GHActivity'] } " {{{3
 
 let g:github_dashboard = {}
 let g:github_dashboard['emoji'] = 1
 let g:github_dashboard['RrschBoy'] = 1
 
-Plug 'basyura/twibill.vim' " {{{3
-Plug 'basyura/bitly.vim' " {{{3
+Plug 'basyura/twibill.vim'   " {{{3
+Plug 'basyura/bitly.vim'     " {{{3
 Plug 'tyru/open-browser.vim' " {{{3
-Plug 'mattn/favstar-vim' " {{{3
+Plug 'mattn/favstar-vim'     " {{{3
 " let g:pluginOpts.TweetVim {{{3
 
 let g:pluginOpts.TweetVim =
