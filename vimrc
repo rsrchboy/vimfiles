@@ -939,6 +939,7 @@ Plug 'rsrchboy/mojo.vim'
 Plug 'lifepillar/pgsql.vim'
 Plug 'andrewstuart/vim-kubernetes'
 Plug 'tpope/vim-afterimage'
+Plug 'rhysd/vim-gfm-syntax'
 
 " Plugins: text objects: {{{2
 " See also https://github.com/kana/vim-textobj-user/wiki
@@ -1114,7 +1115,6 @@ Plug 'KabbAmine/lazyList.vim', { 'on': 'LazyList' }
 " }}}3
 Plug 'mattn/googletasks-vim', { 'on': 'GoogleTasks' }
 " filetype
-Plug 'jtratner/vim-flavored-markdown'
 " Plug 'kien/rainbow_parentheses.vim'
 
 " Jira Integration: {{{3
