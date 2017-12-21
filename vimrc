@@ -609,6 +609,7 @@ Plug 'cryptomilk/git-modeline.vim'
 
 " Plugins: git and version controlish {{{2
 Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'jez/vim-github-hub'
 Plug 'rsrchboy/gitv', { 'on': 'Gitv' } " {{{3
 
