@@ -11,8 +11,8 @@ set encoding=utf-8
 scriptencoding utf-8
 
 " Plugins: ;) {{{1
-call plug#begin()
 
+call plug#begin()
 let g:pluginOpts = {} " {{{3
 
 " The 'Plug' command (understandably) barfs on script-local variables, so
@@ -31,9 +31,10 @@ function! s:MaybeLocalPlugin(name) abort " {{{2
         Plug 'rsrchboy/' . a:name
     endif
 
-endfunction
+endfunction " }}}2
 
 " Plugins: general bundles: {{{2
+
 Plug 'jeetsukumaran/vim-buffergator', { 'on': 'BuffergatorOpen' } " {{{3
 Plug 'kien/tabman.vim', { 'on': [ 'TMToggle', 'TMFocus' ] } " {{{3
 
@@ -49,16 +50,6 @@ Plug 'jlanzarotta/bufexplorer' " {{{3
 
 let g:bufExplorerShowRelativePath = 1
 let g:bufExplorerShowTabBuffer    = 1
-
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " {{{3
-Plug 'junegunn/fzf.vim' " {{{3
-
-nnoremap <C-P> :Files<CR>
-
-augroup vimrc#fzf " {{{3
-    au!
-    au User Fugitive nnoremap <buffer> <C-P> :GFiles<CR>
-augroup END
 
 Plug 'AndrewRadev/splitjoin.vim' " {{{3
 
@@ -134,11 +125,10 @@ Plug 'ervandew/supertab' " {{{3
 
 let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
 
-Plug 'Shougo/denite.nvim' " {{{3
-Plug 'rafi/vim-unite-issue'
-Plug 'joker1007/unite-pull-request'
-
-Plug 'kana/vim-arpeggio' " {{{3
+Plug 'Shougo/denite.nvim'           " {{{3
+Plug 'rafi/vim-unite-issue'         " {{{3
+Plug 'joker1007/unite-pull-request' " {{{3
+Plug 'kana/vim-arpeggio'            " {{{3
 augroup vimrc#arpeggio " {{{3
     au!
     au! VimEnter,SessionLoadPost * call s:PluginLoadedArpeggio()
@@ -161,53 +151,6 @@ Plug 'ntpeters/vim-better-whitespace' " {{{3
 let g:better_whitespace_filetypes_blacklist = [ 'git', 'mail', 'help', 'startify', 'diff' ]
 
 nmap <silent> ,<space> :StripWhitespace<CR>
-
-Plug 'Shougo/neoinclude.vim' " {{{3
-
-" FIXME finalize settings
-
-" settings: {{{5
-
-let g:deoplete#enable_at_startup = 1
-
-" let g:neocomplete#enable_at_startup                 = 1
-let g:neocomplete#enable_smart_case                 = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-
-"g:neocomplete#enable_auto_close_preview
-
-"             \   'disabled': !has('lua'),
-
-" perlomni settings: {{{5
-
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-
-" }}}5
-
-if has('python3')
-  if has('nvim')
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  else
-    Plug 'Shougo/deoplete.nvim'
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
-  endif
-endif
-
-" filetype complete sources for deoplete
-" Plug 'deoplete-go'      " go
-Plug 'Shougo/neco-vim'  " viml
-Plug 'c9s/perlomni.vim' " Perl
-
-" other complete sources
-Plug 'Shougo/neco-syntax'
 
 Plug 'mhinz/vim-startify' " {{{3
 
@@ -329,6 +272,15 @@ Plug 'blueyed/vim-diminactive' " {{{3
 let g:diminactive_enable_focus = 1
 let g:diminactive_filetype_blacklist = ['startify', 'fugitiveblame']
 
+Plug 'Carpetsmoker/confirm_quit.vim' " {{{3
+
+let g:confirm_quit_nomap = 1
+
+cnoremap <silent> q<CR>  :call confirm_quit#confirm(0, 'always')<CR>
+cnoremap <silent> wq<CR> :call confirm_quit#confirm(1, 'always')<CR>
+cnoremap <silent> x<CR>  :call confirm_quit#confirm(1, 'always')<CR>
+nnoremap <silent> ZZ     :call confirm_quit#confirm(1, 'always')<CR>
+
 " }}}3
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jszakmeister/vim-togglecursor'
@@ -342,9 +294,6 @@ Plug 'tpope/vim-characterize'
 Plug 'DataWraith/auto_mkdir'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
-Plug 'thinca/vim-ref'
-" all those irksome ... irks
-" Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-dispatch'
@@ -353,16 +302,10 @@ Plug 'tpope/vim-speeddating'
 Plug 'christoomey/vim-system-copy'
 Plug 'junegunn/vader.vim'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'Carpetsmoker/confirm_quit.vim' " {{{3
-
-let g:confirm_quit_nomap = 1
-
-cnoremap <silent> q<CR>  :call confirm_quit#confirm(0, 'always')<CR>
-cnoremap <silent> wq<CR> :call confirm_quit#confirm(1, 'always')<CR>
-cnoremap <silent> x<CR>  :call confirm_quit#confirm(1, 'always')<CR>
-nnoremap <silent> ZZ     :call confirm_quit#confirm(1, 'always')<CR>
+Plug 'easymotion/vim-easymotion' " }}}2
 
 " Plugins: library plugins/bundles {{{2
+
 Plug 'tomtom/tlib_vim'
 Plug 'xolox/vim-misc'
 Plug 'vim-scripts/ingo-library'
@@ -370,10 +313,26 @@ Plug 'vim-scripts/CountJump'
 Plug 'mattn/webapi-vim'
 Plug 'junegunn/vim-emoji'
 Plug 'Shougo/context_filetype.vim'
-Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat' " }}}2
 
 " Plugins: appish or external interface {{{2
+
+Plug 'thinca/vim-ref'
 Plug 'junkblocker/patchreview-vim'
+Plug 'diepm/vim-rest-console'
+Plug 'cryptomilk/git-modeline.vim'
+Plug 'heavenshell/vim-slack', { 'on': ['Slack','SlackFile'] }
+Plug 'hsitz/VimOrganizer', { 'for': ['org', 'vimorg-agenda-mappings', 'vimorg-main-mappings'] }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim' " {{{3
+
+nnoremap <C-P> :Files<CR>
+
+augroup vimrc#fzf " {{{3
+    au!
+    au User Fugitive nnoremap <buffer> <C-P> :GFiles<CR>
+augroup END
+
 Plug 'codegram/vim-codereview' ", { 'on': 'CodeReview' }
 " call s:MaybeLocalPlugin('vim-voose'), { 'on': [] } " {{{3
 " call s:MaybeLocalPlugin('vim-kale'),  { 'on': [] } " {{{3
@@ -430,7 +389,6 @@ Plug 'jaxbot/github-issues.vim', { 'on': ['Gissues', 'Gmiles', 'Giadd'] } " {{{3
 " does not support authenticated requests (or we don't have it configured) and
 " it's WICKED SLOW when the number of allowed requests is exceeded.
 
-Plug 'hsitz/VimOrganizer', { 'for': ['org', 'vimorg-agenda-mappings', 'vimorg-main-mappings'] } " {{{3
 Plug 'krisajenkins/vim-pipe', { 'on': [] } " {{{3
 
 " default mappings conflict with PerlHelp
@@ -467,51 +425,6 @@ let g:pluginOpts.dbext =
 " TODO: disable unless we have DBI, etc, installed.
 
 Plug 'vim-scripts/dbext.vim', g:pluginOpts.dbext " {{{3
-Plug 'rhysd/github-complete.vim' " {{{3
-Plug 'junegunn/vim-github-dashboard', { 'on': ['GHA', 'GHD', 'GHDashboard', 'GHActivity'] } " {{{3
-
-let g:github_dashboard = {}
-let g:github_dashboard['emoji'] = 1
-let g:github_dashboard['RrschBoy'] = 1
-
-Plug 'basyura/twibill.vim'   " {{{3
-Plug 'basyura/bitly.vim'     " {{{3
-Plug 'tyru/open-browser.vim' " {{{3
-Plug 'mattn/favstar-vim'     " {{{3
-" let g:pluginOpts.TweetVim {{{3
-
-let g:pluginOpts.TweetVim =
-            \ { 'on': [
-            \   'TweetVimAddAccount',
-            \   'TweetVimCommandSay',
-            \   'TweetVimHomeTimeline',
-            \   'TweetVimSay',
-            \ ] }
-
-Plug 'basyura/TweetVim', g:pluginOpts.TweetVim " {{{3
-
-" Mappings: {{{4
-
-nnoremap <silent> <Leader>TT :TweetVimHomeTimeline<CR>
-nnoremap <silent> <Leader>TS :TweetVimSay<CR>
-
-" Settings: {{{4
-
-let g:tweetvim_tweet_per_page   = 50
-let g:tweetvim_display_source   = 1
-let g:tweetvim_display_time     = 1
-let g:tweetvim_expand_t_co      = 1
-let g:tweetvim_display_username = 1
-let g:tweetvim_open_buffer_cmd  = '$tabnew'
-
-" }}}4
-
-augroup vimrc-tweetvim " {{{3
-    au!
-    au FileType tweetvim setlocal nonumber foldcolumn=0
-augroup END
-
-Plug 'heavenshell/vim-slack', { 'on': ['Slack','SlackFile'] } " {{{3
 Plug 'itchyny/calendar.vim', { 'on': 'Calendar' } " {{{3
 
 let g:calendar_google_calendar = 1
@@ -578,7 +491,6 @@ inoremap <silent> <C-K> <ESC>:TmuxNavigateUp<cr>
 inoremap <silent> <C-L> <ESC>:TmuxNavigateRight<cr>
 inoremap <silent> <C-\> <ESC>:TmuxNavigatePrevious<cr>
 
-Plug 'hashivim/vim-terraform', { 'for': [ 'terraform' ] } " {{{3
 " let g:pluginOpts.vimwiki " {{{3
 
 let g:pluginOpts.vimwiki =
@@ -603,9 +515,46 @@ let g:calendar_sign        = 'vimwiki#diary#calendar_sign'
 
 let g:vimwiki_list = [{'path': '~/Shared/vimwiki/', 'path_html': '~/public_html/'}]
 
-" }}}3
-Plug 'diepm/vim-rest-console'
-Plug 'cryptomilk/git-modeline.vim'
+" }}}2
+
+" Plugins: neocomplete / deoplete / etc {{{2
+
+Plug 'Shougo/neoinclude.vim' " {{{3
+
+" FIXME finalize settings
+
+let g:deoplete#enable_at_startup = 1
+
+" let g:neocomplete#enable_at_startup                 = 1
+let g:neocomplete#enable_smart_case                 = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
+" For perlomni.vim setting.
+" https://github.com/c9s/perlomni.vim
+let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+
+" }}}5
+
+if has('python3')
+  if has('nvim')
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  else
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+  endif
+endif
+
+" filetype complete sources for deoplete
+Plug 'zchee/deoplete-go', { 'for': 'go' }   " {{{3
+Plug 'Shougo/neco-vim',   { 'for': 'vim' }  " {{{3
+Plug 'c9s/perlomni.vim',  { 'for': 'perl' } " {{{3
+Plug 'Shougo/neco-syntax'                   " {{{3 }}}2
 
 " Plugins: git and version controlish {{{2
 Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' } " {{{3
@@ -613,18 +562,18 @@ Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' } " {{{3
 let g:pandoc#filetypes#pandoc_markdown = 0
 
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' } " {{{3
-Plug 'jez/vim-github-hub' " {{{3
 Plug 'rsrchboy/gitv', { 'on': 'Gitv' } " {{{3
 
-" Settings: {{{4
+" FIXME use our upstream, for the moment
+" ...as there are a number of PR's I have outstanding with upstream.
+"
+" Plug 'gregsexton/gitv', {
 
 let g:Gitv_TruncateCommitSubjects = 1
 let g:Gitv_CommitStep             = 150
 let g:Gitv_TellMeAboutIt          = 0
 
-" AutoCommands: {{{4
-
-augroup vimrc-gitv
+augroup vimrc-gitv " {{{3
     au!
 
     " autoload gitv
@@ -646,36 +595,20 @@ augroup vimrc-gitv
 
 augroup END
 
-" }}}4
-
-" FIXME use our upstream, for the moment
-" ...as there are a number of PR's I have outstanding with upstream.
-"
-" Plug 'gregsexton/gitv', {
-
 Plug 'int3/vim-extradite', { 'on': 'Extradite' } " {{{3
-
-" Settings: {{{4
 
 let g:extradite_showhash = 1
 
-" Mappings: {{{4
-
 nnoremap <silent> <Leader>gE :Extradite<CR>
 
-" AutoCmds: {{{4
-
-augroup vimrc#extradite
+augroup vimrc#extradite " {{{3
     au!
 
     au FileType extradite nnoremap <buffer> <silent> <F1> :h extradite-mappings<CR>
     au User vim-extradite call s:PluginLoadedExtradite()
 augroup END
 
-" PostSource Hook: {{{4
-
-" Do Things when the bundle is vivified
-function! s:PluginLoadedExtradite()
+function! s:PluginLoadedExtradite() " {{{3
 
     " create the buffer-local :Extradite command
     silent! execute 'doautocmd User Fugitive'
@@ -688,16 +621,12 @@ function! s:PluginLoadedExtradite()
     augroup END
 endfunction
 
-" }}}4
-
-" Git WIP: {{{3
-
-let g:git_wip_disable_signing = 1
-
-Plug 'RsrchBoy/git-wip', { 'rtp': 'vim' }
+Plug 'RsrchBoy/git-wip', { 'rtp': 'vim' } " {{{3
             " we handle this with our dotfiles now
             " \   'do': 'cp vim/plugin/git-wip ~/bin/git-wip',
             " \}
+
+let g:git_wip_disable_signing = 1
 
 Plug 'tpope/vim-rhubarb'             " {{{3 fugitive :Gbrowse plugin
 Plug 'shumphrey/fugitive-gitlab.vim' " {{{3 fugitive :Gbrowse plugin
@@ -767,12 +696,8 @@ let g:gist_get_multiplefile       = 1
 
 Plug 'mhinz/vim-signify' " {{{3
 
-" Mappings: {{{4
-
 nmap <leader>gj <Plug>(signify-next-hunk)
 nmap <leader>gk <Plug>(signify-prev-hunk)
-
-" Settings: {{{4
 
 " TODO: need to handle "normal" sign column
 let g:signify_vcs_list      = [ 'git' ]
@@ -784,9 +709,7 @@ let g:signify_update_on_focusgained = 1
 let g:signify_cursorhold_normal     = 0
 let g:signify_cursorhold_insert     = 0
 
-" AutoCommands: {{{4
-
-augroup vimrc-Signify
+augroup vimrc#signify " {{{3
     autocmd!
 
     autocmd BufEnter             * call sy#start()
@@ -799,8 +722,6 @@ augroup vimrc-Signify
     autocmd FocusGained * call sy#start()
 augroup END
 
-" }}}4
-
 " }}}3
 Plug 'tpope/vim-git'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
@@ -809,9 +730,55 @@ Plug 'gisphm/vim-gitignore'
 Plug 'rhysd/committia.vim'
 Plug 'hotwatermorning/auto-git-diff'
 
+" Plugins: GitHub {{{2
+
+Plug 'rhysd/vim-gfm-syntax'
+Plug 'jez/vim-github-hub'
+Plug 'junegunn/vim-github-dashboard', { 'on': ['GHA', 'GHD', 'GHDashboard', 'GHActivity'] } " {{{3
+
+let g:github_dashboard = {}
+let g:github_dashboard['emoji'] = 1
+let g:github_dashboard['RrschBoy'] = 1
+
+Plug 'rhysd/github-complete.vim' " {{{3 }}}2
+
+" Plugins: Twitter {{{2
+
+" let g:pluginOpts.TweetVim {{{3
+
+let g:pluginOpts.TweetVim =
+            \ { 'on': [
+            \   'TweetVimAddAccount',
+            \   'TweetVimCommandSay',
+            \   'TweetVimHomeTimeline',
+            \   'TweetVimSay',
+            \ ] }
+
+Plug 'basyura/TweetVim', g:pluginOpts.TweetVim " {{{3
+
+nnoremap <silent> <Leader>TT :TweetVimHomeTimeline<CR>
+nnoremap <silent> <Leader>TS :TweetVimSay<CR>
+
+let g:tweetvim_tweet_per_page   = 50
+let g:tweetvim_display_source   = 1
+let g:tweetvim_display_time     = 1
+let g:tweetvim_expand_t_co      = 1
+let g:tweetvim_display_username = 1
+let g:tweetvim_open_buffer_cmd  = '$tabnew'
+
+augroup vimrc-tweetvim " {{{3
+    au!
+    au FileType tweetvim setlocal nonumber foldcolumn=0
+augroup END
+
+Plug 'basyura/twibill.vim'   " {{{3
+Plug 'basyura/bitly.vim'     " {{{3
+Plug 'tyru/open-browser.vim' " {{{3
+Plug 'mattn/favstar-vim'     " {{{3 }}}2
+
 " Plugins: Perl {{{2
-Plug 'RsrchBoy/vim-perl', " {{{3
-            \ { 'branch': 'active' }
+
+Plug 'RsrchBoy/vim-perl', { 'branch': 'active' } " {{{3
 
 " use my fork until several PR's are merged (orig: vim-perl/...)
 
@@ -819,18 +786,31 @@ Plug 'RsrchBoy/vim-perl', " {{{3
 let g:perl_sub_signatures=1
 
 " }}}3
-Plug 'LStinson/perlhelp-vim', { 'on': ['PerlHelp', 'PerlMod'] }
+Plug 'LStinson/perlhelp-vim',                   { 'on': ['PerlHelp', 'PerlMod'] }
 Plug 'vim-scripts/log4perl.vim'
 call s:MaybeLocalPlugin('vim-ducttape')
 call s:MaybeLocalPlugin('vim-embedded-perl')
+Plug 'vim-scripts/update_perl_line_directives', { 'for': 'vim' }    " {{{3
+Plug 'RsrchBoy/syntax_check_embedded_perl.vim', { 'on':  []    }    " {{{3 }}}2
 
 " Plugins: syntax / filetype {{{2
-Plug 'jamessan/vim-gnupg', " {{{3
-            \ { 'on': [] }
 
-" Hooks And Loaders: {{{4
+Plug 'cespare/vim-toml'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'fmoralesc/vim-pinpoint'
+Plug 'vim-scripts/gtk-vim-syntax'
+Plug 'chikamichi/mediawiki.vim', { 'for': 'mediawiki' }
+Plug 'rsrchboy/mojo.vim'
+Plug 'lifepillar/pgsql.vim'
+Plug 'andrewstuart/vim-kubernetes'
+Plug 'tpope/vim-afterimage'
+Plug 'jamessan/vim-gnupg', { 'on': [] } " {{{3
 
-augroup vimrc#gnupg
+let g:GPGPreferArmor       = 1
+let g:GPGDefaultRecipients = ['0x84CC74D079416376', '0x1535F82E8083A84A']
+let g:GPGFilePattern       = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
+
+augroup vimrc#gnupg " {{{3
     au!
 
     " force the autocmds to run after we've loaded the plugin
@@ -838,16 +818,7 @@ augroup vimrc#gnupg
     au BufRead,BufNewFile *.{gpg,asc,pgp,pause} call plug#load('vim-gnupg') | execute 'au! vimrc#gnupg BufRead,BufNewFile'
 augroup END
 
-" Settings: {{{4
-
-let g:GPGPreferArmor       = 1
-let g:GPGDefaultRecipients = ['0x84CC74D079416376', '0x1535F82E8083A84A']
-let g:GPGFilePattern       = '\(*.\(gpg\|asc\|pgp\)\|.pause\)'
-
-" }}}4
-
-Plug 'fatih/vim-go', " {{{3
-            \ { 'do': ':GoInstallBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " {{{3
 
 let g:go_highlight_functions         = 1
 let g:go_highlight_methods           = 1
@@ -856,17 +827,20 @@ let g:go_highlight_types             = 1
 let g:go_highlight_operators         = 1
 let g:go_highlight_build_constraints = 1
 
-Plug 'plasticboy/vim-markdown', " {{{3
-            \ { 'for': [ 'mkd', 'markdown', 'mkd.markdown' ] }
+Plug 'plasticboy/vim-markdown', { 'for': [ 'mkd', 'markdown', 'mkd.markdown' ] } " {{{3
 
 let g:vim_markdown_initial_foldlevel = 1
 let g:vim_markdown_frontmatter       = 1
 
-Plug 'tpope/vim-scriptease', " {{{3
+" let g:pluginOpts.scriptease {{{3
+
+let g:pluginOpts.scriptease =
             \ {
             \   'on': [ '<Plug>ScripteaseSynname', 'Scriptnames', 'Runtime', 'PP', 'PPmsg', 'Messages' ],
             \   'for': 'vim',
             \ }
+
+Plug 'tpope/vim-scriptease', g:pluginOpts.scriptease " {{{3
 
 " Not a complete autovivification, but enough. 90% of the time we'll have at
 " least one buffer open with a vim ft and that'll trigger the load anyways.
@@ -874,76 +848,48 @@ Plug 'tpope/vim-scriptease', " {{{3
 " we may (will) use this mapping largely outside of vim-ft files
 nmap zS <Plug>ScripteaseSynnames
 
-Plug 'vim-scripts/update_perl_line_directives', { 'for': 'vim' } " {{{3
-Plug 'RsrchBoy/syntax_check_embedded_perl.vim', { 'on': [] } " {{{3
-" Lua: {{{3
+Plug 'xolox/vim-lua-ftplugin',                  { 'for': 'lua' }    " {{{3
+Plug 'xolox/vim-lua-inspect',                   { 'for': 'lua' }    " {{{3
+Plug 'WolfgangMehner/lua-support',              { 'for': 'lua' }    " {{{3
+Plug 'othree/html5-syntax.vim'                                      " {{{3
+Plug 'mattn/emmet-vim'                                              " {{{3
+Plug 'tpope/vim-haml'                                               " {{{3
+Plug 'kchmck/vim-coffee-script'                                     " {{{3
+Plug 'nono/jquery.vim'                                              " {{{3
+Plug 'groenewege/vim-less'                                          " {{{3
+Plug 'vim-ruby/vim-ruby'                                            " {{{3
+Plug 'rust-lang/rust.vim'                                           " {{{3
+Plug 'klen/python-mode',                        { 'for': 'python' } " {{{3
+Plug 'chrisbra/csv.vim',                        { 'for': 'csv' }    " {{{3
+Plug 'rhysd/vim-json',                          { 'branch': 'reasonable-bool-number' } " {{{3
 
-" TODO these are basically all TRIAL bundles, as I haven't worked with much
-" lua before now
+" Plugins: systemy bits {{{2
 
-" sooooo.... yeah.  may have to try these suckers out independently.
-
-Plug 'xolox/vim-lua-ftplugin', { 'for': 'lua' }
-Plug 'xolox/vim-lua-inspect', { 'for': 'lua' }
-Plug 'WolfgangMehner/lua-support', { 'for': 'lua' }
-
-" html(ish) {{{3
-
-Plug 'othree/html5-syntax.vim'
-Plug 'mattn/emmet-vim'
-Plug 'tpope/vim-haml'
-Plug 'kchmck/vim-coffee-script'
-Plug 'nono/jquery.vim'
-" CSS
-Plug 'groenewege/vim-less'
-
-" System Or App Configuration: {{{3
-
-Plug 'RsrchBoy/vim-sshauthkeys'
-Plug 'tmatilai/gitolite.vim'
-Plug 'vim-scripts/iptables'
-Plug 'RsrchBoy/interfaces' " syntax for /etc/network/interfaces
-Plug 'chr4/nginx.vim'
-Plug 'smancill/conky-syntax.vim'
-Plug 'apeschel/vim-syntax-syslog-ng'
-Plug 'wgwoods/vim-systemd-syntax'
-Plug 'FredDeschenes/httplog'
-Plug 'vim-scripts/openvpn', { 'for': 'openvpn' }
-" Plug 'chr4/sslsecure.vim'
-Plug 'tmux-plugins/vim-tmux'
+Plug 'RsrchBoy/vim-sshauthkeys'                  " {{{3
+Plug 'tmatilai/gitolite.vim'                     " {{{3
+Plug 'vim-scripts/iptables'                      " {{{3
+Plug 'RsrchBoy/interfaces'                       " {{{3
+Plug 'chr4/nginx.vim'                            " {{{3
+Plug 'smancill/conky-syntax.vim'                 " {{{3
+Plug 'apeschel/vim-syntax-syslog-ng'             " {{{3
+Plug 'wgwoods/vim-systemd-syntax'                " {{{3
+Plug 'FredDeschenes/httplog'                     " {{{3
+Plug 'vim-scripts/openvpn', { 'for': 'openvpn' } " {{{3
+Plug 'tmux-plugins/vim-tmux'                     " {{{3
+" Plug 'chr4/sslsecure.vim' " {{{3 }}}2
+Plug 'hashivim/vim-terraform', { 'for': [ 'terraform' ] } " {{{3
 
 " Configuration Management: e.g. puppet, chef, etc {{{3
 
-Plug 'puppetlabs/puppet-syntax-vim', { 'for': 'puppet' }
-Plug 'vadv/vim-chef',                { 'for': 'chef'   }
-Plug 'pearofducks/ansible-vim'
-" for ansible templates
-Plug 'lepture/vim-jinja'
+Plug 'puppetlabs/puppet-syntax-vim', { 'for': 'puppet' } " {{{3
+Plug 'vadv/vim-chef',                { 'for': 'chef'   } " {{{3
+Plug 'pearofducks/ansible-vim'                           " {{{3
+Plug 'lepture/vim-jinja'                                 " {{{3 }}}2
 
-" Packaging: deb, arch, etc {{{3
+" Packaging: deb, arch, etc {{{2
 
 Plug 'vim-scripts/deb.vim'
-Plug 'Firef0x/PKGBUILD.vim'
-
-Plug 'vim-ruby/vim-ruby' " {{{3
-Plug 'klen/python-mode', { 'for': 'python' } " {{{3
-Plug 'rust-lang/rust.vim' " {{{3
-Plug 'rhysd/vim-json', " {{{3
-            \ { 'branch': 'reasonable-bool-number' }
-Plug 'chrisbra/csv.vim', " {{{3
-            \ { 'for': 'csv' }
-" }}}3
-Plug 'cespare/vim-toml'
-Plug 'ekalinin/Dockerfile.vim'
-Plug 'fmoralesc/vim-pinpoint'
-Plug 'vim-scripts/gtk-vim-syntax'
-Plug 'chikamichi/mediawiki.vim', { 'for': 'mediawiki' }
-Plug 'easymotion/vim-easymotion'
-Plug 'rsrchboy/mojo.vim'
-Plug 'lifepillar/pgsql.vim'
-Plug 'andrewstuart/vim-kubernetes'
-Plug 'tpope/vim-afterimage'
-Plug 'rhysd/vim-gfm-syntax'
+Plug 'Firef0x/PKGBUILD.vim' " }}}2
 
 " Plugins: text objects: {{{2
 " See also https://github.com/kana/vim-textobj-user/wiki
