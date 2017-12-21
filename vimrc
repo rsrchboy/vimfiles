@@ -608,9 +608,12 @@ Plug 'diepm/vim-rest-console'
 Plug 'cryptomilk/git-modeline.vim'
 
 " Plugins: git and version controlish {{{2
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'jez/vim-github-hub'
+Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' } " {{{3
+
+let g:pandoc#filetypes#pandoc_markdown = 0
+
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' } " {{{3
+Plug 'jez/vim-github-hub' " {{{3
 Plug 'rsrchboy/gitv', { 'on': 'Gitv' } " {{{3
 
 " Settings: {{{4
