@@ -995,34 +995,9 @@ let g:tagbar_type_puppet = {
 
 " }}}4
 
-" 'freitass/todo.txt-vim' {{{3
-
-" settings unchanged
+Plug 'freitass/todo.txt-vim', { 'for': 'todo' } " {{{3
 
 nnoremap <silent> <Leader>td :split ~/todo.txt<CR>
-
-" Autocmds: {{{5
-
-augroup vimrc-todo.txt
-    au!
-
-    " self-removes on execution -- note it is important to do the removal
-    " *first*, otherwise Very Bad Things happen.  (or at least Things That
-    " Look Like Very Bad Things)
-    au BufNewFile,BufRead *[Tt]odo.txt execute 'au! vimrc-todo.txt' | call plug#load('todo.txt-vim') | execute 'set ft=todo'
-augroup END
-
-" PostSource Hook: {{{5
-
-" ensure our autoload hook is dropped, however we get loaded
-au User todo.txt execute 'au! vimrc-todo.txt'
-
-" }}}5
-
-" note this syntax prevents autoloading
-Plug 'freitass/todo.txt-vim', { 'on': [] }
-
-" }}}4
 
 " LazyList: {{{3
 
