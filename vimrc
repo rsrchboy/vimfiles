@@ -303,6 +303,7 @@ Plug 'christoomey/vim-system-copy'
 Plug 'junegunn/vader.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'Raimondi/delimitMate'
+Plug 'moll/vim-bbye', { 'on': 'Bdelete' }
 Plug 'easymotion/vim-easymotion' " }}}2
 
 " Plugins: library plugins/bundles {{{2
