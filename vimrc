@@ -938,9 +938,8 @@ let g:solarized_termtrans = 1
 " }}}3
 
 " Plugins: trial {{{2
-" Tagbar: {{{3
-Plug 'majutsushi/tagbar', " {{{3
-            \ { 'on': 'Tagbar' }
+
+Plug 'majutsushi/tagbar', { 'on': 'Tagbar' } " {{{3
 
 nmap <silent> <leader>ttb :TagbarToggle<CR>
 
