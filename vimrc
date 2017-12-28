@@ -302,6 +302,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'christoomey/vim-system-copy'
 Plug 'junegunn/vader.vim'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'Raimondi/delimitMate'
 Plug 'easymotion/vim-easymotion' " }}}2
 
 " Plugins: library plugins/bundles {{{2
