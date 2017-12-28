@@ -999,7 +999,7 @@ Plug 'freitass/todo.txt-vim', { 'for': 'todo' } " {{{3
 
 nnoremap <silent> <Leader>td :split ~/todo.txt<CR>
 
-" LazyList: {{{3
+Plug 'KabbAmine/lazyList.vim', { 'on': 'LazyList' } " {{{3
 
 " the plugin author's configuration:
 
@@ -1035,8 +1035,6 @@ let g:lazylist_maps = [
                 \ ]
 
 
-" fwiw, almost all of this is in autoload/
-Plug 'KabbAmine/lazyList.vim', { 'on': 'LazyList' }
 
 " }}}3
 Plug 'mattn/googletasks-vim', { 'on': 'GoogleTasks' }
