@@ -919,9 +919,11 @@ Plug 'akiyan/vim-textobj-php',           { 'for': 'php'  }
 " Plug 'nelstrom/vim-textobj-rubyblock', { 'for': 'ruby' }
 
 " Plugins: operators {{{2
-" Plug 'kana/vim-operator-user'
+
+" Plug 'kana/vim-operator-user' " }}}2
 
 " Plugins: color schemes: {{{2
+
 Plug 'flazz/vim-colorschemes'
 Plug 'Reewr/vim-monokai-phoenix'
 Plug 'tomasr/molokai'
@@ -935,7 +937,7 @@ Plug 'altercation/vim-colors-solarized' " {{{3
 let g:solarized_termtrans = 1
 "let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
 
-" }}}3
+" }}}3 }}}2
 
 " Plugins: trial {{{2
 
@@ -1034,17 +1036,13 @@ let g:lazylist_maps = [
                         \ }
                 \ ]
 
-
-
 " }}}3
 Plug 'mattn/googletasks-vim', { 'on': 'GoogleTasks' }
-" filetype
-" Plug 'kien/rainbow_parentheses.vim'
 
-" Jira Integration: {{{3
+" Jira Integration: {{{2
+
 Plug 'mnpk/vim-jira-complete', {'on': []}
-Plug 'RsrchBoy/vim-jira-open', {'on': []}
-" }}}3
+Plug 'RsrchBoy/vim-jira-open', {'on': []} " }}}2
 
 " Plugins: unmanaged {{{2
 " Perl: {{{3
