@@ -212,11 +212,13 @@ function! CustomBranchName(name) " {{{3
     " loudly when we're editing a file that's actually a symlink to a file in
     " a git work tree.  (This appears to confuse vim-fugitive.)
     try
-        " let l:ahead  = fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD')
-        " let l:behind = fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}')
-        " let l:info  .= ' [+' . len(split(l:ahead, '\n')) . '/-' . len(split(l:behind, '\n')) . ']'
-        let l:ahead  = len(split(fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD'), '\n'))
-        let l:behind = len(split(fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}'), '\n'))
+        try
+            let l:ahead  = ducttape#git#revlist_count(a:name.'@{u}..HEAD')
+            let l:behind = ducttape#git#revlist_count('HEAD..'.a:name.'@{u}')
+        catch /^Vim:E117/
+            let l:ahead  = len(split(fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD'), '\n'))
+            let l:behind = len(split(fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}'), '\n'))
+        endtry
         let l:ahead  = l:ahead  ? 'ahead '  . l:ahead  : ''
         let l:behind = l:behind ? 'behind ' . l:behind : ''
         let l:commit_info = join(filter([l:ahead, l:behind], { idx, val -> val !=# '' }), ' ')

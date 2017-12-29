@@ -1,6 +1,5 @@
 " Title:  Airline extension to display HEAD's subject line
 " Author: Chris Weyl <cweyl@alumni.drew.edu>
-" License: LGPLv2+
 
 " parts cribbed heavily from airline's extensions/example.vim
 
@@ -21,6 +20,8 @@ function! airline#extensions#head#init(ext)
 
     " You can also add a funcref for inactive statuslines.
     " call a:ext.add_inactive_statusline_func('airline#extensions#head#unapply')
+
+    return
 endfunction
 
 " This function will be invoked just prior to the statusline getting modified.
@@ -45,16 +46,17 @@ endfunction
 
 " Finally, this function will be invoked from the statusline.
 function! airline#extensions#head#status()
-    " return head#IsActive() ? 'table-mode' : ''
 
-    " not in git, if we don't have this
-    if !exists('b:git_dir')
-        return ""
+    if exists('b:airline_head_subject') | return b:airline_head_subject | endif
+
+    if exists('b:git_dir')
+        try
+            let b:airline_head_subject = '{' . ducttape#git#head#subject() . '}'
+        catch /^Vim:E117/
+            let b:airline_head_subject = '{' . fugitive#repo().git_chomp('log', '-1', '--pretty=%s', '--no-show-signature') . '}'
+        endtry
+        return b:airline_head_subject
     endif
 
-    if !exists('b:airline_head_subject')
-        let b:airline_head_subject = '{' . fugitive#repo().git_chomp('log', '-1', '--pretty=%s', '--no-show-signature') . '}'
-    endif
-
-    return b:airline_head_subject
+    return
 endfunction
