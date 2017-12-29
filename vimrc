@@ -180,8 +180,6 @@ let g:startify_skiplist = [
 
 Plug 'bling/vim-airline' " {{{3
 
-" Settings: {{{4
-
 let g:airline_theme = 'dark'
 
 let g:airline#extensions#ale#enabled                  = 1
@@ -200,11 +198,9 @@ let g:airline#extensions#whitespace#mixed_indent_algo = 1
 let g:airline#extensions#tabline#ignore_bufadd_pat =
         \ '\c\vgundo|undotree|vimfiler|tagbar|nerd_tree|previewwindow|help|nofile'
 
-" Branchname Config: {{{4
-" if a string is provided, it should be the name of a function that
-" takes a string and returns the desired value
 let g:airline#extensions#branch#format = 'CustomBranchName'
-function! CustomBranchName(name)
+
+function! CustomBranchName(name) " {{{3
     "return '[' . a:name . ']'
     if a:name ==# ''
         return a:name
@@ -232,17 +228,14 @@ function! CustomBranchName(name)
     return l:info
 endfunction
 
-" symbols {{{4
-if !exists('g:airline_symbols')
+if !exists('g:airline_symbols') " {{{3
     let g:airline_symbols = {}
 endif
 let g:airline_symbols.branch = '⎇ '
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 
-" AutoCommands: {{{4
-
-augroup vimrc#airline
+augroup vimrc#airline " {{{3
     au!
 
     " wipe on, say, :Dispatch or similar
@@ -256,16 +249,15 @@ augroup END
 
 " PostSource Hook: {{{4
 
+"au! User vim-airline call s:PluginLoadedAirline() " {{{3
+
 " FIXME: This was named incorrectly for some time; revalidate before
 " reenabling
-"au! User vim-airline call s:PluginLoadedAirline()
 
-" Do Things when the bundle is vivified
-function! s:PluginLoadedAirline()
-    let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'capslock', 'tablemode', 'iminsert'])
-endfunction
-
-" }}}4
+" " Do Things when the bundle is vivified
+" function! s:PluginLoadedAirline()
+"     let g:airline_section_a = airline#section#create_left(['mode', 'crypt', 'paste', 'capslock', 'tablemode', 'iminsert'])
+" endfunction
 
 Plug 'blueyed/vim-diminactive' " {{{3
 
@@ -746,6 +738,10 @@ Plug 'rhysd/github-complete.vim' " {{{3 }}}2
 
 " Plugins: Twitter {{{2
 
+Plug 'basyura/twibill.vim'
+Plug 'basyura/bitly.vim'
+Plug 'tyru/open-browser.vim'
+Plug 'mattn/favstar-vim'
 " let g:pluginOpts.TweetVim {{{3
 
 let g:pluginOpts.TweetVim =
@@ -772,11 +768,8 @@ augroup vimrc-tweetvim " {{{3
     au!
     au FileType tweetvim setlocal nonumber foldcolumn=0
 augroup END
+" }}}2
 
-Plug 'basyura/twibill.vim'   " {{{3
-Plug 'basyura/bitly.vim'     " {{{3
-Plug 'tyru/open-browser.vim' " {{{3
-Plug 'mattn/favstar-vim'     " {{{3 }}}2
 
 " Plugins: Perl {{{2
 
