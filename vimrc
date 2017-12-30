@@ -241,10 +241,10 @@ augroup vimrc#airline " {{{3
     au!
 
     " wipe on, say, :Dispatch or similar
-    au QuickFixCmdPost dispatch-make-complete silent! unlet b:airline_head | AirlineRefresh
-    au User FugitiveCommit                    silent! unlet b:airline_head | AirlineRefresh
-    au FileChangedShellPost * silent! unlet b:airline_head | :AirlineRefresh
-    au ShellCmdPost         * silent! unlet b:airline_head | :AirlineRefresh
+    au QuickFixCmdPost      dispatch-make-complete call rsrchboy#statuslineRefresh()
+    au User                 FugitiveCommit         call rsrchboy#statuslineRefresh()
+    au FileChangedShellPost *                      call rsrchboy#statuslineRefresh()
+    au ShellCmdPost         *                      call rsrchboy#statuslineRefresh()
 
     au User Fugitive silent! Glcd
 augroup END
