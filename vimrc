@@ -35,7 +35,7 @@ endfunction " }}}2
 
 " Plugins: general bundles: {{{2
 
-Plug 'jeetsukumaran/vim-buffergator', { 'on': 'BuffergatorOpen' } " {{{3
+Plug 'jeetsukumaran/vim-buffergator', { 'on': 'BuffergatorOpen' }
 Plug 'kien/tabman.vim', { 'on': [ 'TMToggle', 'TMFocus' ] } " {{{3
 
 let g:tabman_toggle = '<leader>mt'
@@ -298,7 +298,7 @@ Plug 'junegunn/vader.vim'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'moll/vim-bbye', { 'on': 'Bdelete' }
-Plug 'easymotion/vim-easymotion' " }}}2
+Plug 'easymotion/vim-easymotion'
 
 " Plugins: library plugins/bundles {{{2
 
@@ -309,7 +309,7 @@ Plug 'vim-scripts/CountJump'
 Plug 'mattn/webapi-vim'
 Plug 'junegunn/vim-emoji'
 Plug 'Shougo/context_filetype.vim'
-Plug 'tpope/vim-repeat' " }}}2
+Plug 'tpope/vim-repeat'
 
 " Plugins: appish or external interface {{{2
 
@@ -511,7 +511,7 @@ let g:calendar_sign        = 'vimwiki#diary#calendar_sign'
 
 let g:vimwiki_list = [{'path': '~/Shared/vimwiki/', 'path_html': '~/public_html/'}]
 
-" }}}2
+" }}}3
 
 " Plugins: neocomplete / deoplete / etc {{{2
 
@@ -546,13 +546,14 @@ if has('python3')
   endif
 endif
 
-" filetype complete sources for deoplete
-Plug 'zchee/deoplete-go', { 'for': 'go' }   " {{{3
-Plug 'Shougo/neco-vim',   { 'for': 'vim' }  " {{{3
-Plug 'c9s/perlomni.vim',  { 'for': 'perl' } " {{{3
-Plug 'Shougo/neco-syntax'                   " {{{3 }}}2
+" }}}3
+Plug 'zchee/deoplete-go', { 'for': 'go' }
+Plug 'Shougo/neco-vim',   { 'for': 'vim' }
+Plug 'c9s/perlomni.vim',  { 'for': 'perl' }
+Plug 'Shougo/neco-syntax'
 
 " Plugins: git and version controlish {{{2
+
 Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' } " {{{3
 
 let g:pandoc#filetypes#pandoc_markdown = 0
@@ -729,22 +730,19 @@ Plug 'hotwatermorning/auto-git-diff'
 
 " Plugins: GitHub {{{2
 
-Plug 'rhysd/vim-gfm-syntax'
-Plug 'jez/vim-github-hub'
 Plug 'junegunn/vim-github-dashboard', { 'on': ['GHA', 'GHD', 'GHDashboard', 'GHActivity'] } " {{{3
 
 let g:github_dashboard = {}
 let g:github_dashboard['emoji'] = 1
 let g:github_dashboard['RrschBoy'] = 1
 
-Plug 'rhysd/github-complete.vim' " {{{3 }}}2
+" }}}3
+Plug 'jez/vim-github-hub'
+Plug 'rhysd/github-complete.vim'
+Plug 'rhysd/vim-gfm-syntax'
 
 " Plugins: Twitter {{{2
 
-Plug 'basyura/twibill.vim'
-Plug 'basyura/bitly.vim'
-Plug 'tyru/open-browser.vim'
-Plug 'mattn/favstar-vim'
 " let g:pluginOpts.TweetVim {{{3
 
 let g:pluginOpts.TweetVim =
@@ -771,8 +769,11 @@ augroup vimrc-tweetvim " {{{3
     au!
     au FileType tweetvim setlocal nonumber foldcolumn=0
 augroup END
-" }}}2
-
+" }}}3
+Plug 'basyura/twibill.vim'
+Plug 'basyura/bitly.vim'
+Plug 'tyru/open-browser.vim'
+Plug 'mattn/favstar-vim'
 
 " Plugins: Perl {{{2
 
@@ -789,7 +790,7 @@ Plug 'vim-scripts/log4perl.vim'
 call s:MaybeLocalPlugin('vim-ducttape')
 call s:MaybeLocalPlugin('vim-embedded-perl')
 Plug 'vim-scripts/update_perl_line_directives', { 'for': 'vim' }
-Plug 'RsrchBoy/syntax_check_embedded_perl.vim', { 'on':  []    } " }}}2
+Plug 'RsrchBoy/syntax_check_embedded_perl.vim', { 'on':  []    }
 
 " Plugins: syntax / filetype {{{2
 
@@ -868,26 +869,26 @@ Plug 'rhysd/vim-json',                          { 'branch': 'reasonable-bool-num
 
 " Plugins: systemy bits {{{2
 
-Plug 'RsrchBoy/vim-sshauthkeys'                  " {{{3
-Plug 'tmatilai/gitolite.vim'                     " {{{3
-Plug 'vim-scripts/iptables'                      " {{{3
-Plug 'RsrchBoy/interfaces'                       " {{{3
-Plug 'chr4/nginx.vim'                            " {{{3
-Plug 'smancill/conky-syntax.vim'                 " {{{3
-Plug 'apeschel/vim-syntax-syslog-ng'             " {{{3
-Plug 'wgwoods/vim-systemd-syntax'                " {{{3
-Plug 'FredDeschenes/httplog'                     " {{{3
-Plug 'vim-scripts/openvpn', { 'for': 'openvpn' } " {{{3
-Plug 'tmux-plugins/vim-tmux'                     " {{{3
-" Plug 'chr4/sslsecure.vim' " {{{3 }}}2
-Plug 'hashivim/vim-terraform', { 'for': [ 'terraform' ] } " {{{3
+Plug 'RsrchBoy/vim-sshauthkeys'
+Plug 'tmatilai/gitolite.vim'
+Plug 'vim-scripts/iptables'
+Plug 'RsrchBoy/interfaces'
+Plug 'chr4/nginx.vim'
+Plug 'smancill/conky-syntax.vim'
+Plug 'apeschel/vim-syntax-syslog-ng'
+Plug 'wgwoods/vim-systemd-syntax'
+Plug 'FredDeschenes/httplog'
+Plug 'vim-scripts/openvpn', { 'for': 'openvpn' }
+Plug 'tmux-plugins/vim-tmux'
+" Plug 'chr4/sslsecure.vim'
+Plug 'hashivim/vim-terraform', { 'for': [ 'terraform' ] }
 
-" Configuration Management: e.g. puppet, chef, etc {{{3
+" Configuration Management: e.g. puppet, chef, etc {{{2
 
-Plug 'puppetlabs/puppet-syntax-vim', { 'for': 'puppet' } " {{{3
-Plug 'vadv/vim-chef',                { 'for': 'chef'   } " {{{3
-Plug 'pearofducks/ansible-vim'                           " {{{3
-Plug 'lepture/vim-jinja'                                 " {{{3 }}}2
+Plug 'puppetlabs/puppet-syntax-vim', { 'for': 'puppet' }
+Plug 'vadv/vim-chef',                { 'for': 'chef'   }
+Plug 'pearofducks/ansible-vim'
+Plug 'lepture/vim-jinja' " }}}2
 
 " Packaging: deb, arch, etc {{{2
 
@@ -895,6 +896,7 @@ Plug 'vim-scripts/deb.vim'
 Plug 'Firef0x/PKGBUILD.vim' " }}}2
 
 " Plugins: text objects: {{{2
+
 " See also https://github.com/kana/vim-textobj-user/wiki
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-syntax'

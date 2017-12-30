@@ -37,24 +37,17 @@ function! rsrchboy#termtitle() abort
     return 'vim: ' . l:pretty_dir
 endfunction
 
-" Function: rsrchboy#sourcedir() {{{2
-
-function! rsrchboy#sourcedir(dir) abort
+function! rsrchboy#sourcedir(dir) abort " {{{2
     for l:f in split(glob(a:dir.'/*.vim'), '\n')
         exe 'source ' l:f
     endfor
 endfunction
 
-
-" Function: ...#sourcecfgdir() {{{2
-
-function! rsrchboy#sourcecfgdir(dir) abort
+function! rsrchboy#sourcecfgdir(dir) abort " {{{2
     call rsrchboy#sourcedir('~/.config/vim/' . a:dir . '.d')
 endfunction
 
-" Function: ...#ShowSurroundMappings() {{{2
-
-function! rsrchboy#ShowSurroundMappings() abort
+function! rsrchboy#ShowSurroundMappings() abort " {{{2
     let l:surrounds = filter(copy(b:), { k -> k =~# '^surround_\d\+'})
     for l:key in keys(l:surrounds)
         let l:char = nr2char(substitute(l:key, 'surround_', '', ''))
@@ -81,9 +74,7 @@ function! rsrchboy#ShowSurroundMappings() abort
     return
 endfunction
 
-" Function: ...#ShowBufferMappings() {{{2
-
-function! rsrchboy#ShowBufferMappings() abort
+function! rsrchboy#ShowBufferMappings() abort " {{{2
     let l:text = exists('b:rsrchboy_local_mappings') ? b:rsrchboy_local_mappings : []
     echo 'Our buffer local mappings:'
     for l:line in l:text
@@ -91,7 +82,6 @@ function! rsrchboy#ShowBufferMappings() abort
     endfor
     return
 endfunction
-
 
 " }}}1
 
