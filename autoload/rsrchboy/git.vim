@@ -11,7 +11,9 @@ fun! rsrchboy#git#fixup() abort
         Gcommit --no-verify --fixup HEAD
     endtry
 
+    " these could probably be excised and done from a user autocmd or somesuch
     unlet! b:airline_head_subject
+    silent! call airline#update_statusline()
 
     return
 endfun
