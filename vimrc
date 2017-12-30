@@ -1070,6 +1070,7 @@ unlet g:pluginOpts
 " CONFIGURATION: global or general {{{1
 " settings {{{2
 
+set noerrorbells
 set autoindent                 " Preserve current indent on new lines
 set autoread                   " reload when changed -- e.g. 'git co ...'
 set background=dark
@@ -1079,6 +1080,7 @@ set hidden
 set ignorecase
 set incsearch
 set laststatus=2
+set ttyscroll=3
 " set lazyredraw
 set list
 " set listchars+=tab:\|.
