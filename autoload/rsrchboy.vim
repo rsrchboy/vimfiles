@@ -3,6 +3,17 @@ scriptencoding utf-8
 
 " Section: Functions {{{1
 
+function! rsrchboy#maybedoau(event) abort " {{{2
+    if exists('#User#' . a:event)
+        try
+            let [save_mls, &modelines] = [&mls, 0]
+            execute 'doautocmd User ' . a:event
+        finally
+            let &mls = save_mls
+        endtry
+    endif
+endfunction
+
 function! rsrchboy#var(name) abort " {{{2
     " returns the value of the buffer variable, if set, or global if not
     let l:local_name = substitute(a:name, '#', '_', '')
