@@ -800,6 +800,7 @@ Plug 'rsrchboy/mojo.vim'
 Plug 'lifepillar/pgsql.vim'
 Plug 'andrewstuart/vim-kubernetes'
 Plug 'tpope/vim-afterimage'
+Plug 'lervag/vimtex', { 'for': ['tex'] }
 Plug 'jamessan/vim-gnupg', { 'on': [] } " {{{3
 
 let g:GPGPreferArmor       = 1
