@@ -3,6 +3,14 @@ scriptencoding utf-8
 
 " Section: Functions {{{1
 
+fun! rsrchboy#statuslineRefresh() abort " {{{2
+    call rsrchboy#maybedoau('RbAirlineRefreshPre')
+    unlet! b:airline_head b:airline_head_subject
+    silent! call airline#update_statusline()
+    call rsrchboy#maybedoau('RbAirlineRefreshPost')
+    return
+endfun
+
 function! rsrchboy#maybedoau(event) abort " {{{2
     if exists('#User#' . a:event)
         try
