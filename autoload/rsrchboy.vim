@@ -3,10 +3,8 @@ scriptencoding utf-8
 
 " Section: Functions {{{1
 
-" Function: ...#var() {{{2
-
-" returns the value of the buffer variable, if set, or global if not
-function! rsrchboy#var(name) abort
+function! rsrchboy#var(name) abort " {{{2
+    " returns the value of the buffer variable, if set, or global if not
     let l:local_name = substitute(a:name, '#', '_', '')
     if exists('b:'.l:local_name)
         return get(b:, l:local_name)
@@ -15,7 +13,7 @@ function! rsrchboy#var(name) abort
     endif
 endfunction
 
-function! rsrchboy#termtitle() abort
+function! rsrchboy#termtitle() abort " {{{2
 
     " cheat, just rely on fugitive here
     let l:dir     = getbufvar('%', 'git_dir')
