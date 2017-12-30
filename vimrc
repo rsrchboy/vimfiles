@@ -677,7 +677,9 @@ augroup vimrc#fugitive " {{{3
     " au User FugitiveGrepToLLPost :lopen<CR>
 
     " on buffer initialization, set our work and common dirs
-    au User Fugitive     let b:git_worktree  = fugitive#buffer().repo().tree()
+    au User Fugitive     let b:git_worktree  = rsrchboy#git#worktree()
+    " au User Fugitive let b:git_commondir = rsrchboy#git#commondir()
+    " au User Fugitive     let b:git_worktree  = fugitive#buffer().repo().tree()
     au User FugitiveBoot let b:git_commondir = fugitive#buffer().repo().git_chomp('rev-parse','--git-common-dir')
 augroup END
 
