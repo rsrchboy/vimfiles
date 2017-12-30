@@ -11,6 +11,8 @@ fun! rsrchboy#git#fixup() abort
         Gcommit --no-verify --fixup HEAD --no-verify
     endtry
 
+    unlet! b:airline_head_subject
+
     return
 endfun
 
