@@ -8,7 +8,7 @@ fun! rsrchboy#git#fixup() abort
         let l:id = ducttape#git#fixup()
         echo 'fixed up to: ' . l:id
     catch /^Vim:E117/
-        Gcommit --no-verify --fixup HEAD --no-verify
+        Gcommit --no-verify --fixup HEAD
     endtry
 
     unlet! b:airline_head_subject
