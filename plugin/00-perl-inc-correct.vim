@@ -4,16 +4,17 @@
 " Maintainer:  Chris Weyl <cweyl@alumni.drew.edu>
 " License:     LGPLv2.1+
 
-" something arcane happens here.
-let s:save_cpo = &cpo
-set cpo&vim
+if has('g:perlinc_loaded')
+    finish
+endif
+let g:perlinc_loaded = 1
 
 if !has('perl')
     finish
 endif
 
 perl <<EOP
-# line 17 "~/.vim/plugin/00-perl-inc-correct.vim"
+# line 18 "~/.vim/plugin/00-perl-inc-correct.vim"
 
 use v5.10;
 use utf8;
@@ -28,8 +29,5 @@ use local::lib "$ENV{HOME}/.vim/perl5";
 BEGIN { @INC = grep { ! /perlbrew/ } @INC }
 
 EOP
-
-" something arcane happens here.
-let &cpo = s:save_cpo
 
 " vim: set ft=vim.perl :
