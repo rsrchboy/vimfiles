@@ -1038,8 +1038,7 @@ call plug#end()
 unlet g:pluginOpts " }}}2
 
 " CONFIGURATION: global or general {{{1
-" settings {{{2
-
+" Configuration: settings {{{2
 set dictionary=/usr/share/dict/words
 set noerrorbells
 set autoindent                 " Preserve current indent on new lines
@@ -1084,7 +1083,6 @@ set foldlevelstart=1
 set foldlevel=10
 set foldcolumn=3
 
-
 let g:maplocalleader = ','
 
 if has('persistent_undo')
@@ -1092,8 +1090,7 @@ if has('persistent_undo')
     set undodir=~/.config/vim/tmp/undo//
 endif
 
-
-" terminal bits: {{{2
+" Configuration: terminal bits: {{{2
 
 " initial hackery to let us set terminal titles!
 
@@ -1108,23 +1105,19 @@ if exists('$TMUX') && empty($TMUX)
     " set titlestring=%{rsrchboy#termtitle()}
 endif
 
-" Appearance: colors, themes, etc {{{2
+if has('termguicolors') " {{{2
+    set termguicolors
+endif
 
-augroup vimrc#syntax
+augroup vimrc#syntax " {{{2
     au!
 
     au Syntax      * :hi SpecialKey ctermfg=darkgrey
     au ColorScheme * execute ':runtime! after/colors/'.expand('<amatch>').".vim"
 augroup end
 
-if has('termguicolors')
-    set termguicolors
-endif
-
-colorscheme zenburn
-syntax on
-
-"}}}2
+colorscheme zenburn " {{{2
+syntax on "}}}2
 
 " Mappings: {{{1
 " Section: memory aids ;)  {{{2
@@ -1181,13 +1174,7 @@ cmap w!! w !sudo tee % >/dev/null
 " }}}2
 
 " AutoCommands: {{{1
-" filetype-setting autocommands {{{2
-
-" NOTE: commands for specific filetypes are generally contained in
-" ftplugin/*.vim  This section concerns itself mainly with those commands
-" necessary to help vim in deciding what filetype a file actually is.
-
-augroup vimrc-filetype-set
+augroup vimrc#filetype-set " {{{2
     au!
 
     au BufNewFile,BufRead *.psgi              set filetype=perl
@@ -1232,9 +1219,7 @@ augroup vimrc-filetype-set
     autocmd BufNewFile,BufRead .perlcriticrc set filetype=dosini
 augroup end
 
-" filetype-specific autocommands {{{2
-
-augroup vimrc-filetype
+augroup vimrc#filetype " {{{2
     au!
 
     " these have been moved to ftplugin/ files.
@@ -1244,9 +1229,7 @@ augroup vimrc-filetype
     autocmd FileType debcontrol setlocal commentstring=#\ %s
     autocmd FileType GV         setlocal nolist
     autocmd FileType tmux       set tw=0
-augroup end
-
-" }}}2
+augroup end " }}}2
 
 " Inline Block Manipulation: aka prettification {{{1
 command! -range -nargs=* Uniq <line1>,<line2>! uniq
