@@ -17,6 +17,18 @@ syn keyword vimCommand Plug
 
 " Core:  syntax/vim.vim overrides and extensions {{{1
 
+" Subject: fold markers {{{2
+
+" make these a little easier for the eyeball to skip
+
+syn match vimFoldMarkerOpen    /\(" \)\?{{{\(\d\+\)\?/ contained containedin=vimLineComment
+syn match vimFoldMarkerOpen          /" {{{\(\d\+\)\?/ contained containedin=vimComment
+syn match vimFoldMarkerClose   /\(" \)\?}}}\(\d\+\)\?/ contained containedin=vimLineComment
+syn match vimFoldMarkerClose         /" }}}\(\d\+\)\?/ contained containedin=vimComment
+
+hi link vimFoldMarkerOpen  Ignore
+hi link vimFoldMarkerClose Ignore
+
 " Subject: embedded Perl blocks {{{2
 
 let s:syn = b:current_syntax
@@ -76,7 +88,7 @@ endif
 " }}}2
 
 
-" Section: General overrieds {{{1
+" Section: General overrides {{{1
 
 " Section: functions and methods {{{2
 "
