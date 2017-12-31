@@ -640,7 +640,7 @@ nmap <silent> <Leader>gs :Gstatus<Enter>
 nmap <silent> <Leader>gD :call Gitv_OpenGitCommand("diff --no-color -- ".expand('%'), 'new')<CR>
 nmap <silent> <Leader>gd :Gdiff<CR>
 nmap <silent> <Leader>gh :Gsplit HEAD^{}<CR>
-nmap <silent> <Leader>ga :Gwrite<bar>call sy#start()<CR>
+nmap <silent> <Leader>ga :call rsrchboy#git#add_to_index()<CR>
 nmap <silent> <Leader>gc :Gcommit<Enter>
 nmap <silent> <Leader>gf :call rsrchboy#git#fixup()<CR>
 nmap <silent> <Leader>gS :Gcommit --no-verify --squash HEAD
