@@ -1,5 +1,5 @@
 
-fun! rsrchboy#git#fixup() abort
+fun! rsrchboy#git#fixup() abort " {{{1
 
     " nmap <silent> <Leader>gf :Gcommit --no-verify --fixup HEAD --no-verify<CR>
     " nmap <silent> <Leader>gF :echo 'fixed up to: ' . ducttape#git#fixup()<CR>
@@ -18,7 +18,7 @@ fun! rsrchboy#git#fixup() abort
     return
 endfun
 
-fun! rsrchboy#git#worktree() abort
+fun! rsrchboy#git#worktree() abort " {{{1
 
     if !exists('b:git_dir') | return | endif
 
@@ -31,7 +31,7 @@ fun! rsrchboy#git#worktree() abort
     return l:worktree
 endfun
 
-fun! rsrchboy#git#commondir() abort
+fun! rsrchboy#git#commondir() abort " {{{1
 
     try
         let l:commondir = ducttape#git#commondir()
