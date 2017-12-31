@@ -242,14 +242,26 @@ augroup vimrc#airline " {{{3
 
     " wipe on, say, :Dispatch or similar
     au QuickFixCmdPost      dispatch-make-complete call rsrchboy#statuslineRefresh()
-    au User                 FugitiveCommit         call rsrchboy#statuslineRefresh()
-    au FileChangedShellPost *                      call rsrchboy#statuslineRefresh()
-    au ShellCmdPost         *                      call rsrchboy#statuslineRefresh()
+
+    " a somewhat roundabout way to ensure the statusline of the window/buffer
+    " we end up in is refreshed after a commit, so the subject is updated
+    au User     FugitiveCommitFinish  let g:_statusline_needs_refreshing = 1
+    au BufEnter *                     call s:BufEnterRefresh()
+
+    au FileChangedShellPost * call rsrchboy#statuslineRefresh()
+    au ShellCmdPost         * call rsrchboy#statuslineRefresh()
 
     au User Fugitive silent! Glcd
 augroup END
 
-" PostSource Hook: {{{4
+fun! s:BufEnterRefresh() " {{{3
+    if !exists('g:_statusline_needs_refreshing')
+        return
+    endif
+    unlet g:_statusline_needs_refreshing
+    call rsrchboy#statuslineRefresh()
+    return
+endfun
 
 "au! User vim-airline call s:PluginLoadedAirline() " {{{3
 
