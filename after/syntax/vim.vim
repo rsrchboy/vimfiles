@@ -17,6 +17,16 @@ syn keyword vimCommand Plug
 
 " Core:  syntax/vim.vim overrides and extensions {{{1
 
+" Subject: embedded Perl blocks {{{2
+
+let s:syn = b:current_syntax
+unlet b:current_syntax
+syntax include @PERL syntax/perl.vim
+let b:current_syntax = s:syn
+unlet s:syn
+" syntax region vimHereDocPerl start=+<<EOP+ matchgroup=perlStringStartEnd end=+^\(PERL\|EOP\)$+ contains=@PERL
+syntax region vimHereDocPerl matchgroup=perStringStartEnd start=+<<EOP\s*$+ end=/^EOP/ keepend contains=@PERL
+
 " Subject: TODO/FIXME etc {{{2
 
 " FIXME this needs to be contained
