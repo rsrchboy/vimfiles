@@ -42,6 +42,28 @@ fun! rsrchboy#git#commondir() abort
     return l:commondir
 endfun
 
+fun! rsrchboy#git#wrapper(DFunc, FFunc) abort " {{{1
+
+    if !exists('b:git_dir') | return | endif
+
+    try
+        let l:ret = a:DFunc()
+    catch /^Vim:E117/
+        let l:ret = a:FFunc()
+    endtry
+
+    return l:ret
+endfun
+
+fun! rsrchboy#git#add_to_index() abort " {{{1
+    call rsrchboy#git#wrapper(
+                \   { -> ducttape#git#index_add() },
+                \   { -> Gwrite }
+                \)
+
+    silent! call sy#start()
+    return
+endfun " }}}1
 
 finish " <=====
 
