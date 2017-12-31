@@ -1052,6 +1052,7 @@ unlet g:pluginOpts " }}}2
 " CONFIGURATION: global or general {{{1
 " settings {{{2
 
+set dictionary=/usr/share/dict/words
 set noerrorbells
 set autoindent                 " Preserve current indent on new lines
 set autoread                   " reload when changed -- e.g. 'git co ...'
