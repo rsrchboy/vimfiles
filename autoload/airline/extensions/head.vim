@@ -56,7 +56,9 @@ function! airline#extensions#head#status()
             let b:airline_head_subject = '{' . fugitive#repo().git_chomp('log', '-1', '--pretty=%s', '--no-show-signature') . '}'
         endtry
         return b:airline_head_subject
+    else
+        let b:airline_head_subject = ''
     endif
 
-    return
+    return b:airline_head_subject
 endfunction
