@@ -250,8 +250,6 @@ augroup vimrc#airline " {{{3
 
     au FileChangedShellPost * call rsrchboy#statuslineRefresh()
     au ShellCmdPost         * call rsrchboy#statuslineRefresh()
-
-    au User Fugitive silent! Glcd
 augroup END
 
 fun! s:BufEnterRefresh() " {{{3
@@ -675,6 +673,8 @@ augroup vimrc#fugitive " {{{3
     " au User Fugitive let b:git_commondir = rsrchboy#git#commondir()
     " au User Fugitive     let b:git_worktree  = fugitive#buffer().repo().tree()
     au User FugitiveBoot let b:git_commondir = fugitive#buffer().repo().git_chomp('rev-parse','--git-common-dir')
+
+    au User Fugitive silent! Glcd
 augroup END
 
 Plug 'mattn/gist-vim', { 'on': 'Gist' } " {{{3
