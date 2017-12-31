@@ -20,6 +20,8 @@ endfun
 
 fun! rsrchboy#git#worktree() abort
 
+    if !exists('b:git_dir') | return | endif
+
     try
         let l:worktree = ducttape#git#workdir()
     catch /^Vim:E117/
