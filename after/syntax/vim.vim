@@ -8,11 +8,6 @@
 
 syn keyword vimCommand Plug
 
-
-" Plugin: vimdoc (well not *quite* a plugin) {{{2
-
-
-
 " }}}2
 
 " Core:  syntax/vim.vim overrides and extensions {{{1
@@ -44,7 +39,6 @@ syntax region vimHereDocPerl matchgroup=perStringStartEnd start=+<<EOP\s*$+ end=
 " FIXME this needs to be contained
 syn match vimTodo /\<\(NOTES\?\|TBD\|FIXME\|XXX\|PLAN\)[:]\?/
 
-
 " Subject: g: / s: highlighting {{{2
 "
 " The fact that in something like
@@ -57,12 +51,10 @@ syn match vimTodo /\<\(NOTES\?\|TBD\|FIXME\|XXX\|PLAN\)[:]\?/
 
 syn cluster vimOperGroup add=vimFBVar
 
-
 " Subject: 'finish' {{{2
 
 syn keyword vimCommandFinish finish contained containedin=vimIsCommand
 hi link vimCommandFinish Error
-
 
 " Subject: highlight linked groups as that group {{{2
 
@@ -83,10 +75,7 @@ if exists('b:syntax_highlight_as_group') && b:syntax_highlight_as_group
     syn keyword vimGroupIgnore Ignore contained containedin=vimHiLink
     hi link vimGroupIgnore Ignore
 
-endif
-
-" }}}2
-
+endif " }}}2
 
 " Section: General overrides {{{1
 
@@ -125,8 +114,6 @@ hi link vimDictOper   Operator
 hi link vimDictKey    Identifier
 hi link vimDictMethod Function
 
-
 " }}}1
-
 
 " __END__
