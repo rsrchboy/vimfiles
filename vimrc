@@ -774,7 +774,6 @@ let g:perl_sub_signatures=1
 Plug 'LStinson/perlhelp-vim',                   { 'on': ['PerlHelp', 'PerlMod'] }
 Plug 'vim-scripts/log4perl.vim'
 call s:MaybeLocalPlugin('vim-ducttape')
-call s:MaybeLocalPlugin('vim-embedded-perl')
 Plug 'vim-scripts/update_perl_line_directives', { 'for': 'vim' }
 Plug 'RsrchBoy/syntax_check_embedded_perl.vim', { 'on':  []    }
 
