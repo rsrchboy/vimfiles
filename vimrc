@@ -1032,19 +1032,6 @@ Plug 'mattn/googletasks-vim', { 'on': 'GoogleTasks' }
 Plug 'mnpk/vim-jira-complete', {'on': []}
 Plug 'RsrchBoy/vim-jira-open', {'on': []}
 
-" Plugins: unmanaged {{{2
-" Perl: {{{3
-
-if has('perl')
-
-    " the Perl API -- we just want it, no vim bits
-    Plug 'mikegrb/WebService-Linode', { 'on': [] }
-    " g:plug_home is set by plug#begin(), tho not documented (AFAICT)
-    perl push @INC, VIM::Eval('g:plug_home') . '/WebService-Linode/lib'
-    call s:MaybeLocalPlugin('vim-linode')
-
-endif " }}}3
-
 call rsrchboy#sourcecfgdir('plugins') " {{{2
 call plug#end()
 unlet g:pluginOpts " }}}2
