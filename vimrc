@@ -554,11 +554,6 @@ Plug 'Shougo/neco-syntax'
 
 " Plugins: git and version controlish {{{2
 
-Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' } " {{{3
-
-let g:pandoc#filetypes#pandoc_markdown = 0
-
-Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' } " {{{3
 Plug 'rsrchboy/gitv', { 'on': 'Gitv' } " {{{3
 
 " FIXME use our upstream, for the moment
@@ -779,6 +774,12 @@ Plug 'RsrchBoy/syntax_check_embedded_perl.vim', { 'on':  []    }
 
 " Plugins: syntax / filetype {{{2
 
+Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' } " {{{3
+
+let g:pandoc#filetypes#pandoc_markdown = 0
+
+" }}}3
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' }
 Plug 'cespare/vim-toml'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fmoralesc/vim-pinpoint'
