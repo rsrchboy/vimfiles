@@ -11,12 +11,12 @@ set encoding=utf-8
 scriptencoding utf-8
 
 " Plugins: ;) {{{1
-
-call plug#begin()
-let g:pluginOpts = {} " {{{3
+call plug#begin() " {{{2
 
 " The 'Plug' command (understandably) barfs on script-local variables, so
 " we're going to kinda kludge it with a global we'll use and unlet later.
+
+let g:pluginOpts = {}
 
 function! s:MaybeLocalPlugin(name) abort " {{{2
 
@@ -31,7 +31,7 @@ function! s:MaybeLocalPlugin(name) abort " {{{2
         Plug 'rsrchboy/' . a:name
     endif
 
-endfunction " }}}2
+endfunction
 
 " Plugins: general bundles: {{{2
 
@@ -619,9 +619,6 @@ function! s:PluginLoadedExtradite() " {{{3
 endfunction
 
 Plug 'RsrchBoy/git-wip', { 'rtp': 'vim' } " {{{3
-            " we handle this with our dotfiles now
-            " \   'do': 'cp vim/plugin/git-wip ~/bin/git-wip',
-            " \}
 
 let g:git_wip_disable_signing = 1
 
@@ -630,18 +627,9 @@ Plug 'shumphrey/fugitive-gitlab.vim' " {{{3 fugitive :Gbrowse plugin
 Plug 'tommcdo/vim-fubitive'          " {{{3 fugitive :Gbrowse plugin
 Plug 'rsrchboy/vim-fugitive'         " {{{3
 
-" fugitive has a number of bugs/PR's outstanding related to symlinks (files in
-" buffers, directories, repository locations, worktrees, etc) and worktrees.
-"
-" Unfortunately, these are things I use rather heavily, so it looks like I get
-" to maintain my own fork for a while... le sigh
-
-" FIXME Gfixup is a work in progress
-command! -nargs=? Gfixup :Gcommit --no-verify --fixup=HEAD <q-args>
-
-" {,re}mappings {{{4
-" this is a cross between the old git-vim commands I'm used to, but invoking
-" fugitive instead.
+" fugitive has a number of bugs/PR's outstanding related to symlinks and
+" worktrees.  Unfortunately, these are things I use rather heavily, so it
+" looks like I get to maintain my own fork for a while... le sigh
 
 nmap <silent> <Leader>gs :Gstatus<Enter>
 nmap <silent> <Leader>gD :call Gitv_OpenGitCommand("diff --no-color -- ".expand('%'), 'new')<CR>
@@ -660,10 +648,8 @@ nmap <silent> <Leader>gA :execute ':!git -C ' . b:git_worktree . ' add -pi ' . f
 nmap <silent> <Leader>gp :Git push<CR>
 nmap <silent> <Leader>gb :DimInactiveBufferOff<CR>:Gblame -w<CR>
 
-nmap <silent> <leader>gv :GV<cr>
-nmap <silent> <leader>gV :GV!<cr>
-
- " }}}4
+nmap <silent> <leader>gv :GV<CR>
+nmap <silent> <leader>gV :GV!<CR>
 
 augroup vimrc#fugitive " {{{3
     au!
@@ -883,17 +869,17 @@ Plug 'tmux-plugins/vim-tmux'
 " Plug 'chr4/sslsecure.vim'
 Plug 'hashivim/vim-terraform', { 'for': [ 'terraform' ] }
 
-" Configuration Management: e.g. puppet, chef, etc {{{2
+" Plugins: configuration management tools {{{2
 
 Plug 'puppetlabs/puppet-syntax-vim', { 'for': 'puppet' }
 Plug 'vadv/vim-chef',                { 'for': 'chef'   }
 Plug 'pearofducks/ansible-vim'
-Plug 'lepture/vim-jinja' " }}}2
+Plug 'lepture/vim-jinja'
 
-" Packaging: deb, arch, etc {{{2
+" Plugins: s/w packaging: deb, arch, etc {{{2
 
 Plug 'vim-scripts/deb.vim'
-Plug 'Firef0x/PKGBUILD.vim' " }}}2
+Plug 'Firef0x/PKGBUILD.vim'
 
 " Plugins: text objects: {{{2
 
@@ -923,7 +909,7 @@ Plug 'akiyan/vim-textobj-php',           { 'for': 'php'  }
 
 " Plugins: operators {{{2
 
-" Plug 'kana/vim-operator-user' " }}}2
+" Plug 'kana/vim-operator-user'
 
 " Plugins: color schemes: {{{2
 
@@ -940,7 +926,7 @@ Plug 'altercation/vim-colors-solarized' " {{{3
 let g:solarized_termtrans = 1
 "let g:solarized_termcolors = 256 " needed on terms w/o solarized palette
 
-" }}}3 }}}2
+" }}}3
 
 " Plugins: trial {{{2
 
@@ -1042,10 +1028,10 @@ let g:lazylist_maps = [
 " }}}3
 Plug 'mattn/googletasks-vim', { 'on': 'GoogleTasks' }
 
-" Jira Integration: {{{2
+" Plugins: Jira Integration {{{2
 
 Plug 'mnpk/vim-jira-complete', {'on': []}
-Plug 'RsrchBoy/vim-jira-open', {'on': []} " }}}2
+Plug 'RsrchBoy/vim-jira-open', {'on': []}
 
 " Plugins: unmanaged {{{2
 " Perl: {{{3
@@ -1058,14 +1044,11 @@ if has('perl')
     perl push @INC, VIM::Eval('g:plug_home') . '/WebService-Linode/lib'
     call s:MaybeLocalPlugin('vim-linode')
 
-endif
+endif " }}}3
 
-" }}}3 }}}2
-
-" Source any plugin-related 'dropins'
-call rsrchboy#sourcecfgdir('plugins')
+call rsrchboy#sourcecfgdir('plugins') " {{{2
 call plug#end()
-unlet g:pluginOpts
+unlet g:pluginOpts " }}}2
 
 " CONFIGURATION: global or general {{{1
 " settings {{{2
@@ -1277,50 +1260,21 @@ augroup end
 
 " }}}2
 
-" Perl: Perl testing helpers {{{1
-" TODO where did I go?! {{{2
-
-" }}}2
-
 " Inline Block Manipulation: aka prettification {{{1
-" Uniq: trim to unique lines {{{2
-"
-" There's *got* to be a better way to do this than shelling out, but I'm out
-" of tuits at the moment.
-
 command! -range -nargs=* Uniq <line1>,<line2>! uniq
-
-" JsonTidy: {{{2
 command! -range -nargs=* JsonTidy <line1>,<line2>! /usr/bin/json_xs -f json -t json-pretty
-
-" columns {{{2
-
 command! -range -nargs=* ColumnTidy <line1>,<line2>! /usr/bin/column -t
-
-" cowsay {{{2
 command! -range -nargs=* Cowsay <line1>,<line2>! cowsay -W 65
 command! -range -nargs=* BorgCowsay <line1>,<line2>! cowsay -W 65 -b
-
-" Perl helpers {{{2
 command! -range -nargs=* PerlTidy <line1>,<line2>! perltidy
 command! -range -nargs=* MXRCize <line1>,<line2>perldo perldo return unless /$NS/; s/$NS([A-Za-z0-9:]+)/\$self->\l$1_class/; s/::(.)/__\l$1/g; s/([A-Z])/_\l$1/g
 
-" }}}2
-
 " Source Local Configs: ...if present {{{1
-" ~/.vimrc.d {{{2
-
-" This will allow the use of "drop-in" configs
 
 call rsrchboy#sourcedir('~/.vimrc.d')
-
-" ~/.vimrc.local {{{2
-
-if filereadable(expand('~/.vimrc.local'))
+if filereadable(expand('~/.vimrc.local')) " {{{2
     source ~/.vimrc.local
-endif
-
-" }}}2
+endif " }}}2
 
 " FINALIZE: set secure, etc.  closing commands. {{{1
 " commands {{{2
