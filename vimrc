@@ -718,7 +718,17 @@ Plug 'tpope/vim-git'
 Plug 'junegunn/gv.vim', { 'on': 'GV' }
 Plug 'rhysd/conflict-marker.vim'
 Plug 'gisphm/vim-gitignore'
-Plug 'rhysd/committia.vim'
+Plug 'rhysd/committia.vim' " {{{3
+
+let g:committia_hooks = {}
+
+function! g:committia_hooks.edit_open(info) " {{{3
+
+    " Scroll the diff window from insert mode
+    imap <buffer> <PageDown> <Plug>(committia-scroll-diff-down-half)
+    imap <buffer> <PageDown> <Plug>(committia-scroll-diff-up-half)
+
+endfunction " }}}3
 Plug 'hotwatermorning/auto-git-diff'
 
 " Plugins: GitHub {{{2
