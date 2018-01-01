@@ -52,7 +52,7 @@ function! airline#extensions#head#status()
     if exists('b:git_dir')
         try
             let b:airline_head_subject = '{' . ducttape#git#head#subject() . '}'
-        catch /^Vim:E117/
+        catch /^Vim\%((\a\+)\)\=:E117/
             let b:airline_head_subject = '{' . fugitive#repo().git_chomp('log', '-1', '--pretty=%s', '--no-show-signature') . '}'
         endtry
         return b:airline_head_subject

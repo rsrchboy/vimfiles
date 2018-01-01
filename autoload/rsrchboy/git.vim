@@ -7,7 +7,7 @@ fun! rsrchboy#git#fixup() abort " {{{1
     try
         let l:id = ducttape#git#fixup()
         echo 'fixed up to: ' . l:id
-    catch /^Vim:E117/
+    catch /^Vim\%((\a\+)\)\=:E117/
         Gcommit --no-verify --fixup HEAD
     endtry
 
@@ -24,7 +24,7 @@ fun! rsrchboy#git#worktree() abort " {{{1
 
     try
         let l:worktree = ducttape#git#workdir()
-    catch /^Vim:E117/
+    catch /^Vim\%((\a\+)\)\=:E117/
         let l:worktree = fugitive#buffer().repo().tree()
     endtry
 
@@ -35,7 +35,7 @@ fun! rsrchboy#git#commondir() abort " {{{1
 
     try
         let l:commondir = ducttape#git#commondir()
-    catch /^Vim:E117/
+    catch /^Vim\%((\a\+)\)\=:E117/
         let l:commondir = fugitive#buffer().repo().git_chomp('rev-parse','--git-common-dir')
     endtry
 
@@ -48,7 +48,7 @@ fun! rsrchboy#git#wrapper(DFunc, FFunc) abort " {{{1
 
     try
         let l:ret = a:DFunc()
-    catch /^Vim:E117/
+    catch /^Vim\%((\a\+)\)\=:E117/
         let l:ret = a:FFunc()
     endtry
 
