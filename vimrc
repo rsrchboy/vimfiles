@@ -215,7 +215,7 @@ function! CustomBranchName(name) " {{{3
         try
             let l:ahead  = ducttape#git#revlist_count(a:name.'@{u}..HEAD')
             let l:behind = ducttape#git#revlist_count('HEAD..'.a:name.'@{u}')
-        catch /^Vim:E117/
+        catch /^Vim\%((\a\+)\)\=:E117/
             let l:ahead  = len(split(fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD'), '\n'))
             let l:behind = len(split(fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}'), '\n'))
         endtry
