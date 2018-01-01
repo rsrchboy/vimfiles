@@ -1108,9 +1108,12 @@ set foldcolumn=3
 
 let g:maplocalleader = ','
 
-if has('persistent_undo')
+if has('persistent_undo') " {{{2
     set undofile
-    set undodir=~/.config/vim/tmp/undo//
+    set undodir=~/.cache/vim/undo/
+    if !isdirectory('~/.cache/vim/undo')
+        silent! call mkdir('~/.cache/vim/undo', 'p', 0700)
+    endif
 endif
 
 " Configuration: terminal bits: {{{2
