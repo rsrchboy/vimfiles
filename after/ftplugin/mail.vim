@@ -7,10 +7,7 @@ let b:did_mail_ckw_ftplugin = 1
 
 setlocal nomodeline
 
-" turning on spell is handled down below
-setlocal spelllang=en_us
-setlocal spellcapcheck=0
-setlocal spellfile+=~/.vim/spell/mail.utf-8.add
+call rsrchboy#buffer#SetSpellOpts('mail')
 
 setlocal foldcolumn=0
 
@@ -25,6 +22,7 @@ set formatoptions+=awq
 set textwidth=72
 
 setlocal backup
+" setlocal patchmode='.orig'
 set swapfile
 
 " "flowed" text is going to make this go crazy, so...
@@ -51,5 +49,5 @@ setlocal spell
 " autocmd TextChanged,TextChangedI <buffer> update
 " autocmd TextChanged <buffer> update
 
-normal gg0
+normal! gg0
 startinsert
