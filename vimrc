@@ -410,7 +410,7 @@ augroup vimrc#vimpipe " {{{3
     autocmd FileType puppet let b:vimpipe_command="T=`mktemp`; cat - > $T && puppet-lint $T; rm $T"
 augroup end
 
-Plug 'xolox/vim-notes' " {{{3
+Plug 'xolox/vim-notes', { 'on': 'Note' } " {{{3
 
 " FIXME need to figure out the significance of other files in the notes dirs
 " first
