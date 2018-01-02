@@ -5,6 +5,7 @@ App::Cmd
 Args
 ArrayRef
 AttributeShortcuts
+AutoDestruct
 BLAH's
 BeLike
 CLI
@@ -36,6 +37,7 @@ MarkAsMethods
 MinimumVersion
 MooseX
 MooseX::MarkAsMethods
+MultiInitArg
 MyClass
 Ndn
 NoSmartComments
@@ -60,6 +62,7 @@ TestRole's
 TraitFor
 TravisCI
 TypeConstraint
+UndefTolerant
 Zilla
 aaaand
 accessor
@@ -71,6 +74,7 @@ auth'ed
 autoclean
 autodie
 automagically
+binmode
 bugtracker
 checksum
 chroot
@@ -88,6 +92,7 @@ dreamhost
 dzil
 explody
 fakechroot
+filehandle
 formattable
 func
 github
@@ -111,6 +116,7 @@ middlewares
 multifactor
 namespace::autoclean
 ndn
+ne
 ok
 p5
 param
@@ -132,11 +138,13 @@ sql
 sqlite3
 stopwords
 subnets
+substr
 subtest
 subtests
 subtyping
 superclasses
 symlink
+tidyall
 trait1
 travis
 truthy
@@ -147,8 +155,3 @@ usr
 v5
 worktree
 yay
-substr
-ne
-AutoDestruct
-MultiInitArg
-UndefTolerant
