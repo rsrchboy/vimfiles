@@ -1,3 +1,6 @@
+
+setl commentstring=--%s
+
 " Surround Mappings: {{{1
 "
 " , ->      '...',
