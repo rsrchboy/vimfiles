@@ -60,8 +60,88 @@ let b:vimpipe_filetype = 'tapVerboseOutput'
 let b:vimpipe_command  = 'source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -'
 
 
+" Section: tagbar {{{2
+
+" " default
+" let g:tagbar_type_perl = {
+"     \ 'kinds' : [
+"         \ 'p:packages:1:0',
+"         \ 'u:uses:1:0',
+"         \ 'A:aliases:0:0',
+"         \ 'q:requires:1:0',
+"         \ 'c:constants:0:0',
+"         \ 'o:package globals:0:0',
+"         \ 'R:readonly:0:0',
+"         \ 'f:formats:0:0',
+"         \ 'e:extends',
+"         \ 'r:roles:1:0',
+"         \ 'a:attributes',
+"         \ 's:subroutines',
+"         \ 'l:labels',
+"         \ 'P:POD',
+"         \ '?:unknown',
+"     \ ],
+" \ }
+
+" " for comparison
+" let g:tagbar_type_cpp = {
+"     \ 'kinds' : [
+"         \ 'd:macros:1:0',
+"         \ 'p:prototypes:1:0',
+"         \ 'g:enums',
+"         \ 'e:enumerators:0:0',
+"         \ 't:typedefs:0:0',
+"         \ 'n:namespaces',
+"         \ 'c:classes',
+"         \ 's:structs',
+"         \ 'u:unions',
+"         \ 'f:functions',
+"         \ 'm:members:0:0',
+"         \ 'v:variables:0:0',
+"         \ '?:unknown',
+"     \ ],
+" \ }
+
+"    \ 'ctagsbin': 'perl-tags',
+"    \ 'ctagsargs': '--outfile -',
+        " \ 'p' : 'packages',
+let b:tagbar_type = {
+    \ 'sort' : 1,
+    \ 'deffile' : '$HOME/.vim/ctags/perl',
+    \ 'kinds' : [
+        \ 'p:packages:1:0',
+        \ 'u:uses:1:0',
+        \ 'A:aliases:0:0',
+        \ 'q:requires:1:0',
+        \ 'c:constants:0:0',
+        \ 'o:package globals:0:0',
+        \ 'R:readonly:0:0',
+        \ 'f:formats:0:0',
+        \ 'e:extends',
+        \ 'r:roles:1:0',
+        \ 'a:attributes',
+        \ 's:subroutines',
+        \ 'm:Methods',
+        \ 'l:labels',
+        \ 'P:POD',
+    \ ],
+    \ 'sro' : '',
+    \ 'kind2scope' : {
+        \ 'p' : 'class',
+    \ },
+    \ 'scope2kind' : {
+        \ 'packages' : 'p',
+        \ 'subroutines' : 's',
+    \ },
+\ }
+
+let b:undo_ftplugin .= ' | unlet b:tagbar_type'
+
+" }}}2
+
 " Plugins: Surround Mappings {{{1
 
+" Surrounds: kinda {{{2
 
 " Note below that the ':silent' postfix is necessary rather than a ':normal '
 " prefix... because.
@@ -79,6 +159,8 @@ call s:tools.llnnoremap('ax', ':s/\s*[.,;]*\s*$//')
 
 " append a ` ();`, a la 'NO IMPORTS PLZ'
 call s:tools.llnnoremap('aX', ':s/\s*[.,;]*\s*$/ ();/')
+
+" Surrounds: {{{2
 
 call rsrchboy#buffer#CommonMappings()
 
@@ -115,8 +197,9 @@ let b:surround_85  = "use \r;"
 " with '},'.  Just playing around with this, for the moment.
 
 let b:endwise_addition = '\=submatch(0)=="if" ? "}" : "},"'
+" let b:endwise_addition = '\=submatch(0)=="{" ? "}," : "}"'
 " let b:endwise_addition = '}'
-let b:endwise_words = 'if,{'
+let b:endwise_words = 'if,elsif,} elsif,else,{'
 " let b:endwise_syngroups= 'perlConditional'
 let b:endwise_syngroups= 'perlConditional,perlBraces'
 
