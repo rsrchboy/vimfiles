@@ -139,6 +139,9 @@ fun! s:PluginLoadedArpeggio() " {{{3
         return
     endif
     Arpeggio inoremap jk  <Esc>
+    " Arpeggio inoremap WQ  <Esc>:wq<CR>
+    Arpeggio imap WQ  <Esc>:wq<CR>
+    Arpeggio nmap WQ  :wq<CR>
     Arpeggio nnoremap OW  :only<CR>
 endfun
 
