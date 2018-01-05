@@ -327,6 +327,7 @@ Plug 'tpope/vim-repeat'
 " Plugins: appish or external interface {{{2
 
 Plug 'thinca/vim-ref'
+Plug 'keith/travis.vim', { 'on': 'Travis' }
 Plug 'junkblocker/patchreview-vim'
 Plug 'diepm/vim-rest-console'
 Plug 'cryptomilk/git-modeline.vim'
