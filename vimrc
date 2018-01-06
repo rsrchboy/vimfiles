@@ -1077,7 +1077,7 @@ set ignorecase
 set incsearch
 set laststatus=2
 set ttyscroll=3
-" set lazyredraw
+set lazyredraw
 set list
 " set listchars+=tab:\|.
 set matchpairs+=<:>            " Allow % to bounce between angles too
