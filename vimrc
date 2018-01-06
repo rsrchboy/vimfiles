@@ -1065,32 +1065,32 @@ unlet g:pluginOpts " }}}2
 
 " CONFIGURATION: global or general {{{1
 " Configuration: settings {{{2
-set dictionary=/usr/share/dict/words
-set noerrorbells
+
 set autoindent                 " Preserve current indent on new lines
 set autoread                   " reload when changed -- e.g. 'git co ...'
 set background=dark
 set backspace=indent,eol,start " Make backspaces delete sensibly
+set dictionary=/usr/share/dict/words
 set expandtab                  " Convert all tabs typed to spaces
 set hidden
 set ignorecase
 set incsearch
 set laststatus=2
-set ttyscroll=3
 set lazyredraw
 set list
 " set listchars+=tab:\|.
 set matchpairs+=<:>            " Allow % to bounce between angles too
 set modeline
 set modelines=2
+set noerrorbells
 set nostartofline              " try to preserve column on motion commands
 set number
 set shiftround                 " Indent/outdent to nearest tabstop
-set softtabstop=4
 set shiftwidth=4               " Indent/outdent by four columns
 set showmatch
 set smartcase
 set smarttab
+set softtabstop=4
 set spellfile+=~/.vim/spell/en.utf-8.add
 set splitright                 " open new vsplit to the right
 set t_Co=256                   " Explicitly tell Vim we can handle 256 colors
@@ -1098,11 +1098,14 @@ set tabstop=8
 set textwidth=78               " Wrap at this column
 set ttimeoutlen=10
 set ttyfast
+set ttyscroll=3
 set whichwrap+=<,>,h,l
+
 " XXX reexamine 'nobackup'
 set nobackup                   " we're stashing everything in git, anyways
 " XXX reexamine 'noswapfile'
 set noswapfile
+
 " Start our folding at level 1, but after that enforce at a high enough level
 " that we shouldn't discover our current position has been folded away after
 " switching windows
