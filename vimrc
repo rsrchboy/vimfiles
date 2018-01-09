@@ -1160,6 +1160,12 @@ nnoremap <leader>SM :call rsrchboy#ShowBufferMappings()<CR>
 
 nnoremap <leader>GM :call rsrchboy#cheats#mappings()<CR>
 
+" " Mappings: "go edit other files" {{{2
+" " FIXME TODO make this smart if ~/.vim/vimrc is already open
+" nnoremap <leader>Evrc :tabe ~/.vim/vimrc<CR>
+" nnoremap <leader>Evftp :execute 'tabe ~/.vim/after/ftplugin/' . &filetype . '.vim'<CR>
+" nnoremap <leader>Evfts :execute 'tabe ~/.vim/after/syntax/' . &filetype . '.vim'<CR>
+
 " Text Formatting: {{{2
 
 " vmap Q gq
