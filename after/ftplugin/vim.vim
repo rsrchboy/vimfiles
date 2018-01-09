@@ -27,11 +27,12 @@ let b:undo_ftplugin .= '| setlocal foldmethod< commentstring<'
 nnoremap <buffer> <silent> ,l :Tabularize /let<CR>
 
 
-call s:tools.llnnoremap('fo', ':<C-U>execute ''s/\s*\({{{\d*\)*\s*$/ {{{''.v:count.''/''')
-call s:tools.llnnoremap('fc', ':<C-U>execute ''s/\s*\(}}}\d*\)*\s*$/ }}}''.v:count.''/''')
+call s:tools.llnnoremap('fo', ':<C-U>execute ''s/\s*"\?\s*\({{{\d*\)*\s*$/ " {{{''.v:count.''/''')
+call s:tools.llnnoremap('fc', ':<C-U>execute ''s/\s*"\?\s*\(}}}\d*\)*\s*$/ " }}}''.v:count.''/''')
 
 call s:tools.llnnoremap('ax', ':s/\s*[.,;]*\s*$//')
 call s:tools.llnnoremap('a)', ':s/\s*[.,;]*\s*$/)/')
+" call s:tools.llnnoremap('a"', ':s/\s*$/\=printf(&commentstring, '''')/')
 
 call s:tools.surround('q', "''\r''")
 

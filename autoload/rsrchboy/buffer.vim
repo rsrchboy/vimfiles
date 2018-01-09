@@ -136,6 +136,20 @@ endfunction
 
 let s:tools.show_buffer_mappings = function('s:ShowBufferMappings')
 
+function! rsrchboy#buffer#ShowBufferMappings() abort
+
+    redir => l:output
+        map <buffer>
+    redir END
+
+    let l:sid = self.fn_prefix
+
+    let l:funcs = sort(filter(
+1                \   map(split(l:output, "\n"), { k, v -> matchstr(v, '<SNR>[^(]\+') }),
+                \   { k, v -> v =~# l:sid }
+                \))
+    return  l:funcs
+endfunction
 
 " Function: ...#ShowSurroundMappinks() {{{2
 

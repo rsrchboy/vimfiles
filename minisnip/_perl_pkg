@@ -1,0 +1,3 @@
+package {{+~substitute(substitute(expand("%:p:r"), '/', '::', 'g'), '^.*lib::', '', '')+}};
+works!
+{{++}}

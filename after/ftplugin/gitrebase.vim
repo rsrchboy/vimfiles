@@ -18,3 +18,5 @@ nnoremap <buffer> <localleader>e :call <SID>Swizzle('e',"edit")<cr>
 nnoremap <buffer> <localleader>s :call <SID>Swizzle('s',"squash")<cr>
 nnoremap <buffer> <localleader>f :call <SID>Swizzle('f',"fixup")<cr>
 nnoremap <buffer> <localleader>x :call <SID>Swizzle('x',"exec")<cr>
+
+" nnoremap <buffer> <localleader>q :wq<cr>

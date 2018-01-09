@@ -77,6 +77,12 @@ if exists('b:syntax_highlight_as_group') && b:syntax_highlight_as_group
 
 endif " }}}2
 
+" Handle Normal:
+
+" otherwise, commands like 'normal! f(' were messing up the highlighting
+syn match vimNormal /^\s*normal!\s\+.*$/
+hi def link vimNormal vimVar
+
 " Section: General overrides {{{1
 
 " Section: functions and methods {{{2

@@ -79,17 +79,70 @@ function! rsrchboy#ShowSurroundMappings() abort " {{{2
     call extend(l:surrounds, l:global_surrounds, 'keep')
 
     if !len(keys(l:surrounds))
-        echo 'No special surround mappings defined for this filetype.'
+        echo 'No special surround mappings defined for this filetype (' . &filetype
         return
     endif
 
     echo 'Buffer surround mappings!'
     for l:char in sort(keys(l:surrounds))
-        echo l:char . ' -> ' . l:surrounds[l:char]
+        " echo l:char . ' -> ' . l:surrounds[l:char]
+        echo printf('%12s -> %s', l:char, l:surrounds[l:char])
     endfor
 
     return
 endfunction
+
+" Function: ...#ShowTextobjMappings() {{{2
+
+function! rsrchboy#ShowTextobjMappings() abort
+
+    " e.g.:
+    "
+    " x  il            <Plug>(textobj-line-i)
+    " x  ic            <Plug>(textobj-comment-i)
+    " v  <Plug>(textobj-sigil-a) & :<C-U>call g:__textobj_sigil.do_by_function("select-a","-","v")<CR>
+    " v  <Plug>(textobj-sigil-i) & :<C-U>call g:__textobj_sigil.do_by_pattern("select","i","v")<CR>
+    "
+    " SOOOOO....  need to map from x -> <Plug>... -> v
+    " right?
+    "
+    " Maybe shortcut for Right Now.
+    redir => l:output
+        silent vmap
+    redir END
+
+    let l:lines = split(l:output, "\n")
+    call filter(l:lines, { k, v -> v =~# "<Plug>(textobj-" })
+    let l:vlines = filter(copy(l:lines), { k, v -> v =~# "^v" })
+    let l:xlines = filter(copy(l:lines), { k, v -> v =~# "^x" })
+
+    let l:maps = {}
+    for l:line in l:xlines
+        " echo l:line
+        let l:splits = split(l:line)
+        " PP l:splits
+        let l:maps[l:splits[1]] = l:splits[2]
+    endfor
+
+    " return l:maps
+
+    echo "textobj mappings!"
+    for l:map in sort(keys(l:maps))
+        echo l:map . ' -> ' . l:maps[l:map]
+    endfor
+
+    return
+
+    " let l:sid = self.fn_prefix
+
+    " let l:funcs = sort(filter(
+    "             \   map(split(l:output, "\n"), { k, v -> matchstr(v, '<SNR>[^(]\+') }),
+    "             \   { k, v -> v =~# l:sid }
+    "             \))
+    " return  l:funcs
+endfunction
+
+" Function: ...#ShowBufferMappings() {{{2
 
 function! rsrchboy#ShowBufferMappings() abort " {{{2
     let l:text = exists('b:rsrchboy_local_mappings') ? b:rsrchboy_local_mappings : []

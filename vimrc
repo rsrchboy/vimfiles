@@ -111,13 +111,14 @@ nnoremap <silent> <leader>fml :call plug#load('vim-follow-my-lead') <bar> execut
 
 let g:fml_all_sources = 1
 
-" Plug 'SirVer/ultisnips' " {{{3
+Plug 'SirVer/ultisnips' " {{{3
 
 " " give this a shot
 " Plug 'KeyboardFire/vim-minisnip'
 " Plug 'joereynolds/deoplete-minisnip'
 
 let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
+" let g:minisnip_trigger = '<C-E>'
 
 Plug 'ervandew/supertab' " {{{3
 
@@ -372,8 +373,8 @@ if has('job') && has('timers') && has('channel')
                 \   'vader': 'vim',
                 \}
     " tweak linters lists
+                " \   'perl': [ 'perlcritic', 'proselint' ],
     let g:ale_linters = {
-                \   'perl': [ 'perlcritic', 'proselint' ],
                 \   'help': [ 'proselint'               ],
                 \}
     " configure fixers
@@ -794,7 +795,7 @@ let g:perl_sub_signatures=1
 " }}}3
 Plug 'LStinson/perlhelp-vim',                   { 'on': ['PerlHelp', 'PerlMod'] }
 Plug 'vim-scripts/log4perl.vim'
-call s:MaybeLocalPlugin('vim-ducttape')
+" call s:MaybeLocalPlugin('vim-ducttape')
 Plug 'vim-scripts/update_perl_line_directives', { 'for': 'vim' }
 Plug 'RsrchBoy/syntax_check_embedded_perl.vim', { 'on':  []    }
 
@@ -1250,6 +1251,8 @@ augroup vimrc#filetype-set " {{{2
     " dosini-style files
     autocmd BufNewFile,BufRead .tidyallrc    set filetype=dosini
     autocmd BufNewFile,BufRead .perlcriticrc set filetype=dosini
+
+    autocmd BufNewFile,BufRead 02packages.txt set filetype=cpan-02packages
 augroup end
 
 augroup vimrc#filetype " {{{2
@@ -1272,6 +1275,8 @@ command! -range -nargs=* Cowsay <line1>,<line2>! cowsay -W 65
 command! -range -nargs=* BorgCowsay <line1>,<line2>! cowsay -W 65 -b
 command! -range -nargs=* PerlTidy <line1>,<line2>! perltidy
 command! -range -nargs=* MXRCize <line1>,<line2>perldo perldo return unless /$NS/; s/$NS([A-Za-z0-9:]+)/\$self->\l$1_class/; s/::(.)/__\l$1/g; s/([A-Z])/_\l$1/g
+
+" }}}2
 
 " Source Local Configs: ...if present {{{1
 

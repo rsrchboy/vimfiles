@@ -36,7 +36,7 @@ syn match  perlVarPlain "shift" nextgroup=perlVarMember,perlVarSimpleMember,perl
 " syn match  perlMethod   ")->\$*\I\i*" contained nextgroup=perlVarSimpleMember,perlVarMember,perlMethod,perlPostDeref
 
 syn match  perlMethod   "->\$*\I\i*"        contained nextgroup=perlVarSimpleMember,perlVarMember,perlMethod,perlPostDeref,perlMethodArgs
-" syn match  perlMethod   ")->\$*\I\i*"ms=s+1           nextgroup=perlVarSimpleMember,perlVarMember,perlMethod,perlPostDeref,perlMethodArgs
+syn match  perlMethod   ")->\$*\I\i*"ms=s+1           nextgroup=perlVarSimpleMember,perlVarMember,perlMethod,perlPostDeref,perlMethodArgs
 syn match  perlMethod   "^\s*->\$*\I\i*"              nextgroup=perlVarSimpleMember,perlVarMember,perlMethod,perlPostDeref,perlMethodArgs
 " FIXME the oneline is a kludge to keep this from never terminating
 syn region perlMethodArgs matchgroup=perlMethod start="(" end=")" contained contains=@perlExpr nextgroup=perlVarSimpleMember,perlVarMember,perlMethod,perlPostDeref oneline
@@ -56,16 +56,18 @@ syn match perlOperator           "\<\%(blessed\)\>"
 syn match perlStatementProc '\<\%(isa_instance_of\|constraint\)\>'
 
 " MooseX::Role::Parameterized -- for now {{{2
-syn match perlFunction      "\<\%(role\)\>"
-syn match perlMooseAttribute +\<parameter\>\_s*+ nextgroup=perlMooseAttributeName
+syn match perlFunction      /\<\%(role\)\>/
+syn match perlMooseAttribute /\<parameter\>\_s*/ nextgroup=perlMooseAttributeName
 syn match perlMooseAttribute /\<\%(before\|method\|around\|after\)\>\_s*/ nextgroup=perlMooseAttributeName
 
-syn match perlMooseAttribute     +\<has\>\_s*+ nextgroup=perlMooseAttributeName
-syn match perlMooseAttributeName +\<(\i*\>+    nextgroup=perlFatComma contained
-syn match perlFatComma           +=>+          contained
+syn match perlMooseAttribute     /\<has\>\_s*/ nextgroup=perlMooseAttributeName
+syn match perlMooseAttributeName /\<(\i*\>/    nextgroup=perlFatComma contained
+syn match perlFatComma           /=>/          contained
 
 hi def link perlMooseAttribute perlFunction
 hi def link perlMooseAttributeName perlSubName
+
+" }}}1
 
 " "normal"
 syn match   perlTodo /\<\(NOTES\?\|TBD\|FIXME\|XXX\|PLAN\)[:]\?/ contained contains=NONE,@NoSpell
@@ -83,12 +85,42 @@ syn region perlSmartComment start="###\+ " end="$" transparent contains=perlTodo
 " set transparent, above.
 " hi def link perlSmartComment perlComment
 
+" syn match perlOperator containedin=@TOP /[!:?]/
+syn match   perlOperator    containedin=@TOP /[!]/
+" syn match   perlConditional containedin=@TOP /[:?]/
+syn match   perlConditional containedin=@TOP /[?]/
+syn match   perlConditional /[^:]:[^:]/ms=s+1,me=e-1 containedin=@TOP
+syn keyword perlUndef       undef containedin=@TOP
 
-" PerlCritic And PerlTidy:
-syn match perlCriticOverride /## \?\(no\|use\) critic.*$/ containedin=perlComment contained
+hi link perlUndef Special
+" hi link perlUndef Constant
+
+
+" Perl Critic And Tidy:
+syn match perlCriticOverride /## \?\(no\|use\) critic.*$/ containedin=perlComment contained conceal
 syn match perlTidyOverride   /#\(<<<\|>>>\)$/ containedin=perlComment contained
 
 " Delimiter, Special, and Ignore all seem appropriate, depending on what one
 " wants.  I just want them to go away, so...
 hi link perlCriticOverride Ignore
 hi link perlTidyOverride   Ignore
+
+
+" syn match   perlPackageName "\<use\s\+\%(\h\|::\)\%(\w\|::\)*" contains=perlStatementUse
+
+" syn match   perlStatementInclude "\<use\s\+\%(\h\|::\)\%(\w\|::\)*" contains=perlStatementUse
+syn match   perlStatementInclude "\<use\s\+[A-Z]\%(\w\|::\)*\>" contains=perlStatementUse
+syn keyword perlStatementUse     use contained
+" \s\+\l\(\i\|:\)\+
+
+" hi link perlStatementUse perlStatement
+" hi link perlStatementInclude Include
+
+" hi link perlStatementUse Include
+" hi link perlStatementInclude Type
+
+hi link perlStatementUse Include
+" hi link perlStatementInclude StorageClass
+" hi link perlStatementInclude Structure
+hi link perlStatementInclude perlString
+

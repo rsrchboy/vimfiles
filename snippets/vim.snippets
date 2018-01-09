@@ -1,22 +1,33 @@
 snippet end
 	" __END__
-snippet method
-	" Method: ${1:method name} {{{2
+# snippet method
+# 	" Method: ${1:method name} {{{2
 	
-	function! s:method_${1}() abort dict
+# 	function! s:method_${1}() abort dict
 	
-	endfunction
-	
-	
-snippet section
-	" Section: ${1:section name} {{{1
+# 	endfunction
 	
 	
-	
-snippet generic
-	" ${1:group}: ${2:section title} {{{${3:1}
+# endsnippet
+# snippet section
+# 	" Section: ${1:section name} {{{1
 	
 	
 	
-	" }}}${3}
+# endsnippet
+# snippet generic
+# 	" ${1:group}: ${2:section title} {{{${3:1}
+	
+	
+	
+# 	" }}}${3}
+# endsnippet
+# snippet guard
+# 	if exists('b:did_ftplugin_rsrchboy')
+# 		finish
+# 	endif
+# 	let b:did_ftplugin_rsrchboy = 1
+# 	let b:undo_ftplugin .= ' | unlet b:did_ftplugin_rsrchboy'
 
+# 	let s:tools = g:rsrchboy#buffer#tools
+# endsnippet

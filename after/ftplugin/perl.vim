@@ -30,6 +30,11 @@ setlocal include=^\\<\\\(use\\\|require\\\|with\\\|extends\\\)\\>
 " setlocal includeexpr=substitute(substitute(substitute(substitute(v:fname,'::','/','g'),'->\*','',''),'$','.pm',''), "'", '', 'g')
 
 
+" comments
+
+" also need to update formatoptions cindent, etc, etc
+set comments+=sf:=,e:=cut
+
 setlocal foldmethod=marker
 let b:undo_ftplugin .= ' | setlocal foldmethod<'
 
@@ -37,6 +42,12 @@ let b:undo_ftplugin .= ' | setlocal foldmethod<'
 " Formatting:
 
 setl formatprg=perltidy
+
+" Change Print to Say
+call s:tools.llnnoremap('cps', ':.perldo s/print /say /; s/\\n"/"/ <CR>')
+
+" text wrap!  as we have formatprg set (maybe)
+" call s:tools.llnnore2map('tw', ':execute "normal gqip"|let &l:fp=b:save_fp')
 
 " Plugins: Ale {{{1
 
@@ -155,14 +166,20 @@ call g:rsrchboy#buffer#tools.llnmap('sc', 'viW$hSC:silent ')
 call s:tools.llnnoremap('a.', ':s/\s*[.,;]*\s*$/./')
 call s:tools.llnnoremap('a,', ':s/\s*[.,;]*\s*$/,/')
 call s:tools.llnnoremap('a;', ':s/\s*[.,;]*\s*$/;/')
+call s:tools.llnnoremap('a{', ':s/\s*[.,;\{]*\s*$/ {/')
 call s:tools.llnnoremap('ax', ':s/\s*[.,;]*\s*$//')
 
 " append a ` ();`, a la 'NO IMPORTS PLZ'
 call s:tools.llnnoremap('aX', ':s/\s*[.,;]*\s*$/ ();/')
 
-" Surrounds: {{{2
+call s:tools.llnnoremap('fo', ':<C-U>execute ''s/\s*\({{{\d*\)*\s*$/ {{{''.v:count.''/''')
+call s:tools.llnnoremap('fc', ':<C-U>execute ''s/\s*\(}}}\d*\)*\s*$/ }}}''.v:count.''/''')
+
+call s:tools.llnnoremap('Kop', ':Ref perldoc perlop ')
 
 call rsrchboy#buffer#CommonMappings()
+
+" Surrounds: {{{2
 
 " r ->    qr/.../
 " q ->     q{...}
@@ -206,5 +223,7 @@ let b:endwise_syngroups= 'perlConditional,perlBraces'
 " }}}2
 
 " }}}1
+
+unlet s:tools
 
 " __END__

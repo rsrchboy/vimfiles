@@ -11,6 +11,7 @@ setlocal foldcolumn=0
 
 " don't set this mapping if we're actually *editing* a help file
 if &readonly
+" if &bt ==# 'help'
     nnoremap <buffer> <silent> q :q<CR>
 endif
 

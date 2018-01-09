@@ -47,6 +47,15 @@ function! MyRestoreTabBuffers() abort
         return
     endif
 
+    " setup our autocmds
+    " augroup buf2tab
+    "     au!
+    "     if has_key(g:, 'this_obsession')
+    "     else
+    "         autocmd BufEnter,VimLeavePre * call s:SaveTabInfo()
+    "     endif
+    " augroup END
+
     for l:page in gettabinfo()
 
         if !has_key(l:page.variables, 'buf2tab_buf_names') | continue | endif

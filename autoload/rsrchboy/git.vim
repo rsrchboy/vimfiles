@@ -7,7 +7,8 @@ fun! rsrchboy#git#fixup() abort " {{{1
     try
         let l:id = ducttape#git#fixup()
         echo 'fixed up to: ' . l:id
-    catch /^Vim\%((\a\+)\)\=:E117/
+    " catch /^Vim\%((\a\+)\)\=:E117/
+    catch
         Gcommit --no-verify --fixup HEAD
     endtry
 
