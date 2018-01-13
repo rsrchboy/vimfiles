@@ -1280,10 +1280,7 @@ if filereadable(expand('~/.vimrc.local')) " {{{2
 endif " }}}2
 
 " FINALIZE: set secure, etc.  closing commands. {{{1
-" commands {{{2
 set secure
-set exrc
-
-" }}}2
+set exrc    " }}}1
 
 " vim: set foldmethod=marker foldcolumn=5 :
