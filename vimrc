@@ -1118,8 +1118,8 @@ let g:maplocalleader = ','
 if has('persistent_undo') " {{{2
     set undofile
     set undodir=~/.cache/vim/undo/
-    if !isdirectory('~/.cache/vim/undo')
-        silent! call mkdir('~/.cache/vim/undo', 'p', 0700)
+    if !isdirectory($HOME.'/.cache/vim/undo')
+        silent! call mkdir($HOME.'/.cache/vim/undo', 'p', 0700)
     endif
 endif
 
