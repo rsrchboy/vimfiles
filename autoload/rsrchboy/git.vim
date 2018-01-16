@@ -42,23 +42,32 @@ fun! rsrchboy#git#commondir() abort " {{{1
     return l:commondir
 endfun
 
+fun! s:FuncOrEval(Thing) abort
+    if type(a:Thing) == v:t_func
+        call a:Thing()
+    else
+        execute a:Thing
+    end
+    return
+endfun
+
 fun! rsrchboy#git#wrapper(DFunc, FFunc) abort " {{{1
 
     if !exists('b:git_dir') | return | endif
 
     try
-        let l:ret = a:DFunc()
+        call s:FuncOrEval(a:DFunc)
     catch /^Vim\%((\a\+)\)\=:E117/
-        let l:ret = a:FFunc()
+        call s:FuncOrEval(a:FFunc)
     endtry
 
-    return l:ret
+    return
 endfun
 
 fun! rsrchboy#git#add_to_index() abort " {{{1
     call rsrchboy#git#wrapper(
                 \   { -> ducttape#git#index_add() },
-                \   { -> Gwrite }
+                \   ':Gwrite',
                 \)
 
     silent! call sy#start()
