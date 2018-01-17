@@ -1147,6 +1147,7 @@ augroup vimrc#filetype-set " {{{2
 
     au BufNewFile,BufRead *.psgi              set filetype=perl
     au BufNewFile,BufRead cpanfile            set filetype=perl
+    au BufNewFile,BufRead alienfile           set filetype=perl
     au BufNewFile,BufRead Rexfile             set filetype=perl
     au BufNewFile,BufRead *.tt                set filetype=tt2html
     au BufNewFile,BufRead *.tt2               set filetype=tt2html
@@ -1182,9 +1183,14 @@ augroup vimrc#filetype-set " {{{2
     " openvpn bundle config files
     autocmd BufNewFile,BufRead *.ovpn set filetype=openvpn
 
-    " dosini-style files
-    autocmd BufNewFile,BufRead .tidyallrc    set filetype=dosini
-    autocmd BufNewFile,BufRead .perlcriticrc set filetype=dosini
+    autocmd BufNewFile,BufRead .tidyallrc         set filetype=dosini
+    autocmd BufNewFile,BufRead .perlcriticrc      set filetype=dosini
+    autocmd BufNewFile,BufRead .offlineimaprc     set filetype=dosini
+    autocmd BufNewFile,BufRead offlineimap/config set filetype=dosini
+    autocmd BufNewFile,BufRead profanity/profrc   set filetype=dosini
+    autocmd BufNewFile,BufRead profanity/accounts set filetype=dosini
+
+    " fin!
 augroup end
 
 augroup vimrc#filetype " {{{2
