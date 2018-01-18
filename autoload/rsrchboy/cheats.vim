@@ -5,6 +5,7 @@ let s:reminders = [
     \   '\\w -> easy-motion: word (also: easymotion-default-mappings)',
     \   '\\W -> easy-motion: Word (...et al)',
     \   'gA -> align',
+    \   'gs -> sort',
     \   'gS -> split (structures)',
     \   'gJ -> join (structures)',
     \   'gc -> comment',

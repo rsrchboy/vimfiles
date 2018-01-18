@@ -936,7 +936,10 @@ Plug 'akiyan/vim-textobj-php',           { 'for': 'php'  }
 
 " Plugins: operators {{{2
 
+Plug 'christoomey/vim-sort-motion'
 " Plug 'kana/vim-operator-user'
+" Plug 'kana/vim-operator-replace'
+" map R  <Plug>(operator-replace)
 
 " Plugins: color schemes: {{{2
 
