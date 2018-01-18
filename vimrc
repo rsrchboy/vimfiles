@@ -526,6 +526,7 @@ let g:calendar_sign        = 'vimwiki#diary#calendar_sign'
 let g:vimwiki_list = [{'path': '~/Shared/vimwiki/', 'path_html': '~/public_html/'}]
 
 " }}}3
+Plug 'vimoutliner/vimoutliner'
 
 " Plugins: neocomplete / deoplete / etc {{{2
 
