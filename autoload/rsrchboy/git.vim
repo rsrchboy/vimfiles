@@ -6,6 +6,7 @@ fun! rsrchboy#git#fixup() abort " {{{1
 
     try
         let l:id = ducttape#git#fixup()
+        call fugitive#reload_status()
         echo 'fixed up to: ' . l:id
     catch /^Vim\%((\a\+)\)\=:E117/
         Gcommit --no-verify --fixup HEAD
@@ -57,6 +58,7 @@ fun! rsrchboy#git#wrapper(DFunc, FFunc) abort " {{{1
 
     try
         call s:FuncOrEval(a:DFunc)
+        call fugitive#reload_status()
     catch /^Vim\%((\a\+)\)\=:E117/
         call s:FuncOrEval(a:FFunc)
     endtry
