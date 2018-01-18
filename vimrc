@@ -1182,6 +1182,8 @@ augroup vimrc#filetype-set " {{{2
     autocmd BufNewFile,BufRead profanity/profrc   set filetype=dosini
     autocmd BufNewFile,BufRead profanity/accounts set filetype=dosini
 
+    autocmd BufNewFile,BufRead fontconfig/config set filetype=xml
+
     " fin!
 augroup end
 
