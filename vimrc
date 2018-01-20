@@ -1203,7 +1203,6 @@ augroup end
 augroup vimrc#syntax " {{{2
     au!
 
-    au Syntax      * :hi SpecialKey ctermfg=darkgrey
     au ColorScheme * execute ':runtime! after/colors/'.expand('<amatch>').".vim"
 augroup end
 

@@ -26,8 +26,7 @@ hi diffRemoved     cterm=none ctermbg=none ctermfg=167 term=NONE guibg=Black gui
 " hi DiffChange      cterm=bold ctermbg=none ctermfg=227 gui=NONE guibg=Black guifg=Orange
 " hi NonText          term=bold ctermfg=238 gui=bold guifg=#404040
 " hi NonText          guibg=Black
-" au Syntax      * :hi SpecialKey ctermfg=darkgrey
-hi SpecialKey        guibg=Black guifg=DarkGrey
+hi SpecialKey        guibg=Black guifg=#303030
 
 
 " vim-signify
