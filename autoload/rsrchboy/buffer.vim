@@ -117,6 +117,29 @@ let s:tools.undo     = function('s:undo', ['',         '' ])
 let s:tools.undo_var = function('s:undo', ['unlet b:', '' ])
 let s:tools.undo_set = function('s:undo', ['setl ',    '<'])
 
+fun! s:setl(opt, value) abort dict " {{{2
+    execute 'setl ' . a:opt . (a:value ==# '' ? '' : '=' . a:value)
+    call self.undo_set(a:opt)
+    return
+endfun
+
+" Function: .setl() " {{{2
+
+let s:tools.setl = function('s:setl', [])
+
+fun! s:spell_for(ft) abort dict " {{{2
+    call self.undo('setl spell< spellcapcheck< spellfile<')
+    setlocal spell
+    setlocal spelllang=en_us
+    setlocal spellcapcheck=0
+    execute 'setlocal spellfile+=~/.vim/spell/' . a:ft . '.utf-8.add'
+    execute 'setlocal spellfile+=~/.vim/spell/USERIDS.utf-8.add'
+    return
+endfun
+
+" Function: .spell_for() " {{{2
+
+let s:tools.spell_for = function('s:spell_for', [])
 
 " }}}2
 
