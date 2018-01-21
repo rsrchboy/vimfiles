@@ -1,13 +1,9 @@
 " A utility thing to help with buffer settings (e.g. via ftplugins)
 
+let s:tools = {} " {{{1
+
 " Somewhere to keep all our tool/utility functions; this becomes
 " g#rsrchboy#buffer#tools at EOF
-let s:tools = {}
-
-
-" Tools: mapping {{{1
-
-" Functions to help with mapping, repeating, and unmapping.
 
 " Function: s:map(...) {{{2
 "
@@ -43,7 +39,6 @@ function! s:map(no_repeat, cmd, lhs_prefix, style, lhs, rhs) dict abort
     return
 endfunction
 
-
 " Methods: s:tools.map(), .nomap(), .llmap(), .llnoremap(), etc {{{2
 "
 " These methods provide handy shortcuts to the different forms of map we may
@@ -62,9 +57,7 @@ let s:tools.llnnoremap  = function('s:map',  [ 0, 'noremap', '<localleader>', 'n
 let s:tools.nnore2map   = function('s:map',  [ 1, 'noremap', '',              'n' ])
 let s:tools.llnnore2map = function('s:map',  [ 1, 'noremap', '<localleader>', 'n' ])
 
-" Function: s:let() {{{2
-
-function! s:let(k, v) abort
+function! s:let(k, v) abort " {{{2
     if !has_key(b:, a:k)
         " set this once (or try to anyways)
         if has_key(b:, 'undo_ftplugin')
@@ -77,7 +70,6 @@ function! s:let(k, v) abort
     return
 endfunction
 
-
 " Function: s:tools.let() {{{2
 
 let s:tools.let = function('s:let')
@@ -86,13 +78,10 @@ let s:tools.let = function('s:let')
 let s:tools.set = function('s:let')
 
 
-" Function: s:surround() {{{2
-
-function! s:surround(key, surround) abort dict
+function! s:surround(key, surround) abort dict " {{{2
     let l:var = 'surround_' . char2nr(a:key)
     call l:self.set(l:var, a:surround)
 endfunction
-
 
 " Method: s:tools.surround()
 
@@ -143,7 +132,6 @@ let s:tools.spell_for = function('s:spell_for', [])
 
 " }}}2
 
-
 " Section: helpers for the humans {{{1
 
 " Function: ShowBufferMappings {{{2
@@ -192,7 +180,6 @@ endfunction
 let s:tools.ShowSurroundMappings = function('s:ShowSurroundMappings')
 
 " }}}2
-
 
 " Section: common setup functions {{{1
 
@@ -245,7 +232,6 @@ endfunction
 
 
 " }}}2
-
 
 " Section: finalize {{{1
 
