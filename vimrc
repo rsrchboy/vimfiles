@@ -801,19 +801,24 @@ Plug 'RsrchBoy/syntax_check_embedded_perl.vim', { 'on':  []    }
 
 " Plugins: syntax / filetype {{{2
 
-Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' } " {{{3
+Plug 'sheerun/vim-polyglot' " {{{3
+
+let g:polyglot_disabled = ['git', 'go', 'perl', 'systemd', 'tmux']
+
+" bundled settings
+let g:vim_markdown_initial_foldlevel = 1
+let g:vim_markdown_frontmatter       = 1
+let g:vim_markdown_fenced_languages  = ['perl', 'viml=vim', 'bash=sh', 'ini=dosini', 'diff']
+
+" Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' } " {{{3
 
 let g:pandoc#filetypes#pandoc_markdown = 0
 
 " }}}3
-Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' }
-Plug 'cespare/vim-toml'
-Plug 'ekalinin/Dockerfile.vim'
 Plug 'fmoralesc/vim-pinpoint'
 Plug 'vim-scripts/gtk-vim-syntax'
 Plug 'chikamichi/mediawiki.vim', { 'for': 'mediawiki' }
 Plug 'rsrchboy/mojo.vim'
-Plug 'lifepillar/pgsql.vim'
 Plug 'andrewstuart/vim-kubernetes'
 Plug 'tpope/vim-afterimage'
 Plug 'lervag/vimtex', { 'for': ['tex'] }
@@ -840,15 +845,6 @@ let g:go_highlight_types             = 1
 let g:go_highlight_operators         = 1
 let g:go_highlight_build_constraints = 1
 
-Plug 'plasticboy/vim-markdown', { 'for': [ 'mkd', 'markdown', 'mkd.markdown' ] } " {{{3
-
-let g:vim_markdown_initial_foldlevel = 1
-let g:vim_markdown_frontmatter       = 1
-
-" let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
-" let g:vim_markdown_fenced_languages = ['perl', 'coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
-let g:vim_markdown_fenced_languages = ['perl', 'viml=vim', 'bash=sh', 'ini=dosini', 'diff']
-
 " let g:pluginOpts.scriptease {{{3
 
 let g:pluginOpts.scriptease =
@@ -865,20 +861,20 @@ Plug 'tpope/vim-scriptease', g:pluginOpts.scriptease " {{{3
 " we may (will) use this mapping largely outside of vim-ft files
 nmap zS <Plug>ScripteaseSynnames
 " }}}3
-Plug 'xolox/vim-lua-ftplugin',                  { 'for': 'lua' }
-Plug 'xolox/vim-lua-inspect',                   { 'for': 'lua' }
-Plug 'WolfgangMehner/lua-support',              { 'for': 'lua' }
-Plug 'othree/html5-syntax.vim'
+" Plug 'xolox/vim-lua-ftplugin',                  { 'for': 'lua' }
+" Plug 'xolox/vim-lua-inspect',                   { 'for': 'lua' }
+" Plug 'WolfgangMehner/lua-support',              { 'for': 'lua' }
 Plug 'mattn/emmet-vim'
-Plug 'tpope/vim-haml'
-Plug 'kchmck/vim-coffee-script'
 Plug 'nono/jquery.vim'
-Plug 'groenewege/vim-less'
-Plug 'vim-ruby/vim-ruby'
-Plug 'rust-lang/rust.vim'
-Plug 'klen/python-mode',                        { 'for': 'python' }
+" Plug 'klen/python-mode',                        { 'for': 'python' }
+" FIXME the next might be a good candidate for a polyglot PR...
 Plug 'chrisbra/csv.vim',                        { 'for': 'csv' }
-Plug 'rhysd/vim-json',                          { 'branch': 'reasonable-bool-number' }
+Plug 'wgwoods/vim-systemd-syntax'
+Plug 'lepture/vim-jinja'
+Plug 'vadv/vim-chef',                { 'for': 'chef'   }
+Plug 'tmux-plugins/vim-tmux'
+Plug 'apeschel/vim-syntax-syslog-ng'
+Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' }
 
 " Plugins: systemy bits {{{2
 
@@ -888,20 +884,9 @@ Plug 'vim-scripts/iptables'
 Plug 'RsrchBoy/interfaces'
 Plug 'chr4/nginx.vim'
 Plug 'smancill/conky-syntax.vim'
-Plug 'apeschel/vim-syntax-syslog-ng'
-Plug 'wgwoods/vim-systemd-syntax'
 Plug 'FredDeschenes/httplog'
 Plug 'vim-scripts/openvpn', { 'for': 'openvpn' }
-Plug 'tmux-plugins/vim-tmux'
 " Plug 'chr4/sslsecure.vim'
-Plug 'hashivim/vim-terraform', { 'for': [ 'terraform' ] }
-
-" Plugins: configuration management tools {{{2
-
-Plug 'puppetlabs/puppet-syntax-vim', { 'for': 'puppet' }
-Plug 'vadv/vim-chef',                { 'for': 'chef'   }
-Plug 'pearofducks/ansible-vim'
-Plug 'lepture/vim-jinja'
 
 " Plugins: s/w packaging: deb, arch, etc {{{2
 
