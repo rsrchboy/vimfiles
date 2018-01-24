@@ -864,21 +864,21 @@ Plug 'tpope/vim-scriptease', g:pluginOpts.scriptease " {{{3
 
 " we may (will) use this mapping largely outside of vim-ft files
 nmap zS <Plug>ScripteaseSynnames
-
-Plug 'xolox/vim-lua-ftplugin',                  { 'for': 'lua' }    " {{{3
-Plug 'xolox/vim-lua-inspect',                   { 'for': 'lua' }    " {{{3
-Plug 'WolfgangMehner/lua-support',              { 'for': 'lua' }    " {{{3
-Plug 'othree/html5-syntax.vim'                                      " {{{3
-Plug 'mattn/emmet-vim'                                              " {{{3
-Plug 'tpope/vim-haml'                                               " {{{3
-Plug 'kchmck/vim-coffee-script'                                     " {{{3
-Plug 'nono/jquery.vim'                                              " {{{3
-Plug 'groenewege/vim-less'                                          " {{{3
-Plug 'vim-ruby/vim-ruby'                                            " {{{3
-Plug 'rust-lang/rust.vim'                                           " {{{3
-Plug 'klen/python-mode',                        { 'for': 'python' } " {{{3
-Plug 'chrisbra/csv.vim',                        { 'for': 'csv' }    " {{{3
-Plug 'rhysd/vim-json',                          { 'branch': 'reasonable-bool-number' } " {{{3
+" }}}3
+Plug 'xolox/vim-lua-ftplugin',                  { 'for': 'lua' }
+Plug 'xolox/vim-lua-inspect',                   { 'for': 'lua' }
+Plug 'WolfgangMehner/lua-support',              { 'for': 'lua' }
+Plug 'othree/html5-syntax.vim'
+Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-haml'
+Plug 'kchmck/vim-coffee-script'
+Plug 'nono/jquery.vim'
+Plug 'groenewege/vim-less'
+Plug 'vim-ruby/vim-ruby'
+Plug 'rust-lang/rust.vim'
+Plug 'klen/python-mode',                        { 'for': 'python' }
+Plug 'chrisbra/csv.vim',                        { 'for': 'csv' }
+Plug 'rhysd/vim-json',                          { 'branch': 'reasonable-bool-number' }
 
 " Plugins: systemy bits {{{2
 
