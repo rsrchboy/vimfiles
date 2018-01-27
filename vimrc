@@ -312,6 +312,7 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'moll/vim-bbye', { 'on': 'Bdelete' }
 Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/vim-peekaboo'
 
 " Plugins: library plugins/bundles {{{2
 
