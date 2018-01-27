@@ -804,12 +804,7 @@ Plug 'RsrchBoy/syntax_check_embedded_perl.vim', { 'on':  []    }
 
 Plug 'sheerun/vim-polyglot' " {{{3
 
-let g:polyglot_disabled = ['git', 'go', 'perl', 'systemd', 'tmux']
-
-" bundled settings
-let g:vim_markdown_initial_foldlevel = 1
-let g:vim_markdown_frontmatter       = 1
-let g:vim_markdown_fenced_languages  = ['perl', 'viml=vim', 'bash=sh', 'ini=dosini', 'diff']
+let g:polyglot_disabled = ['git', 'go', 'perl', 'systemd', 'tmux', 'markdown']
 
 " Plug 'vim-pandoc/vim-pandoc', { 'for': 'pandoc' } " {{{3
 
@@ -845,6 +840,15 @@ let g:go_highlight_fields            = 1
 let g:go_highlight_types             = 1
 let g:go_highlight_operators         = 1
 let g:go_highlight_build_constraints = 1
+
+Plug 'plasticboy/vim-markdown', { 'for': [ 'mkd', 'markdown', 'mkd.markdown' ] } " {{{3
+
+let g:vim_markdown_initial_foldlevel = 1
+let g:vim_markdown_frontmatter       = 1
+
+" let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
+" let g:vim_markdown_fenced_languages = ['perl', 'coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
+let g:vim_markdown_fenced_languages = ['perl', 'vim', 'bash=sh', 'ini=dosini', 'diff']
 
 " let g:pluginOpts.scriptease {{{3
 
