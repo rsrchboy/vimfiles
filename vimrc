@@ -1210,8 +1210,8 @@ augroup vimrc " {{{2
     au User Fugitive au! BufWritePost <buffer> :call ducttape#git#wip()
 augroup end
 
-colorscheme zenburn " {{{2
-syntax on "}}}2
+" }}}2
+colorscheme zenburn
 
 " Mappings: {{{1
 " Section: memory aids ;)  {{{2
