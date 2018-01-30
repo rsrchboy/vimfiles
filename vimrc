@@ -329,11 +329,6 @@ Plug 'tpope/vim-repeat'
 
 Plug 'thinca/vim-ref'
 Plug 'keith/travis.vim', { 'on': 'Travis' }
-Plug 'junkblocker/patchreview-vim'
-Plug 'diepm/vim-rest-console'
-Plug 'cryptomilk/git-modeline.vim'
-Plug 'heavenshell/vim-slack', { 'on': ['Slack','SlackFile'] }
-Plug 'hsitz/VimOrganizer', { 'for': ['org', 'vimorg-agenda-mappings', 'vimorg-main-mappings'] }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " {{{3
 
@@ -571,39 +566,6 @@ Plug 'Shougo/neco-syntax'
 
 " Plugins: git and version controlish {{{2
 
-Plug 'rsrchboy/gitv', { 'on': 'Gitv' } " {{{3
-
-" FIXME use our upstream, for the moment
-" ...as there are a number of PR's I have outstanding with upstream.
-"
-" Plug 'gregsexton/gitv', {
-
-let g:Gitv_TruncateCommitSubjects = 1
-let g:Gitv_CommitStep             = 150
-let g:Gitv_TellMeAboutIt          = 0
-
-augroup vimrc-gitv " {{{3
-    au!
-
-    " autoload gitv
-    au FuncUndefined Gitv_OpenGitCommand :call plug#load('gitv')
-
-    " prettify gerrit refs
-    au User GitvSetupBuffer silent %s/refs\/changes\/\d\d\//change:/ge
-
-    " update commit list on :Dispatch finish
-    " NOTE this does not update the commit in the preview pane
-    "au QuickFixCmdPost <buffer> :normal u
-    "
-    " For whatever reason the buffer-local au above isn't being created when
-    " in the gitv ftplugin...?!  So we'll do this here.  *le sigh*
-    au QuickFixCmdPost gitv-* :normal u
-
-    "au BufNewFile gitv-* au QuickFixCmdPost <buffer=abuf> normal u
-    au FileType gitv au QuickFixCmdPost <buffer=abuf> normal u
-
-augroup END
-
 Plug 'int3/vim-extradite', { 'on': 'Extradite' } " {{{3
 
 let g:extradite_showhash = 1
@@ -640,7 +602,6 @@ Plug 'rsrchboy/vim-fugitive'         " {{{3
 " looks like I get to maintain my own fork for a while... le sigh
 
 nmap <silent> <Leader>gs :Gstatus<Enter>
-nmap <silent> <Leader>gD :call Gitv_OpenGitCommand("diff --no-color -- ".expand('%'), 'new')<CR>
 nmap <silent> <Leader>gd :Gdiff<CR>
 nmap <silent> <Leader>gh :Gsplit HEAD^{}<CR>
 nmap <silent> <Leader>ga :call rsrchboy#git#add_to_index()<CR>
@@ -778,8 +739,8 @@ augroup END
 " }}}3
 Plug 'basyura/twibill.vim'
 Plug 'basyura/bitly.vim'
-Plug 'tyru/open-browser.vim'
-Plug 'mattn/favstar-vim'
+Plug 'tyru/open-browser.vim', { 'on': [ 'OpenBrowser', '<Plug>(openbrowser-' ] }
+Plug 'mattn/favstar-vim', { 'on': 'FavStar' }
 
 " Plugins: Perl {{{2
 
