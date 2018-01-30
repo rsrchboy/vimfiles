@@ -535,7 +535,8 @@ Plug 'Shougo/neoinclude.vim' " {{{3
 
 " FIXME finalize settings
 
-let g:deoplete#enable_at_startup = 1
+" Ok, so.  I like deoplete, I think, but it adds ~500msec to startup time,
+" more than doubling it.  Arrrrgh.
 
 " let g:neocomplete#enable_at_startup                 = 1
 let g:neocomplete#enable_smart_case                 = 1
@@ -628,10 +629,6 @@ function! s:PluginLoadedExtradite() " {{{3
         au CmdUndefined Extradite :doautocmd User Fugitive
     augroup END
 endfunction
-
-Plug 'RsrchBoy/git-wip', { 'rtp': 'vim' } " {{{3
-
-let g:git_wip_disable_signing = 1
 
 Plug 'tpope/vim-rhubarb'             " {{{3 fugitive :Gbrowse plugin
 Plug 'shumphrey/fugitive-gitlab.vim' " {{{3 fugitive :Gbrowse plugin
@@ -1205,10 +1202,12 @@ augroup vimrc#filetype " {{{2
     autocmd FileType tmux       set tw=0
 augroup end
 
-augroup vimrc#syntax " {{{2
+augroup vimrc " {{{2
     au!
 
     au ColorScheme * execute ':runtime! after/colors/'.expand('<amatch>').".vim"
+
+    au User Fugitive au! BufWritePost <buffer> :call ducttape#git#wip()
 augroup end
 
 colorscheme zenburn " {{{2
