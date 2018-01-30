@@ -82,9 +82,9 @@ endfun
 augroup tabtitle
     au!
 
-    au User Fugitive silent! call MyPickTabPageTitleGit()
-    au TabEnter * if !exists('t:tab_page_title') | let t:tab_page_title = 'No repository!' | endif
-    au TabNew * if !exists('t:tab_page_title') | let t:tab_page_title = 'No repository!' | endif
+    au User     Fugitive silent! call MyPickTabPageTitleGit()
+    au TabEnter *        if !exists('t:tab_page_title') | let t:tab_page_title = 'No repository!' | endif
+    au TabNew   *        if !exists('t:tab_page_title') | let t:tab_page_title = 'No repository!' | endif
     " au BufAdd * something magic that moves buffer to tab based on git workdir
 augroup END
 
