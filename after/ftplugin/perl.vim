@@ -177,6 +177,9 @@ call rsrchboy#buffer#CommonMappings()
 " # ->   #<<<...#>>>       <-- perltidy skip notation
 " Y -> sub { ... };
 " U ->   use ...;
+" @ ->    @{ ... }
+" % ->    %{ ... }
+" $ ->    ${ ... }
 let b:surround_114 = "qr/\r/"
 let b:surround_113 = "q{\r}"
 let b:surround_81  = "qq{\r}"
@@ -190,6 +193,9 @@ let b:surround_67  = "C<< \r >>"
 let b:surround_35  = "#<<<\r#>>>"
 let b:surround_89  = "sub { \r };"
 let b:surround_85  = "use \r;"
+let b:surround_64  = "@{ \r }"
+let b:surround_37  = "%{ \r }"
+let b:surround_36  = "${ \r }"
 
 " Plugin: endwise pairs {{{2
 
