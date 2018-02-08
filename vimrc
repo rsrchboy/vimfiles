@@ -335,6 +335,9 @@ Plug 'junegunn/fzf.vim' " {{{3
 
 nnoremap <C-P> :Files<CR>
 
+command! -bang -nargs=* GGrep
+    \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
+
 augroup vimrc#fzf " {{{3
     au!
     au User Fugitive nnoremap <buffer> <C-P> :GFiles<CR>
