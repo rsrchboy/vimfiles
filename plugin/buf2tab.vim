@@ -1,5 +1,8 @@
 " Write bufexplorer's t:bufexp_buf_list to the sessionfile!  (or try to)
 
+fun! s:BufferTabList() abort
+    " ... might not need this
+endfun
 
 function! s:SaveTabInfo() abort
 
@@ -64,6 +67,10 @@ function! MyRestoreTabBuffers() abort
     return
 endfunction
 
+fun! s:SaveTabBuffers() abort
+
+endfun
+
 augroup buf2tab
   autocmd!
 
@@ -73,6 +80,7 @@ augroup buf2tab
   " to shift those buffers to a (new?) window inside the tab owning their
   " repo/worktree or creating a new tab.
 
+  au TabLeave * silent! let g:buf2tab_previous_tabs_buffers = t:bufexp_buf_list
 
   autocmd User Obsession call s:SaveTabInfo()
 
