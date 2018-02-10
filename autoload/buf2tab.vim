@@ -1,10 +1,6 @@
 " Write bufexplorer's t:bufexp_buf_list to the sessionfile!  (or try to)
 
-fun! s:BufferTabList() abort
-    " ... might not need this
-endfun
-
-function! s:SaveTabInfo() abort
+function! buf2tab#SaveTabInfo() abort
 
     " no point if we're not in a session
     if !len(v:this_session) || exists('SessionLoad') | return | endif
@@ -43,7 +39,7 @@ function! s:SaveTabInfo() abort
     return
 endfunction
 
-function! MyRestoreTabBuffers() abort
+function! buf2tab#MyRestoreTabBuffers() abort
 
     " we only want to do this once
     if has_key(g:, 'buf2tab_buffers_restored')
@@ -67,24 +63,4 @@ function! MyRestoreTabBuffers() abort
     return
 endfunction
 
-fun! s:SaveTabBuffers() abort
-
-endfun
-
-augroup buf2tab
-  autocmd!
-
-  " TODO should we have a User/Fugitive autocommand here to catch when buffers
-  " are opened in tabs to which their git repos do not belong?  We'd probably
-  " want to ignore anything not in a repo, which would not be an issue, and
-  " to shift those buffers to a (new?) window inside the tab owning their
-  " repo/worktree or creating a new tab.
-
-  au TabLeave * silent! let g:buf2tab_previous_tabs_buffers = t:bufexp_buf_list
-
-  autocmd User Obsession call s:SaveTabInfo()
-
-  " this will be called against every loaded buffer -- but the function is a
-  " no-op after the first call
-  autocmd SessionLoadPost * call MyRestoreTabBuffers()
-augroup END
+" __END__
