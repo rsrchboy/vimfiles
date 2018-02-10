@@ -47,6 +47,7 @@ fun! MyTabLine() abort
 endfun
 
 set tabline=%!MyTabLine()
+set guitablabel=%!t:tab_page_title
 
 fun! TabPageTitle(git_dir)
 
