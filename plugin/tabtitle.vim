@@ -65,6 +65,10 @@ fun! MyPickTabPageTitleGit()
     let t:git_workdir = fugitive#repo().tree()
     let t:tab_page_title = '± ' . fnamemodify(t:git_commondir, ':h:t')
 
+    if has_key(t:, 'tab_page_subtitle')
+        let t:tab_page_title .= '[' . t:tab_page_subtitle . ']'
+    endif
+
     " echom "t:git_workdir == '" . t:git_workdir . "'"
     " echom "tweaked ==       '" . fnamemodify(t:git_dir, ':h') . "'"
     if t:git_workdir !=# fnamemodify(t:git_dir, ':h')
