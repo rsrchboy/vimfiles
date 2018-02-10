@@ -7,7 +7,7 @@
 " maximum string length in the selected range. this is an aesthetically more
 " pleasing alternative instead of hardcoding a length.
 "-------------------------------------%<-------------------------------------
-function! <SID>Snip() range
+function! rsrchboy#snip#Snip() range
 	let i = a:firstline
 	let maxlen = -2
 	" find out the maximum virtual length of each line.
@@ -19,9 +19,7 @@ function! <SID>Snip() range
 	endwhile
 	let maxlen = (maxlen > &tw && &tw != 0 ? &tw : maxlen)
 	let half = repeat('-', maxlen/2-1)
-    let line = printf(&cms, half.'%<'.half)
-	call append(a:lastline, line)
+	let line = printf(&cms, half.'%<'.half)
+	call append(a:lastline, line-1)
 	call append(a:firstline, line)
 endfunction
-
-com! -nargs=0 -range Snip :<line1>,<line2>call <SID>Snip()
