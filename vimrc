@@ -1239,13 +1239,14 @@ cmap w!! w !sudo tee % >/dev/null
 " }}}2
 
 " Inline Block Manipulation: aka prettification {{{1
-command! -range -nargs=* Uniq <line1>,<line2>! uniq
-command! -range -nargs=* JsonTidy <line1>,<line2>! /usr/bin/json_xs -f json -t json-pretty
+command! -range -nargs=0 Snip       <line1>,<line2>call rsrchboy#snip#Snip()
+command! -range -nargs=* Uniq       <line1>,<line2>! uniq
+command! -range -nargs=* JsonTidy   <line1>,<line2>! /usr/bin/json_xs -f json -t json-pretty
 command! -range -nargs=* ColumnTidy <line1>,<line2>! /usr/bin/column -t
-command! -range -nargs=* Cowsay <line1>,<line2>! cowsay -W 65
+command! -range -nargs=* Cowsay     <line1>,<line2>! cowsay -W 65
 command! -range -nargs=* BorgCowsay <line1>,<line2>! cowsay -W 65 -b
-command! -range -nargs=* PerlTidy <line1>,<line2>! perltidy
-command! -range -nargs=* MXRCize <line1>,<line2>perldo perldo return unless /$NS/; s/$NS([A-Za-z0-9:]+)/\$self->\l$1_class/; s/::(.)/__\l$1/g; s/([A-Z])/_\l$1/g
+command! -range -nargs=* PerlTidy   <line1>,<line2>! perltidy
+command! -range -nargs=* MXRCize    <line1>,<line2>perldo perldo return unless /$NS/; s/$NS([A-Za-z0-9:]+)/\$self->\l$1_class/; s/::(.)/__\l$1/g; s/([A-Z])/_\l$1/g
 
 " Source Local Configs: ...if present {{{1
 
