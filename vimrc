@@ -831,7 +831,7 @@ nmap zS <Plug>ScripteaseSynnames
 " Plug 'xolox/vim-lua-ftplugin',                  { 'for': 'lua' }
 " Plug 'xolox/vim-lua-inspect',                   { 'for': 'lua' }
 " Plug 'WolfgangMehner/lua-support',              { 'for': 'lua' }
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', { 'for': 'html' }
 Plug 'nono/jquery.vim'
 " Plug 'klen/python-mode',                        { 'for': 'python' }
 " FIXME the next might be a good candidate for a polyglot PR...
