@@ -705,7 +705,7 @@ Plug 'junegunn/vim-github-dashboard', { 'on': ['GHA', 'GHD', 'GHDashboard', 'GHA
 
 let g:github_dashboard = {}
 let g:github_dashboard['emoji'] = 1
-let g:github_dashboard['RrschBoy'] = 1
+let g:github_dashboard['rsrchboy'] = 1
 
 " }}}3
 Plug 'jez/vim-github-hub'
