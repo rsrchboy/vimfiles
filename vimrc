@@ -117,7 +117,7 @@ let g:fml_all_sources = 1
 " Plug 'KeyboardFire/vim-minisnip'
 " Plug 'joereynolds/deoplete-minisnip'
 
-let g:snippets_dir='~/.vim/snippets,~/.vim/bundle/*/snippets'
+let g:snippets_dir='~/.vim/snippets,~/.vim/plugged/*/snippets'
 
 Plug 'ervandew/supertab' " {{{3
 
