@@ -1147,10 +1147,17 @@ augroup vimrc#filetype-set " {{{2
     autocmd BufNewFile,BufRead .perlcriticrc      set filetype=dosini
     autocmd BufNewFile,BufRead .offlineimaprc     set filetype=dosini
     autocmd BufNewFile,BufRead offlineimap/config set filetype=dosini
+    autocmd BufNewFile,BufRead offlineimap.conf   set filetype=dosini
     autocmd BufNewFile,BufRead profanity/profrc   set filetype=dosini
     autocmd BufNewFile,BufRead profanity/accounts set filetype=dosini
 
     autocmd BufNewFile,BufRead fontconfig/config set filetype=xml
+
+    autocmd BufNewFile,BufRead *.org set filetype=org
+
+    autocmd BufNewFile,BufRead default/grub set filetype=sh
+
+    au BufNewFile,BufRead .config/systemd/user/**/*     set filetype=systemd
 
     " fin!
 augroup end
