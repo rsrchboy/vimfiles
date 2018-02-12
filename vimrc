@@ -46,7 +46,7 @@ let g:tabman_focus  = '<leader>mf'
 execute "nnoremap <silent> " . g:tabman_toggle . " :call plug#load('tabman.vim') <bar> TMToggle<CR>"
 execute "nnoremap <silent> " . g:tabman_focus  . " :call plug#load('tabman.vim') <bar> TMFocus<CR>"
 
-Plug 'jlanzarotta/bufexplorer' " {{{3
+Plug 'jlanzarotta/bufexplorer', { } " {{{3
 
 let g:bufExplorerShowRelativePath = 1
 let g:bufExplorerShowTabBuffer    = 1
@@ -1023,7 +1023,8 @@ call plug#end()
 unlet g:pluginOpts " }}}2
 
 " CONFIGURATION: global or general {{{1
-" Configuration: settings {{{2
+
+" Settings: {{{2
 
 set autoindent                 " Preserve current indent on new lines
 set autoread                   " reload when changed -- e.g. 'git co ...'
