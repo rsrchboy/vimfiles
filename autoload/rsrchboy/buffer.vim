@@ -130,6 +130,16 @@ endfun
 
 let s:tools.spell_for = function('s:spell_for', [])
 
+fun! s:tools.ftplugin_guard() dict
+    let l:guard = '
+                \ if exists("b:did_ftplugin_rsrchboy") |
+                \   finish |
+                \ endif |
+                \ let s:tools = g:rsrchboy#buffer#tools |
+                \ call s:tools.let("did_ftplugin_rsrchboy", 1)'
+    return l:guard
+endfun
+
 " }}}2
 
 " Section: helpers for the humans {{{1

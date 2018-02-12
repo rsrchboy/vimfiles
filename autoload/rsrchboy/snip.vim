@@ -20,6 +20,6 @@ function! rsrchboy#snip#Snip() range
 	let maxlen = (maxlen > &tw && &tw != 0 ? &tw : maxlen)
 	let half = repeat('-', maxlen/2-1)
 	let line = printf(&cms, half.'%<'.half)
-	call append(a:lastline, line-1)
-	call append(a:firstline, line)
+	call append(a:lastline, line)
+	call append(a:firstline-1, line)
 endfunction
