@@ -1,14 +1,22 @@
 
 fun! rsrchboy#git#fixup(...) abort " {{{1
+    return rsrchboy#git#special_commit('fixup', (a:0 ? a:1 : 'HEAD'))
+endfun
+
+fun! rsrchboy#git#squash(...) abort " {{{1
+    return rsrchboy#git#special_commit('squash', (a:0 ? a:1 : 'HEAD'))
+endfun
+
+fun! rsrchboy#git#special_commit(command, ...) abort " {{{1
 
     let l:target = a:0 ? a:1 : 'HEAD'
 
     try
-        let l:id = ducttape#git#fixup(l:target)
+        let l:id = ducttape#git#special_commit(a:command, l:target)
         call fugitive#reload_status()
-        echo 'fixed up ' . l:target . ' to: ' . l:id
+        echo a:command . ' up ' . l:target . ' to: ' . l:id
     catch /^Vim\%((\a\+)\)\=:E117/
-        execute 'Gcommit --no-verify --fixup --no-gpg-sign ' . l:target
+        execute 'Gcommit --no-verify --' . a:command . ' --no-gpg-sign ' . l:target
     endtry
 
     " these could probably be excised and done from a user autocmd or somesuch
