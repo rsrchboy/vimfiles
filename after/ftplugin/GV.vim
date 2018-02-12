@@ -10,7 +10,7 @@ let s:tools = g:rsrchboy#buffer#tools
 
 " Section: mappings {{{1
 
-call s:tools.nnore2map('F',  ":execute 'Gcommit --no-verify --fixup=' .gv#sha()<CR>:close<CR>:GV<CR>")
+call s:tools.nnore2map('F',  ":call rsrchboy#git#fixup(gv#sha())<CR>:close<CR>:GV<CR>")
 call s:tools.nnore2map('S',  ":execute 'Gcommit --no-verify --squash='.gv#sha()<CR>")
 call s:tools.nnore2map('Q',  ":execute 'Gcommit --no-verify --no-edit --squash='.gv#sha()<CR>:close<CR>:GV<CR>")
 
