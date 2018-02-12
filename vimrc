@@ -611,7 +611,7 @@ nmap <silent> <Leader>gh :Gsplit HEAD^{}<CR>
 nmap <silent> <Leader>ga :call rsrchboy#git#add_to_index()<CR>
 nmap <silent> <Leader>gc :Gcommit<Enter>
 nmap <silent> <Leader>gf :call rsrchboy#git#fixup()<CR>
-nmap <silent> <Leader>gS :Gcommit --no-verify --squash HEAD
+nmap <silent> <Leader>gS :call rsrchboy#git#squash()<CR>
 
 " trial -- intent to add
 nmap <silent> <Leader>gI :Git add --intent-to-add %<bar>call sy#start()<CR>
