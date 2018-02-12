@@ -1081,21 +1081,6 @@ if has('persistent_undo') " {{{2
     endif
 endif
 
-" Configuration: terminal bits: {{{2
-
-" initial hackery to let us set terminal titles!
-
-if &term =~ 'screen.*'
-    set t_ts=k
-    set t_fs=\
-endif
-" if &term =~ 'screen.*' || &term == 'xterm'
-" if exists("$TMUX")
-if exists('$TMUX') && empty($TMUX)
-    " set title
-    " set titlestring=%{rsrchboy#termtitle()}
-endif
-
 if has('termguicolors') " {{{2
     set termguicolors
 endif
