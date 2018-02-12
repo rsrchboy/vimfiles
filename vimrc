@@ -1054,7 +1054,6 @@ set smarttab
 set softtabstop=4
 set spellfile+=~/.vim/spell/en.utf-8.add
 set splitright                 " open new vsplit to the right
-set t_Co=256                   " Explicitly tell Vim we can handle 256 colors
 set tabstop=8
 set textwidth=78               " Wrap at this column
 set ttimeoutlen=10
@@ -1062,8 +1061,6 @@ set ttyfast
 set ttyscroll=3
 set whichwrap+=<,>,h,l
 
-" XXX reexamine 'nobackup'
-set nobackup                   " we're stashing everything in git, anyways
 " XXX reexamine 'noswapfile'
 set noswapfile
 
