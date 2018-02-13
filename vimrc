@@ -875,7 +875,6 @@ Plug 'kana/vim-textobj-line'
 Plug 'rhysd/vim-textobj-conflict'
 " Plug 'Julian/vim-textobj-brace'
 Plug 'Julian/vim-textobj-variable-segment'
-Plug 'lucapette/vim-textobj-underscore'
 Plug 'kana/vim-textobj-function'
 Plug 'sgur/vim-textobj-parameter'
 " note: php/python/ruby/etc helpers exist, if we start dabbling there
