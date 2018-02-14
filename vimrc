@@ -36,16 +36,6 @@ endfunction
 " Plugins: general bundles: {{{2
 
 Plug 'jeetsukumaran/vim-buffergator', { 'on': 'BuffergatorOpen' }
-Plug 'kien/tabman.vim', { 'on': [ 'TMToggle', 'TMFocus' ] } " {{{3
-
-let g:tabman_toggle = '<leader>mt'
-let g:tabman_focus  = '<leader>mf'
-
-" load, then run.  this mapping will be overwritten on plugin load
-" ...and might be overkill given the vim-plug autoloading config above
-execute "nnoremap <silent> " . g:tabman_toggle . " :call plug#load('tabman.vim') <bar> TMToggle<CR>"
-execute "nnoremap <silent> " . g:tabman_focus  . " :call plug#load('tabman.vim') <bar> TMFocus<CR>"
-
 Plug 'jlanzarotta/bufexplorer', { } " {{{3
 
 let g:bufExplorerShowRelativePath = 1
