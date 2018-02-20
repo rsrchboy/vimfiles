@@ -327,6 +327,8 @@ nnoremap <C-P> :Files<CR>
 
 command! -bang -nargs=* GGrep
     \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
+command! -bang -nargs=0 Projects
+    \ call fzf#run(fzf#wrap('Projects', { 'source': 'find ~/work ~/.vim/plugged -name .git -maxdepth 3 -printf ''%h\n''', 'sink': function('rsrchboy#fzf#FindOrOpenTab') }, <bang>0))
 
 augroup vimrc#fzf " {{{3
     au!
