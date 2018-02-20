@@ -595,24 +595,24 @@ Plug 'rsrchboy/vim-fugitive'         " {{{3
 " worktrees.  Unfortunately, these are things I use rather heavily, so it
 " looks like I get to maintain my own fork for a while... le sigh
 
-nmap <silent> <Leader>gs :Gstatus<Enter>
-nmap <silent> <Leader>gd :Gdiff<CR>
-nmap <silent> <Leader>gh :Gsplit HEAD^{}<CR>
-nmap <silent> <Leader>ga :call rsrchboy#git#add_to_index()<CR>
-nmap <silent> <Leader>gc :Gcommit<Enter>
-nmap <silent> <Leader>gf :call rsrchboy#git#fixup()<CR>
-nmap <silent> <Leader>gS :call rsrchboy#git#squash()<CR>
+nnoremap <silent> <Leader>gs :Gstatus<Enter>
+nnoremap <silent> <Leader>gd :Gdiff<bar>call sy#start()<CR>
+nnoremap <silent> <Leader>gh :Gsplit HEAD^{}<CR>
+nnoremap <silent> <Leader>ga :call rsrchboy#git#add_to_index()<CR>
+nnoremap <silent> <Leader>gc :Gcommit<Enter>
+nnoremap <silent> <Leader>gf :call rsrchboy#git#fixup()<CR>
+nnoremap <silent> <Leader>gS :call rsrchboy#git#squash()<CR>
 
 " trial -- intent to add
-nmap <silent> <Leader>gI :Git add --intent-to-add %<bar>call sy#start()<CR>
+nnoremap <silent> <Leader>gI :Git add --intent-to-add %<bar>call sy#start()<CR>
 
 " nmap <silent> <Leader>gA :execute ':!git -C ' . b:git_worktree . ' add -pi ' . resolve(expand('%')) <bar> call sy#start()<CR>
-nmap <silent> <Leader>gA :execute ':!git -C ' . b:git_worktree . ' add -pi ' . fugitive#buffer().path() <bar> call sy#start()<CR>
-nmap <silent> <Leader>gp :Git push<CR>
-nmap <silent> <Leader>gb :DimInactiveBufferOff<CR>:Gblame -w<CR>
+nnoremap <silent> <Leader>gA :execute ':!git -C ' . b:git_worktree . ' add -pi ' . fugitive#buffer().path() <bar> call sy#start()<CR>
+nnoremap <silent> <Leader>gp :Git push<CR>
+nnoremap <silent> <Leader>gb :DimInactiveBufferOff<CR>:Gblame -w<CR>
 
-nmap <silent> <leader>gv :GV<CR>
-nmap <silent> <leader>gV :GV!<CR>
+nnoremap <silent> <leader>gv :GV<CR>
+nnoremap <silent> <leader>gV :GV!<CR>
 
 augroup vimrc#fugitive " {{{3
     au!
@@ -1035,6 +1035,7 @@ set modelines=2
 set noerrorbells
 set nostartofline              " try to preserve column on motion commands
 set number
+set pastetoggle=<F2>
 set shiftround                 " Indent/outdent to nearest tabstop
 set shiftwidth=4               " Indent/outdent by four columns
 set showmatch
@@ -1164,56 +1165,21 @@ augroup end
 colorscheme zenburn
 
 " Mappings: {{{1
-" Section: memory aids ;)  {{{2
 
-nnoremap <leader>SS :call rsrchboy#ShowSurroundMappings()<CR>
-nnoremap <leader>SM :call rsrchboy#ShowBufferMappings()<CR>
+nnoremap <Leader>SS :call rsrchboy#ShowSurroundMappings()<CR>
+nnoremap <Leader>SM :call rsrchboy#ShowBufferMappings()<CR>
+nnoremap <Leader>GM :call rsrchboy#cheats#mappings()<CR>
+nnoremap <C-Z>      :shell<CR>
 
-nnoremap <leader>GM :call rsrchboy#cheats#mappings()<CR>
-
-" Text Formatting: {{{2
-
-" vmap Q gq
-
-" " FIXME: should this be "gqip"?
-" nmap Q gqap
-
-" Configy: {{{2
-set pastetoggle=<F2>
-
-" Normal Mode Mappings: {{{2
-
-" this is somewhat irksome
-nmap <silent> <Leader>ft :filetype detect<CR>
-
-nmap <silent> <F1> :h rsrchboy-normal-mappings<CR>
-nmap <silent> <F3> :setlocal nonumber!<CR>
-nmap <silent> <F5> :setlocal spell! spelllang=en_us<CR>
-nmap <silent> <F7> :tabp<CR>
-nmap <silent> <F8> :tabn<CR>
-
-" Stop suspending, more shelling.  This should be less frustrating than often
-" being in an unexpected directory
-nnoremap <C-Z> :shell<CR>
+nnoremap <silent> <Leader>ft :filetype detect<CR>
+nnoremap <silent> <F5>       :setlocal spell! spelllang=en_us<CR>
 
 " make C-PgUp and C-PgDn work, even under screen
 " see https://bugs.launchpad.net/ubuntu/+source/screen/+bug/82708/comments/1
 nmap <ESC>[5;5~ <C-PageUp>
 nmap <ESC>[6;5~ <C-PageDown>
 
-" Visual Mode Mappings: {{{2
-vmap <F3> :setlocal nonumber!<CR>
-vmap <F5> :setlocal spell! spelllang=en_us<CR>
-vmap <F7> :tabp<CR>
-vmap <F8> :tabn<CR>
-
-" Insert Mode Mappings: {{{2
-
-" Command: {{{2
-
-" Save with sudo if you're editing a readonly file in #vim
-" https://twitter.com/octodots/status/196996096910827520
-cmap w!! w !sudo tee % >/dev/null
+cnoremap w!! w !sudo tee % >/dev/null
 
 " }}}2
 
