@@ -9,11 +9,6 @@ fun! MyTabLabel(n) abort
     let l:buflist = tabpagebuflist(a:n)
     let l:winnr = tabpagewinnr(a:n)
     return fnamemodify(bufname(l:buflist[l:winnr - 1]), ':~')
-
-    " let l:buflist = tabpagebuflist(a:n)
-    " let l:winnr = tabpagewinnr(a:n)
-    " return bufname(l:buflist[l:winnr - 1])
-
 endfun
 
 fun! MyTabLine() abort
@@ -48,12 +43,6 @@ endfun
 
 set tabline=%!MyTabLine()
 set guitablabel=%!t:tab_page_title
-
-fun! TabPageTitle(git_dir)
-
-    " let l:title = fnamemodify('
-
-endfun
 
 fun! MyPickTabPageTitleGit()
     if exists('t:git_dir')
