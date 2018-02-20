@@ -244,7 +244,7 @@ augroup vimrc#airline " {{{3
 
     au FileChangedShellPost * call rsrchboy#statuslineRefresh()
     au ShellCmdPost         * call rsrchboy#statuslineRefresh()
-    au FocusGained          * call rsrchboy#statuslineRefresh()
+    au TabEnter,FocusGained * call rsrchboy#statuslineRefresh()
 augroup END
 
 fun! s:BufEnterRefresh() " {{{3
