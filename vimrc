@@ -743,7 +743,9 @@ Plug 'RsrchBoy/vim-perl', { 'branch': 'active' } " {{{3
 " use my fork until several PR's are merged (orig: vim-perl/...)
 
 " support highlighting for the new syntax
-let g:perl_sub_signatures=1
+let g:perl_sub_signatures = 1
+" we do this ourselves
+let g:perl_nofold_packages = 1
 
 " }}}3
 Plug 'LStinson/perlhelp-vim',                   { 'on': ['PerlHelp', 'PerlMod'] }
