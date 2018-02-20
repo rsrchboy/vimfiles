@@ -192,6 +192,7 @@ let g:airline#extensions#tabline#ignore_bufadd_pat =
         \ '\c\vgundo|undotree|vimfiler|tagbar|nerd_tree|previewwindow|help|nofile'
 
 let g:airline#extensions#branch#format = 'CustomBranchName'
+let g:airline#extensions#hunks#non_zero_only = 1
 
 function! CustomBranchName(name) " {{{3
     "return '[' . a:name . ']'
