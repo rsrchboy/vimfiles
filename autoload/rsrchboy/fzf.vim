@@ -15,6 +15,20 @@ fun! rsrchboy#fzf#FindOrOpenTab(work_dir) abort " {{{2
             return
         endif
     endfor
+
+    " try to find a suitable file for initial editing
+    for l:wildcard in [ 'vimrc', 'dist.ini', 'README*', 'plugin/*.vim', 'lib/**/*.pm' ]
+        let l:list = glob(a:work_dir . '/' . l:wildcard, 0, 1)
+        for l:file in l:list
+            if !filereadable(l:file) | continue | endif
+            exe 'tabe ' . l:file
+            redraw
+            GFiles
+            return
+        endfor
+    endfor
+
+    " ...else just open up netrw
     exe 'tabe ' . a:work_dir
     exe 'lcd ' . a:work_dir
     let t:git_workdir = a:work_dir
@@ -25,5 +39,7 @@ fun! rsrchboy#fzf#FindOrOpenTab(work_dir) abort " {{{2
     " let b:git_commondir = t:git_commondir
     unlet! t:tab_page_title
     call MyPickTabPageTitleGit()
+    redraw
+    GFiles
     return
 endfun
