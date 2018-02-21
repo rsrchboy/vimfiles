@@ -20,7 +20,7 @@ fun! rsrchboy#git#special_commit(command, ...) abort " {{{1
     endtry
 
     " these could probably be excised and done from a user autocmd or somesuch
-    unlet! b:airline_head_subject
+    unlet! b:airline_head b:airline_head_subject
     silent! call airline#update_statusline()
 
     return
