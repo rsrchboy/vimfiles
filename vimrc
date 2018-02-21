@@ -206,9 +206,16 @@ function! CustomBranchName(name) " {{{3
     " loudly when we're editing a file that's actually a symlink to a file in
     " a git work tree.  (This appears to confuse vim-fugitive.)
     try
+        let l:flags = ''
         try
             let l:ahead  = ducttape#git#revlist_count(a:name.'@{u}..HEAD')
             let l:behind = ducttape#git#revlist_count('HEAD..'.a:name.'@{u}')
+            let l:flags .= ducttape#git#has_staged()   ? '!' : ''
+            let l:flags .= ducttape#git#has_modified() ? '&' : ''
+            " #status() for rebase, merge, etc
+            " #has_staged(), #has_stash()
+            let l:state = ducttape#git#state()
+            let l:flags .= len(l:state) ? ' ' . toupper(l:state) : ''
         catch /^Vim\%((\a\+)\)\=:E117/
             let l:ahead  = len(split(fugitive#repo().git_chomp('rev-list', a:name.'@{upstream}..HEAD'), '\n'))
             let l:behind = len(split(fugitive#repo().git_chomp('rev-list', 'HEAD..'.a:name.'@{upstream}'), '\n'))
@@ -216,6 +223,7 @@ function! CustomBranchName(name) " {{{3
         let l:ahead  = l:ahead  ? 'ahead '  . l:ahead  : ''
         let l:behind = l:behind ? 'behind ' . l:behind : ''
         let l:commit_info = join(filter([l:ahead, l:behind], { idx, val -> val !=# '' }), ' ')
+        let l:info .= l:flags
         let l:info .= len(l:commit_info) ? ' [' . l:commit_info . ']' : ''
     catch
         return a:name
