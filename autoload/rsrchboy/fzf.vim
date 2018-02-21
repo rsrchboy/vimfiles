@@ -23,5 +23,8 @@ fun! rsrchboy#fzf#FindOrOpenTab(work_dir) abort " {{{2
         \   'sink': 'tabe ',
         \}, 0))
 
+    " oddly, this seems necessary
+    Glcd
+
     return
 endfun
