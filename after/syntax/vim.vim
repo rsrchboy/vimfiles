@@ -118,7 +118,7 @@ syn cluster vimAugroupList add=vimUserFunc
 
 " Section: file-specific overrides " {{{
 
-if @% !~# 'vim-fugitive/plugin/fugitive.vim$' " {{{2
+if @% =~# 'vim-fugitive/plugin/fugitive.vim$' " {{{2
     " autocmd BufNewFile,BufRead vim-fugitive/plugin/fugitive.vim setl foldmarker=function!,endfunction
     setl foldmarker=function!,endfunction
 endif
