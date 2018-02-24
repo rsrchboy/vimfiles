@@ -86,11 +86,11 @@ endif " }}}2
 hi link vimFunction Function
 hi link vimUserFunc Function
 
-" syn match vimFunc     "\%(\%([sSgGbBwWtTlL]:\|<[sS][iI][dD]>\)\=\%([a-zA-Z0-9_]\+\.\)*\I[a-zA-Z0-9_.]*\)\ze\s*("      contains=vimFuncName,vimUserFunc,vimExecute
-" syn match vimUserFunc contained   "\%(\%([sSgGbBwWtTlL]:\|<[sS][iI][dD]>\)\=\%([a-zA-Z0-9_]\+\.\)*\I[a-zA-Z0-9_.]*\)\|\<\u[a-zA-Z0-9.]*\>\|\<if\>"    contains=vimNotation
-" FIXME
-syn match vimUserFunc contained "\<\w\+#\w\+\>"  contains=vimNotation
-" syn match vimNotFunc  "\<if\>\|\<el\%[seif]\>\|\<return\>\|\<while\>"
+" " syn match vimFunc     "\%(\%([sSgGbBwWtTlL]:\|<[sS][iI][dD]>\)\=\%([a-zA-Z0-9_]\+\.\)*\I[a-zA-Z0-9_.]*\)\ze\s*("      contains=vimFuncName,vimUserFunc,vimExecute
+" " syn match vimUserFunc contained   "\%(\%([sSgGbBwWtTlL]:\|<[sS][iI][dD]>\)\=\%([a-zA-Z0-9_]\+\.\)*\I[a-zA-Z0-9_.]*\)\|\<\u[a-zA-Z0-9.]*\>\|\<if\>"    contains=vimNotation
+" " FIXME
+" syn match vimUserFunc contained "\<\w\+#\w\+\>"  contains=vimNotation
+" " syn match vimNotFunc  "\<if\>\|\<el\%[seif]\>\|\<return\>\|\<while\>"
 
 syn cluster vimAugroupList add=vimUserFunc
 
@@ -101,19 +101,26 @@ syn cluster vimAugroupList add=vimUserFunc
 "
 "   let s:tools.map = function('s:map', [ 'map', '' ])
 
-syn match vimDictKey  "\<\h\w\+\>" contained nextgroup=vimDictOper
-" syn match vimDictMethod  "\<\h\w[\w#]*\w\>(.*)" contained nextgroup=vimDictOper contains=vimOperParen,vimOperGroup
-syn match vimDictMethod  "\<\h\w[\w#]*\w\>([^)]*)" contained nextgroup=vimDictOper contains=vimOperParen,vimOperGroup
-syn match vimDictOper "\." contained nextgroup=vimDictMethod,vimDictKey
-" syn match vimVar        "\<\h[a-zA-Z0-9#_]*\>" contained nextgroup=vimDictOper
-syn match vimVar        "\<\h[a-zA-Z0-9#_]*\>" nextgroup=vimDictOper
-syn match vimVar        "\<[bwglstav]:\h[a-zA-Z0-9#_]*\>" nextgroup=vimDictOper
-syn match vimVar        "\<[bwglstav]:\h[a-zA-Z0-9#_]*\>" contained containedin=vimUserFunc,vimFunc nextgroup=vimDictOper
+" syn match vimDictKey  "\<\h\w\+\>" contained nextgroup=vimDictOper
+" " syn match vimDictMethod  "\<\h\w[\w#]*\w\>(.*)" contained nextgroup=vimDictOper contains=vimOperParen,vimOperGroup
+" syn match vimDictMethod  "\<\h\w[\w#]*\w\>([^)]*)" contained nextgroup=vimDictOper contains=vimOperParen,vimOperGroup
+" syn match vimDictOper "\." contained nextgroup=vimDictMethod,vimDictKey
+" " syn match vimVar        "\<\h[a-zA-Z0-9#_]*\>" contained nextgroup=vimDictOper
+" syn match vimVar        "\<\h[a-zA-Z0-9#_]*\>" nextgroup=vimDictOper
+" syn match vimVar        "\<[bwglstav]:\h[a-zA-Z0-9#_]*\>" nextgroup=vimDictOper
+" syn match vimVar        "\<[bwglstav]:\h[a-zA-Z0-9#_]*\>" contained containedin=vimUserFunc,vimFunc nextgroup=vimDictOper
 
-hi link vimDictOper   Operator
-hi link vimDictKey    Identifier
-hi link vimDictMethod Function
+" hi link vimDictOper   Operator
+" hi link vimDictKey    Identifier
+" hi link vimDictMethod Function
 
 " }}}1
+
+" Section: file-specific overrides " {{{
+
+if @% !~# 'vim-fugitive/plugin/fugitive.vim$' " {{{2
+    " autocmd BufNewFile,BufRead vim-fugitive/plugin/fugitive.vim setl foldmarker=function!,endfunction
+    setl foldmarker=function!,endfunction
+endif
 
 " __END__
