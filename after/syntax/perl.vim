@@ -30,9 +30,9 @@ syn match perlDeref     /\\\ze[$@%]/      nextgroup=perlVarPlain
 syn match perlOperator           +=>+
 
 " allow lines starting with ')->' to be matched, but don't match the ')'
-syn match perlDerefOrInvoke     /)\=\zs->/      nextgroup=perlFuncName,perlVarAsMethod,perlHashSlot,perlPostDeref,perlArraySlot
-syn match perlFuncName          +\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\_s*\|+       contained contains=perlPackageRef,perlPackageDelimError nextgroup=perlMethodArgs
-syn match perlPkgOrFunc         +\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\ze->+       contains=perlPackageRef,perlPackageDelimError nextgroup=perlOperator
+syn match perlDerefOrInvoke     /)\=\_s*\zs->/      nextgroup=perlFuncName,perlVarAsMethod,perlHashSlot,perlPostDeref,perlArraySlot skipwhite
+syn match perlFuncName          +\_s*\zs\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\_s*\|+       contained contains=perlPackageRef,perlPackageDelimError nextgroup=perlMethodArgs skipwhite
+syn match perlPkgOrFunc         +\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\ze\_s*->+       contains=perlPackageRef,perlPackageDelimError nextgroup=perlOperator
 syn match perlVarAsMethod       /\$\w\+/    contained nextgroup=perlMethodArgs
 syn match perlPackageDelimError /'/     contained
 
