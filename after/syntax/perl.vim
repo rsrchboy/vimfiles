@@ -30,11 +30,22 @@ syn match perlDeref     /\\\ze[$@%]/      nextgroup=perlVarPlain
 syn match perlOperator           +=>+
 
 " allow lines starting with ')->' to be matched, but don't match the ')'
-syn match perlDerefOrInvoke     /)\=\_s*\zs->/      nextgroup=perlFuncName,perlVarAsMethod,perlHashSlot,perlPostDeref,perlArraySlot skipwhite
-syn match perlFuncName          +\_s*\zs\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\_s*\|+       contained contains=perlPackageRef,perlPackageDelimError nextgroup=perlMethodArgs skipwhite
-syn match perlPkgOrFunc         +\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\ze\_s*->+       contains=perlPackageRef,perlPackageDelimError nextgroup=perlOperator
-syn match perlVarAsMethod       /\$\w\+/    contained nextgroup=perlMethodArgs
-syn match perlPackageDelimError /'/     contained
+syn match perlDerefOrInvoke     /)\=\_s*\zs->/
+            \ nextgroup=perlFuncName,perlVarAsMethod,perlHashSlot,perlPostDeref,perlArraySlot
+            \ skipwhite
+syn match perlFuncName          +\_s*\zs\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\_s*\|+
+            \ contained
+            \ contains=perlPackageRef,perlPackageDelimError
+            \ nextgroup=perlMethodArgs
+            \ skipwhite
+syn match perlPkgOrFunc         +\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\ze\_s*->+
+            \ contains=perlPackageRef,perlPackageDelimError
+            \ nextgroup=perlOperator
+syn match perlVarAsMethod       /\$\w\+/
+            \ contained
+            \ nextgroup=perlMethodArgs
+syn match perlPackageDelimError /'/
+            \ contained
 
 " NOTE these bits will only really work if we have g:perl_no_extended_vars
 " set, as we're basically replacing it here.
