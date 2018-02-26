@@ -17,6 +17,8 @@ snippet self
 # ($self, ...), because I get bored
 snippet selfs
 	my ($self${1}) = @_;
+snippet this
+	my $this = shift @_;
 # around method modifier
 snippet around
 	around ${1:method name} => sub {
@@ -43,7 +45,7 @@ snippet imm
 	!!42;
 	__END__
 snippet pkg
-	package `substitute(substitute(expand("%:p:r"), '/', '::', 'g'), '^.*lib::', '', '')`;
+	package `substitute(substitute(expand("%:p:r"), '/', '::', 'g'), '^.*\(lib\|autoload\)::', '', '')`;
 	${1}
 snippet PKG
 	`substitute(substitute(expand("%:p:r"), '/', '::', 'g'), '^.*lib::', '', '')`

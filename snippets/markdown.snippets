@@ -1,2 +1,4 @@
-snippet gist
-	<script src="https://gist.github.com/rsrchboy/$1.js"></script>
+snippet gist "X" w
+	<script src="https://gist.github.com/rsrchboy/$1.js${2:?file=${3:filename}}"></script>
+snippet cpan "X" w
+	[$1](https://metacpan.org/pod/$1)
