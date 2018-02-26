@@ -68,6 +68,7 @@ fun! MyPickTabPageTitleGit()
 endfun
 
 fun! MyResetTabTitle() abort
+    if &buftype !=# '' | return | endif
     silent! unlet t:tab_page_title t:git_dir t:git_commondir t:git_workdir
     call MyPickTabPageTitleGit()
     return
