@@ -10,7 +10,7 @@ let s:tools = {} " {{{1
 " Create a mapping in the given mode; enable repeat, and ensure it's undone if
 " the f/t changes
 
-let s:full = { 'n': 'normal', 'v': 'visual' }
+let s:full = { 'n': 'normal', 'v': 'visual', 'i': 'insert' }
 
 function! s:map(no_repeat, cmd, lhs_prefix, style, lhs, rhs) dict abort
     " Force eval in a double-quote context.  This seems a bit magical, but is
@@ -18,8 +18,7 @@ function! s:map(no_repeat, cmd, lhs_prefix, style, lhs, rhs) dict abort
     let l:lhs = a:lhs_prefix . eval('"'.  a:lhs .'"')
 
     let l:cmd = a:style . a:cmd . ' <buffer> <silent> ' . l:lhs . ' ' . a:rhs
-        \ . (a:no_repeat ? '' : "<bar> call repeat#set('" . l:lhs . "')")
-        \ . '<cr>'
+        \ . (a:no_repeat ? '' : "<bar> call repeat#set('" . l:lhs . "')<cr>")
 
     execute l:cmd
 
@@ -52,6 +51,7 @@ endfunction
 let s:tools.map         = function('s:map',  [ 0, 'map',     ''                   ])
 let s:tools.noremap     = function('s:map',  [ 0, 'noremap', ''                   ])
 let s:tools.nnoremap    = function('s:map',  [ 0, 'noremap', '',              'n' ])
+let s:tools.inoremap    = function('s:map',  [ 1, 'noremap', '',              'i' ])
 let s:tools.llnmap      = function('s:map',  [ 0, 'map',     '<localleader>', 'n' ])
 let s:tools.llnnoremap  = function('s:map',  [ 0, 'noremap', '<localleader>', 'n' ])
 let s:tools.nnore2map   = function('s:map',  [ 1, 'noremap', '',              'n' ])
@@ -130,13 +130,14 @@ endfun
 
 let s:tools.spell_for = function('s:spell_for', [])
 
-fun! s:tools.ftplugin_guard() dict
+fun! s:tools.ftplugin_guard(...) dict " {{{2
+    let l:syn = a:0 ? a:1 : &ft
     let l:guard = '
-                \ if exists("b:did_ftplugin_rsrchboy") |
+                \ if exists("b:did_' . l:syn . '_ftplugin_rsrchboy") |
                 \   finish |
                 \ endif |
                 \ let s:tools = g:rsrchboy#buffer#tools |
-                \ call s:tools.let("did_ftplugin_rsrchboy", 1)'
+                \ call s:tools.let("did_' . l:syn . '_ftplugin_rsrchboy", 1)'
     return l:guard
 endfun
 
