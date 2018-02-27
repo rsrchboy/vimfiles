@@ -50,6 +50,11 @@ function! airline#extensions#head#status()
     " don't do anything for preview windows
     if &previewwindow | return '' | endif
 
+    " skip fugitive buffers outright
+    if @% =~# '^fugitive://.*'
+        return ''
+    endif
+
     if exists('b:airline_head_subject') | return b:airline_head_subject | endif
 
     if exists('b:git_dir')
@@ -57,6 +62,7 @@ function! airline#extensions#head#status()
             let b:airline_head_subject = '{' . ducttape#git#head#subject() . '}'
         catch /^Vim\%((\a\+)\)\=:E117/
             let b:airline_head_subject = '{' . fugitive#repo().git_chomp('log', '-1', '--pretty=%s', '--no-show-signature') . '}'
+            let b:dt_error_airline_head_subject = v:throwpoint . ' -- ' . v:exception
         endtry
         return b:airline_head_subject
     else
