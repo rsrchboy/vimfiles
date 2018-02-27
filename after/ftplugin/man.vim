@@ -1,16 +1,16 @@
 " a couple additional settings for man type buffers
 
-" Only do this when not done yet for this buffer
-if exists("b:did_local_man_ftplugin")
-    finish
-endif
-let b:did_local_man_ftplugin = 1
+let s:tools = {}
+execute g:rsrchboy#buffer#tools.ftplugin_guard('epl')
 
-setlocal nonumber
-setlocal foldcolumn=0
+" setlocal nonumber
+call s:tools.setl('foldcolumn', 0)
 
 nnoremap <buffer> <silent> q :q<CR>
 
 " FIXME: not quite.
 "highlight clear ExtraWhitespace
 "autocmd BufWinEnter * <buffer> highlight clear ExtraWhitespace
+
+unlet s:tools
+" __END__
