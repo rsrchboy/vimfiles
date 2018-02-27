@@ -47,6 +47,9 @@ endfunction
 " Finally, this function will be invoked from the statusline.
 function! airline#extensions#head#status()
 
+    " don't do anything for preview windows
+    if &previewwindow | return '' | endif
+
     if exists('b:airline_head_subject') | return b:airline_head_subject | endif
 
     if exists('b:git_dir')
