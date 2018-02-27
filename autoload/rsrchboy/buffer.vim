@@ -106,15 +106,11 @@ let s:tools.undo     = function('s:undo', ['',         '' ])
 let s:tools.undo_var = function('s:undo', ['unlet b:', '' ])
 let s:tools.undo_set = function('s:undo', ['setl ',    '<'])
 
-fun! s:setl(opt, value) abort dict " {{{2
+fun! s:tools.setl(opt, value) abort dict " {{{2
     execute 'setl ' . a:opt . (a:value ==# '' ? '' : '=' . a:value)
     call self.undo_set(a:opt)
     return
 endfun
-
-" Function: .setl() " {{{2
-
-let s:tools.setl = function('s:setl', [])
 
 fun! s:tools.setno(option) abort dict " {{{2
     execute 'setl no' . a:option
