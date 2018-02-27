@@ -48,7 +48,7 @@ endfunction
 function! airline#extensions#head#status()
 
     " don't do anything for preview windows
-    if &previewwindow | return '' | endif
+    if &previewwindow || &diff | return '' | endif
 
     " skip fugitive buffers outright
     if @% =~# '^fugitive://.*'
