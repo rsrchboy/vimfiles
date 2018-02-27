@@ -101,7 +101,7 @@ nnoremap <silent> <leader>fml :call plug#load('vim-follow-my-lead') <bar> execut
 
 let g:fml_all_sources = 1
 
-" Plug 'SirVer/ultisnips' " {{{3
+Plug 'SirVer/ultisnips' " {{{3
 
 " " give this a shot
 " Plug 'KeyboardFire/vim-minisnip'
