@@ -890,6 +890,7 @@ Plug 'vadv/vim-chef',                { 'for': 'chef'   }
 Plug 'tmux-plugins/vim-tmux'
 Plug 'apeschel/vim-syntax-syslog-ng'
 Plug 'vim-pandoc/vim-pandoc-syntax', { 'for': 'pandoc' }
+Plug 'ap/vim-css-color'
 
 " Plugins: systemy bits {{{2
 
