@@ -50,27 +50,7 @@ function! airline#extensions#head#status()
     " don't do anything for preview windows
     if &previewwindow | return '' | endif
 
-    if @% =~# '^fugitive://.*'
-
-        " skip most fugitive buffers outright
-        if !&diff | return '' | endif
-
-        " See ':h fugitive-revision'
-        " fugitive:///home/rsrchboy/.vim/.git//0/...
-        if @% =~# '^fugitive://.*//0/.*'
-            return '[INDEX]'
-        elseif @% =~# '^fugitive://.*//1/.*'
-            return '[BASE]'
-        elseif @% =~# '^fugitive://.*//2/.*'
-            return '[TARGET]'
-        elseif @% =~# '^fugitive://.*//3/.*'
-            return '[BASE]'
-        endif
-
-        " huh?!
-        return
-
-    endif
+    if @% =~# '^fugitive://.*' | return '' | endif
 
     if &diff | return '' | endif
 

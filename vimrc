@@ -195,10 +195,29 @@ let g:airline#extensions#branch#format = 'CustomBranchName'
 let g:airline#extensions#hunks#non_zero_only = 1
 
 function! CustomBranchName(name) " {{{3
-    "return '[' . a:name . ']'
+
     if a:name ==# ''
         return a:name
     endif
+
+    if (@% =~# '^fugitive://.*') && &diff
+
+        " See ':h fugitive-revision'
+        " fugitive:///home/rsrchboy/.vim/.git//0/...
+        if @% =~# '^fugitive://.*//0/.*'
+            return a:name
+            " return '[INDEX] ' . a:name
+        elseif @% =~# '^fugitive://.*//1/.*'
+            return '[BASE] ' . a:name
+        elseif @% =~# '^fugitive://.*//2/.*'
+            return '[TARGET] ' . a:name
+        elseif @% =~# '^fugitive://.*//3/.*'
+            return '[MERGED] ' . a:name
+        endif
+
+    endif
+
+    if &diff | return 'worktree(' . a:name . ')' | endif
 
     " skip fugitive buffers outright
     if @% =~# '^fugitive://.*'
@@ -254,6 +273,14 @@ augroup vimrc#airline " {{{3
     " we end up in is refreshed after a commit, so the subject is updated
     au User     FugitiveCommitFinish  let g:_statusline_needs_refreshing = 1
     au BufEnter *                     call s:BufEnterRefresh()
+
+    " This is somewhat roundabout, but if we want to put the airline head
+    " display back to something sensible this appears to be the only
+    " reasonable way to do it w/o changing fugitive
+    au OptionSet diff unlet! b:airline_head b:airline_head_subject |
+    \   if has_key(w:, 'fugitive_diff_restore') |
+    \       let w:fugitive_diff_restore .= '|unlet! b:airline_head b:airline_head_subject' |
+    \   endif
 
     au FileChangedShellPost * call rsrchboy#statuslineRefresh()
     au ShellCmdPost         * call rsrchboy#statuslineRefresh()
