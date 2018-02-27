@@ -116,6 +116,12 @@ endfun
 
 let s:tools.setl = function('s:setl', [])
 
+fun! s:tools.setno(option) abort dict " {{{2
+    execute 'setl no' . a:option
+    call self.undo_set(a:option)
+    return
+endfun
+
 fun! s:spell_for(ft) abort dict " {{{2
     call self.undo('setl spell< spellcapcheck< spellfile<')
     setlocal spell
