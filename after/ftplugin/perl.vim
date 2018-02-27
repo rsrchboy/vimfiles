@@ -39,7 +39,7 @@ setl formatprg=perltidy
 
 " Plugins: Ale {{{1
 
-augroup ftplugin#perl
+augroup ftplugin#perl " {{{2
     au!
 
     " au User Fugitive if &ft == 'perl' | let b:ale_perl_perl_options = '-I ' . fugitive#repo().tree() . '/lib'
@@ -47,13 +47,13 @@ augroup ftplugin#perl
     "         \   | endif
 augroup END
 
-if exists('b:git_dir')
+if exists('b:git_dir') " {{{2
     let b:ale_perl_perl_options =
         \      '-I ' . fugitive#repo().tree() . '/lib'
         \   . ' -I ' . fugitive#repo().tree() . '/t/lib'
 endif
 
-" vim-pipe config
+" vim-pipe config " {{{2
 let b:undo_ftplugin .= '| silent! unlet b:vimpipe_filetype b:vimpipe_command'
 let b:vimpipe_filetype = 'tapVerboseOutput'
 let b:vimpipe_command  = 'source ~/perl5/perlbrew/etc/bashrc ; perl -I lib/ -'
