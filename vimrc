@@ -409,9 +409,8 @@ endif
 
 Plug 'jaxbot/github-issues.vim', { 'on': ['Gissues', 'Gmiles', 'Giadd'] } " {{{3
 
-" NOTE: don't autoload on gitcommit f/t at the moment, as this plugin either
-" does not support authenticated requests (or we don't have it configured) and
-" it's WICKED SLOW when the number of allowed requests is exceeded.
+let g:github_upstream_issues = 1
+let g:gissues_lazy_load      = 1
 
 Plug 'krisajenkins/vim-pipe', { 'on': [] } " {{{3
 
