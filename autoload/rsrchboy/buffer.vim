@@ -118,6 +118,18 @@ fun! s:tools.setno(option) abort dict " {{{2
     return
 endfun
 
+fun! s:tools.setplus(option, value) abort dict " {{{2
+    execute 'setl ' . a:option . '+=' . a:value
+    call self.undo_set(a:option)
+    return
+endfun
+
+fun! s:tools.setminus(option, value) abort dict " {{{2
+    execute 'setl ' . a:option . '-=' . a:value
+    call self.undo_set(a:option)
+    return
+endfun
+
 fun! s:spell_for(ft) abort dict " {{{2
     call self.undo('setl spell< spellcapcheck< spellfile<')
     setlocal spell
