@@ -999,8 +999,8 @@ Plug 'KabbAmine/lazyList.vim', { 'on': 'LazyList' } " {{{3
 
 " the plugin author's configuration:
 
-nnoremap gli :LazyList
-vnoremap gli :LazyList
+" nnoremap gli :LazyList
+" vnoremap gli :LazyList
 
 let g:lazylist_omap = 'il'
 let g:lazylist_maps = [
