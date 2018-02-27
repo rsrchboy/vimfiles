@@ -627,11 +627,7 @@ nnoremap <silent> <Leader>gc :Gcommit<Enter>
 nnoremap <silent> <Leader>gf :call rsrchboy#git#fixup()<CR>
 nnoremap <silent> <Leader>gS :call rsrchboy#git#squash()<CR>
 
-" trial -- intent to add
-nnoremap <silent> <Leader>gI :Git add --intent-to-add %<bar>call sy#start()<CR>
-
-" nmap <silent> <Leader>gA :execute ':!git -C ' . b:git_worktree . ' add -pi ' . resolve(expand('%')) <bar> call sy#start()<CR>
-nnoremap <silent> <Leader>gA :execute ':!git -C ' . b:git_worktree . ' add -pi ' . fugitive#buffer().path() <bar> call sy#start()<CR>
+nnoremap <silent> <Leader>gA :Git add -pi % <bar> call sy#start()<CR>
 nnoremap <silent> <Leader>gp :Git push<CR>
 nnoremap <silent> <Leader>gb :DimInactiveBufferOff<CR>:Gblame -w<CR>
 
