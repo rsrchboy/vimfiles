@@ -17,6 +17,8 @@ let s:tools = g:rsrchboy#buffer#tools
 
 call rsrchboy#buffer#SetSpellOpts('perl')
 
+call s:tools.setl('foldmethod', 'syntax')
+
 " Scratchpad for perhaps better settings(?)
 "
 " Search for defined 'macros' as functions or attributes; also look in roles.
@@ -28,10 +30,6 @@ setlocal include=^\\<\\\(use\\\|require\\\|with\\\|extends\\\)\\>
 " setlocal includeexpr=substitute(substitute(substitute(v:fname,'::','/','g'),'->\*','',''),'$','.pm','')
 " setlocal includeexpr=substitute(substitute(substitute(substitute(v:fname,'::','/','g'),'->\*','',''),'$','.pm',''), "'", '', 'g')
 " setlocal includeexpr=substitute(substitute(substitute(substitute(v:fname,'::','/','g'),'->\*','',''),'$','.pm',''), "'", '', 'g')
-
-
-setlocal foldmethod=marker
-let b:undo_ftplugin .= ' | setlocal foldmethod<'
 
 
 " Formatting:

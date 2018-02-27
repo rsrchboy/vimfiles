@@ -766,6 +766,7 @@ Plug 'RsrchBoy/vim-perl', { 'branch': 'active' } " {{{3
 
 " use my fork until several PR's are merged (orig: vim-perl/...)
 
+let g:perl_fold = 1
 " support highlighting for the new syntax
 let g:perl_sub_signatures = 1
 " we do this ourselves
