@@ -18,6 +18,7 @@ let s:tools = g:rsrchboy#buffer#tools
 call rsrchboy#buffer#SetSpellOpts('perl')
 
 call s:tools.setl('foldmethod', 'syntax')
+call s:tools.setminus('fo', 'w')
 
 " Scratchpad for perhaps better settings(?)
 "
