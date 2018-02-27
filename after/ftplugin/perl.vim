@@ -32,10 +32,7 @@ setlocal include=^\\<\\\(use\\\|require\\\|with\\\|extends\\\)\\>
 " setlocal includeexpr=substitute(substitute(substitute(substitute(v:fname,'::','/','g'),'->\*','',''),'$','.pm',''), "'", '', 'g')
 " setlocal includeexpr=substitute(substitute(substitute(substitute(v:fname,'::','/','g'),'->\*','',''),'$','.pm',''), "'", '', 'g')
 
-
-" Formatting:
-
-setl formatprg=perltidy
+" setl formatprg=perltidy
 
 " Plugins: Ale {{{1
 
