@@ -1207,7 +1207,15 @@ nmap <ESC>[6;5~ <C-PageDown>
 
 cnoremap w!! w !sudo tee % >/dev/null
 
-" }}}2
+" Operators: {{{1
+
+call operator#user#define_ex_command('cutoffs', 'Snip')
+map gZ <Plug>(operator-cutoffs)
+
+call operator#user#define_ex_command('tidy-json', 'JsonTidy')
+map tJ <Plug>(operator-tidy-json)
+call operator#user#define_ex_command('tidy-column', 'ColumnTidy')
+map tC <Plug>(operator-tidy-column)
 
 " Inline Block Manipulation: aka prettification {{{1
 command! -range -nargs=0 Snip       <line1>,<line2>call rsrchboy#snip#Snip()
