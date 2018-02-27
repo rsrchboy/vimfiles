@@ -1204,7 +1204,7 @@ cnoremap w!! w !sudo tee % >/dev/null
 " Inline Block Manipulation: aka prettification {{{1
 command! -range -nargs=0 Snip       <line1>,<line2>call rsrchboy#snip#Snip()
 command! -range -nargs=* Uniq       <line1>,<line2>! uniq
-command! -range -nargs=* JsonTidy   <line1>,<line2>! /usr/bin/json_xs -f json -t json-pretty
+command! -range -nargs=* JsonTidy   <line1>,<line2>! json_xs -f json -t json-pretty
 command! -range -nargs=* ColumnTidy <line1>,<line2>! /usr/bin/column -t
 command! -range -nargs=* Cowsay     <line1>,<line2>! cowsay -W 65
 command! -range -nargs=* BorgCowsay <line1>,<line2>! cowsay -W 65 -b
