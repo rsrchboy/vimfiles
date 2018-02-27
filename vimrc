@@ -536,9 +536,18 @@ let g:vimwiki_use_calendar = 1
 let g:calendar_action      = 'vimwiki#diary#calendar_action'
 let g:calendar_sign        = 'vimwiki#diary#calendar_sign'
 
-let g:vimwiki_list = [{'path': '~/Shared/vimwiki/', 'path_html': '~/public_html/'}]
+let g:vimwiki_list = [{'path': '~/Shared/vimwiki/', 'path_html': '~/public_html/'}] " }}}3
+
+" Plugins: orgmode/organizer-style {{{2
+
+" Plug 'hsitz/VimOrganizer', { 'for': ['org', 'vimorg-agenda-mappings', 'vimorg-main-mappings'] }
+Plug 'hsitz/VimOrganizer'
+" Plug 'jceb/vim-orgmode' " {{{3
+
+let g:org_indent = 1
 
 " }}}3
+" Plug 'vim-scripts/utl.vim', { 'on': 'votl' }
 Plug 'vimoutliner/vimoutliner'
 
 " Plugins: neocomplete / deoplete / etc {{{2
