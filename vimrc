@@ -200,6 +200,11 @@ function! CustomBranchName(name) " {{{3
         return a:name
     endif
 
+    " skip fugitive buffers outright
+    if @% =~# '^fugitive://.*'
+        return ''
+    endif
+
     let l:info = a:name
 
     " This isn't perfect, but it does keep things from blowing up rather
