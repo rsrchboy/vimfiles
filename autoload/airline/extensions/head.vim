@@ -39,7 +39,7 @@ function! airline#extensions#head#apply(...)
     augroup airline#extensions#head
         au!
 
-        autocmd CursorHold,FileChangedShellPost,ShellCmdPost,CmdwinLeave * unlet! b:airline_head_subject
+        autocmd BufEnter,FileChangedShellPost,ShellCmdPost,CmdwinLeave * unlet! b:airline_head_subject
         autocmd User FugitiveCommitFinishPre unlet! b:airline_head_subject
     augroup END
 endfunction
@@ -47,14 +47,12 @@ endfunction
 " Finally, this function will be invoked from the statusline.
 function! airline#extensions#head#status()
 
-    " don't do anything for preview windows
-    if &previewwindow | return '' | endif
-
-    if @% =~# '^fugitive://.*' | return '' | endif
-
-    if &diff | return '' | endif
-
     if exists('b:airline_head_subject') | return b:airline_head_subject | endif
+
+    if &previewwindow || &diff || (@% =~# '^fugitive://.*')
+        let b:airline_head_subject = ''
+        return ''
+    endif
 
     if exists('b:git_dir')
         try
@@ -63,7 +61,6 @@ function! airline#extensions#head#status()
             let b:airline_head_subject = '{' . fugitive#repo().git_chomp('log', '-1', '--pretty=%s', '--no-show-signature') . '}'
             let b:dt_error_airline_head_subject = v:throwpoint . ' -- ' . v:exception
         endtry
-        return b:airline_head_subject
     else
         let b:airline_head_subject = ''
     endif
