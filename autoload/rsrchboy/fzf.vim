@@ -1,5 +1,12 @@
 " Functions supporting our use of fzf
 
+if has('perl')
+    for s:eval in ducttape#symbiont#autoload(expand('<sfile>'))
+        execute s:eval
+    endfor
+endif
+
+" __END__
 fun! rsrchboy#fzf#FindOrOpenTab(work_dir) abort " {{{2
 
     " strictly speaking, this isn't really fzf-specific -- but it can live
