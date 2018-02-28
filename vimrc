@@ -372,7 +372,7 @@ command! -bang -nargs=* GGrep
     \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
 command! -bang -nargs=0 Projects
     \ call fzf#run(fzf#wrap('projects', {
-    \   'source': 'find ~/work ~/.vim/plugged -name .git -maxdepth 3 -printf ''%h\n''',
+    \   'source': 'find -L ~/work* ~/.vim/plugged -name .git -maxdepth 3 -printf ''%h\n''',
     \   'sink': function('rsrchboy#fzf#FindOrOpenTab'),
     \   'options': '-m --prompt "Projects> "',
     \}, <bang>0))
