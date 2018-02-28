@@ -7,8 +7,8 @@
 "   @@ template.name
 syn region perlDATASimpleSectionDecl matchgroup=perlDATASimpleSectionStatementMarker start=/^@@ / end=/$/ oneline contained containedin=perlDATA
 
-hi def link perlDATASimpleSectionDecl            TODO
-hi def link perlDATASimpleSectionStatementMarker Keyword
+hi link perlDATASimpleSectionDecl            Label
+hi link perlDATASimpleSectionStatementMarker PreProc
 
 " Default Section:
 "
@@ -28,5 +28,9 @@ syn region perlDATASectionSimpleTT2Section start=/^@@ .\{1,}\.tt2\?$/ end=/^@@ /
 unlet b:current_syntax
 syn include @SQL syntax/sql.vim
 syn region perlDATASectionSimpleSQLSection start=/^@@ .\{1,}\.sql$/ end=/^@@ /me=e-3 keepend contains=@SQL,perlDATASimpleSectionDecl containedin=perlDATA fold
+
+unlet b:current_syntax
+syn include @GQL syntax/graphql.vim
+syn region perlDATASectionSimpleGQLSection start=/^@@ .\{1,}\.gql$/ end=/^@@ /me=e-3 keepend contains=@gql,perlDATASimpleSectionDecl containedin=perlDATA fold
 
 let b:current_syntax = s:syntax | unlet s:syntax
