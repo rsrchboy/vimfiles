@@ -130,6 +130,11 @@ syn match perlOperator           "\<\%(blessed\)\>"
 
 " syn match   perlVarScalar  +$\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\_s*\|+ contained
 
+" TODO needs to be able to handle Moo-style bits like:
+"
+" has 'site';
+" has options => sub { {} };
+" has cleanup => sub { Mojo::Collection->new };
 syn region perlAttribute       matchgroup=Statement start='^\s*has\>' matchgroup=perlOperator end='=>'
 syn region perlMethodModifier  matchgroup=perlStatementMethodModifier start='^\s*\<\%(before\|after\|around\|override\|augment\)\>' matchgroup=perlOperator end=/=>\s*/ nextgroup=perlFunction,perlVarScalar,perlSubRef,perlMMError
 " matches if (sub or \& or $\k+ matches) doesn't match
