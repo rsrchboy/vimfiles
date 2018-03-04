@@ -6,7 +6,6 @@ if has('perl')
     endfor
 endif
 
-" __END__
 fun! rsrchboy#fzf#FindOrOpenTab(work_dir) abort " {{{2
 
     " strictly speaking, this isn't really fzf-specific -- but it can live
