@@ -27,7 +27,10 @@ syn match perlStatementList "\<\%(apply\)\>"
 
 " FIXME include code?
 syn match perlDeref     /\\\ze[$@%]/      nextgroup=perlVarPlain
-syn match perlOperator           +\(=>\|//=\=\)+
+syn match perlOperator           +\%(=>\|//=\=\)+
+
+" must not match /^=/ because POD
+syn match perlOperator           /\%(^\)\@!=/
 
 " allow lines starting with ')->' to be matched, but don't match the ')'
 syn match perlDerefOrInvoke     /)\=\_s*\zs->/
