@@ -7,26 +7,20 @@ function! buf2tab#SaveTabInfo() abort
 
     let l:lines = []
 
-    for l:page in gettabinfo()
+    for l:tabnr in range(tabpagenr('$'))
 
-        if has_key(l:page.variables, 'bufexp_buf_list')
+        let l:buf_names = copy(gettabvar(l:tabnr, 'bufexp_buf_list', []))
 
-            let l:buf_names = copy(l:page.variables.bufexp_buf_list)
-            call filter(l:buf_names, { k, v -> getbufvar(v, '&buftype') !=# 'nofile' })
-            call filter(l:buf_names, { k, v -> buflisted(v)                          })
-            call    map(l:buf_names, { k, v -> bufname(v)                            })
-            call filter(l:buf_names, { k, v -> v !=# '[BufExplorer]'                 })
+        call filter(l:buf_names, { k, v -> getbufvar(v, '&buftype') !=# 'nofile' })
+        call filter(l:buf_names, { k, v -> buflisted(v)                          })
+        call    map(l:buf_names, { k, v -> bufname(v)                            })
+        call filter(l:buf_names, { k, v -> v !=# '[BufExplorer]'                 })
 
-            let l:bufs = '[' . join(l:page.variables.bufexp_buf_list, ',') . ']'
+        let l:lines += [
+            \   'call settabvar('. l:tabnr . ', ' .
+            \   "'buf2tab_buf_names', ['" . join(l:buf_names, "', '") . "'])"
+            \]
 
-                " \   'call settabvar('. l:page.tabnr . ', ' . "'bufexp_buf_list', " . l:bufs . ')',
-                " \   'call settabvar('. l:page.tabnr . ', ' . "'RESTORED_bufexp_buf_list', " . l:bufs . ')',
-                " \   'call settabvar('. l:page.tabnr . ', ' . "'RESTORED_bufexp_buf_names', ['" . join(l:buf_names, "', '") . "'])",
-            let l:lines += [
-                \   'call settabvar('. l:page.tabnr . ', ' . "'buf2tab_buf_names', ['" . join(l:buf_names, "', '") . "'])",
-                \]
-
-        endif
     endfor
 
     " bail if there's nothing to write
