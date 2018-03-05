@@ -171,7 +171,7 @@ let g:startify_skiplist = [
            \ 'bundle/.*/doc',
            \ ]
 
-Plug 'bling/vim-airline' " {{{3
+Plug 'vim-airline/vim-airline' " {{{3
 
 let g:airline_theme = 'dark'
 
