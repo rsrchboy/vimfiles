@@ -131,6 +131,8 @@ endif " }}}1
 
 syn match perlOperator           "\<\%(blessed\)\>"
 
+syn keyword perlStatement with
+
 " syn match   perlVarScalar  +$\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\_s*\|+ contained
 
 " TODO needs to be able to handle Moo-style bits like:
