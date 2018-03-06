@@ -14,9 +14,10 @@ fun! rsrchboy#git#special_commit(command, ...) abort " {{{1
     try
         let l:id = ducttape#git#special_commit(a:command, l:target)
         call fugitive#reload_status()
-        echo a:command . ' up ' . l:target . ' to: ' . l:id
+        echo 'ducttape ' . a:command . ' up ' . l:target . ' to: ' . l:id
     catch /^Vim\%((\a\+)\)\=:E117/
         execute 'Gcommit --no-verify --no-gpg-sign --' . a:command . '=' . l:target
+        echo 'fugitive ' . a:command . ' up ' . l:target . ' to: ' . l:id
     endtry
 
     " these could probably be excised and done from a user autocmd or somesuch
