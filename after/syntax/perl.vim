@@ -25,12 +25,12 @@ syn match  perlVarPlain "\$+" nextgroup=perlVarMember,perlVarSimpleMember,perlMe
 " some more map-like things I'd like highlighted that way...
 syn match perlStatementList "\<\%(apply\)\>"
 
-" FIXME include code?
-syn match perlDeref     /\\\ze[$@%]/      nextgroup=perlVarPlain
-syn match perlOperator           +\%(=>\|//=\=\)+
-
 " must not match /^=/ because POD
 syn match perlOperator           /\%(^\)\@!=/
+
+" FIXME include code?
+syn match perlDeref    /\\\ze[$@%]/ nextgroup=perlVarPlain
+syn match perlOperator +\%(=>\|//=\=\)+
 
 " allow lines starting with ')->' to be matched, but don't match the ')'
 syn match perlDerefOrInvoke     /)\=\_s*\zs->/
