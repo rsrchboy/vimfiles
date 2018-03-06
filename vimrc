@@ -1112,6 +1112,10 @@ set foldcolumn=3
 
 let g:maplocalleader = ','
 
+if &term ==# 'tmux-256color' " {{{2
+    set term=xterm-256color
+endif
+
 if has('persistent_undo') " {{{2
     set undofile
     set undodir=~/.cache/vim/undo/
