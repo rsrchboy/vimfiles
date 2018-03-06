@@ -161,6 +161,12 @@ syn match perlPodWeaverSpecialComment "\C^# \zs[A-Z0-9]\+: " contained contained
 syn match perlCriticOverride          /## \?\(no\|use\) critic.*$/ containedin=perlComment contained
 syn match perlTidyOverride            /#\(<<<\|>>>\)$/ containedin=perlComment contained
 
+" don't do spell checking in smart comments
+syn region perlSmartComment start=/###/ end=/$/ oneline
+
 hi link perlCriticOverride          Ignore
 hi link perlTidyOverride            Ignore
 hi link perlPodWeaverSpecialComment SpecialComment
+hi link perlSmartComment            perlComment
+
+" __END__
