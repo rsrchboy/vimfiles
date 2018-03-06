@@ -59,6 +59,9 @@ syntax region perlDATA matchgroup=PreProc start="^__DATA__$" skip="." end="." co
 
 if get(g:, 'perl_no_extended_vars', 1)
 
+    " this seems somewhat borked, and interferes with our extended_vars stuff
+    syn clear perlStatementIndirObjWrap
+
     syn cluster perlExpr contains=perlStatementScalar,
         \perlStatementRegexp,perlStatementNumeric,perlStatementList,
         \perlStatementHash,perlStatementFiles,perlStatementTime,
