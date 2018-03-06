@@ -7,7 +7,7 @@ if has('perl')
 endif
 
 let g:rsrchboy#fzf#project_dirs = get(g:, 'rsrchboy#fzf#project_dirs',
-\ '~/work ~/.vim/plugged')
+\ '~/work ~/.vim ~/.tmux ~/.stow-dotfiles')
 
 fun! rsrchboy#fzf#Projects(include_remote) abort
 
