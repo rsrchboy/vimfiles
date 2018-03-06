@@ -1202,7 +1202,7 @@ augroup vimrc " {{{2
     au ColorScheme * execute ':runtime! after/colors/'.expand('<amatch>').".vim"
 
     " perform wip commits on save
-    au User Fugitive au! BufWritePost <buffer> :call ducttape#git#wip()
+    au User Fugitive au! BufWritePost <buffer> silent! call ducttape#git#wip()
 
     " track buffers against tabs across sessions
     au TabLeave * silent! let g:buf2tab_previous_tabs_buffers = t:bufexp_buf_list
