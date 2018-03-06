@@ -16,7 +16,7 @@ fun! rsrchboy#git#special_commit(command, ...) abort " {{{1
         call fugitive#reload_status()
         echo a:command . ' up ' . l:target . ' to: ' . l:id
     catch /^Vim\%((\a\+)\)\=:E117/
-        execute 'Gcommit --no-verify --' . a:command . ' --no-gpg-sign ' . l:target
+        execute 'Gcommit --no-verify --no-gpg-sign --' . a:command . '=' . l:target
     endtry
 
     " these could probably be excised and done from a user autocmd or somesuch
