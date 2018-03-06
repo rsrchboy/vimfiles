@@ -118,6 +118,12 @@ fun! s:tools.setno(option) abort dict " {{{2
     return
 endfun
 
+fun! s:tools.setyes(option) abort dict " {{{2
+    execute 'setl ' . a:option
+    call self.undo_set(a:option)
+    return
+endfun
+
 fun! s:tools.setplus(option, value) abort dict " {{{2
     execute 'setl ' . a:option . '+=' . a:value
     call self.undo_set(a:option)
