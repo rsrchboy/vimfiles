@@ -1,21 +1,14 @@
 " Additional setup for Perl files
 
-" FIXME ...
-" when working inside a CPAN-style dist, for instance.
-setl path<
-let &l:path='.,,lib/,t/lib/,'.g:perlpath
-
-if exists('b:did_ftplugin_rsrchboy')
-    finish
-endif
-let b:did_ftplugin_rsrchboy = 1
-let b:undo_ftplugin .= ' | unlet b:did_ftplugin_rsrchboy'
-
-let s:tools = g:rsrchboy#buffer#tools
+let s:tools = {}
+execute g:rsrchboy#buffer#tools.ftplugin_guard('perl')
 
 " Settings: {{{1
 
-call rsrchboy#buffer#SetSpellOpts('perl')
+setl path<
+let &l:path='.,,lib/,t/lib/,'.g:perlpath
+
+call s:tools.spell_for('perl')
 
 call s:tools.setl('foldmethod', 'syntax')
 call s:tools.setminus('fo', 'w')
@@ -23,9 +16,9 @@ call s:tools.setminus('fo', 'w')
 " Scratchpad for perhaps better settings(?)
 "
 " Search for defined 'macros' as functions or attributes; also look in roles.
-"
-setl define=^\\s*\\\(sub\\\|has\\\)\\>
-setlocal include=^\\<\\\(use\\\|require\\\|with\\\|extends\\\)\\>
+
+call s:tools.setl('define',  '^\s*\(sub\|has\)\>')
+call s:tools.setl('include', '^\<\(use\|require\|with\|extends\)\>')
 
 " setlocal includeexpr=substitute(substitute(substitute(v:fname,'::','/','g'),'->\*','',''),'$','.pm','')
 " setlocal includeexpr=substitute(substitute(substitute(v:fname,'::','/','g'),'->\*','',''),'$','.pm','')
