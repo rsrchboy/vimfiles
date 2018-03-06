@@ -5,17 +5,11 @@ if &filetype ==# 'gitrebase'
     finish
 endif
 
-if exists('b:did_ftplugin_rsrchboy')
-    finish
-endif
-let b:did_ftplugin_rsrchboy = 1
-let b:undo_ftplugin .= ' | unlet b:did_ftplugin_rsrchboy'
+let s:tools = {}
+execute g:rsrchboy#buffer#tools.ftplugin_guard('git')
 
-let s:tools = g:rsrchboy#buffer#tools
-
-let b:undo_ftplugin .= '| setl foldcolumn< includeexpr<'
-setlocal foldcolumn=0
-setlocal includeexpr=fugitive#repo().translate(v:fname)
+call s:tools.setl('foldcolumn', '0')
+call s:tools.setl('includeexpr', 'fugitive#repo().translate(v:fname)')
 
 " match both 'normal' and worktree indices
 if @% =~# '\.git/index$' || @% =~# '\.git/worktrees/.*/index$'
@@ -27,8 +21,8 @@ if @% =~# '\.git/index$' || @% =~# '\.git/worktrees/.*/index$'
     " conditionalize this, as we don't want these mappings when, say, writing
     " a commit message.
 
-    setlocal cursorline
-    setlocal nohlsearch
+    call s:tools.setyes('cursorline')
+    call s:tools.setno('hlsearch')
 
     call s:tools.nnoremap('j',      ":call search('^#\t.*','W')<Bar>.<CR>")
     call s:tools.nnoremap('<Down>', ":call search('^#\t.*','W')<Bar>.<CR>")
@@ -42,3 +36,5 @@ if @% =~# '\.git/index$' || @% =~# '\.git/worktrees/.*/index$'
 
     normal ggj
 endif
+
+" __END__
