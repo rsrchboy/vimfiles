@@ -134,7 +134,7 @@ endif " }}}1
 
 syn match perlOperator           "\<\%(blessed\)\>"
 
-syn keyword perlStatement with
+syn keyword perlStatement with requires
 
 " syn match   perlVarScalar  +$\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\_s*\|+ contained
 
