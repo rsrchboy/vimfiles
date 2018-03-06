@@ -193,20 +193,6 @@ let b:surround_64  = "@{ \r }"
 let b:surround_37  = "%{ \r }"
 let b:surround_36  = "${ \r }"
 
-" Plugin: endwise pairs {{{2
-
-" Initial hackey things.  Close an if brace with a '}', close a bare brace
-" with '},'.  Just playing around with this, for the moment.
-
-let b:endwise_addition = '\=submatch(0)=="if" ? "}" : "},"'
-" let b:endwise_addition = '\=submatch(0)=="{" ? "}," : "}"'
-" let b:endwise_addition = '}'
-let b:endwise_words = 'if,elsif,} elsif,else,{'
-" let b:endwise_syngroups= 'perlConditional'
-let b:endwise_syngroups= 'perlConditional,perlBraces'
-
-" }}}2
-
 " }}}1
 
 " __END__
