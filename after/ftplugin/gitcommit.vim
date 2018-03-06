@@ -1,24 +1,18 @@
 " Additional setup for gitcommit syntax
 
-if exists("b:did_gitcommit_local_ftplugin")
-    finish
-endif
-let b:did_gitcommit_local_ftplugin = 1
-
-setlocal nofoldenable
-setlocal foldcolumn=0
-setlocal textwidth=72
+let s:tools = {}
+execute g:rsrchboy#buffer#tools.ftplugin_guard('gitcommit')
 
 " don't show tabs and the like (under our configuration)
-setlocal nolist
+call s:tools.setno('list')
 
-if @% !~# '_EDITMSG$'
+if @% !~# '.*_EDITMSG$'
     finish
 endif
 
 " These commands are only executed if we're in a message edit buffer.
 
-call rsrchboy#buffer#SetSpellOpts('gitcommit')
+call s:tools.spell_for('gitcommit')
 
 normal gg0
 startinsert
