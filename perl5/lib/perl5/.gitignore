@@ -1,5 +1,0 @@
-# ignore all but the minimal config: modules and man pages (convienence)
-.packlist
-perllocal.pod
-.meta/
-*.pod
