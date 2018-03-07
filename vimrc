@@ -1,7 +1,7 @@
 " Name:             ~/.vimrc
 " Summary:          My ~/.vimrc and configuration
 " Maintainer:       Chris Weyl <cweyl@alumni.drew.edu>
-" Canonical Source: https://github.com/RsrchBoy/vimfiles
+" Canonical Source: https://github.com/rsrchboy/vimfiles
 " License:          CC BY-NC-SA 4.0 (aka Attribution-NonCommercial-ShareAlike)
 
 " give any spawned shells a clue
