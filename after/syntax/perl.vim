@@ -57,6 +57,11 @@ syn match perlVarAsMethod       /\$\w\+/
 syn match perlPackageDelimError /'/
             \ contained
 
+" fixes qr{}'s where the highlighting doesn't close; e.g. this line
+" from Statocles::App::Blog:
+"       my $is_dated_path = qr{^$root/?(\d{4})/(\d{2})/(\d{2})/};
+syn match perlSpecialString /\\[dDXvVhHRKsSwW]\%({\d\+\%(,\d*\)\=}\)\=/ contained extend
+
 " NOTE these bits will only really work if we have g:perl_no_extended_vars
 " set, as we're basically replacing it here.
 
