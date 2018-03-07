@@ -902,7 +902,7 @@ Plug 'vim-scripts/openvpn', { 'for': 'openvpn' }
 " Plugins: s/w packaging: deb, arch, etc {{{2
 
 Plug 'vim-scripts/deb.vim'
-Plug 'Firef0x/PKGBUILD.vim'
+Plug 'Firef0x/PKGBUILD.vim', { 'for': 'PKGBUILD' }
 
 " Plugins: text objects: {{{2
 
