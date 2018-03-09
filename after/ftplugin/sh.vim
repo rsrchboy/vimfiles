@@ -1,12 +1,10 @@
 " Additional setup for sh files
 
-if exists('b:did_ftplugin_rsrchboy')
-    finish
-endif
-let b:did_ftplugin_rsrchboy = 1
-let b:undo_ftplugin .= '| unlet b:did_ftplugin_rsrchboy'
+let s:tools = {}
+execute g:rsrchboy#buffer#tools.ftplugin_guard('man')
 
-setl include=^\\s*source\\>
+call s:tools.setplus('formatoptions', 'ro')
+call s:tools.setl('include', '^\s*source\>')
 
 " local mappings
 nnoremap <buffer> <silent> ,;; :Tabularize /;;<CR>
