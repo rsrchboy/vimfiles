@@ -26,11 +26,12 @@ hi link vimFoldMarkerClose Ignore
 
 " Subject: embedded Perl blocks {{{2
 
-let s:syn = b:current_syntax
+let [s:syn, s:fm] = [b:current_syntax, &foldmethod]
 unlet b:current_syntax
 syntax include @PERL syntax/perl.vim
-let b:current_syntax = s:syn
-unlet s:syn
+let [b:current_syntax, &l:foldmethod] = [s:syn, s:fm]
+unlet s:syn s:fm
+
 " syntax region vimHereDocPerl start=+<<EOP+ matchgroup=perlStringStartEnd end=+^\(PERL\|EOP\)$+ contains=@PERL
 syntax region vimHereDocPerl matchgroup=perStringStartEnd start=+<<EOP\s*$+ end=/^EOP/ keepend contains=@PERL
 
