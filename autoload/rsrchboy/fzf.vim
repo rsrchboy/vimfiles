@@ -1,10 +1,8 @@
 " Functions supporting our use of fzf
 
-if has('perl')
-    for s:eval in ducttape#symbiont#autoload(expand('<sfile>'))
-        execute s:eval
-    endfor
-endif
+for s:eval in ducttape#symbiont#autoload(expand('<sfile>'))
+    execute s:eval
+endfor
 
 let g:rsrchboy#fzf#project_dirs = get(g:, 'rsrchboy#fzf#project_dirs',
 \ '~/work ~/.vim ~/.tmux ~/.stow-dotfiles')
