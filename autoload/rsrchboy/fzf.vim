@@ -7,27 +7,54 @@ endfor
 let g:rsrchboy#fzf#project_dirs = get(g:, 'rsrchboy#fzf#project_dirs',
 \ '~/work ~/.vim ~/.tmux ~/.stow-dotfiles')
 
-fun! rsrchboy#fzf#Projects(include_remote) abort
+fun! rsrchboy#fzf#Projects(include_remote) abort " {{{1
 
     let l:source = 'find ' . g:rsrchboy#fzf#project_dirs
     \ . ' -name .git -maxdepth 3 -printf "%h\n"'
+    let l:sink = 'rsrchboy#fzf#FindOrOpenTab'
 
     " e.g. :Projects!
     if a:include_remote
         let l:source = 'sh -c ''(' . l:source . '; cat ~/.vim/repos.txt)'''
+        let l:sink = 'rsrchboy#fzf#MaybeClone'
     endif
 
-    echom l:source
     call fzf#run(fzf#wrap('projects', {
     \   'source': l:source,
-    \   'sink': function('rsrchboy#fzf#FindOrOpenTab'),
+    \   'sink': function(l:sink),
     \   'options': '-m --prompt "Projects> "',
     \}))
 
     return
 endfun
 
-fun! rsrchboy#fzf#FindOrOpenTab(work_dir) abort " {{{2
+fun! rsrchboy#fzf#MaybeClone(thing) abort " {{{1
+    " ...
+    if a:thing !~# '^https://.*'
+        return rsrchboy#fzf#FindOrOpenTab(a:thing)
+    endif
+
+    let l:project = substitute(
+                \ substitute(a:thing, '^.*/', '', ''),
+                \ '\.git$', '', '',
+                \)
+
+    let l:target = $HOME . '/work/' . l:project
+
+    echo 'Hang on, cloning ' . a:thing . ' to ' . l:target
+    let l:out = system('git clone ' . a:thing . ' ' . l:target)
+
+    call fzf#run(fzf#wrap('other-repo-git-ls', {
+        \   'source': 'git ls-files',
+        \   'dir': l:target,
+        \   'options': '--prompt "GitFiles in ' . l:target . '> "',
+        \   'sink': 'tabe ',
+        \}, 0))
+
+    return
+endfun
+
+fun! rsrchboy#fzf#FindOrOpenTab(work_dir) abort " {{{1
 
     " strictly speaking, this isn't really fzf-specific -- but it can live
     " here until we actually use it somewhere else
@@ -59,4 +86,6 @@ fun! rsrchboy#fzf#FindOrOpenTab(work_dir) abort " {{{2
     Glcd
 
     return
-endfun
+endfun " }}}1
+
+" vim: foldlevel=0 foldmethod=marker :
