@@ -86,6 +86,33 @@ fun! rsrchboy#fzf#FindOrOpenTab(work_dir) abort " {{{1
     Glcd
 
     return
-endfun " }}}1
+endfun
+
+fun! rsrchboy#fzf#Tabs(bang) abort " {{{1
+    let l:tabs_list = []
+
+    for l:tab in (gettabinfo())
+        let l:line = '[' . l:tab.tabnr . '] '
+            \   . get(l:tab.variables, 'tab_page_title', '')
+        let l:tabs_list += [ l:line ]
+    endfor
+
+    call fzf#run(fzf#wrap('tabs', {
+        \   'source': l:tabs_list,
+        \   'options': '--prompt "Tabs> "',
+        \   'dir': '.',
+        \   'sink': function('rsrchboy#fzf#HandleTabs'),
+        \}, 0))
+
+    return
+endfun
+
+fun! rsrchboy#fzf#HandleTabs(line) abort " {{{1
+
+  let l:tabnr = matchstr(a:line, '\[\zs[0-9]*\ze\]')
+  exe 'tabn ' . l:tabnr
+
+  return
+endfun
 
 " vim: foldlevel=0 foldmethod=marker :

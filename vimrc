@@ -372,6 +372,8 @@ command! -bang -nargs=* GGrep
     \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
 command! -bang -nargs=0 Projects
     \ call rsrchboy#fzf#Projects(<bang>0)
+command! -bang -nargs=0 Tabs
+    \ call rsrchboy#fzf#Tabs(<bang>0)
 
 augroup vimrc#fzf " {{{3
     au!
