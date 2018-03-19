@@ -35,7 +35,6 @@ endfunction
 
 " Plugins: general bundles: {{{2
 
-Plug 'jeetsukumaran/vim-buffergator', { 'on': 'BuffergatorOpen' }
 Plug 'jlanzarotta/bufexplorer', { } " {{{3
 
 let g:bufExplorerShowRelativePath = 1
@@ -90,17 +89,6 @@ endfunction
 
 " }}}4
 
-" let g:pluginOpts.fml {{{3
-
-let g:pluginOpts.fml = { 'on': [ '<Plug>(FollowMyLead)', 'FMLShow' ] }
-
-Plug 'rsrchboy/vim-follow-my-lead', g:pluginOpts.fml " {{{3
-
-" load, then run.  this mapping will be overwritten on plugin load
-nnoremap <silent> <leader>fml :call plug#load('vim-follow-my-lead') <bar> execute ':call FMLShow()'<CR>
-
-let g:fml_all_sources = 1
-
 Plug 'SirVer/ultisnips' " {{{3
 
 " " give this a shot
@@ -115,9 +103,6 @@ Plug 'ervandew/supertab' " {{{3
 
 let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
 
-Plug 'Shougo/denite.nvim'           " {{{3
-Plug 'rafi/vim-unite-issue'         " {{{3
-Plug 'joker1007/unite-pull-request' " {{{3
 Plug 'kana/vim-arpeggio'            " {{{3
 augroup vimrc#arpeggio " {{{3
     au!
