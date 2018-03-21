@@ -1,3 +1,8 @@
+function! s:dtCatch(prepend) abort
+  " echoerr a:prepend . ' / ' . v:exception . ' ' . v:throwpoint
+  if !has_key(g:, 'dt_errors') | let g:dt_errors = [] | endif
+  let g:dt_errors += [ a:prepend . ' / ' . v:exception . ' ' . v:throwpoint ]
+endfunction
 
 fun! rsrchboy#git#fixup(...) abort " {{{1
     return rsrchboy#git#special_commit('fixup', (a:0 ? a:1 : 'HEAD'))
@@ -33,7 +38,8 @@ fun! rsrchboy#git#worktree() abort " {{{1
 
     try
         let l:worktree = ducttape#git#workdir()
-    catch /^Vim\%((\a\+)\)\=:E117/
+    catch
+        call s:dtCatch('rb#git#worktree()')
         let l:worktree = fugitive#buffer().repo().tree()
     endtry
 
