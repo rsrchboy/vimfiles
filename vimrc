@@ -352,6 +352,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim' " {{{3
 
 nnoremap <C-P> :Files<CR>
+nnoremap <C-L> :Tabs<CR>
+nnoremap <C-O> :Projects<CR>
 
 command! -bang -nargs=* GGrep
     \ call fzf#vim#grep('git grep --line-number '.shellescape(<q-args>), 0, <bang>0)
