@@ -364,7 +364,7 @@ command! -bang -nargs=0 Tabs
 
 augroup vimrc#fzf " {{{3
     au!
-    au User Fugitive nnoremap <buffer> <C-P> :GFiles<CR>
+    au User Fugitive nnoremap <buffer> <C-P> :GFiles --others --exclude-standard --cached<CR>
 augroup END
 
 Plug 'codegram/vim-codereview' ", { 'on': 'CodeReview' }

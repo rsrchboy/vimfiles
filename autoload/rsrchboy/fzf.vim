@@ -76,7 +76,7 @@ fun! rsrchboy#fzf#FindOrOpenTab(work_dir) abort " {{{1
     endfor
 
     call fzf#run(fzf#wrap('other-repo-git-ls', {
-        \   'source': 'git ls-files',
+        \   'source': 'git ls-files --others --exclude-standard --cached',
         \   'dir': a:work_dir,
         \   'options': '--prompt "GitFiles in ' . a:work_dir . '> "',
         \   'sink': 'tabe ',
