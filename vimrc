@@ -844,6 +844,7 @@ let g:vim_markdown_frontmatter       = 1
 " let g:vim_markdown_fenced_languages = ['perl', 'coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
 let g:vim_markdown_fenced_languages = ['perl', 'vim', 'bash=sh', 'ini=dosini', 'diff']
 
+Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' } " {{{3
 " let g:pluginOpts.scriptease {{{3
 
 let g:pluginOpts.scriptease =
