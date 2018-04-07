@@ -856,9 +856,7 @@ Plug 'plasticboy/vim-markdown', { 'for': [ 'mkd', 'markdown', 'mkd.markdown' ] }
 let g:vim_markdown_initial_foldlevel = 10
 let g:vim_markdown_frontmatter       = 1
 
-" let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
-" let g:vim_markdown_fenced_languages = ['perl', 'coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
-let g:vim_markdown_fenced_languages = ['perl', 'vim', 'bash=sh', 'ini=dosini', 'diff']
+let g:vim_markdown_fenced_languages = [ 'bash=sh', 'ini=dosini' ]
 
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' } " {{{3
 " let g:pluginOpts.scriptease {{{3
