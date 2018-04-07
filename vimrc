@@ -791,8 +791,22 @@ Plug 'LStinson/perlhelp-vim',                   { 'on': ['PerlHelp', 'PerlMod'] 
 Plug 'vim-scripts/log4perl.vim'
 call s:MaybeLocalPlugin('vim-ducttape')
 call s:MaybeLocalPlugin('vim-ducttape-git')
-Plug 'vim-scripts/update_perl_line_directives', { 'for': 'vim' }
-Plug 'RsrchBoy/syntax_check_embedded_perl.vim', { 'on':  []    }
+" Plug 'rsrchboy/update_perl_line_directives', { 'for': 'vim' }
+" Plug 'RsrchBoy/syntax_check_embedded_perl.vim', { 'on':  []    }
+
+" Install these for use by ducttape
+" let g:pluginOpts.p5_git_raw " {{{3
+"
+" This fork of Git::Raw has Git::CommitBuild enabled in its dzil config, so
+" any builds get committed to the build branch.
+"
+let g:pluginOpts.p5_git_raw = {
+    \   'branch': 'build/ditch-embedded-libgit2',
+    \   'on': [],
+    \   'do': ':call ducttape#install("--notest .")'
+    \}
+" }}}3
+Plug 'rsrchboy/p5-Git-Raw', g:pluginOpts.p5_git_raw
 
 " Plugins: syntax / filetype {{{2
 
