@@ -2740,6 +2740,7 @@ https://github.com/rsrchboy/vagrant-ubuntu-14.04-puppet-rec.git
 https://github.com/rsrchboy/vim.git
 https://github.com/rsrchboy/vim-airline.git
 https://github.com/rsrchboy/vim-ducttape.git
+https://github.com/rsrchboy/vim-ducttape-git.git
 https://github.com/rsrchboy/vim-follow-my-lead.git
 https://github.com/rsrchboy/vim-fugitive.git
 https://github.com/rsrchboy/vim-gitignore.git
@@ -2785,6 +2786,17 @@ https://github.com/Test-More/Test2-Workflow.git
 https://github.com/WhitePointStarLLC/cpan-local-role-metacpan-api.git
 https://github.com/WhitePointStarLLC/issues.git
 https://github.com/WhitePointStarLLC/whitepointstarllc.github.com.git
+https://github.com/pandoc/lua-filters.git
+https://github.com/tpope/vim-tbone.git
+https://github.com/shime/vim-livedown.git
+https://github.com/mzlogin/vim-markdown-toc.git
+https://github.com/ajorgensen/vim-markdown-toc.git
+https://github.com/jonschlinkert/markdown-toc.git
+https://github.com/vim-pandoc/vim-pandoc.git
+https://github.com/jgm/pandoc.git
+https://github.com/k-takata/minpac.git
+https://github.com/travis-ci/travis.rb.git
+https://github.com/coppit/grepmail.git
 https://github.com/clvv/fasd.git
 https://github.com/wincent/docvim.git
 https://github.com/tmux-plugins/tmux-battery.git
@@ -3986,6 +3998,7 @@ https://github.com/junegunn/mvmv.git
 https://github.com/junegunn/myvim.git
 https://github.com/junegunn/neo4j.git
 https://github.com/junegunn/neovim.git
+https://github.com/junegunn/nifi.git
 https://github.com/junegunn/omniauth-nate.git
 https://github.com/junegunn/opentsdb.git
 https://github.com/junegunn/option_initializer.git
