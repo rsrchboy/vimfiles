@@ -853,7 +853,7 @@ let g:go_highlight_build_constraints = 1
 
 Plug 'plasticboy/vim-markdown', { 'for': [ 'mkd', 'markdown', 'mkd.markdown' ] } " {{{3
 
-let g:vim_markdown_initial_foldlevel = 1
+let g:vim_markdown_initial_foldlevel = 10
 let g:vim_markdown_frontmatter       = 1
 
 " let g:markdown_fenced_languages = ['coffee', 'css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
