@@ -517,6 +517,8 @@ let g:tmuxline_preset = {
 Plug 'tmux-plugins/vim-tmux-focus-events' " {{{3
 Plug 'christoomey/vim-tmux-navigator' " {{{3
 
+let g:tmux_navigator_no_mappings = 1
+
 " Mappings: move even in insert mode
 inoremap <silent> <C-H> <ESC>:TmuxNavigateLeft<cr>
 inoremap <silent> <C-J> <ESC>:TmuxNavigateDown<cr>
