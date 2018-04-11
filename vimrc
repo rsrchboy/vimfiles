@@ -99,8 +99,6 @@ let g:snippets_dir='~/.vim/snippets,~/.vim/plugged/*/snippets'
 
 Plug 'ervandew/supertab' " {{{3
 
-" " FIXME appears to conflict with snipmate...?
-
 let g:SuperTabNoCompleteAfter  = ['^', '\s', '\\']
 
 Plug 'kana/vim-arpeggio'            " {{{3
