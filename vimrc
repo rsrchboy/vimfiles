@@ -1079,8 +1079,9 @@ set incsearch
 set laststatus=2
 set lazyredraw
 set list
-set listchars-=tab:>\          " get rid of this one...
-set listchars+=tab:\|\         " ...so it can be replaced with this one
+set listchars-=eol:$
+set listchars-=tab:>\ ,
+set listchars+=tab:\|\ ,trail:-
 set matchpairs+=<:>            " Allow % to bounce between angles too
 set modeline
 set modelines=2
