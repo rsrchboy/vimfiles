@@ -115,4 +115,16 @@ fun! rsrchboy#fzf#HandleTabs(line) abort " {{{1
   return
 endfun
 
+fun! rsrchboy#fzf#Issues() abort " {{{1
+
+    call fzf#run(fzf#wrap('issues', {
+        \   'source': 'hub -c color.ui=always -c color.interactive=always issues',
+        \   'options': '--ansi --prompt "Issues> "',
+        \   'dir': '.',
+        \   'sink': function('rsrchboy#fzf#HandleTabs'),
+        \}, 0))
+
+    return
+endfun
+
 " vim: foldlevel=0 foldmethod=marker :
