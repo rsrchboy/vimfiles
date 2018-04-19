@@ -22,17 +22,20 @@ endif " }}}
 " isident or iskeyword
 syn match  perlVarPlain "\$+" nextgroup=perlVarMember,perlVarSimpleMember,perlMethod,perlPostDeref
 
-" some more map-like things I'd like highlighted that way...
-syn match perlStatementList "\<\%(apply\)\>"
+" in List::Util
+syn match perlStatementList "\<\%(apply\|reduce\|any\|all\|none\|notall\|first\|max\|maxstr\|min\|minstr\|product\|sum\|sum0\|pairs\|unpairs\|pairkeys\|pairvalues\|pairfirst\|pairgrep\|pairmap\|shuffle\|uniq\|uniqnum\|uniqstr\)\>"
 
+" to remove 'undef'
+syn clear perlOperator
+syn match perlOperator  "\<\%(defined\|eq\|ne\|[gl][et]\|cmp\|not\|and\|or\|xor\|not\|bless\|ref\|do\)\>"
 " must not match /^=/ because POD
 syn match perlOperator           /\%(^\)\@!=/
 
 " FIXME include code?
 syn match perlDeref    /\\\ze[$@%]/ nextgroup=perlVarPlain
 
-" <=>, =>, //, //=, ||, ||=
-syn match perlOperator '\%(<\==>\|//=\=\|||=\=\)'
+" <=>, =>, //, //=, ||, ||=, =~
+syn match perlOperator '\%(<\==>\|//=\=\|||=\=\|=\~\)'
 " *, *=, ., .=, +, +=, -, -=, etc
 syn match perlOperator #[*.+-/]=\=#
 " |, ||, etc
@@ -69,7 +72,7 @@ syn match perl__ /__\%(FILE\|LINE\)__/
 
 syntax region perlDATA matchgroup=PreProc start="^__DATA__$" skip="." end="." contains=@perlDATA
 
-if get(g:, 'perl_no_extended_vars', 1)
+if get(g:, 'perl_no_extended_vars', 1) " {{{1
 
     " this seems somewhat borked, and interferes with our extended_vars stuff
     syn clear perlStatementIndirObjWrap
@@ -103,7 +106,16 @@ if get(g:, 'perl_no_extended_vars', 1)
     syn match perlPostDeref     "\%($#\|[$@%&*]\)\*" contained
     syn region  perlPostDeref   start="\%($#\|[$@%&*]\)\[" skip="\\]" end="]" contained contains=@perlExpr nextgroup=perlVarSimpleMember,perlVarMember,perlPostDeref
     " syn region  perlPostDeref matchgroup=perlPostDeref start="\%($#\|[$@%&*]\){" skip="\\}" end="}" contained contains=@perlExpr nextgroup=perlVarSimpleMember,perlVarMember,perlPostDeref
-endif
+endif " }}}1
+
+" syn region perlRegexp matchgroup=perlOperator start=#=\~\ze\s\+/# end=+/\ze;$+
+syn region perlRegexp matchgroup=perlOperator start=#=\~\ze\s\+/# end=+/+
+            \ keepend extend
+            \ contains=@perlInterpSlash
+            " \ contains=perlQQ
+
+" syn region perlQQ matchgroup=perlStringStartEnd start=+/+  end=+/[imosxdual]*+ contains=@perlInterpSlash keepend extend contained
+" syn region perlQQ matchgroup=perlStringStartEnd start=+/+  end=+/[imosxdual]*+ contains=@perlInterpSlash contained
 
 hi link perlBlockDeref         Delimiter
 hi link perlBlockDerefOps      perlOperator
@@ -155,7 +167,9 @@ syn keyword perlStatement with requires
 " has 'site';
 " has options => sub { {} };
 " has cleanup => sub { Mojo::Collection->new };
-syn region perlAttribute       matchgroup=Statement start='^\s*has\>' matchgroup=perlOperator end='=>'
+syn region perlAttribute
+\   matchgroup=Statement    start='^\s*has\>'
+\   matchgroup=perlOperator end='=>'
 syn region perlMethodModifier  matchgroup=perlStatementMethodModifier start='^\s*\<\%(before\|after\|around\|override\|augment\)\>' matchgroup=perlOperator end=/=>\s*/ nextgroup=perlFunction,perlVarScalar,perlSubRef,perlMMError
 " matches if (sub or \& or $\k+ matches) doesn't match
 syn match perlMMError /\(sub\&\|\\&\&\|$\k\+\&\)\@!.*/ contained
