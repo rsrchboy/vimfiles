@@ -378,6 +378,8 @@ Plug 'rsrchboy/ale' " {{{3
 
 if has('job') && has('timers') && has('channel')
 
+    let g:ale_command_wrapper = 'unshare --user --net --kill-child'
+
     " when enabled, this clobbers :Glgrep
     let g:ale_set_loclist = 0
 
