@@ -105,6 +105,7 @@ Plug 'kana/vim-arpeggio'            " {{{3
 augroup vimrc#arpeggio " {{{3
     au!
     au! VimEnter,SessionLoadPost * call s:PluginLoadedArpeggio()
+    au! User vim-arpeggio          call s:PluginLoadedArpeggio()
 augroup END
 
 fun! s:PluginLoadedArpeggio() " {{{3
