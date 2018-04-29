@@ -360,6 +360,16 @@ command! -bang -nargs=0 Projects
 command! -bang -nargs=0 Tabs
     \ call rsrchboy#fzf#Tabs(<bang>0)
 
+" See help for *map-modes*
+command! -bar -bang VMaps call fzf#vim#maps("v", <bang>0)
+command! -bar -bang SMaps call fzf#vim#maps("s", <bang>0)
+command! -bar -bang XMaps call fzf#vim#maps("x", <bang>0)
+command! -bar -bang OMaps call fzf#vim#maps("o", <bang>0)
+command! -bar -bang IMaps call fzf#vim#maps("i", <bang>0)
+command! -bar -bang LMaps call fzf#vim#maps("l", <bang>0)
+command! -bar -bang CMaps call fzf#vim#maps("c", <bang>0)
+command! -bar -bang TMaps call fzf#vim#maps("t", <bang>0)
+
 augroup vimrc#fzf " {{{3
     au!
     au User Fugitive nnoremap <buffer> <C-P> :GFiles --others --exclude-standard --cached<CR>
