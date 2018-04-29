@@ -108,7 +108,7 @@ augroup vimrc#arpeggio " {{{3
 augroup END
 
 fun! s:PluginLoadedArpeggio() " {{{3
-    if get(g:, 'SessionLoad', 0)
+    if get(g:, 'SessionLoad', 0) || !exists(':Arpeggio')
         return
     endif
     Arpeggio inoremap jk  <Esc>
