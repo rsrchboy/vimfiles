@@ -193,12 +193,16 @@ let g:airline_mode_map = {
     \ '' : 'S',
     \ }
 
-if !exists('g:airline_symbols') " {{{3
+if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_symbols.branch = '⎇ '
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+
+let g:airline_symbols.branch    = '⎇ '
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.linenr    = ''
+let g:airline_left_sep          = ''
+let g:airline_right_sep         = ''
+let g:airline_detect_spell      = 0
 
 function! CustomBranchName(name) " {{{3
 
