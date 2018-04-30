@@ -162,6 +162,7 @@ let g:airline_theme = 'dark'
 let g:airline#extensions#ale#enabled                  = 1
 let g:airline#extensions#bufferline#enabled           = 0
 let g:airline#extensions#obsession#enabled            = 1
+let g:airline#extensions#fugitiveline#enabled         = 0
 let g:airline#extensions#syntastic#enabled            = 0
 let g:airline#extensions#tabline#enabled              = 0
 let g:airline#extensions#tabline#show_close_button    = 0
