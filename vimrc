@@ -193,6 +193,13 @@ let g:airline_mode_map = {
     \ '' : 'S',
     \ }
 
+if !exists('g:airline_symbols') " {{{3
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = '⎇ '
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+
 function! CustomBranchName(name) " {{{3
 
     if a:name ==# ''
@@ -254,13 +261,6 @@ function! CustomBranchName(name) " {{{3
 
     return l:info
 endfunction
-
-if !exists('g:airline_symbols') " {{{3
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.branch = '⎇ '
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
 
 augroup vimrc#airline " {{{3
     au!
