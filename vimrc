@@ -179,6 +179,20 @@ let g:airline#extensions#tabline#ignore_bufadd_pat =
 let g:airline#extensions#branch#format = 'CustomBranchName'
 let g:airline#extensions#hunks#non_zero_only = 1
 
+let g:airline_mode_map = {
+    \ '__' : '-',
+    \ 'n'  : 'N',
+    \ 'i'  : 'I',
+    \ 'R'  : 'R',
+    \ 'c'  : 'C',
+    \ 'v'  : 'V',
+    \ 'V'  : 'V',
+    \ '' : 'V',
+    \ 's'  : 'S',
+    \ 'S'  : 'S',
+    \ '' : 'S',
+    \ }
+
 function! CustomBranchName(name) " {{{3
 
     if a:name ==# ''
