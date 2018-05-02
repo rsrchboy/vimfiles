@@ -10,8 +10,8 @@ use Data::Section::Simple 'get_data_section';
 use HTTP::Tiny;
 use Template::Tiny;
 
-# debugging...
-use Smart::Comments '###';
+# # debugging...
+# use Smart::Comments '###';
 
 function args => q{}, get_repos_list => sub {
     ### @_
