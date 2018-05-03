@@ -70,6 +70,9 @@ syn match perlSpecialString /\\[dDXvVhHRKsSwW]\%({\d\+\%(,\d*\)\=}\)\=/ containe
 
 syn match perl__ /__\%(FILE\|LINE\)__/
 
+" this was messing up highlighting after something like: $+{...}
+syn clear perlBraces
+
 syntax region perlDATA matchgroup=PreProc start="^__DATA__$" skip="." end="." contains=@perlDATA
 
 if get(g:, 'perl_no_extended_vars', 1) " {{{1
