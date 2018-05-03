@@ -758,6 +758,9 @@ function! g:committia_hooks.edit_open(info) " {{{3
 
 endfunction " }}}3
 Plug 'hotwatermorning/auto-git-diff'
+" for svn
+Plug 'juneedahamed/vc.vim', { 'on': [
+            \ 'VCInfo', 'VCStatus', 'VDDiff', 'VCBlame', 'VCLog'] }
 
 " Plugins: GitHub {{{2
 
