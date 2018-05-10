@@ -1094,6 +1094,11 @@ let g:lazylist_maps = [
 " }}}3
 Plug 'mattn/googletasks-vim', { 'on': 'GoogleTasks' }
 
+" Plugins: Jira Integration {{{2
+
+Plug 'mnpk/vim-jira-complete', {'on': []}
+Plug 'RsrchBoy/vim-jira-open', {'on': []}
+
 call rsrchboy#sourcecfgdir('plugins') " {{{2
 call plug#end()
 unlet g:pluginOpts " }}}2
