@@ -17,7 +17,7 @@ call s:tools.setminus('fo', 'w')
 "
 " Search for defined 'macros' as functions or attributes; also look in roles.
 
-call s:tools.setl('define',  '^\s*\(sub\|has\)\>')
+call s:tools.setl('define',  '^\\s*\\(sub\\\|has\\)\\>')
 call s:tools.setl('include', '^\<\(use\|require\|with\|extends\)\>')
 
 " setlocal includeexpr=substitute(substitute(substitute(v:fname,'::','/','g'),'->\*','',''),'$','.pm','')
