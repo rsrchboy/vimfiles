@@ -681,7 +681,7 @@ nnoremap <silent> <Leader>gS :call rsrchboy#git#squash()<CR>
 
 nnoremap <silent> <Leader>gA :Git add -pi % <bar> call sy#start()<CR>
 nnoremap <silent> <Leader>gp :Git push<CR>
-nnoremap <silent> <Leader>gb :DimInactiveBufferOff<CR>:Gblame -w<CR>
+nnoremap <silent> <Leader>gb :DimInactiveBufferOff<CR>:setl cursorline<CR>:Gblame -w<CR>
 
 nnoremap <silent> <leader>gv :GV<CR>
 nnoremap <silent> <leader>gV :GV!<CR>
