@@ -998,12 +998,13 @@ let g:solarized_termtrans = 1
 
 " Plugins: trial {{{2
 
-Plug 'majutsushi/tagbar', { 'on': 'Tagbar' } " {{{3
+Plug 'majutsushi/tagbar', { 'on': [ 'Tagbar', 'TagbarToggle' ] } " {{{3
 
 nmap <silent> <leader>ttb :TagbarToggle<CR>
 
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
+let g:tagbar_left      = 1
 
 " Perl: ctags configuration {{{4
 
