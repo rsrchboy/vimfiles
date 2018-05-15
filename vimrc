@@ -326,6 +326,8 @@ cnoremap <silent> x<CR>  :call confirm_quit#confirm(1, 'always')<CR>
 nnoremap <silent> ZZ     :call confirm_quit#confirm(1, 'always')<CR>
 
 " }}}3
+" XXX TRY THIS: mg979/vim-xtabline
+" Plug 'mg979/vim-xtabline'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'jszakmeister/vim-togglecursor'
 Plug 'tpope/vim-unimpaired'
