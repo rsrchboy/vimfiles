@@ -49,6 +49,18 @@ Plug 'junegunn/vim-easy-align', { 'on': [ '<Plug>(EasyAlign)', 'EasyAlign' ] } "
 xmap gA <Plug>(EasyAlign)
 nmap gA <Plug>(EasyAlign)
 
+" see https://github.com/junegunn/vim-easy-align#extending-alignment-rules
+"
+" ? -> :? ternaries
+"
+let g:easy_align_delimiters = {
+\   '?': {
+\       'pattern':         '[?:]',
+\       'delimiter_align': 'c',
+\       'align':           'll',
+\   },
+\ }
+
 " s:tabularPlugOpts {{{3
 
 let s:tabularPlugOpts = {
