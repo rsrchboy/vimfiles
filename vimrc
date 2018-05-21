@@ -563,12 +563,34 @@ Plug 'christoomey/vim-tmux-navigator' " {{{3
 
 let g:tmux_navigator_no_mappings = 1
 
-" Mappings: move even in insert mode
-inoremap <silent> <C-H> <ESC>:TmuxNavigateLeft<cr>
-inoremap <silent> <C-J> <ESC>:TmuxNavigateDown<cr>
-inoremap <silent> <C-K> <ESC>:TmuxNavigateUp<cr>
-inoremap <silent> <C-L> <ESC>:TmuxNavigateRight<cr>
-inoremap <silent> <C-\> <ESC>:TmuxNavigatePrevious<cr>
+" NOTE TODO: need mappings on the tmux side, as well as karabiner
+
+" Mappings: Darwin.  le sigh
+nnoremap <silent> <S-F5> <ESC>:TmuxNavigateLeft<cr>
+nnoremap <silent> <S-F6> <ESC>:TmuxNavigateDown<cr>
+nnoremap <silent> <S-F7> <ESC>:TmuxNavigateUp<cr>
+nnoremap <silent> <S-F8> <ESC>:TmuxNavigateRight<cr>
+nnoremap <silent> <S-F9> <ESC>:TmuxNavigatePrevious<cr>
+
+" Mappings: Darwin.  le sigh
+nnoremap <silent> <S-Left>  <ESC>:TmuxNavigateLeft<cr>
+nnoremap <silent> <S-Down>  <ESC>:TmuxNavigateDown<cr>
+nnoremap <silent> <S-Up>    <ESC>:TmuxNavigateUp<cr>
+nnoremap <silent> <S-Right> <ESC>:TmuxNavigateRight<cr>
+
+" " Mappings:
+" nnoremap <silent> <C-H> <ESC>:TmuxNavigateLeft<cr>
+" nnoremap <silent> <C-J> <ESC>:TmuxNavigateDown<cr>
+" nnoremap <silent> <C-K> <ESC>:TmuxNavigateUp<cr>
+" nnoremap <silent> <C-L> <ESC>:TmuxNavigateRight<cr>
+" nnoremap <silent> <C-\> <ESC>:TmuxNavigatePrevious<cr>
+
+" " Mappings: move even in insert mode
+" inoremap <silent> <C-H> <ESC>:TmuxNavigateLeft<cr>
+" inoremap <silent> <C-J> <ESC>:TmuxNavigateDown<cr>
+" inoremap <silent> <C-K> <ESC>:TmuxNavigateUp<cr>
+" inoremap <silent> <C-L> <ESC>:TmuxNavigateRight<cr>
+" inoremap <silent> <C-\> <ESC>:TmuxNavigatePrevious<cr>
 
 " let g:pluginOpts.vimwiki " {{{3
 
