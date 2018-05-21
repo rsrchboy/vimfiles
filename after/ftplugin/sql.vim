@@ -1,5 +1,5 @@
-
-setl commentstring=--%s
+setl formatoptions+=ro
+setl commentstring=--\ %s
 
 " Surround Mappings: {{{1
 "
