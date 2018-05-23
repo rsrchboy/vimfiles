@@ -1165,7 +1165,6 @@ set modelines=2
 set noerrorbells
 set nostartofline              " try to preserve column on motion commands
 set number
-set pastetoggle=<F2>
 set shiftround                 " Indent/outdent to nearest tabstop
 set shiftwidth=4               " Indent/outdent by four columns
 set showmatch
