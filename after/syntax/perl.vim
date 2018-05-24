@@ -142,7 +142,7 @@ if !get(g:, 'perl_use_region', 0) " {{{
 
     " syn keyword perlIncludeUse    nextgroup=perlIncludeUsedPkg containedin= use
     syn keyword perlUse         skipwhite nextgroup=perlUsedPkg,perlUsedPerlVer use
-    syn match   perlUsedPkg     +\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\ze\%(;$\|\_s\+\)+       contained contains=perlPackageDelimError
+    syn match   perlUsedPkg     +\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\ze\%(;\|\_s\+\)+       contained contains=perlPackageDelimError
     syn match   perlUsedPerlVer /\%(v5.\d\d\=\|5.\d\d\d\)/      contained
 
     " syn region perlUseConstant start=/\<use\s+constant/ end=/=>/
