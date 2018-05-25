@@ -23,7 +23,7 @@ endif " }}}
 syn match  perlVarPlain "\$+" nextgroup=perlVarMember,perlVarSimpleMember,perlMethod,perlPostDeref
 
 " in List::Util
-syn match perlStatementList "\<\%(apply\|reduce\|any\|all\|none\|notall\|first\|max\|maxstr\|min\|minstr\|product\|sum\|sum0\|pairs\|unpairs\|pairkeys\|pairvalues\|pairfirst\|pairgrep\|pairmap\|shuffle\|uniq\|uniqnum\|uniqstr\)\>"
+syn match perlStatementList "\<\%(apply\|reduce\|any\|all\|none\|notall\|first\|max\|maxstr\|min\|minstr\|product\|sum\|sum0\|pairs\|unpairs\|pairkeys\|pairvalues\|pairfirst\|pairgrep\|pairmap\|shuffle\|uniq\|uniqnum\|uniqstr\)\>\ze\%(\s*=>\)\!@"
 
 " to remove 'undef'
 syn clear perlOperator
