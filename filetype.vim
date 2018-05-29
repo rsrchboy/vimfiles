@@ -39,6 +39,7 @@ au BufNewFile,BufRead default/grub               set ft=sh
 au BufNewFile,BufRead .config/systemd/user/**/*  set ft=systemd
 au BufNewFile,BufRead pacman.d/*                 set ft=dosini
 au BufNewFile,BufRead pacman.conf                set ft=dosini
+au BufNewFile,BufRead *.terminfo                 set ft=terminfo
 
 " FIXME commenting this out, as vim-github-hub should set this for us
 " " the 'hub' tool creates a number of comment files formatted in the same way
