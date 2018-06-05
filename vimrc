@@ -847,7 +847,7 @@ Plug 'LStinson/perlhelp-vim',                   { 'on': ['PerlHelp', 'PerlMod'] 
 Plug 'vim-scripts/log4perl.vim'
 call s:MaybeLocalPlugin('vim-ducttape')
 call s:MaybeLocalPlugin('vim-ducttape-git')
-Plug 'https://gitlab.com/rsrchboy/vim-gitlab-snippets.git'
+Plug 'https://gitlab.com/rsrchboy/vim-ducttape-gitlab.git'
 " Plug 'rsrchboy/update_perl_line_directives', { 'for': 'vim' }
 " Plug 'RsrchBoy/syntax_check_embedded_perl.vim', { 'on':  []    }
 
