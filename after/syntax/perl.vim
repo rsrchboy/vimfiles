@@ -49,11 +49,11 @@ syn match perlDerefOrInvoke     /)\=\_s*\zs->/
 syn match perlFuncName          +\_s*\zs\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\_s*\|+
             \ contained
             \ contains=perlPackageRef,perlPackageDelimError
-            \ nextgroup=perlMethodArgs
+            \ nextgroup=perlMethodArgs,perlFuncName,perlDerefOrInvoke
             \ skipwhite
 syn match perlPkgOrFunc         +'\@!\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\ze\_s*\%(->\|(\)+
             \ contains=perlPackageRef,perlPackageDelimError
-            \ nextgroup=perlOperator
+            \ nextgroup=perlDerefOrInvoke
 syn match perlVarAsMethod       /\$\w\+/
             \ contained
             \ nextgroup=perlMethodArgs
