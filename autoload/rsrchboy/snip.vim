@@ -23,3 +23,15 @@ function! rsrchboy#snip#Snip() range
 	call append(a:lastline, line)
 	call append(a:firstline-1, line)
 endfunction
+
+fun! rsrchboy#snip#perlPkg() abort
+    let l:pkg = substitute(expand("%:p:r"), '/', '::', 'g')
+
+    " if it's a standard lib/ or site_perl/
+    let l:pkg = substitute(l:pkg, '^.*::\(lib\|site_perl\)::', '', '')
+
+    " if it's a ducttape symbiont, handle that as well
+    let l:pkg = substitute(l:pkg, '^.*::autoload::', 'VIMx::autoload::', '')
+
+    return l:pkg
+endfun

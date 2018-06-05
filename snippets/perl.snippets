@@ -45,10 +45,10 @@ snippet imm
 	!!42;
 	__END__
 snippet pkg
-	package `substitute(substitute(expand("%:p:r"), '/', '::', 'g'), '^.*\(lib\|autoload\)::', '', '')`;
+	package `rsrchboy#snip#perlPkg()`;
 	${1}
 snippet PKG
-	`substitute(substitute(expand("%:p:r"), '/', '::', 'g'), '^.*lib::', '', '')`
+	`rsrchboy#snip#perlPkgs()`
 # easy Smart::Comments enabling
 snippet smart
 	# debugging...
