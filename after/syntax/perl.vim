@@ -51,7 +51,7 @@ syn match perlFuncName          +\_s*\zs\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\_s*\|+
             \ contains=perlPackageRef,perlPackageDelimError
             \ nextgroup=perlMethodArgs
             \ skipwhite
-syn match perlPkgOrFunc         +\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\ze\_s*\%(->\|(\)+
+syn match perlPkgOrFunc         +'\@!\%(\h\|::\|'\w\)\%(\w\|::\|'\w\)*\ze\_s*\%(->\|(\)+
             \ contains=perlPackageRef,perlPackageDelimError
             \ nextgroup=perlOperator
 syn match perlVarAsMethod       /\$\w\+/
