@@ -26,7 +26,7 @@ fun! MyTabLine() abort
         let l:s .= '%' . l:page . 'T'
 
         " the label is made by MyTabLabel()
-        let l:s .= ' %{gettabvar('.l:page.',"tab_page_title",MyTabLabel(' . l:page . '))} '
+        let l:s .= l:page . ': %{gettabvar('.l:page.',"tab_page_title",MyTabLabel(' . l:page . '))} '
         " let l:s .= '%(%{fnamemodify(getcwd(), ":~")} %)'
     endfor
 
