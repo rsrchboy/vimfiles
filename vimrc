@@ -18,7 +18,12 @@ call plug#begin() " {{{2
 
 let g:pluginOpts = {}
 
-function! s:MaybeLocalPlugin(name) abort " {{{2
+function! s:MaybeLocalPlugin(name, ...) abort " {{{2
+
+    let l:prefix = a:0 ? a:1 : 'rsrchboy/'
+    if l:prefix ==# 'gitlab'
+        let l:prefix = 'https://gitlab.com/rsrchboy/'
+    endif
 
     " this is getting a touch unwieldly
     if filereadable(expand('~/work/vim/' . a:name . '/.git/config'))
@@ -28,7 +33,7 @@ function! s:MaybeLocalPlugin(name) abort " {{{2
     elseif filereadable(expand('/shared/git/vim/' . a:name . '/.git/config'))
         Plug '/shared/git/vim/' . a:name
     else
-        Plug 'rsrchboy/' . a:name
+        Plug l:prefix . a:name
     endif
 
 endfunction
@@ -847,7 +852,8 @@ Plug 'LStinson/perlhelp-vim',                   { 'on': ['PerlHelp', 'PerlMod'] 
 Plug 'vim-scripts/log4perl.vim'
 call s:MaybeLocalPlugin('vim-ducttape')
 call s:MaybeLocalPlugin('vim-ducttape-git')
-Plug 'https://gitlab.com/rsrchboy/vim-ducttape-gitlab.git'
+" Plug 'https://gitlab.com/rsrchboy/vim-ducttape-gitlab.git'
+call s:MaybeLocalPlugin('vim-ducttape-gitlab', 'gitlab')
 " Plug 'rsrchboy/update_perl_line_directives', { 'for': 'vim' }
 " Plug 'RsrchBoy/syntax_check_embedded_perl.vim', { 'on':  []    }
 
@@ -897,7 +903,7 @@ augroup vimrc#gnupg " {{{3
     au BufRead,BufNewFile *.{gpg,asc,pgp,pause} call plug#load('vim-gnupg') | execute 'au! vimrc#gnupg BufRead,BufNewFile'
 augroup END
 
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " {{{3
+" Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' } " {{{3
 
 let g:go_highlight_functions         = 1
 let g:go_highlight_methods           = 1
