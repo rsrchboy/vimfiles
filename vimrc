@@ -845,7 +845,8 @@ let g:perl_fold = 1
 " support highlighting for the new syntax
 let g:perl_sub_signatures = 1
 " we do this ourselves
-let g:perl_nofold_packages = 1
+let g:perl_nofold_packages  = 1
+let g:perl_no_extended_vars = 1
 
 " }}}3
 Plug 'LStinson/perlhelp-vim',                   { 'on': ['PerlHelp', 'PerlMod'] }
