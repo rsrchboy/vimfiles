@@ -30,8 +30,6 @@ function! s:MaybeLocalPlugin(name, ...) abort " {{{2
         Plug '~/work/vim/' . a:name
     elseif filereadable(expand('~/work/vim/' . a:name . '/.git')) " worktree
         Plug '~/work/vim/' . a:name
-    elseif filereadable(expand('/shared/git/vim/' . a:name . '/.git/config'))
-        Plug '/shared/git/vim/' . a:name
     else
         Plug l:prefix . a:name
     endif
