@@ -1,6 +1,7 @@
 au BufNewFile,BufRead **/dnsmasq.d/*             setfiletype dnsmasq
 au BufNewFile,BufRead **/offlineimap/config      setfiletype dosini
 au BufNewFile,BufRead *.cson                     setfiletype coffee
+au BufNewFile,BufRead *.mail                     setfiletype mail
 au BufNewFile,BufRead *.org                      setfiletype org
 au BufNewFile,BufRead *.ovpn                     setfiletype openvpn
 au BufNewFile,BufRead *.psgi                     setfiletype perl
@@ -16,6 +17,7 @@ au BufNewFile,BufRead *access.log*               setfiletype httplog
 au BufNewFile,BufRead .aws/credentials           setfiletype dosini
 au BufNewFile,BufRead .config/systemd/user/**/*  setfiletype systemd
 au BufNewFile,BufRead .gitconfig.local           setfiletype gitconfig
+au BufNewFile,BufRead .config/git/config         setfiletype gitconfig
 au BufNewFile,BufRead .gitgot*                   setfiletype yaml
 au BufNewFile,BufRead .gitpan                    setfiletype yaml
 au BufNewFile,BufRead .offlineimaprc             setfiletype dosini
