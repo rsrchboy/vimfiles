@@ -35,6 +35,15 @@ if @% =~# '\.git/index$' || @% =~# '\.git/worktrees/.*/index$'
     call s:tools.nnoremap('A', ':Git add -A <CR><bar> call fugitive#reload_status()')
 
     normal ggj
+
+elseif @% =~# '^fugitive://.*$'
+
+    " figure out if we're being used by GV, ... or maybe a WinNew au would be
+    " better suited
+
 endif
+
+" FIXME
+DimInactiveBufferOff
 
 " __END__
